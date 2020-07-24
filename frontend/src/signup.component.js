@@ -19,18 +19,19 @@ import {
   MDBCardBody,
   MDBInput,
   MDBFormInline,
-  MDBAnimation
+  MDBAnimation,
 } from "mdbreact";
 import "./signup.css";
+import logo from "./logo.png";
 
 class SignUp extends React.Component {
   state = {
-    collapseID: ""
+    collapseID: "",
   };
 
-  toggleCollapse = collapseID => () =>
-    this.setState(prevState => ({
-      collapseID: prevState.collapseID !== collapseID ? collapseID : ""
+  toggleCollapse = (collapseID) => () =>
+    this.setState((prevState) => ({
+      collapseID: prevState.collapseID !== collapseID ? collapseID : "",
     }));
 
   render() {
@@ -45,10 +46,17 @@ class SignUp extends React.Component {
       <div id="classicformpage">
         <Router>
           <div>
-            <MDBNavbar dark expand="md" fixed="top" color="primary-color" scrolling transparent>
+            <MDBNavbar
+              dark
+              expand="md"
+              fixed="top"
+              color="primary-color"
+              scrolling
+              transparent
+            >
               <MDBContainer>
                 <MDBNavbarBrand>
-                  <strong className="white-text">MDB</strong>
+                  <img src={logo} alt="" className="img-fluid" />
                 </MDBNavbarBrand>
                 <MDBNavbarToggler
                   onClick={this.toggleCollapse("navbarCollapse")}
@@ -90,10 +98,8 @@ class SignUp extends React.Component {
                   </h1>
                   <hr className="hr-light" />
                   <h6 className="mb-4">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Rem repellendus quasi fuga nesciunt dolorum nulla magnam
-                    veniam sapiente, fugiat! Commodi sequi non animi ea dolor
-                    molestiae, quisquam iste, maiores. Nulla.
+                    Web Application that simulates the movement of mobile users
+                    inside interior enviroment. Log in and use the app.
                   </h6>
                   <MDBBtn outline color="white">
                     Learn More
@@ -128,7 +134,7 @@ class SignUp extends React.Component {
                           type="password"
                         />
                         <div className="text-center mt-4 black-text">
-                          <MDBBtn color="indigo">Sign Up</MDBBtn>
+                          <MDBBtn color="white">Sign Up</MDBBtn>
                           <hr className="hr-light" />
                           <div className="text-center d-flex justify-content-center white-label">
                             <a href="#!" className="p-2 m-2">
@@ -167,13 +173,8 @@ class SignUp extends React.Component {
           <MDBRow className="py-5">
             <MDBCol md="12" className="text-center">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
+                © 2020 . All Rights Reserved. Designed by Stamos Kantarakis and
+                Adonis Agelis
               </p>
             </MDBCol>
           </MDBRow>
