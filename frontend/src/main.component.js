@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-export default class Main extends Component {
-    render() {
+function Main() {
         return (
             <div>
                 <p>Welcome to Museum User Tracker!</p>
             </div>
         )
-    }
 }
+
+export default Main;
