@@ -44,7 +44,7 @@ class Main extends React.Component {
         <Router>
           <div>
             <MDBNavbar
-              color="primary-color"
+              color="black"
               dark
               expand="md"
               fixed="top"
@@ -89,11 +89,11 @@ class Main extends React.Component {
                     <hr className="hr-light" />
                     <h6 className="mb-4">
                       Web Application that simulates the movement of mobile
-                      users inside interior enviroment
+                      users inside interior enviroment. Log in and use the app.
                     </h6>
-                    <MDBBtn color="white">Download</MDBBtn>
+                    <MDBBtn color="white">Log in</MDBBtn>
                     <MDBBtn outline color="white">
-                      Learn More
+                      Sign Up
                     </MDBBtn>
                   </MDBAnimation>
                 </MDBCol>
@@ -109,16 +109,11 @@ class Main extends React.Component {
         </MDBView>
 
         <MDBContainer>
-          <MDBRow className="py-5">
-            <MDBCol md="12" className="text-center">
+          <MDBRow className="py-5 ">
+            <MDBCol md="12" className="text-center ">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
+                © 2020 . All Rights Reserved. Designed by Stamos Kantarakis and
+                Adonis Agelis
               </p>
             </MDBCol>
           </MDBRow>
