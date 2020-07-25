@@ -27,24 +27,9 @@ class Navbar extends React.Component {
 
   render() {
     const activeNavBtn = () => {
-      const w = window.location.href;
-      if (w === "http://localhost:3000/signup") {
-        return (
-          <MDBNavbarNav right>
-            <MDBNavItem active>
-              <MDBNavLink to="/signup">Sign Up</MDBNavLink>
-            </MDBNavItem>
-            <MDBNavItem>
-              <MDBNavLink to="/login">Log In</MDBNavLink>
-            </MDBNavItem>
-            <MDBNavItem>
-              <MDBNavLink Link to="/info">
-                Info
-              </MDBNavLink>
-            </MDBNavItem>
-          </MDBNavbarNav>
-        );
-      } else if (w === "http://localhost:3000/login") {
+      const url = window.location.href;
+      
+      if (url === "http://localhost:3000/login") {
         return (
           <MDBNavbarNav right>
             <MDBNavItem>
@@ -60,7 +45,7 @@ class Navbar extends React.Component {
             </MDBNavItem>
           </MDBNavbarNav>
         );
-      } else if (w === "http://localhost:3000/info") {
+      } else if (url === "http://localhost:3000/info") {
         return (
           <MDBNavbarNav right>
             <MDBNavItem>
@@ -74,8 +59,39 @@ class Navbar extends React.Component {
             </MDBNavItem>
           </MDBNavbarNav>
         );
-      }
-    };
+      } else if (url === "http://localhost:3000/signup") {
+        return (
+          <MDBNavbarNav right>
+            <MDBNavItem active>
+              <MDBNavLink to="/signup">Sign Up</MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem>
+              <MDBNavLink to="/login">Log In</MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem>
+              <MDBNavLink Link to="/info">Info</MDBNavLink>
+            </MDBNavItem>
+          </MDBNavbarNav>
+        );
+      } else {
+        console.log('DimitraPapa');
+        return (
+          <MDBNavbarNav right>
+            <MDBNavItem>
+              <MDBNavLink to="/signup">Sign Up</MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem>
+              <MDBNavLink to="/login">Log In</MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem>
+              <MDBNavLink Link to="/info">
+                Info
+              </MDBNavLink>
+            </MDBNavItem>
+          </MDBNavbarNav>
+        );
+    }
+  };
     const overlay = (
       <div
         id="sidenav-overlay"

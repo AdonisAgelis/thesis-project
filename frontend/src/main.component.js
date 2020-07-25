@@ -1,26 +1,18 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import {
-  MDBNavbar,
-  MDBNavbarBrand,
-  MDBNavbarNav,
-  MDBNavItem,
-  MDBNavLink,
-  MDBNavbarToggler,
-  MDBCollapse,
   MDBMask,
   MDBRow,
   MDBCol,
   MDBBtn,
   MDBView,
   MDBContainer,
-  MDBFormInline,
   MDBAnimation,
 } from "mdbreact";
 import "./index.css";
 import kar from "./pexels-photo-1244705.png";
-import logo from "./logo.png";
 import Navbar from "./navbar.component";
+import Footer from "./footer.component";
 class Main extends React.Component {
   state = {
     collapsed: false,
@@ -45,6 +37,7 @@ class Main extends React.Component {
         <Router>
           <Navbar />
         </Router>
+        
         <MDBView>
           <MDBMask className="d-flex justify-content-center align-items-center gradient">
             <MDBContainer>
@@ -78,17 +71,7 @@ class Main extends React.Component {
             </MDBContainer>
           </MDBMask>
         </MDBView>
-
-        <MDBContainer>
-          <MDBRow className="py-5 ">
-            <MDBCol md="12" className="text-center ">
-              <p>
-                © 2020 . All Rights Reserved. Designed by Stamos Kantarakis and
-                Adonis Agelis
-              </p>
-            </MDBCol>
-          </MDBRow>
-        </MDBContainer>
+        <Footer />
       </div>
     );
   }

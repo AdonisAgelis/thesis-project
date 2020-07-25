@@ -1,13 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import {
-  MDBNavbar,
-  MDBNavbarBrand,
-  MDBNavbarNav,
-  MDBNavItem,
-  MDBNavLink,
-  MDBNavbarToggler,
-  MDBCollapse,
   MDBMask,
   MDBRow,
   MDBCol,
@@ -18,12 +11,11 @@ import {
   MDBCard,
   MDBCardBody,
   MDBInput,
-  MDBFormInline,
   MDBAnimation,
 } from "mdbreact";
 import "./login.css";
-import logo from "./logo.png";
 import Navbar from './navbar.component';
+import Footer from './footer.component';
 
 class SignUp extends React.Component {
   state = {
@@ -127,17 +119,7 @@ class SignUp extends React.Component {
             </MDBContainer>
           </MDBMask>
         </MDBView>
-
-        <MDBContainer>
-          <MDBRow className="py-5">
-            <MDBCol md="12" className="text-center">
-              <p>
-                © 2020 . All Rights Reserved. Designed by Stamos Kantarakis and
-                Adonis Agelis
-              </p>
-            </MDBCol>
-          </MDBRow>
-        </MDBContainer>
+        <Footer />
       </div>
     );
   }
