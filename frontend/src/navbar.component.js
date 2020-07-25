@@ -26,6 +26,56 @@ class Navbar extends React.Component {
   };
 
   render() {
+    const activeNavBtn = () => {
+      const w = window.location.href;
+      if (w === "http://localhost:3000/signup") {
+        return (
+          <MDBNavbarNav right>
+            <MDBNavItem active>
+              <MDBNavLink to="/signup">Sign Up</MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem>
+              <MDBNavLink to="/login">Log In</MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem>
+              <MDBNavLink Link to="/info">
+                Info
+              </MDBNavLink>
+            </MDBNavItem>
+          </MDBNavbarNav>
+        );
+      } else if (w === "http://localhost:3000/login") {
+        return (
+          <MDBNavbarNav right>
+            <MDBNavItem>
+              <MDBNavLink to="/signup">Sign Up</MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem active>
+              <MDBNavLink to="/login">Log In</MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem>
+              <MDBNavLink Link to="/info">
+                Info
+              </MDBNavLink>
+            </MDBNavItem>
+          </MDBNavbarNav>
+        );
+      } else if (w === "http://localhost:3000/info") {
+        return (
+          <MDBNavbarNav right>
+            <MDBNavItem>
+              <MDBNavLink to="/signup">Sign Up</MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem>
+              <MDBNavLink to="/login">Log In</MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem active>
+              <MDBNavLink Link to="/info">Info</MDBNavLink>
+            </MDBNavItem>
+          </MDBNavbarNav>
+        );
+      }
+    };
     const overlay = (
       <div
         id="sidenav-overlay"
@@ -49,19 +99,7 @@ class Navbar extends React.Component {
             </MDBNavbarBrand>
             <MDBNavbarToggler onClick={this.handleTogglerClick} />
             <MDBCollapse isOpen={this.state.collapsed} navbar>
-              <MDBNavbarNav right>
-                <MDBNavItem active>
-                  <MDBNavLink to="/signup">Sign Up</MDBNavLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <MDBNavLink to="/login">Log In</MDBNavLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <MDBNavLink Link to="/info">
-                    Info
-                  </MDBNavLink>
-                </MDBNavItem>
-              </MDBNavbarNav>
+              {activeNavBtn()}
             </MDBCollapse>
           </MDBContainer>
         </MDBNavbar>
