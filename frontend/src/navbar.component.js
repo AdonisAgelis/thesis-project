@@ -13,7 +13,6 @@ import {
 
 import logo from "./logo.png";
 
-
 class Navbar extends React.Component {
   state = {
     collapsed: false,
@@ -28,7 +27,7 @@ class Navbar extends React.Component {
   render() {
     const activeNavBtn = () => {
       const url = window.location.href;
-      
+
       if (url === "http://localhost:3000/login") {
         return (
           <MDBNavbarNav right>
@@ -55,7 +54,9 @@ class Navbar extends React.Component {
               <MDBNavLink to="/login">Log In</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem active>
-              <MDBNavLink Link to="/info">Info</MDBNavLink>
+              <MDBNavLink Link to="/info">
+                Info
+              </MDBNavLink>
             </MDBNavItem>
           </MDBNavbarNav>
         );
@@ -69,12 +70,14 @@ class Navbar extends React.Component {
               <MDBNavLink to="/login">Log In</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink Link to="/info">Info</MDBNavLink>
+              <MDBNavLink Link to="/info">
+                Info
+              </MDBNavLink>
             </MDBNavItem>
           </MDBNavbarNav>
         );
       } else {
-        console.log('DimitraPapa');
+        console.log("DimitraPapa");
         return (
           <MDBNavbarNav right>
             <MDBNavItem>
@@ -90,8 +93,8 @@ class Navbar extends React.Component {
             </MDBNavItem>
           </MDBNavbarNav>
         );
-    }
-  };
+      }
+    };
     const overlay = (
       <div
         id="sidenav-overlay"

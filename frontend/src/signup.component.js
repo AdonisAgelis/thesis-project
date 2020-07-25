@@ -14,7 +14,7 @@ import {
   MDBAnimation,
 } from "mdbreact";
 import "./signup.css";
-import Navbar from './navbar.component';
+import Navbar from "./navbar.component";
 import Footer from "./footer.component";
 
 class SignUp extends React.Component {
@@ -37,9 +37,7 @@ class SignUp extends React.Component {
     );
     return (
       <div id="signup">
-        <Router>
-          <Navbar />
-        </Router>
+        <Navbar />
 
         <MDBView>
           <MDBMask className="d-flex justify-content-center align-items-center gradient">

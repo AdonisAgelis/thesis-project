@@ -35,9 +35,8 @@ class Info extends React.Component {
     );
     return (
       <div id="info">
-        <Router>
-          <Navbar />
-        </Router>
+        <Navbar />
+
         <MDBView>
           <MDBMask className="d-flex justify-content-center align-items-center gradient">
             <MDBContainer>

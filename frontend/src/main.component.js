@@ -34,10 +34,8 @@ class Main extends React.Component {
     );
     return (
       <div id="main">
-        <Router>
-          <Navbar />
-        </Router>
-        
+        <Navbar />
+
         <MDBView>
           <MDBMask className="d-flex justify-content-center align-items-center gradient">
             <MDBContainer>
