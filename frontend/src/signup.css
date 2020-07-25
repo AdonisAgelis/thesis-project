@@ -1,0 +1,51 @@
+#classicformpage .view {
+  background-image: url("louvre.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+}
+
+#classicformpage .gradient {
+  background: -webkit-linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.7),
+    rgba(118, 116, 121, 0.4) 100%
+  );
+  background: -webkit-gradient(
+    linear,
+    45deg,
+    from(rgba(0, 0, 0, 0.7), to(rgba(19, 19, 19, 0.4)) 100%)
+  );
+  background: linear-gradient(
+    45deg,
+    rgba(119, 116, 116, 0.322),
+    rgba(19, 17, 14, 0.699) 100%
+  );
+}
+
+#classicformpage .card {
+  background-color: rgba(12, 12, 12, 0.822);
+}
+
+#classicformpage h6 {
+  line-height: 1.7;
+}
+
+#classicformpage .navbar {
+  transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
+}
+
+#classicformpage .top-nav-collapse {
+  background: #66513d !important;
+}
+
+@media (max-width: 768px) {
+  #classicformpage .navbar:not(.top-nav-collapse) {
+    background: #8a6f26b4 !important;
+  }
+}
+
+#classicformpage label {
+  color: #fff !important;
+}
