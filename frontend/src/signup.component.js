@@ -1,13 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import {
-  MDBNavbar,
-  MDBNavbarBrand,
-  MDBNavbarNav,
-  MDBNavItem,
-  MDBNavLink,
-  MDBNavbarToggler,
-  MDBCollapse,
   MDBMask,
   MDBRow,
   MDBCol,
@@ -18,11 +11,11 @@ import {
   MDBCard,
   MDBCardBody,
   MDBInput,
-  MDBFormInline,
   MDBAnimation,
 } from "mdbreact";
 import "./signup.css";
-import logo from "./logo.png";
+import Navbar from './navbar.component';
+import Footer from "./footer.component";
 
 class SignUp extends React.Component {
   state = {
@@ -43,45 +36,9 @@ class SignUp extends React.Component {
       />
     );
     return (
-      <div id="classicformpage">
+      <div id="signup">
         <Router>
-          <div>
-            <MDBNavbar
-              dark
-              expand="md"
-              fixed="top"
-              color="primary-color"
-              scrolling
-              transparent
-            >
-              <MDBContainer>
-                <MDBNavbarBrand>
-                  <img src={logo} alt="" className="img-fluid" />
-                </MDBNavbarBrand>
-                <MDBNavbarToggler
-                  onClick={this.toggleCollapse("navbarCollapse")}
-                />
-                <MDBCollapse
-                  id="navbarCollapse"
-                  isOpen={this.state.collapseID}
-                  navbar
-                >
-                  <MDBNavbarNav right>
-                    <MDBNavItem active>
-                      <MDBNavLink to="#!">Sign Up</MDBNavLink>
-                    </MDBNavItem>
-                    <MDBNavItem>
-                      <MDBNavLink to="#!">Login</MDBNavLink>
-                    </MDBNavItem>
-                    <MDBNavItem>
-                      <MDBNavLink to="#!">Info</MDBNavLink>
-                    </MDBNavItem>
-                  </MDBNavbarNav>
-                </MDBCollapse>
-              </MDBContainer>
-            </MDBNavbar>
-            {this.state.collapseID && overlay}
-          </div>
+          <Navbar />
         </Router>
 
         <MDBView>
@@ -168,17 +125,7 @@ class SignUp extends React.Component {
             </MDBContainer>
           </MDBMask>
         </MDBView>
-
-        <MDBContainer>
-          <MDBRow className="py-5">
-            <MDBCol md="12" className="text-center">
-              <p>
-                © 2020 . All Rights Reserved. Designed by Stamos Kantarakis and
-                Adonis Agelis
-              </p>
-            </MDBCol>
-          </MDBRow>
-        </MDBContainer>
+        <Footer />
       </div>
     );
   }
