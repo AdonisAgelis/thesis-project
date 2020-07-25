@@ -33,7 +33,7 @@ class Main extends React.Component {
       />
     );
     return (
-      <div id="apppage">
+      <div id="main">
         <Router>
           <Navbar />
         </Router>

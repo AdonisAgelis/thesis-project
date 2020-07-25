@@ -36,7 +36,7 @@ class SignUp extends React.Component {
       />
     );
     return (
-      <div id="classicformpage">
+      <div id="login">
         <Router>
           <Navbar />
         </Router>

@@ -1,4 +1,4 @@
-#apppage .gradient {
+#main .gradient {
   background: -moz-linear-gradient(
     45deg,
     rgba(42, 27, 161, 0.7),
@@ -27,7 +27,7 @@
   );
 }
 
-#apppage .view {
+#main .view {
   background-image: url("pexels-photo-951531.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -35,12 +35,12 @@
   min-height: 100vh;
 }
 
-#apppage h6 {
+#main h6 {
   line-height: 1.7;
 }
 
 @media only screen and (max-width: 400px) {
-  #apppage .animated img {
+  #main .animated img {
     max-height: 50vh;
     transform: translateX(-50%);
     left: 50%;
@@ -48,7 +48,7 @@
   }
 }
 @media only screen and (max-width: 767px) {
-  #apppage .animated img {
+  #main .animated img {
     max-height: 35vh;
     transform: translateX(-50%);
     left: 50%;
@@ -56,7 +56,7 @@
 }
 
 @media (max-width: 767px) and (orientation: landscape) {
-  #apppage .animated img {
+  #main .animated img {
     max-height: 50vh;
     transform: translateX(-50%);
     left: 50%;
@@ -64,7 +64,7 @@
   }
 }
 @media (max-width: 1000px) and (orientation: landscape) {
-  #apppage .view {
+  #main .view {
     min-height: 150vh;
   }
 }
