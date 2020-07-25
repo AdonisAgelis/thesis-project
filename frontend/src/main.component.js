@@ -20,6 +20,7 @@ import {
 import "./index.css";
 import kar from "./pexels-photo-1244705.png";
 import logo from "./logo.png";
+import Navbar from "./navbar.component";
 class Main extends React.Component {
   state = {
     collapsed: false,
@@ -42,37 +43,7 @@ class Main extends React.Component {
     return (
       <div id="apppage">
         <Router>
-          <div>
-            <MDBNavbar
-              color="black"
-              dark
-              expand="md"
-              fixed="top"
-              scrolling
-              transparent
-            >
-              <MDBContainer>
-                <MDBNavbarBrand>
-                  <img src={logo} alt="" className="img-fluid" />
-                </MDBNavbarBrand>
-                <MDBNavbarToggler onClick={this.handleTogglerClick} />
-                <MDBCollapse isOpen={this.state.collapsed} navbar>
-                  <MDBNavbarNav right>
-                    <MDBNavItem active>
-                      <MDBNavLink to="signup">Sign Up</MDBNavLink>
-                    </MDBNavItem>
-                    <MDBNavItem>
-                      <MDBNavLink to="login">Login</MDBNavLink>
-                    </MDBNavItem>
-                    <MDBNavItem>
-                      <MDBNavLink to="#!">Info</MDBNavLink>
-                    </MDBNavItem>
-                  </MDBNavbarNav>
-                </MDBCollapse>
-              </MDBContainer>
-            </MDBNavbar>
-            {this.state.collapsed && overlay}
-          </div>
+          <Navbar />
         </Router>
         <MDBView>
           <MDBMask className="d-flex justify-content-center align-items-center gradient">

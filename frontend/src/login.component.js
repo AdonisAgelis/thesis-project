@@ -23,6 +23,7 @@ import {
 } from "mdbreact";
 import "./signup.css";
 import logo from "./logo.png";
+import Navbar from './navbar.component';
 
 class SignUp extends React.Component {
   state = {
@@ -45,43 +46,7 @@ class SignUp extends React.Component {
     return (
       <div id="classicformpage">
         <Router>
-          <div>
-            <MDBNavbar
-              dark
-              expand="md"
-              fixed="top"
-              color="primary-color"
-              scrolling
-              transparent
-            >
-              <MDBContainer>
-                <MDBNavbarBrand>
-                  <img src={logo} alt="" className="img-fluid" />
-                </MDBNavbarBrand>
-                <MDBNavbarToggler
-                  onClick={this.toggleCollapse("navbarCollapse")}
-                />
-                <MDBCollapse
-                  id="navbarCollapse"
-                  isOpen={this.state.collapseID}
-                  navbar
-                >
-                  <MDBNavbarNav right>
-                    <MDBNavItem>
-                      <MDBNavLink to="#!">Sign Up</MDBNavLink>
-                    </MDBNavItem>
-                    <MDBNavItem active>
-                      <MDBNavLink to="#!">Login</MDBNavLink>
-                    </MDBNavItem>
-                    <MDBNavItem>
-                      <MDBNavLink to="#!">Info</MDBNavLink>
-                    </MDBNavItem>
-                  </MDBNavbarNav>
-                </MDBCollapse>
-              </MDBContainer>
-            </MDBNavbar>
-            {this.state.collapseID && overlay}
-          </div>
+          <Navbar />
         </Router>
 
         <MDBView>
