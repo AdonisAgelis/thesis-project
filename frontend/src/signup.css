@@ -1,0 +1,56 @@
+#signup .view {
+  background-image: url("louvre.png") !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+}
+
+#signup .gradient {
+  background: -webkit-linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.7),
+    rgba(118, 116, 121, 0.4) 100%
+  );
+  background: -webkit-gradient(
+    linear,
+    45deg,
+    from(rgba(0, 0, 0, 0.7), to(rgba(19, 19, 19, 0.4)) 100%)
+  );
+  background: linear-gradient(
+    45deg,
+    rgba(119, 116, 116, 0.322),
+    rgba(19, 17, 14, 0.699) 100%
+  );
+}
+
+#signup .card {
+  background-color: rgba(12, 12, 12, 0.822);
+}
+
+#signup h6 {
+  line-height: 1.7;
+}
+
+#signup .navbar {
+  transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
+}
+
+#signup .top-nav-collapse {
+  background: black !important;
+}
+
+@media (max-width: 768px) {
+  #signup .navbar:not(.top-nav-collapse) {
+    background: #8a6f26b4 !important;
+  }
+}
+
+#signup label {
+  color: #fff !important;
+}
+
+.md-form input:not(.browser-default):focus:not([readonly]) {
+  border-bottom: 1px solid #2E2E2E !important;
+  box-shadow: 0 1px 0 0 #2E2E2E !important;
+}
