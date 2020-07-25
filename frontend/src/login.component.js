@@ -21,7 +21,7 @@ import {
   MDBFormInline,
   MDBAnimation,
 } from "mdbreact";
-import "./signup.css";
+import "./login.css";
 import logo from "./logo.png";
 import Navbar from './navbar.component';
 
@@ -67,7 +67,7 @@ class SignUp extends React.Component {
                     inside interior enviroment. Log in and use the app.
                   </h6>
                   <MDBBtn outline color="white">
-                    Learn More
+                    Sign Up
                   </MDBBtn>
                 </MDBAnimation>
 
@@ -76,7 +76,7 @@ class SignUp extends React.Component {
                     <MDBCard id="classic-card">
                       <MDBCardBody className="white-text">
                         <h3 className="text-center">
-                          <MDBIcon icon="user" /> Sign In:
+                          <MDBIcon icon="user" /> Login:
                         </h3>
                         <hr className="hr-light" />
                         <MDBInput
