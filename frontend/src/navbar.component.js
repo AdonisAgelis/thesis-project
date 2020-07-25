@@ -111,7 +111,9 @@ class Navbar extends React.Component {
         >
           <MDBContainer>
             <MDBNavbarBrand>
-              <img src={logo} alt="" className="img-fluid" />
+              <a href="http://localhost:3000/">
+                <img src={logo} className="img-fluid" />
+              </a>
             </MDBNavbarBrand>
             <MDBNavbarToggler onClick={this.handleTogglerClick} />
             <MDBCollapse isOpen={this.state.collapsed} navbar>
