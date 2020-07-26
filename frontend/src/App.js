@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-import './index.css';
+import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Main from "./main.component";
 import SignUp from "./signup.component";
 import LogIn from "./login.component";
-import Info from './info.component';
+import Info from "./info.component";
+import Profile from "./profile.component";
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={LogIn} />
         <Route path="/info" component={Info} />
+        <Route path="/profile" component={Profile} />
       </Router>
     );
   }
