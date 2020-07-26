@@ -56,9 +56,11 @@ class SignUp extends React.Component {
                     Web Application that simulates the movement of mobile users
                     inside interior enviroment. Log in and use the app.
                   </h6>
-                  <MDBBtn outline color="white">
-                    Learn More
-                  </MDBBtn>
+                  <a href="http://localhost:3000/info">
+                    <MDBBtn outline color="white">
+                      Learn More
+                    </MDBBtn>
+                  </a>
                 </MDBAnimation>
 
                 <MDBCol md="6" xl="5" className="mb-4">

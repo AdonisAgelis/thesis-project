@@ -53,10 +53,14 @@ class Main extends React.Component {
                       Web Application that simulates the movement of mobile
                       users inside interior enviroment. Log in and use the app.
                     </h6>
-                    <MDBBtn color="white">Log in</MDBBtn>
-                    <MDBBtn outline color="white">
-                      Sign Up
-                    </MDBBtn>
+                    <a href="http://localhost:3000/login">
+                      <MDBBtn color="white">Log in</MDBBtn>
+                    </a>
+                    <a href="http://localhost:3000/signup">
+                      <MDBBtn outline color="white">
+                        Sign Up
+                      </MDBBtn>
+                    </a>
                   </MDBAnimation>
                 </MDBCol>
 
