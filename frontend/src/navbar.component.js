@@ -76,6 +76,24 @@ class Navbar extends React.Component {
             </MDBNavItem>
           </MDBNavbarNav>
         );
+      } else if (url === "http://localhost:3000/profile") {
+        return (
+          <MDBNavbarNav right>
+            <MDBNavItem
+              style={{ paddingRight: "2px", paddingTop: "9px", color: "white" }}
+            >
+              Hey <i>User</i> !
+            </MDBNavItem>
+            <MDBNavItem>
+              <MDBNavLink to="/">Log Out</MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem>
+              <MDBNavLink to="/signup" style={{ textDecoration: "underline" }}>
+                Forgot Password?
+              </MDBNavLink>
+            </MDBNavItem>
+          </MDBNavbarNav>
+        );
       } else {
         return (
           <MDBNavbarNav right>
@@ -86,7 +104,9 @@ class Navbar extends React.Component {
               <MDBNavLink to="/login">Log In</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink Link to="/info">Info</MDBNavLink>
+              <MDBNavLink Link to="/info">
+                Info
+              </MDBNavLink>
             </MDBNavItem>
           </MDBNavbarNav>
         );
