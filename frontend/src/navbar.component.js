@@ -89,7 +89,7 @@ class Navbar extends React.Component {
             </MDBNavItem>
             <MDBNavItem>
               <MDBNavLink to="/signup" style={{ textDecoration: "underline" }}>
-                Forgot Password?
+                Reset Password
               </MDBNavLink>
             </MDBNavItem>
           </MDBNavbarNav>
