@@ -45,7 +45,7 @@ class Info extends React.Component {
                   md="6"
                   className="white-text text-center text-md-left mt-xl-5 mb-5"
                 >
-                  <MDBAnimation type="fadeInUp" delay=".3s">
+                  <MDBAnimation type="fadeInLeft" delay=".3s">
                     <h1 className="h1-responsive font-weight-bold mt-sm-5">
                       Museum User Tracker
                     </h1>
@@ -59,7 +59,7 @@ class Info extends React.Component {
                 </MDBCol>
 
                 <MDBCol md="6" xl="5" className="mt-xl-5">
-                  <MDBAnimation type="bounceInUp" delay=".3s">
+                  <MDBAnimation type="fadeInRight" delay=".3s">
                     <img src={mern} alt="" className="img-fluid" />
                   </MDBAnimation>
                 </MDBCol>
