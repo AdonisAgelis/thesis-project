@@ -52,12 +52,20 @@ class Profile extends React.Component {
                   }}>
                     {/* <MDBCardImage style={{height: '5rem'}}/> */}
                     <MDBCardBody  className='rounded mb-0 gradient'>
-                      <img id='avatar' className='rounded-circle' src='https://legacyprojectchicago.org/sites/default/files/2019-09/Alexander%20the%20Great.jpeg'></img>
-                      <MDBCardTitle style={{display: 'grid', placeItems: 'center', marginTop: '1rem', color: 'white'}}>Γιώργης</MDBCardTitle>
-                      <hr style={{backgroundColor: 'white'}}></hr>
+                      <img id='avatar' className='rounded-circle' src='https://wireless.uop.gr/images/instructors/Dr-Tselikas.jpg'></img>
+                      <MDBCardTitle style={{display: 'grid', placeItems: 'center', marginTop: '1rem', color: 'white'}}>Sensei</MDBCardTitle>
+                      <hr className='hr' style={{backgroundColor: 'white'}}></hr>
                       {/* <MDBCardText style={{textAlign: 'center'}}>
-                          El Bouti8o
+                          
                       </MDBCardText> */}
+                      <div className='profBtn'>
+                        <MDBBtn className='styleBtn' gradient>New Template</MDBBtn>
+                        <MDBBtn id='loadBtn' className='styleBtn' gradient>Load Template</MDBBtn>
+                      </div>
+                      <div className='profBtn'>
+                        <MDBBtn id='runBtn' className='styleBtn' gradient>Run Simulation</MDBBtn>
+                      </div>
+                      <hr className='hr' style={{backgroundColor: 'white'}}></hr>
                     </MDBCardBody>
                   </MDBCard>
                 </MDBCol>

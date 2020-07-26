@@ -68,3 +68,21 @@
   height: 5rem;
   margin: auto;
 }
+
+.profBtn {
+  display: grid;
+  place-items: center;
+  margin-top: 3rem;
+}
+
+#loadBtn {
+  margin-top: 1rem;
+}
+
+#runBtn {
+  margin-top: 3rem;
+}
+
+.hr {
+  margin-top: 3rem;
+}
