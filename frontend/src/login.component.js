@@ -110,6 +110,9 @@ class SignUp extends React.Component {
                             </a>
                           </div>
                         </div>
+                        <div className="text-center mt-2 white-text">
+                          <a href='#' id='forgot'>Forgot password?</a>
+                        </div>
                       </MDBCardBody>
                     </MDBCard>
                   </MDBAnimation>

@@ -54,6 +54,12 @@
       left: 50%;
     }
   }
+
+  @media (max-width: 768px) {
+    #info .navbar:not(.top-nav-collapse) {
+      background: black !important;
+    }
+  }
   
   @media (max-width: 767px) and (orientation: landscape) {
     #info .animated img {
