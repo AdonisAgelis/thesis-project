@@ -10,6 +10,9 @@ import {
   MDBContainer,
   MDBCard,
   MDBCardBody,
+  MDBCardImage,
+  MDBCardTitle,
+  MDBCardText,
   MDBInput,
   MDBAnimation,
 } from "mdbreact";
@@ -42,13 +45,47 @@ class Profile extends React.Component {
         <MDBView>
           <MDBMask className="d-flex justify-content-center align-items-center gradient">
             <Navbar />
-            <MDBContainer>
-              <MDBRow>
-                <MDBCol md="1">.col-md-1</MDBCol>
-                <MDBCol md="3">.col-md-3</MDBCol>
-                <MDBCol md="6">.col-md-6</MDBCol>
-              </MDBRow>
-            </MDBContainer>
+            {/* <MDBContainer> */}
+                <MDBCol md="2">
+                  <MDBCard style={{
+                    height: '40rem'
+                  }}>
+                    <MDBCardImage className="img-fluid"/>
+                    <MDBCardBody style={{ backgroundColor: 'white'}} className='rounded mb-0'>
+                      <MDBCardTitle style={{ textAlign: 'center'}}>DimitraPap</MDBCardTitle>
+                      <MDBCardText style={{textAlign: 'center'}}>
+                          El Bouti8o
+                      </MDBCardText>
+                    </MDBCardBody>
+                  </MDBCard>
+                </MDBCol>
+                <MDBCol md="8">
+                <MDBCard style={{
+                    height: '40rem'
+                  }}>
+                    <MDBCardImage className="img-fluid"/>
+                    <MDBCardBody style={{ backgroundColor: 'white'}} className='rounded mb-0'>
+                      <MDBCardTitle style={{ textAlign: 'center'}}>DimitraPap</MDBCardTitle>
+                      <MDBCardText style={{textAlign: 'center'}}>
+                          El Bouti8o
+                      </MDBCardText>
+                    </MDBCardBody>
+                  </MDBCard>
+                </MDBCol>
+                <MDBCol md="2">
+                <MDBCard style={{
+                    height: '40rem'
+                  }}>
+                    <MDBCardImage className="img-fluid"/>
+                    <MDBCardBody style={{ backgroundColor: 'white'}} className='rounded mb-0'>
+                      <MDBCardTitle style={{ textAlign: 'center'}}>DimitraPap</MDBCardTitle>
+                      <MDBCardText style={{textAlign: 'center'}}>
+                          El Bouti8o
+                      </MDBCardText>
+                    </MDBCardBody>
+                  </MDBCard>
+                </MDBCol>
+            {/* </MDBContainer> */}
           </MDBMask>
         </MDBView>
         <Footer />
