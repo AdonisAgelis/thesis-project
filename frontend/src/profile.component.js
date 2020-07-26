@@ -50,12 +50,13 @@ class Profile extends React.Component {
                   <MDBCard style={{
                     height: '40rem'
                   }}>
-                    <MDBCardImage className="img-fluid"/>
+                    {/* <MDBCardImage style={{height: '5rem'}}/> */}
                     <MDBCardBody style={{ backgroundColor: 'white'}} className='rounded mb-0'>
-                      <MDBCardTitle style={{ textAlign: 'center'}}>DimitraPap</MDBCardTitle>
-                      <MDBCardText style={{textAlign: 'center'}}>
+                      <img id='ulogo' className='rounded-circle' src='https://s.yimg.com/ny/api/res/1.2/SfLBP0abATtcYe0bbZlxOg--~A/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9ODAw/https://media.zenfs.com/en-US/nbcsports.com/a5f2a421bd031ba0ca5ea5fc470ac79e'></img>
+                      <MDBCardTitle id='uname' style={{ textAlign: 'center'}, {marginTop: '1rem'}}>User</MDBCardTitle>
+                      {/* <MDBCardText style={{textAlign: 'center'}}>
                           El Bouti8o
-                      </MDBCardText>
+                      </MDBCardText> */}
                     </MDBCardBody>
                   </MDBCard>
                 </MDBCol>
