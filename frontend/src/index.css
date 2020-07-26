@@ -63,6 +63,13 @@
     position: relative;
   }
 }
+
+@media (max-width: 768px) {
+  #main .navbar:not(.top-nav-collapse) {
+    background: black !important;
+  }
+}
+
 @media (max-width: 1000px) and (orientation: landscape) {
   #main .view {
     min-height: 150vh;

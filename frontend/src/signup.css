@@ -42,7 +42,7 @@
 
 @media (max-width: 768px) {
   #signup .navbar:not(.top-nav-collapse) {
-    background: #8a6f26b4 !important;
+    background: black !important;
   }
 }
 
