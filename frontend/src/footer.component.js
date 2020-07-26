@@ -6,9 +6,9 @@ class Footer extends React.Component {
   render() {
     return (
       <MDBContainer className="container-fluid">
-        <MDBRow className="py-2">
+        <MDBRow className="py-4">
           <MDBCol md="12" className="text-center">
-            <p>
+            <p style={{ margin: "auto" }}>
               © 2020 . All Rights Reserved. Designed by Stamos Kantarakis and
               Adonis Agelis
             </p>
