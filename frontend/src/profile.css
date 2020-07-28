@@ -87,7 +87,18 @@
   margin-top: 3rem;
 }
 
+#dnd {
+  margin-top: 2rem;
+}
+
 #myMainCanvas {
   border: 1px solid black;
   width: 100%;
+  background-color: white;
+}
+
+#myItemCanvas {
+  border: 1px solid black;
+  width: 100%;
+  background-color: white;
 }

@@ -87,12 +87,9 @@ class Profile extends React.Component {
                     height: '40rem'
                   }}>
                     <MDBCardImage className="img-fluid"/>
-                    <MDBCardBody style={{ backgroundColor: 'white'}} className='rounded mb-0'>
-                      <MDBCardTitle style={{ textAlign: 'center'}}>Create Template</MDBCardTitle>
-                      <MDBCardText style={{textAlign: 'center'}}>
-                          Drag & Drop icons from the menu on the right and create your own template!
-                      </MDBCardText>
-                      <hr></hr>
+                    <MDBCardBody  className='rounded mb-0 gradient'>
+                      <MDBCardTitle style={{display: 'grid', placeItems: 'center', marginTop: '1rem', color: 'white'}}>Create Template</MDBCardTitle>
+                      <hr style={{backgroundColor: 'white', marginTop: '2rem'}}></hr>
                       <canvas id="myMainCanvas" height="110"></canvas>
                     </MDBCardBody>
                   </MDBCard>
@@ -104,7 +101,8 @@ class Profile extends React.Component {
                     <MDBCardImage className="img-fluid"/>
                     <MDBCardBody  className='rounded mb-0 gradient'>
                       <MDBCardTitle style={{display: 'grid', placeItems: 'center', marginTop: '1rem', color: 'white'}}>Drag & Drop Items</MDBCardTitle>
-                      <hr className='hr' style={{backgroundColor: 'white'}}></hr>
+                      <hr id='dnd' className='hr' style={{backgroundColor: 'white'}}></hr>
+                      <canvas id="myItemCanvas" height="535vh"></canvas>
                     </MDBCardBody>
                   </MDBCard>
                 </MDBCol>
