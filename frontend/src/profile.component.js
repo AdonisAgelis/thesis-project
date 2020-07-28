@@ -63,10 +63,10 @@ class Profile extends React.Component {
                           
                       </MDBCardText> */}
                       <div className='profBtn'>
-                        <MDBBtn className='styleBtn' gradient>New Template</MDBBtn>
+                        <MDBBtn className='styleBtn hw' gradient>New Template</MDBBtn>
                         <MDBDropdown>
-                          <MDBDropdownToggle caret className='styleBtn'>
-                            MDBDropdown
+                          <MDBDropdownToggle caret className='styleBtn hw'>
+                            Load Template
                           </MDBDropdownToggle>
                           <MDBDropdownMenu basic>
                             <MDBDropdownItem>Template 1</MDBDropdownItem>
@@ -88,10 +88,12 @@ class Profile extends React.Component {
                   }}>
                     <MDBCardImage className="img-fluid"/>
                     <MDBCardBody style={{ backgroundColor: 'white'}} className='rounded mb-0'>
-                      <MDBCardTitle style={{ textAlign: 'center'}}>DimitraPap</MDBCardTitle>
+                      <MDBCardTitle style={{ textAlign: 'center'}}>Create Template</MDBCardTitle>
                       <MDBCardText style={{textAlign: 'center'}}>
-                          El Bouti8o
+                          Drag & Drop icons from the menu on the right and create your own template!
                       </MDBCardText>
+                      <hr></hr>
+                      <canvas id="myMainCanvas" height="110"></canvas>
                     </MDBCardBody>
                   </MDBCard>
                 </MDBCol>
@@ -100,11 +102,9 @@ class Profile extends React.Component {
                     height: '40rem'
                   }}>
                     <MDBCardImage className="img-fluid"/>
-                    <MDBCardBody style={{ backgroundColor: 'white'}} className='rounded mb-0'>
-                      <MDBCardTitle style={{ textAlign: 'center'}}>DimitraPap</MDBCardTitle>
-                      <MDBCardText style={{textAlign: 'center'}}>
-                          El Bouti8o
-                      </MDBCardText>
+                    <MDBCardBody  className='rounded mb-0 gradient'>
+                      <MDBCardTitle style={{display: 'grid', placeItems: 'center', marginTop: '1rem', color: 'white'}}>Drag & Drop Items</MDBCardTitle>
+                      <hr className='hr' style={{backgroundColor: 'white'}}></hr>
                     </MDBCardBody>
                   </MDBCard>
                 </MDBCol>

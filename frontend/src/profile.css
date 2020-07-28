@@ -86,3 +86,8 @@
 .hr {
   margin-top: 3rem;
 }
+
+#myMainCanvas {
+  border: 1px solid black;
+  width: 100%;
+}
