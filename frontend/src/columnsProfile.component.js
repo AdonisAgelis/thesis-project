@@ -23,6 +23,10 @@ import {
 import "./profile.css";
 
 class ColumnsProfile extends React.Component {
+  sendData = () => {
+    this.props.parentCallback("2");
+  };
+
   render() {
     if (this.props.columnPos == 2) {
       return (
@@ -56,7 +60,7 @@ class ColumnsProfile extends React.Component {
                       <MDBIcon icon="home" style={{ marginRight: "1rem" }} />
                       Home
                     </MDBBtn>
-                    <MDBBtn className="styleBtn">
+                    <MDBBtn className="styleBtn" onClick={this.sendData}>
                       <MDBIcon
                         icon="plus-circle"
                         style={{ marginRight: "1rem" }}
