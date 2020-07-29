@@ -46,6 +46,11 @@ class Profile extends React.Component {
             ) : (
               <ColumnsProfile columnPos={columnPos + 5} />
             )}
+            {this.state.midMenuisOpen === "1" ? (
+              true
+            ) : (
+              <ColumnsProfile columnPos={columnPos + 1} />
+            )}
 
             {/* <ColumnsProfile columnPos={columnPos + 5} />
             <ColumnsProfile columnPos={columnPos + 1} /> */}
