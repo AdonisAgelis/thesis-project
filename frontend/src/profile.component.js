@@ -19,6 +19,7 @@ import {
 import "./profile.css";
 import Navbar from "./navbar.component";
 import Footer from "./footer.component";
+import ColumnsProfile from "./columnsProfile.component";
 
 class Profile extends React.Component {
   state = {
@@ -38,62 +39,16 @@ class Profile extends React.Component {
         onClick={this.toggleCollapse("navbarCollapse")}
       />
     );
+
+    const columnPos = 2;
+
     return (
       <div id="profile">
         <MDBView>
           <MDBMask className="d-flex justify-content-center align-items-center gradient">
-            <Navbar />
-                <MDBCol md="2">
-                {/* <MDBContainer className='gradient'> */}
-                  <MDBCard style={{
-                    height: '40rem'
-                  }}>
-                    {/* <MDBCardImage style={{height: '5rem'}}/> */}
-                    <MDBCardBody  className='rounded mb-0 gradient'>
-                      <img id='avatar' className='rounded-circle' src='https://wireless.uop.gr/images/instructors/Dr-Tselikas.jpg'></img>
-                      <MDBCardTitle style={{display: 'grid', placeItems: 'center', marginTop: '1rem', color: 'white'}}>Sensei</MDBCardTitle>
-                      <hr className='hr' style={{backgroundColor: 'white'}}></hr>
-                      {/* <MDBCardText style={{textAlign: 'center'}}>
-                          
-                      </MDBCardText> */}
-                      <div className='profBtn'>
-                        <MDBBtn className='styleBtn' gradient>New Template</MDBBtn>
-                        <MDBBtn id='loadBtn' className='styleBtn' gradient>Load Template</MDBBtn>
-                      </div>
-                      <div className='profBtn'>
-                        <MDBBtn id='runBtn' className='styleBtn' gradient>Run Simulation</MDBBtn>
-                      </div>
-                      <hr className='hr' style={{backgroundColor: 'white'}}></hr>
-                    </MDBCardBody>
-                  </MDBCard>
-                </MDBCol>
-                <MDBCol md="8">
-                <MDBCard style={{
-                    height: '40rem'
-                  }}>
-                    <MDBCardImage className="img-fluid"/>
-                    <MDBCardBody style={{ backgroundColor: 'white'}} className='rounded mb-0'>
-                      <MDBCardTitle style={{ textAlign: 'center'}}>DimitraPap</MDBCardTitle>
-                      <MDBCardText style={{textAlign: 'center'}}>
-                          El Bouti8o
-                      </MDBCardText>
-                    </MDBCardBody>
-                  </MDBCard>
-                </MDBCol>
-                <MDBCol md="2">
-                <MDBCard style={{
-                    height: '40rem'
-                  }}>
-                    <MDBCardImage className="img-fluid"/>
-                    <MDBCardBody style={{ backgroundColor: 'white'}} className='rounded mb-0'>
-                      <MDBCardTitle style={{ textAlign: 'center'}}>DimitraPap</MDBCardTitle>
-                      <MDBCardText style={{textAlign: 'center'}}>
-                          El Bouti8o
-                      </MDBCardText>
-                    </MDBCardBody>
-                  </MDBCard>
-                </MDBCol>
-            {/* </MDBContainer> */}
+            <ColumnsProfile columnPos={columnPos} />
+            <ColumnsProfile columnPos={columnPos + 5} />
+            <ColumnsProfile columnPos={columnPos + 1} />
           </MDBMask>
         </MDBView>
         <Footer />
