@@ -24,7 +24,7 @@ import "./profile.css";
 
 class ColumnsProfile extends React.Component {
   render() {
-    if (this.props.columnPos == 2) {
+    if (this.props.columnPos === 2) {
       return (
         <MDBCol md={this.props.columnPos}>
           <MDBCard
@@ -56,16 +56,9 @@ class ColumnsProfile extends React.Component {
                 <MDBBtn className="styleBtn" gradient>
                   New Template
                 </MDBBtn>
-                <MDBDropdown>
-                  <MDBDropdownToggle caret className='styleBtn'>
-                    Load Template
-                  </MDBDropdownToggle>
-                  <MDBDropdownMenu basic>
-                    <MDBDropdownItem>Template 1</MDBDropdownItem>
-                    <MDBDropdownItem>Template 2</MDBDropdownItem>
-                    <MDBDropdownItem>Template 3</MDBDropdownItem>
-                  </MDBDropdownMenu>
-                </MDBDropdown>
+                <MDBBtn className="styleBtn" gradient>
+                  Load Template
+                </MDBBtn>
               </div>
               <div className="profBtn">
                 <MDBBtn id="runBtn" className="styleBtn" gradient>
@@ -77,7 +70,7 @@ class ColumnsProfile extends React.Component {
           </MDBCard>
         </MDBCol>
       );
-    } else if (this.props.columnPos == 7) {
+    } else if (this.props.columnPos === 7) {
       return (
         <MDBCol md={this.props.columnPos}>
           <MDBCard
@@ -100,7 +93,7 @@ class ColumnsProfile extends React.Component {
           </MDBCard>
         </MDBCol>
       );
-    } else if (this.props.columnPos == 3) {
+    } else if (this.props.columnPos === 3) {
       return (
         <MDBCol md={this.props.columnPos}>
           <MDBCard
