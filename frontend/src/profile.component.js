@@ -44,6 +44,8 @@ class Profile extends React.Component {
 
     return (
       <div id="profile">
+        <Navbar />
+
         <MDBView>
           <MDBMask className="d-flex justify-content-center align-items-center gradient">
             <ColumnsProfile columnPos={columnPos} />
