@@ -61,6 +61,7 @@
     rgb(12, 12, 12) 0%,
     rgb(12, 12, 12) 100%
   );
+  box-shadow: none;
 }
 
 #avatar {
