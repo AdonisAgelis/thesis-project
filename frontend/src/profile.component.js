@@ -1,21 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import {
-  MDBMask,
-  MDBRow,
-  MDBCol,
-  MDBIcon,
-  MDBBtn,
-  MDBView,
-  MDBContainer,
-  MDBCard,
-  MDBCardBody,
-  MDBCardImage,
-  MDBCardTitle,
-  MDBCardText,
-  MDBInput,
-  MDBAnimation,
-} from "mdbreact";
+import { MDBMask, MDBView } from "mdbreact";
 import "./profile.css";
 import Navbar from "./navbar.component";
 import Footer from "./footer.component";

@@ -2,25 +2,20 @@ import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import {
-  MDBMask,
-  MDBRow,
   MDBCol,
   MDBIcon,
   MDBBtn,
-  MDBView,
-  MDBContainer,
   MDBCard,
   MDBCardBody,
   MDBCardImage,
   MDBCardTitle,
   MDBCardText,
-  MDBInput,
   MDBAnimation,
-  MDBBtnGroup,
   MDBNav,
-  MDBNavLink,
+  MDBContainer,
 } from "mdbreact";
 import "./profile.css";
+import ModalPage from "./modal.component";
 
 class ColumnsProfile extends React.Component {
   sendData = () => {
@@ -38,11 +33,6 @@ class ColumnsProfile extends React.Component {
               }}
             >
               <MDBCardBody className="rounded mb-0">
-                <img
-                  id="avatar"
-                  className="rounded-circle"
-                  src="https://wireless.uop.gr/images/instructors/Dr-Tselikas.jpg"
-                ></img>
                 <MDBCardTitle
                   style={{
                     display: "grid",
@@ -51,42 +41,50 @@ class ColumnsProfile extends React.Component {
                     color: "white",
                   }}
                 >
-                  Sensei
+                  <h4>
+                    <MDBIcon icon="user-alt" /> Sensei
+                  </h4>
                 </MDBCardTitle>
                 <hr className="hr" style={{ backgroundColor: "white" }}></hr>
                 <MDBCol>
-                  <MDBNav className="flex-column   ">
-                    <MDBBtn className="styleBtn">
+                  <MDBNav className="flex-column ">
+                    <MDBBtn className="styleBtn" style={{ textAlign: "left" }}>
                       <MDBIcon icon="home" style={{ marginRight: "1rem" }} />
                       Home
                     </MDBBtn>
-                    <MDBBtn className="styleBtn" onClick={this.sendData}>
+                    <MDBBtn
+                      className="styleBtn"
+                      onClick={this.sendData}
+                      style={{ textAlign: "left" }}
+                    >
                       <MDBIcon
                         icon="plus-circle"
                         style={{ marginRight: "1rem" }}
                       />
                       New Template
                     </MDBBtn>
-                    <MDBBtn className="styleBtn">
+                    <MDBBtn className="styleBtn" style={{ textAlign: "left" }}>
                       <MDBIcon icon="sync" style={{ marginRight: "1rem" }} />
                       Load Template
                     </MDBBtn>
-                    <MDBBtn className="styleBtn">
+                    <MDBBtn className="styleBtn" style={{ textAlign: "left" }}>
                       <MDBIcon
                         icon="chart-area"
                         style={{ marginRight: "1rem" }}
                       />
                       Graphs
                     </MDBBtn>
-                    <MDBBtn className="styleBtn">
-                      <MDBIcon
-                        icon="tachometer-alt"
-                        style={{ marginRight: "1rem" }}
-                      />
-                      Run Simulation
-                    </MDBBtn>
                   </MDBNav>
                 </MDBCol>
+                <hr className="hr" style={{ backgroundColor: "white" }}></hr>
+                <MDBContainer>
+                  <MDBCol>
+                    <MDBBtn
+                      className="styleBtn"
+                      style={{ textAlign: "center" }}
+                    ></MDBBtn>
+                  </MDBCol>
+                </MDBContainer>
               </MDBCardBody>
             </MDBCard>
           </MDBAnimation>
