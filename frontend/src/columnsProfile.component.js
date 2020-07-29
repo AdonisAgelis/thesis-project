@@ -19,6 +19,10 @@ import {
   MDBBtnGroup,
   MDBNav,
   MDBNavLink,
+  MDBDropdown,
+  MDBDropdownToggle,
+  MDBDropdownMenu,
+  MDBDropdownItem
 } from "mdbreact";
 import "./profile.css";
 
@@ -35,8 +39,7 @@ class ColumnsProfile extends React.Component {
             <MDBCard
               style={{
                 height: "40rem",
-              }}
-            >
+              }}>
               <MDBCardBody className="rounded mb-0">
                 <img
                   id="avatar"
@@ -115,6 +118,33 @@ class ColumnsProfile extends React.Component {
                 <MDBCardText style={{ textAlign: "center" }}>
                   <hr className="hr" style={{ backgroundColor: "white" }}></hr>
                 </MDBCardText>
+                <canvas id="myCanvas"></canvas>
+                <MDBNav className='flex-row'>
+                  <MDBBtn color="success">Save</MDBBtn>
+                    <MDBDropdown>
+                      <MDBDropdownToggle caret id='dd1' color='warning'>
+                        Choose Group
+                      </MDBDropdownToggle>
+                    <MDBDropdownMenu basic>
+                        <MDBDropdownItem>School</MDBDropdownItem>
+                        <MDBDropdownItem>Family</MDBDropdownItem>
+                        <MDBDropdownItem>Couple</MDBDropdownItem>
+                      </MDBDropdownMenu>
+                    </MDBDropdown>
+                    <MDBDropdown>
+                      <MDBDropdownToggle caret color='warning'>
+                        Number of people
+                      </MDBDropdownToggle>
+                      <MDBDropdownMenu basic>
+                        <MDBDropdownItem>1</MDBDropdownItem>
+                        <MDBDropdownItem>2</MDBDropdownItem>
+                        <MDBDropdownItem>3</MDBDropdownItem>
+                      </MDBDropdownMenu>
+                    </MDBDropdown>
+                  <div id='run'>
+                    <MDBBtn id='run' color="primary">Run Simulation</MDBBtn>
+                  </div>
+                </MDBNav>
               </MDBCardBody>
             </MDBCard>
           </MDBAnimation>
@@ -137,7 +167,7 @@ class ColumnsProfile extends React.Component {
                 <MDBCardTitle style={{ textAlign: "center" }}>
                   <h4 style={{ color: "white" }}>
                     <MDBIcon icon="tools" style={{ marginRight: "1rem" }} />
-                    Drag n Drop
+                    Drag & Drop
                   </h4>
                 </MDBCardTitle>
                 <MDBCardText style={{ textAlign: "center" }}>
