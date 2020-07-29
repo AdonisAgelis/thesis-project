@@ -22,24 +22,13 @@ import Footer from "./footer.component";
 import ColumnsProfile from "./columnsProfile.component";
 
 class Profile extends React.Component {
-  state = {
-    collapseID: "",
+  state = { midMenuisOpen: "1" };
+
+  callbackFunction = (childData) => {
+    this.setState({ midMenuisOpen: childData });
   };
 
-  toggleCollapse = (collapseID) => () =>
-    this.setState((prevState) => ({
-      collapseID: prevState.collapseID !== collapseID ? collapseID : "",
-    }));
-
   render() {
-    const overlay = (
-      <div
-        id="sidenav-overlay"
-        style={{ backgroundColor: "transparent" }}
-        onClick={this.toggleCollapse("navbarCollapse")}
-      />
-    );
-
     const columnPos = 2;
 
     return (
@@ -48,9 +37,23 @@ class Profile extends React.Component {
 
         <MDBView>
           <MDBMask className="d-flex justify-content-center align-items-center gradient">
-            <ColumnsProfile columnPos={columnPos} />
-            <ColumnsProfile columnPos={columnPos + 5} />
-            <ColumnsProfile columnPos={columnPos + 1} />
+            <ColumnsProfile
+              columnPos={columnPos}
+              parentCallback={this.callbackFunction}
+            />
+            {this.state.midMenuisOpen === "1" ? (
+              true
+            ) : (
+              <ColumnsProfile columnPos={columnPos + 5} />
+            )}
+            {this.state.midMenuisOpen === "1" ? (
+              true
+            ) : (
+              <ColumnsProfile columnPos={columnPos + 1} />
+            )}
+
+            {/* <ColumnsProfile columnPos={columnPos + 5} />
+            <ColumnsProfile columnPos={columnPos + 1} /> */}
           </MDBMask>
         </MDBView>
         <Footer />

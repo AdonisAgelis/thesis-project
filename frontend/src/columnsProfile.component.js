@@ -23,6 +23,10 @@ import {
 import "./profile.css";
 
 class ColumnsProfile extends React.Component {
+  sendData = () => {
+    this.props.parentCallback("2");
+  };
+
   render() {
     if (this.props.columnPos == 2) {
       return (
@@ -56,7 +60,7 @@ class ColumnsProfile extends React.Component {
                       <MDBIcon icon="home" style={{ marginRight: "1rem" }} />
                       Home
                     </MDBBtn>
-                    <MDBBtn className="styleBtn">
+                    <MDBBtn className="styleBtn" onClick={this.sendData}>
                       <MDBIcon
                         icon="plus-circle"
                         style={{ marginRight: "1rem" }}
@@ -99,14 +103,17 @@ class ColumnsProfile extends React.Component {
             >
               <MDBCardImage className="img-fluid" />
               <MDBCardBody
-                style={{ backgroundColor: "white" }}
+                style={{ backgroundColor: "121212" }}
                 className="rounded mb-0"
               >
                 <MDBCardTitle style={{ textAlign: "center" }}>
-                  DimitraPap
+                  <h4 style={{ color: "white" }}>
+                    <MDBIcon icon="building" style={{ marginRight: "1rem" }} />
+                    Name of Room
+                  </h4>
                 </MDBCardTitle>
                 <MDBCardText style={{ textAlign: "center" }}>
-                  El Bouti8o
+                  <hr className="hr" style={{ backgroundColor: "white" }}></hr>
                 </MDBCardText>
               </MDBCardBody>
             </MDBCard>
@@ -124,14 +131,17 @@ class ColumnsProfile extends React.Component {
             >
               <MDBCardImage className="img-fluid" />
               <MDBCardBody
-                style={{ backgroundColor: "white" }}
+                style={{ backgroundColor: "121212" }}
                 className="rounded mb-0"
               >
                 <MDBCardTitle style={{ textAlign: "center" }}>
-                  DimitraPap
+                  <h4 style={{ color: "white" }}>
+                    <MDBIcon icon="tools" style={{ marginRight: "1rem" }} />
+                    Drag n Drop
+                  </h4>
                 </MDBCardTitle>
                 <MDBCardText style={{ textAlign: "center" }}>
-                  El Bouti8o
+                  <hr className="hr" style={{ backgroundColor: "white" }}></hr>
                 </MDBCardText>
               </MDBCardBody>
             </MDBCard>
