@@ -107,13 +107,23 @@
 }
 
 #dd1 {
-  margin-left: 12rem !important;
+  margin-left: 8rem !important;
   border-radius: 1rem;
+  background-color: transparent !important;
 }
 #dd2 {
   border-radius: 1rem;
+  background-color: transparent !important;
 }
 
 #save {
   border-radius: 1rem;
+}
+
+#add {
+  border-radius: 1rem;
+}
+
+.add {
+  background-color: #33b5e5;
 }

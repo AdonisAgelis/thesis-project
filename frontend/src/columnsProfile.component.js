@@ -27,6 +27,7 @@ import {
 import "./profile.css";
 
 class ColumnsProfile extends React.Component {
+
   sendData = () => {
     this.props.parentCallback("2");
   };
@@ -121,7 +122,7 @@ class ColumnsProfile extends React.Component {
                     Save
                   </MDBBtn>
                   <MDBDropdown>
-                    <MDBDropdownToggle caret id="dd1" color="warning">
+                    <MDBDropdownToggle caret id="dd1" rounded outline color="warning">
                       Choose Group
                     </MDBDropdownToggle>
                     <MDBDropdownMenu basic>
@@ -131,7 +132,7 @@ class ColumnsProfile extends React.Component {
                     </MDBDropdownMenu>
                   </MDBDropdown>
                   <MDBDropdown>
-                    <MDBDropdownToggle caret id="dd2" outline color="danger">
+                    <MDBDropdownToggle caret id="dd2" rounded outline color="warning">
                       Number of people
                     </MDBDropdownToggle>
                     <MDBDropdownMenu basic>
@@ -140,6 +141,7 @@ class ColumnsProfile extends React.Component {
                       <MDBDropdownItem>3</MDBDropdownItem>
                     </MDBDropdownMenu>
                   </MDBDropdown>
+                  <MDBBtn id='add' rounded outline color="info">Add</MDBBtn>
                   <div id="run">
                     <MDBBtn id="run" rounded outline color="danger">
                       <MDBIcon
