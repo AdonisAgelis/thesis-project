@@ -107,23 +107,35 @@
 }
 
 #dd1 {
-  margin-left: 8rem !important;
+  margin-left: 17rem;
   border-radius: 1rem;
   background-color: transparent !important;
 }
+
 #dd2 {
   border-radius: 1rem;
   background-color: transparent !important;
 }
 
 #save {
+  position: fixed;
+  left: 0;
   border-radius: 1rem;
+  margin-left: 1.2rem;
 }
 
 #add {
+  position: fixed;
+  margin-left: 5rem;
   border-radius: 1rem;
 }
 
 .add {
   background-color: #33b5e5;
+}
+
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: stretch;
 }

@@ -1,0 +1,79 @@
+import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+
+import {
+  MDBMask,
+  MDBRow,
+  MDBCol,
+  MDBIcon,
+  MDBBtn,
+  MDBView,
+  MDBContainer,
+  MDBCard,
+  MDBCardBody,
+  MDBCardImage,
+  MDBCardTitle,
+  MDBCardText,
+  MDBInput,
+  MDBAnimation,
+  MDBBtnGroup,
+  MDBNav,
+  MDBNavLink,
+  MDBDropdown,
+  MDBDropdownToggle,
+  MDBDropdownMenu,
+  MDBDropdownItem,
+} from "mdbreact";
+
+import "./profile.css";
+
+class Buttons extends React.Component {
+    render() {
+        return(
+            <div className='flex-container row'>
+                <div className='flex-container row'>
+                    <MDBBtn id="save" outline color="success">
+                        <MDBIcon icon="save" style={{ marginRight: "1rem" }} />
+                        Save
+                    </MDBBtn>
+                  </div>
+                  <div className='flex-container row'>
+                  <MDBDropdown>
+                    <MDBDropdownToggle caret id="dd1" rounded outline color="warning">
+                      Choose Group
+                    </MDBDropdownToggle>
+                    <MDBDropdownMenu basic>
+                      <MDBDropdownItem>School</MDBDropdownItem>
+                      <MDBDropdownItem>Family</MDBDropdownItem>
+                      <MDBDropdownItem>Couple</MDBDropdownItem>
+                    </MDBDropdownMenu>
+                  </MDBDropdown>
+                  <MDBDropdown>
+                    <MDBDropdownToggle caret id="dd2" rounded outline color="warning">
+                      Number of people
+                    </MDBDropdownToggle>
+                    <MDBDropdownMenu basic>
+                      <MDBDropdownItem>1</MDBDropdownItem>
+                      <MDBDropdownItem>2</MDBDropdownItem>
+                      <MDBDropdownItem>3</MDBDropdownItem>
+                    </MDBDropdownMenu>
+                  </MDBDropdown>
+                  </div>
+                  <div>
+                    <MDBBtn id='add' rounded outline color="info">Add</MDBBtn>
+                  </div>
+                  <div id="run">
+                    <MDBBtn id="run" rounded outline color="danger">
+                      <MDBIcon
+                        icon="tachometer-alt"
+                        style={{ marginRight: "1rem" }}
+                      />
+                      Run Simulation
+                    </MDBBtn>
+                  </div>
+                </div>
+        )
+    }
+}
+
+export default Buttons;
