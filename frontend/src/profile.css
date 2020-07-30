@@ -100,6 +100,7 @@
 }
 
 #run {
+  border-radius: 1rem;
   position: fixed;
   right: 0;
   margin-right: 1.2rem;
@@ -107,4 +108,12 @@
 
 #dd1 {
   margin-left: 12rem !important;
+  border-radius: 1rem;
+}
+#dd2 {
+  border-radius: 1rem;
+}
+
+#save {
+  border-radius: 1rem;
 }

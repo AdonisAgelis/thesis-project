@@ -22,7 +22,7 @@ import {
   MDBDropdown,
   MDBDropdownToggle,
   MDBDropdownMenu,
-  MDBDropdownItem
+  MDBDropdownItem,
 } from "mdbreact";
 import "./profile.css";
 
@@ -39,7 +39,9 @@ class ColumnsProfile extends React.Component {
             <MDBCard
               style={{
                 height: "40rem",
-              }}>
+                borderRadius: "1rem",
+              }}
+            >
               <MDBCardBody className="rounded mb-0">
                 <img
                   id="avatar"
@@ -81,13 +83,6 @@ class ColumnsProfile extends React.Component {
                       />
                       Graphs
                     </MDBBtn>
-                    <MDBBtn className="styleBtn">
-                      <MDBIcon
-                        icon="tachometer-alt"
-                        style={{ marginRight: "1rem" }}
-                      />
-                      Run Simulation
-                    </MDBBtn>
                   </MDBNav>
                 </MDBCol>
               </MDBCardBody>
@@ -102,6 +97,7 @@ class ColumnsProfile extends React.Component {
             <MDBCard
               style={{
                 height: "40rem",
+                borderRadius: "1rem",
               }}
             >
               <MDBCardImage className="img-fluid" />
@@ -119,30 +115,39 @@ class ColumnsProfile extends React.Component {
                   <hr className="hr" style={{ backgroundColor: "white" }}></hr>
                 </MDBCardText>
                 <canvas id="myCanvas"></canvas>
-                <MDBNav className='flex-row'>
-                  <MDBBtn color="success">Save</MDBBtn>
-                    <MDBDropdown>
-                      <MDBDropdownToggle caret id='dd1' color='warning'>
-                        Choose Group
-                      </MDBDropdownToggle>
+                <MDBNav className="flex-row" style={{ borderRadius: "1rem" }}>
+                  <MDBBtn id="save" outline color="success">
+                    <MDBIcon icon="save" style={{ marginRight: "1rem" }} />
+                    Save
+                  </MDBBtn>
+                  <MDBDropdown>
+                    <MDBDropdownToggle caret id="dd1" color="warning">
+                      Choose Group
+                    </MDBDropdownToggle>
                     <MDBDropdownMenu basic>
-                        <MDBDropdownItem>School</MDBDropdownItem>
-                        <MDBDropdownItem>Family</MDBDropdownItem>
-                        <MDBDropdownItem>Couple</MDBDropdownItem>
-                      </MDBDropdownMenu>
-                    </MDBDropdown>
-                    <MDBDropdown>
-                      <MDBDropdownToggle caret color='warning'>
-                        Number of people
-                      </MDBDropdownToggle>
-                      <MDBDropdownMenu basic>
-                        <MDBDropdownItem>1</MDBDropdownItem>
-                        <MDBDropdownItem>2</MDBDropdownItem>
-                        <MDBDropdownItem>3</MDBDropdownItem>
-                      </MDBDropdownMenu>
-                    </MDBDropdown>
-                  <div id='run'>
-                    <MDBBtn id='run' color="primary">Run Simulation</MDBBtn>
+                      <MDBDropdownItem>School</MDBDropdownItem>
+                      <MDBDropdownItem>Family</MDBDropdownItem>
+                      <MDBDropdownItem>Couple</MDBDropdownItem>
+                    </MDBDropdownMenu>
+                  </MDBDropdown>
+                  <MDBDropdown>
+                    <MDBDropdownToggle caret id="dd2" outline color="danger">
+                      Number of people
+                    </MDBDropdownToggle>
+                    <MDBDropdownMenu basic>
+                      <MDBDropdownItem>1</MDBDropdownItem>
+                      <MDBDropdownItem>2</MDBDropdownItem>
+                      <MDBDropdownItem>3</MDBDropdownItem>
+                    </MDBDropdownMenu>
+                  </MDBDropdown>
+                  <div id="run">
+                    <MDBBtn id="run" rounded outline color="danger">
+                      <MDBIcon
+                        icon="tachometer-alt"
+                        style={{ marginRight: "1rem" }}
+                      />
+                      Run Simulation
+                    </MDBBtn>
                   </div>
                 </MDBNav>
               </MDBCardBody>
@@ -157,6 +162,7 @@ class ColumnsProfile extends React.Component {
             <MDBCard
               style={{
                 height: "40rem",
+                borderRadius: "1rem",
               }}
             >
               <MDBCardImage className="img-fluid" />
