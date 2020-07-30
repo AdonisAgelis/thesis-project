@@ -27,6 +27,7 @@ import {
 import "./profile.css";
 
 class ColumnsProfile extends React.Component {
+
   sendData = () => {
     this.props.parentCallback("2");
   };
@@ -40,7 +41,6 @@ class ColumnsProfile extends React.Component {
               style={{
                 height: "40rem",
                 borderRadius: "1rem",
-                boxShadow: "20px 25px 10px rgba(24,24,24, .5)",
               }}
             >
               <MDBCardBody className="rounded mb-0">
@@ -99,7 +99,6 @@ class ColumnsProfile extends React.Component {
               style={{
                 height: "40rem",
                 borderRadius: "1rem",
-                boxShadow: "20px 25px 10px rgba(24,24,24, .5)",
               }}
             >
               <MDBCardImage className="img-fluid" />
@@ -123,13 +122,7 @@ class ColumnsProfile extends React.Component {
                     Save
                   </MDBBtn>
                   <MDBDropdown>
-                    <MDBDropdownToggle
-                      caret
-                      id="dd1"
-                      rounded
-                      outline
-                      color="warning"
-                    >
+                    <MDBDropdownToggle caret id="dd1" rounded outline color="warning">
                       Choose Group
                     </MDBDropdownToggle>
                     <MDBDropdownMenu basic>
@@ -139,13 +132,7 @@ class ColumnsProfile extends React.Component {
                     </MDBDropdownMenu>
                   </MDBDropdown>
                   <MDBDropdown>
-                    <MDBDropdownToggle
-                      caret
-                      id="dd2"
-                      rounded
-                      outline
-                      color="warning"
-                    >
+                    <MDBDropdownToggle caret id="dd2" rounded outline color="warning">
                       Number of people
                     </MDBDropdownToggle>
                     <MDBDropdownMenu basic>
@@ -154,9 +141,7 @@ class ColumnsProfile extends React.Component {
                       <MDBDropdownItem>3</MDBDropdownItem>
                     </MDBDropdownMenu>
                   </MDBDropdown>
-                  <MDBBtn id="add" rounded outline color="info">
-                    Add
-                  </MDBBtn>
+                  <MDBBtn id='add' rounded outline color="info">Add</MDBBtn>
                   <div id="run">
                     <MDBBtn id="run" rounded outline color="danger">
                       <MDBIcon
@@ -180,7 +165,6 @@ class ColumnsProfile extends React.Component {
               style={{
                 height: "40rem",
                 borderRadius: "1rem",
-                boxShadow: "20px 25px 10px rgba(24,24,24, .5)",
               }}
             >
               <MDBCardImage className="img-fluid" />
