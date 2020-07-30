@@ -2,20 +2,29 @@ import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import {
+  MDBMask,
+  MDBRow,
   MDBCol,
   MDBIcon,
   MDBBtn,
+  MDBView,
+  MDBContainer,
   MDBCard,
   MDBCardBody,
   MDBCardImage,
   MDBCardTitle,
   MDBCardText,
+  MDBInput,
   MDBAnimation,
+  MDBBtnGroup,
   MDBNav,
-  MDBContainer,
+  MDBNavLink,
+  MDBDropdown,
+  MDBDropdownToggle,
+  MDBDropdownMenu,
+  MDBDropdownItem
 } from "mdbreact";
 import "./profile.css";
-import ModalPage from "./modal.component";
 
 class ColumnsProfile extends React.Component {
   sendData = () => {
@@ -30,9 +39,13 @@ class ColumnsProfile extends React.Component {
             <MDBCard
               style={{
                 height: "40rem",
-              }}
-            >
+              }}>
               <MDBCardBody className="rounded mb-0">
+                <img
+                  id="avatar"
+                  className="rounded-circle"
+                  src="https://wireless.uop.gr/images/instructors/Dr-Tselikas.jpg"
+                ></img>
                 <MDBCardTitle
                   style={{
                     display: "grid",
@@ -41,50 +54,42 @@ class ColumnsProfile extends React.Component {
                     color: "white",
                   }}
                 >
-                  <h4>
-                    <MDBIcon icon="user-alt" /> Sensei
-                  </h4>
+                  Sensei
                 </MDBCardTitle>
                 <hr className="hr" style={{ backgroundColor: "white" }}></hr>
                 <MDBCol>
-                  <MDBNav className="flex-column ">
-                    <MDBBtn className="styleBtn" style={{ textAlign: "left" }}>
+                  <MDBNav className="flex-column   ">
+                    <MDBBtn className="styleBtn">
                       <MDBIcon icon="home" style={{ marginRight: "1rem" }} />
                       Home
                     </MDBBtn>
-                    <MDBBtn
-                      className="styleBtn"
-                      onClick={this.sendData}
-                      style={{ textAlign: "left" }}
-                    >
+                    <MDBBtn className="styleBtn" onClick={this.sendData}>
                       <MDBIcon
                         icon="plus-circle"
                         style={{ marginRight: "1rem" }}
                       />
                       New Template
                     </MDBBtn>
-                    <MDBBtn className="styleBtn" style={{ textAlign: "left" }}>
+                    <MDBBtn className="styleBtn">
                       <MDBIcon icon="sync" style={{ marginRight: "1rem" }} />
                       Load Template
                     </MDBBtn>
-                    <MDBBtn className="styleBtn" style={{ textAlign: "left" }}>
+                    <MDBBtn className="styleBtn">
                       <MDBIcon
                         icon="chart-area"
                         style={{ marginRight: "1rem" }}
                       />
                       Graphs
                     </MDBBtn>
+                    <MDBBtn className="styleBtn">
+                      <MDBIcon
+                        icon="tachometer-alt"
+                        style={{ marginRight: "1rem" }}
+                      />
+                      Run Simulation
+                    </MDBBtn>
                   </MDBNav>
                 </MDBCol>
-                <hr className="hr" style={{ backgroundColor: "white" }}></hr>
-                <MDBContainer>
-                  <MDBCol>
-                    <MDBBtn
-                      className="styleBtn"
-                      style={{ textAlign: "center" }}
-                    ></MDBBtn>
-                  </MDBCol>
-                </MDBContainer>
               </MDBCardBody>
             </MDBCard>
           </MDBAnimation>
@@ -113,6 +118,33 @@ class ColumnsProfile extends React.Component {
                 <MDBCardText style={{ textAlign: "center" }}>
                   <hr className="hr" style={{ backgroundColor: "white" }}></hr>
                 </MDBCardText>
+                <canvas id="myCanvas"></canvas>
+                <MDBNav className='flex-row'>
+                  <MDBBtn color="success">Save</MDBBtn>
+                    <MDBDropdown>
+                      <MDBDropdownToggle caret id='dd1' color='warning'>
+                        Choose Group
+                      </MDBDropdownToggle>
+                    <MDBDropdownMenu basic>
+                        <MDBDropdownItem>School</MDBDropdownItem>
+                        <MDBDropdownItem>Family</MDBDropdownItem>
+                        <MDBDropdownItem>Couple</MDBDropdownItem>
+                      </MDBDropdownMenu>
+                    </MDBDropdown>
+                    <MDBDropdown>
+                      <MDBDropdownToggle caret color='warning'>
+                        Number of people
+                      </MDBDropdownToggle>
+                      <MDBDropdownMenu basic>
+                        <MDBDropdownItem>1</MDBDropdownItem>
+                        <MDBDropdownItem>2</MDBDropdownItem>
+                        <MDBDropdownItem>3</MDBDropdownItem>
+                      </MDBDropdownMenu>
+                    </MDBDropdown>
+                  <div id='run'>
+                    <MDBBtn id='run' color="primary">Run Simulation</MDBBtn>
+                  </div>
+                </MDBNav>
               </MDBCardBody>
             </MDBCard>
           </MDBAnimation>
@@ -135,7 +167,7 @@ class ColumnsProfile extends React.Component {
                 <MDBCardTitle style={{ textAlign: "center" }}>
                   <h4 style={{ color: "white" }}>
                     <MDBIcon icon="tools" style={{ marginRight: "1rem" }} />
-                    Drag n Drop
+                    Drag & Drop
                   </h4>
                 </MDBCardTitle>
                 <MDBCardText style={{ textAlign: "center" }}>

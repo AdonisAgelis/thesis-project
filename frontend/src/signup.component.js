@@ -37,10 +37,10 @@ class SignUp extends React.Component {
     );
     return (
       <div id="signup">
-        <Navbar />
-
+        
         <MDBView>
           <MDBMask className="d-flex justify-content-center align-items-center gradient">
+          <Navbar />
             <MDBContainer>
               <MDBRow>
                 <MDBAnimation
