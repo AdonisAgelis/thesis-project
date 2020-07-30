@@ -24,7 +24,8 @@ import {
   MDBDropdownMenu,
   MDBDropdownItem,
 } from "mdbreact";
-import "./profile.css";
+
+import SimulationButtons from './simButtons.component';
 
 class ColumnsProfile extends React.Component {
   sendData = () => {
@@ -61,11 +62,11 @@ class ColumnsProfile extends React.Component {
                 </MDBCardTitle>
                 <hr className="hr" style={{ backgroundColor: "white" }}></hr>
                 <MDBCol>
-                  <MDBNav className="flex-column   ">
-                    <MDBBtn className="styleBtn">
-                      <MDBIcon icon="home" style={{ marginRight: "1rem" }} />
-                      Home
-                    </MDBBtn>
+                  <MDBNav className="flex-column">
+                      <MDBBtn className="styleBtn">
+                        <MDBIcon icon="home" style={{ marginRight: "1rem" }} />
+                        Home
+                      </MDBBtn>
                     <MDBBtn className="styleBtn" onClick={this.sendData}>
                       <MDBIcon
                         icon="plus-circle"
@@ -118,46 +119,52 @@ class ColumnsProfile extends React.Component {
                 </MDBCardText>
                 <canvas id="myCanvas"></canvas>
                 <MDBNav className="flex-row" style={{ borderRadius: "1rem" }}>
-                  <MDBBtn id="save" outline color="success">
-                    <MDBIcon icon="save" style={{ marginRight: "1rem" }} />
-                    Save
-                  </MDBBtn>
+                  <div>
+                    <MDBBtn id="save" outline color="success">
+                      <MDBIcon icon="save" style={{ marginRight: "1rem" }} />
+                      Save
+                    </MDBBtn>
+                  </div>
+                  <div>
                   <MDBDropdown>
-                    <MDBDropdownToggle
-                      caret
-                      id="dd1"
-                      rounded
-                      outline
-                      color="warning"
-                    >
-                      Choose Group
-                    </MDBDropdownToggle>
-                    <MDBDropdownMenu basic>
-                      <MDBDropdownItem>School</MDBDropdownItem>
-                      <MDBDropdownItem>Family</MDBDropdownItem>
-                      <MDBDropdownItem>Couple</MDBDropdownItem>
-                    </MDBDropdownMenu>
-                  </MDBDropdown>
-                  <MDBDropdown>
-                    <MDBDropdownToggle
-                      caret
-                      id="dd2"
-                      rounded
-                      outline
-                      color="warning"
-                    >
-                      Number of people
-                    </MDBDropdownToggle>
-                    <MDBDropdownMenu basic>
-                      <MDBDropdownItem>1</MDBDropdownItem>
-                      <MDBDropdownItem>2</MDBDropdownItem>
-                      <MDBDropdownItem>3</MDBDropdownItem>
-                    </MDBDropdownMenu>
-                  </MDBDropdown>
-                  <MDBBtn id="add" rounded outline color="info">
-                    Add
-                  </MDBBtn>
-                  <div id="run">
+                        <MDBDropdownToggle
+                        caret
+                        id="dd1"
+                        rounded
+                        outline
+                        color="warning"
+                        >
+                        Choose Group
+                        </MDBDropdownToggle>
+                        <MDBDropdownMenu basic>
+                        <MDBDropdownItem>School</MDBDropdownItem>
+                        <MDBDropdownItem>Family</MDBDropdownItem>
+                        <MDBDropdownItem>Couple</MDBDropdownItem>
+                        </MDBDropdownMenu>
+                    </MDBDropdown>
+                    <MDBDropdown>
+                        <MDBDropdownToggle
+                        caret
+                        id="dd2"
+                        rounded
+                        outline
+                        color="warning"
+                        >
+                        Number of people
+                        </MDBDropdownToggle>
+                        <MDBDropdownMenu basic>
+                        <MDBDropdownItem>1</MDBDropdownItem>
+                        <MDBDropdownItem>2</MDBDropdownItem>
+                        <MDBDropdownItem>3</MDBDropdownItem>
+                        </MDBDropdownMenu>
+                    </MDBDropdown>
+                  </div>
+                  <div>
+                    <MDBBtn id='add' rounded outline color="info">
+                      Add
+                    </MDBBtn>
+                  </div>
+                  <div>
                     <MDBBtn id="run" rounded outline color="danger">
                       <MDBIcon
                         icon="tachometer-alt"

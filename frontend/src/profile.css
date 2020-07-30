@@ -108,11 +108,13 @@
 }
 
 #dd1 {
-  margin-left: 8rem !important;
+  margin-left: 20rem !important;
   border-radius: 1rem;
   background-color: transparent !important;
 }
+
 #dd2 {
+  margin-left: 6rem;
   border-radius: 1rem;
   background-color: transparent !important;
 }
