@@ -23,6 +23,7 @@ class ColumnsProfile extends React.Component {
   };
 
   render() {
+
     if (this.props.columnPos == 2) {
       return (
         <MDBCol md={this.props.columnPos}>
@@ -122,7 +123,13 @@ class ColumnsProfile extends React.Component {
                   <hr className="hr" style={{ backgroundColor: "white" }}></hr>
                 </MDBCardText>
                 <canvas id="myCanvas"></canvas>
-               <Buttons />
+                <div className='d-flex flex-row justify-content-around' style={{display: 'flex', flexWrap: 'wrap'}}>
+                  <Buttons type={'save'}/>
+                  <Buttons type={'group'}/>
+                  <Buttons type={'people'}/>
+                  <Buttons type={'add'}/>
+                  <Buttons type={'run'}/>
+               </div>
               </MDBCardBody>
             </MDBCard>
           </MDBAnimation>
