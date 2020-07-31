@@ -30,16 +30,13 @@ import "./profile.css";
 class Buttons extends React.Component {
     render() {
         return(
-            <div className='flex-container row'>
-                <div className='flex-container row'>
-                    <MDBBtn id="save" outline color="success">
+            <div className='d-flex flex-row justify-content-center'>
+                    <MDBBtn /*id="save"*/ outline color="success">
                         <MDBIcon icon="save" style={{ marginRight: "1rem" }} />
                         Save
                     </MDBBtn>
-                  </div>
-                  <div className='flex-container row'>
                   <MDBDropdown>
-                    <MDBDropdownToggle caret id="dd1" rounded outline color="warning">
+                    <MDBDropdownToggle /*id="dd1"*/ caret  rounded outline color="warning">
                       Choose Group
                     </MDBDropdownToggle>
                     <MDBDropdownMenu basic>
@@ -49,7 +46,7 @@ class Buttons extends React.Component {
                     </MDBDropdownMenu>
                   </MDBDropdown>
                   <MDBDropdown>
-                    <MDBDropdownToggle caret id="dd2" rounded outline color="warning">
+                    <MDBDropdownToggle caret /*id="dd2"*/ rounded outline color="warning">
                       Number of people
                     </MDBDropdownToggle>
                     <MDBDropdownMenu basic>
@@ -58,19 +55,14 @@ class Buttons extends React.Component {
                       <MDBDropdownItem>3</MDBDropdownItem>
                     </MDBDropdownMenu>
                   </MDBDropdown>
-                  </div>
-                  <div>
-                    <MDBBtn id='add' rounded outline color="info">Add</MDBBtn>
-                  </div>
-                  <div id="run">
-                    <MDBBtn id="run" rounded outline color="danger">
+                    <MDBBtn /*id='add'*/ rounded outline color="info">Add</MDBBtn>
+                    <MDBBtn /*id="run"*/ rounded outline color="danger">
                       <MDBIcon
                         icon="tachometer-alt"
                         style={{ marginRight: "1rem" }}
                       />
                       Run Simulation
                     </MDBBtn>
-                  </div>
                 </div>
         )
     }

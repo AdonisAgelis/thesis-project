@@ -119,9 +119,9 @@ class ColumnsProfile extends React.Component {
                   <hr className="hr" style={{ backgroundColor: "white" }}></hr>
                 </MDBCardText>
                 <canvas id="myCanvas"></canvas>
-                <div className='flex-container'>
+                {/* <div className='flex-container'> */}
                 <Buttons />
-                </div>
+                {/* </div> */}
               </MDBCardBody>
             </MDBCard>
           </MDBAnimation>
