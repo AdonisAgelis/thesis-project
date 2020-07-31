@@ -18,9 +18,9 @@
     from(rgba(0, 0, 0, 0.7), to(rgba(19, 19, 19, 0.4)) 100%)
   );
   background: linear-gradient(
-    0deg,
-    rgba(43, 41, 41, 0.959),
-    rgba(255, 255, 255, 0) 100%
+    320deg,
+    rgba(19, 12, 12, 0.842),
+    rgba(250, 243, 243, 0.253) 100%
   );
 }
 
@@ -89,6 +89,10 @@
   margin-top: 1rem;
 }
 
+.hrleft {
+  margin-top: 1rem;
+}
+
 #myCanvas {
   border: 1px solid white;
   background-color: white;
@@ -96,25 +100,16 @@
   height: 50vh;
 }
 
-.flex-row {
-  margin-left: -0.4rem;
-}
-
 #run {
   border-radius: 1rem;
-  position: fixed;
-  right: 0;
-  margin-right: 1.2rem;
 }
 
 #dd1 {
-  margin-left: 20rem !important;
   border-radius: 1rem;
   background-color: transparent !important;
 }
 
 #dd2 {
-  margin-left: 6rem;
   border-radius: 1rem;
   background-color: transparent !important;
 }
@@ -125,8 +120,4 @@
 
 #add {
   border-radius: 1rem;
-}
-
-.add {
-  background-color: #33b5e5;
 }
