@@ -100,19 +100,11 @@
   height: 50vh;
 }
 
-.flex-row {
-  margin-left: -0.4rem;
-}
-
 #run {
   border-radius: 1rem;
-  position: fixed;
-  right: 0;
-  margin-right: 1.2rem;
 }
 
 #dd1 {
-  margin-left: 17rem;
   border-radius: 1rem;
   background-color: transparent !important;
 }
@@ -123,24 +115,9 @@
 }
 
 #save {
-  position: fixed;
-  left: 0;
   border-radius: 1rem;
-  margin-left: 1.2rem;
 }
 
 #add {
-  position: fixed;
-  margin-left: 5rem;
   border-radius: 1rem;
-}
-
-.add {
-  background-color: #33b5e5;
-}
-
-.flex-container {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: stretch;
 }
