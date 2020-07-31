@@ -36,7 +36,7 @@ class Buttons extends React.Component {
                         Save
                     </MDBBtn>
                   <MDBDropdown>
-                    <MDBDropdownToggle id="dd1" caret  rounded outline color="warning">
+                    <MDBDropdownToggle id="dd1" caret  rounded outline color="white">
                       Choose Group
                     </MDBDropdownToggle>
                     <MDBDropdownMenu basic>
@@ -46,7 +46,7 @@ class Buttons extends React.Component {
                     </MDBDropdownMenu>
                   </MDBDropdown>
                   <MDBDropdown>
-                    <MDBDropdownToggle caret id="dd2" rounded outline color="warning">
+                    <MDBDropdownToggle caret id="dd2" rounded outline color="white">
                       Number of people
                     </MDBDropdownToggle>
                     <MDBDropdownMenu basic>
@@ -55,7 +55,7 @@ class Buttons extends React.Component {
                       <MDBDropdownItem>3</MDBDropdownItem>
                     </MDBDropdownMenu>
                   </MDBDropdown>
-                    <MDBBtn id='add' outline color="info">Add</MDBBtn>
+                    <MDBBtn id='add' outline color="white">Add</MDBBtn>
                     <MDBBtn id="run" outline color="danger">
                       <MDBIcon
                         icon="tachometer-alt"
