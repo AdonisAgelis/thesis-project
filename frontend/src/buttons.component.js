@@ -29,13 +29,13 @@ import "./profile.css";
 
 class Buttons extends React.Component {
     render() {
-      if (this.props.type == 'save') {
+      if (this.props.type === 'save') {
         return(
           <MDBBtn id="save" outline color="success">
               <MDBIcon icon="save" style={{ marginRight: "1rem" }} />
                 Save
              </MDBBtn>)
-      } else if (this.props.type == 'group') {
+      } else if (this.props.type === 'group') {
         return (
           <MDBDropdown>
             <MDBDropdownToggle id="dd1" caret  rounded outline color="white">
@@ -48,7 +48,7 @@ class Buttons extends React.Component {
             </MDBDropdownMenu>
         </MDBDropdown>
         )
-      } else if (this.props.type == 'people') {
+      } else if (this.props.type === 'people') {
         return (
           <MDBDropdown>
             <MDBDropdownToggle caret id="dd2" rounded outline color="white">
@@ -61,11 +61,11 @@ class Buttons extends React.Component {
             </MDBDropdownMenu>
         </MDBDropdown>
         )
-      } else if (this.props.type == 'add') {
+      } else if (this.props.type === 'add') {
         return (
           <MDBBtn id='add' outline color="white">Add</MDBBtn>
         )
-      } else if (this.props.type == 'run') {
+      } else if (this.props.type === 'run') {
         return (
           <MDBBtn id="run" outline color="danger">
             <MDBIcon
@@ -74,6 +74,40 @@ class Buttons extends React.Component {
             />
             Run Simulation
         </MDBBtn>
+        )
+      } else if (this.props.type === 'home') {
+        return (
+          <MDBBtn className="styleBtn">
+                <MDBIcon icon="home" style={{ marginRight: "1rem" }} />
+                  Home
+          </MDBBtn>
+        )
+      } else if (this.props.type === 'new' ) {
+        return (
+          <MDBBtn className="styleBtn" onClick={this.sendData}>
+            <MDBIcon
+              icon="plus-circle"
+              style={{ marginRight: "1rem" }}
+              />
+              New Template
+          </MDBBtn>
+        )
+      } else if (this.props.type === 'load') {
+        return (
+          <MDBBtn className="styleBtn">
+              <MDBIcon icon="sync" style={{ marginRight: "1rem" }} />
+              Load Template
+          </MDBBtn>
+        )
+      } else if (this.props.type === 'graph') {
+        return (
+          <MDBBtn className="styleBtn">
+            <MDBIcon
+              icon="chart-area"
+              style={{ marginRight: "1rem" }}
+            />
+             Graphs
+          </MDBBtn>
         )
       }
     }

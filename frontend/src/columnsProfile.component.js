@@ -24,7 +24,7 @@ class ColumnsProfile extends React.Component {
 
   render() {
 
-    if (this.props.columnPos == 2) {
+    if (this.props.columnPos === 2) {
       return (
         <MDBCol md={this.props.columnPos}>
           <MDBAnimation type="fadeInDown" delay=".3s">
@@ -67,28 +67,10 @@ class ColumnsProfile extends React.Component {
                 ></hr>
                 <MDBCol>
                   <MDBNav className="flex-column   ">
-                    <MDBBtn className="styleBtn">
-                      <MDBIcon icon="home" style={{ marginRight: "1rem" }} />
-                      Home
-                    </MDBBtn>
-                    <MDBBtn className="styleBtn" onClick={this.sendData}>
-                      <MDBIcon
-                        icon="plus-circle"
-                        style={{ marginRight: "1rem" }}
-                      />
-                      New Template
-                    </MDBBtn>
-                    <MDBBtn className="styleBtn">
-                      <MDBIcon icon="sync" style={{ marginRight: "1rem" }} />
-                      Load Template
-                    </MDBBtn>
-                    <MDBBtn className="styleBtn">
-                      <MDBIcon
-                        icon="chart-area"
-                        style={{ marginRight: "1rem" }}
-                      />
-                      Graphs
-                    </MDBBtn>
+                    <Buttons type = 'home' />
+                    <Buttons type = 'new' onClick={this.sendData}/>
+                    <Buttons type = 'load' />
+                    <Buttons type = 'graph' />
                   </MDBNav>
                 </MDBCol>
                 <hr style={{ backgroundColor: "white" }}></hr>
@@ -97,7 +79,7 @@ class ColumnsProfile extends React.Component {
           </MDBAnimation>
         </MDBCol>
       );
-    } else if (this.props.columnPos == 7) {
+    } else if (this.props.columnPos === 7) {
       return (
         <MDBCol md={this.props.columnPos}>
           <MDBAnimation type="fadeInDown" delay=".4s">
@@ -135,7 +117,7 @@ class ColumnsProfile extends React.Component {
           </MDBAnimation>
         </MDBCol>
       );
-    } else if (this.props.columnPos == 3) {
+    } else if (this.props.columnPos === 3) {
       return (
         <MDBCol md={this.props.columnPos}>
           <MDBAnimation type="fadeInDown" delay=".5s">
