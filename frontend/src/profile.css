@@ -94,26 +94,28 @@
 
 #run {
   border-radius: 1rem;
+  box-shadow: 5px 5px 5px rgba(56, 55, 55, 0.5);
 }
 
 #dd1 {
   border-radius: 1rem;
   background-color: #202020 !important;
-  box-shadow: 5px 5px 5px rgba(24,24,24, .5);
+  box-shadow: 5px 5px 5px rgba(56, 55, 55, 0.5);
 }
 
 #dd2 {
   border-radius: 1rem;
   background-color: #202020 !important;
-  box-shadow: 5px 5px 5px rgba(24,24,24, .5);
+  box-shadow: 5px 5px 5px rgba(56, 55, 55, 0.5);
 }
 
 #save {
   border-radius: 1rem;
+  box-shadow: 5px 5px 5px rgba(56, 55, 55, 0.5);
 }
 
 #add {
   border-radius: 1rem;
   background-color: #202020 !important;
-  box-shadow: 5px 5px 5px rgba(24,24,24, .5);
+  box-shadow: 5px 5px 5px rgba(56, 55, 55, 0.5);
 }
