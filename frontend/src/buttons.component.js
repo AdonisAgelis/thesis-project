@@ -36,14 +36,14 @@ class Buttons extends React.Component {
     render() {
       if (this.props.type === 'save') {
         return(
-          <MDBBtn id="save" outline color="success">
+          <MDBBtn id="save" rounded color="success">
               <MDBIcon icon="save" style={{ marginRight: "1rem" }} />
                 Save
              </MDBBtn>)
       } else if (this.props.type === 'group') {
         return (
           <MDBDropdown>
-            <MDBDropdownToggle id="dd1" caret  rounded outline color="white">
+            <MDBDropdownToggle id="dd1" caret  rounded color="blue-grey">
               Choose Group
             </MDBDropdownToggle>
             <MDBDropdownMenu basic>
@@ -56,7 +56,7 @@ class Buttons extends React.Component {
       } else if (this.props.type === 'people') {
         return (
           <MDBDropdown>
-            <MDBDropdownToggle caret id="dd2" rounded outline color="white">
+            <MDBDropdownToggle caret id="dd2" rounded color="blue-grey">
               Number of people
             </MDBDropdownToggle>
             <MDBDropdownMenu basic>
@@ -68,11 +68,11 @@ class Buttons extends React.Component {
         )
       } else if (this.props.type === 'add') {
         return (
-          <MDBBtn id='add' outline color="white">Add</MDBBtn>
+          <MDBBtn id='add' color="blue-grey"><MDBIcon icon="arrow-alt-circle-up" /> Add</MDBBtn>
         )
       } else if (this.props.type === 'run') {
         return (
-          <MDBBtn id="run" outline color="danger">
+          <MDBBtn id="run" rounded color="danger">
             <MDBIcon
               icon="tachometer-alt"
               style={{ marginRight: "1rem" }}

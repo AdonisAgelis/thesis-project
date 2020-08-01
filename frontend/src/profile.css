@@ -98,12 +98,14 @@
 
 #dd1 {
   border-radius: 1rem;
-  background-color: transparent !important;
+  background-color: #202020 !important;
+  box-shadow: 5px 5px 5px rgba(24,24,24, .5);
 }
 
 #dd2 {
   border-radius: 1rem;
-  background-color: transparent !important;
+  background-color: #202020 !important;
+  box-shadow: 5px 5px 5px rgba(24,24,24, .5);
 }
 
 #save {
@@ -112,4 +114,6 @@
 
 #add {
   border-radius: 1rem;
+  background-color: #202020 !important;
+  box-shadow: 5px 5px 5px rgba(24,24,24, .5);
 }
