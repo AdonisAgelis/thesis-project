@@ -29,11 +29,39 @@ import "./profile.css";
 
 class Buttons extends React.Component {
 
+  state = {
+    test: 3
+  };
+
+  handleDropDown = (index) => {
+    this.setState({test : index})
+  };
+
+  dropdownItems = [{
+    type: 'School',
+    num: [5, 10, 15],
+    isActive: 1
+  },{
+    type: 'Family',
+    num: [3, 4, 5, 6],
+    isActive: 2
+  },{
+    type: 'Other',
+    num: [2, 3, 4],
+    isActive: 3
+  },{
+    type: 'Choose Group',
+    isActive: 4
+  }];
+
+
   sendColumnMidIsOpen = () => {
     this.props.func('2');
   };
 
     render() {
+      console.log(`Re vlakes to this.test einai ${this.test}`);
+
       if (this.props.type === 'save') {
         return(
           <MDBBtn id="save" rounded color="success">
@@ -44,12 +72,12 @@ class Buttons extends React.Component {
         return (
           <MDBDropdown>
             <MDBDropdownToggle id="dd1" caret  rounded color="blue-grey">
-              Choose Group
+              {this.dropdownItems[this.state.test].type}
             </MDBDropdownToggle>
             <MDBDropdownMenu basic>
-              <MDBDropdownItem>School</MDBDropdownItem>
-              <MDBDropdownItem>Family</MDBDropdownItem>
-              <MDBDropdownItem>Couple</MDBDropdownItem>
+              <MDBDropdownItem onClick = {() => this.handleDropDown(0)}>{this.dropdownItems[0].type}</MDBDropdownItem>
+              <MDBDropdownItem onClick = {() => this.handleDropDown(1)}>{this.dropdownItems[1].type}</MDBDropdownItem>
+              <MDBDropdownItem onClick = {() => this.handleDropDown(2)}>{this.dropdownItems[2].type}</MDBDropdownItem>
             </MDBDropdownMenu>
         </MDBDropdown>
         )
