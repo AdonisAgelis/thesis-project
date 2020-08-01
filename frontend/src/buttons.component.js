@@ -40,27 +40,25 @@ class Buttons extends React.Component {
   dropdownItems = [{
     type: 'School',
     num: [5, 10, 15],
-    isActive: 1
+    val: 1
   },{
     type: 'Family',
     num: [3, 4, 5, 6],
-    isActive: 2
+    val: 2
   },{
     type: 'Other',
     num: [2, 3, 4],
-    isActive: 3
+    val: 3
   },{
     type: 'Choose Group',
-    isActive: 4
+    val: 4
   }];
-
-
+  
   sendColumnMidIsOpen = () => {
     this.props.func('2');
   };
 
     render() {
-      console.log(`Re vlakes to this.test einai ${this.test}`);
 
       if (this.props.type === 'save') {
         return(
@@ -88,9 +86,7 @@ class Buttons extends React.Component {
               Number of people
             </MDBDropdownToggle>
             <MDBDropdownMenu basic>
-              <MDBDropdownItem>1</MDBDropdownItem>
-              <MDBDropdownItem>2</MDBDropdownItem>
-              <MDBDropdownItem>3</MDBDropdownItem>
+
             </MDBDropdownMenu>
         </MDBDropdown>
         )
