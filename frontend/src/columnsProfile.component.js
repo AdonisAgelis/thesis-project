@@ -16,10 +16,11 @@ import {
 import "./profile.css";
 import Background from "./columnsback.jpg";
 import Buttons from "./buttons.component";
+import logo from './logo.png';
 
 class ColumnsProfile extends React.Component {
-  sendData = () => {
-    this.props.parentCallback("2");
+  sendColumnMidIsOpen = (childData) => {
+    this.props.parentCallback(childData);
   };
 
   render() {
@@ -39,17 +40,20 @@ class ColumnsProfile extends React.Component {
                 position: "relative",
               }}
             >
-              <MDBCardBody className="rounded mb-0">
                 <MDBCardTitle
                   style={{
                     display: "grid",
                     placeItems: "center",
                     textAlign: "center",
-                    marginTop: "1rem",
+                    marginTop: "2rem",
                     color: "white",
+                    marginBottom: '8rem',
                   }}
                 >
-                  <h4>
+                <a href="http://localhost:3000">
+                  <img src={logo} className="img-fluid" />
+                </a>
+                  {/* <h4>
                     <MDBIcon
                       icon="user"
                       style={{
@@ -59,22 +63,14 @@ class ColumnsProfile extends React.Component {
                       }}
                     />
                     Sensei
-                  </h4>
+                  </h4> */}
                 </MDBCardTitle>
-                <hr
-                  className="hrleft"
-                  style={{ backgroundColor: "white" }}
-                ></hr>
-                <MDBCol>
                   <MDBNav className="flex-column   ">
                     <Buttons type = 'home' />
-                    <Buttons type = 'new' onClick={this.sendData}/>
+                    <Buttons type = 'new' func={this.sendColumnMidIsOpen}/>
                     <Buttons type = 'load' />
                     <Buttons type = 'graph' />
                   </MDBNav>
-                </MDBCol>
-                <hr style={{ backgroundColor: "white" }}></hr>
-              </MDBCardBody>
             </MDBCard>
           </MDBAnimation>
         </MDBCol>
@@ -97,12 +93,10 @@ class ColumnsProfile extends React.Component {
               >
                 <MDBCardTitle style={{ textAlign: "center" }}>
                   <h4 style={{ color: "white" }}>
-                    <MDBIcon icon="building" style={{ marginRight: "1rem" }} />
                     Name of Room
                   </h4>
                 </MDBCardTitle>
                 <MDBCardText style={{ textAlign: "center" }}>
-                  <hr className="hr" style={{ backgroundColor: "white" }}></hr>
                 </MDBCardText>
                 <canvas id="myCanvas"></canvas>
                 <div className='d-flex flex-row justify-content-around' style={{display: 'flex', flexWrap: 'wrap'}}>
@@ -140,7 +134,6 @@ class ColumnsProfile extends React.Component {
                   </h4>
                 </MDBCardTitle>
                 <MDBCardText style={{ textAlign: "center" }}>
-                  <hr className="hr" style={{ backgroundColor: "white" }}></hr>
                 </MDBCardText>
               </MDBCardBody>
             </MDBCard>

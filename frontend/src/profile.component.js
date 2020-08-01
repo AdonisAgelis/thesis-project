@@ -18,7 +18,7 @@ class Profile extends React.Component {
 
     return (
       <div id="profile">
-        <Navbar />
+        {/* <Navbar /> */}
 
         <MDBView>
           <MDBMask className="d-flex justify-content-center align-items-center gradient">

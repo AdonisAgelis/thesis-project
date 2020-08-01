@@ -28,6 +28,11 @@ import {
 import "./profile.css";
 
 class Buttons extends React.Component {
+
+  sendColumnMidIsOpen = () => {
+    this.props.func('2');
+  };
+
     render() {
       if (this.props.type === 'save') {
         return(
@@ -82,9 +87,9 @@ class Buttons extends React.Component {
                   Home
           </MDBBtn>
         )
-      } else if (this.props.type === 'new' ) {
+      } else if (this.props.type === 'new') {
         return (
-          <MDBBtn className="styleBtn" onClick={this.sendData}>
+          <MDBBtn className="styleBtn" onClick={this.sendColumnMidIsOpen}>
             <MDBIcon
               icon="plus-circle"
               style={{ marginRight: "1rem" }}
