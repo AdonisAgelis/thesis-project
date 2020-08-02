@@ -101,7 +101,7 @@ class ColumnsProfile extends React.Component {
                 >
                   <Buttons type={"save"} />
                   <Buttons type={"group"} />
-                  <Buttons type={"people"} />
+                  {/* <Buttons type={"people"} /> */}
                   <Buttons type={"add"} />
 
                   <Buttons type={"run"} />
