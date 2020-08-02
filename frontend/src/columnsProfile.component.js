@@ -103,6 +103,7 @@ class ColumnsProfile extends React.Component {
                   <Buttons type={"group"} />
                   <Buttons type={"people"} />
                   <Buttons type={"add"} />
+
                   <Buttons type={"run"} />
                 </div>
               </MDBCardBody>

@@ -26,8 +26,9 @@ import {
 } from "mdbreact";
 
 import "./profile.css";
+import DropDown from "./dropdown.component";
 
-//this.dropdownItems[this.state.test].num.map((value, index) => {
+// this.dropdownItems[index].num.map((value, index) => {
 //   return <MDBDropdownItem>{value}</MDBDropdownItem>;
 // });
 
@@ -46,7 +47,7 @@ class Buttons extends React.Component {
   };
 
   afterClickOnDropDown = () => {
-    console.log(this.state.test);
+    // await na gini to handle drop down
   };
 
   dropdownItems = [
@@ -76,7 +77,7 @@ class Buttons extends React.Component {
   };
 
   render() {
-    let i = this.state.test;
+    console.log(`${this.state.test} in buttons after render`);
     if (this.props.type === "save") {
       return (
         <MDBBtn id="save" rounded color="success">
@@ -84,6 +85,9 @@ class Buttons extends React.Component {
           Save
         </MDBBtn>
       );
+    } else if (this.props.type === "people") {
+      console.log(`${this.state.test} refreshed`);
+      return <DropDown something={this.state.test} />;
     } else if (this.props.type === "group") {
       return (
         <MDBDropdown>
@@ -101,15 +105,6 @@ class Buttons extends React.Component {
               {this.dropdownItems[2].type}
             </MDBDropdownItem>
           </MDBDropdownMenu>
-        </MDBDropdown>
-      );
-    } else if (this.props.type === "people") {
-      return (
-        <MDBDropdown>
-          <MDBDropdownToggle caret id="dd2" rounded color="blue-grey">
-            Number of people
-          </MDBDropdownToggle>
-          <MDBDropdownMenu basic>{this.afterClickOnDropDown}</MDBDropdownMenu>
         </MDBDropdown>
       );
     } else if (this.props.type === "add") {
