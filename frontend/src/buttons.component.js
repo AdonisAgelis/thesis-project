@@ -33,23 +33,28 @@ class Buttons extends React.Component {
 
     this.state = {
       test: 3,
+      people: "NUMBER OF PEOPLE",
     };
   }
 
-  handleDropDown = async (index) => {
+  handleDropDown = async (index, testing) => {
     await this.setState({ test: index });
     console.log(this.state.test);
   };
 
+  handleSecondDropDown = async (testing) => {
+    await this.setState({ people: testing });
+    console.log(this.state.people);
+  };
+
   groupDropDownOptions = (x, y) => {
-    // if (x === 0) {
-      const array = y[x].num.map((value) => 
-          <MDBDropdownItem>{value}</MDBDropdownItem>
-      ); 
-      return (
-          <MDBDropdownMenu basic>{array}</MDBDropdownMenu>
-      );
-  }
+    const array = y[x].num.map((value) => (
+      <MDBDropdownItem onClick={() => this.handleSecondDropDown(value)}>
+        {value}
+      </MDBDropdownItem>
+    ));
+    return <MDBDropdownMenu basic>{array}</MDBDropdownMenu>;
+  };
 
   dropdownItems = [
     {
@@ -69,7 +74,7 @@ class Buttons extends React.Component {
     },
     {
       type: "Choose Group",
-      num: ['Choose a group first!'],
+      num: ["Choose a group first!"],
       isActive: 4,
     },
   ];
@@ -90,29 +95,29 @@ class Buttons extends React.Component {
       );
     } else if (this.props.type === "group") {
       return (
-        <div className='d-flex flex-row justify-content-around'>
-        <MDBDropdown>
-          <MDBDropdownToggle id="dd1" caret rounded color="blue-grey">
-            {this.dropdownItems[this.state.test].type}
-          </MDBDropdownToggle>
-          <MDBDropdownMenu basic>
-            <MDBDropdownItem onClick={() => this.handleDropDown(0)}>
-              {this.dropdownItems[0].type}
-            </MDBDropdownItem>
-            <MDBDropdownItem onClick={() => this.handleDropDown(1)}>
-              {this.dropdownItems[1].type}
-            </MDBDropdownItem>
-            <MDBDropdownItem onClick={() => this.handleDropDown(2)}>
-              {this.dropdownItems[2].type}
-            </MDBDropdownItem>
-          </MDBDropdownMenu>
-        </MDBDropdown>
-        <MDBDropdown>
-        <MDBDropdownToggle caret id="dd2" rounded color="blue-grey">
-          Number of People
-        </MDBDropdownToggle>
+        <div className="d-flex flex-row justify-content-around">
+          <MDBDropdown>
+            <MDBDropdownToggle id="dd1" caret rounded color="blue-grey">
+              {this.dropdownItems[this.state.test].type}
+            </MDBDropdownToggle>
+            <MDBDropdownMenu basic>
+              <MDBDropdownItem onClick={() => this.handleDropDown(0)}>
+                {this.dropdownItems[0].type}
+              </MDBDropdownItem>
+              <MDBDropdownItem onClick={() => this.handleDropDown(1)}>
+                {this.dropdownItems[1].type}
+              </MDBDropdownItem>
+              <MDBDropdownItem onClick={() => this.handleDropDown(2)}>
+                {this.dropdownItems[2].type}
+              </MDBDropdownItem>
+            </MDBDropdownMenu>
+          </MDBDropdown>
+          <MDBDropdown>
+            <MDBDropdownToggle caret id="dd2" rounded color="blue-grey">
+              {this.state.people}
+            </MDBDropdownToggle>
             {this.groupDropDownOptions(this.state.test, this.dropdownItems)}
-        </MDBDropdown>
+          </MDBDropdown>
         </div>
       );
     } else if (this.props.type === "add") {
