@@ -26,11 +26,6 @@ import {
 } from "mdbreact";
 
 import "./profile.css";
-import DropDown from "./dropdown.component";
-
-// this.dropdownItems[index].num.map((value, index) => {
-//   return <MDBDropdownItem>{value}</MDBDropdownItem>;
-// });
 
 class Buttons extends React.Component {
   constructor(props) {
@@ -46,9 +41,15 @@ class Buttons extends React.Component {
     console.log(this.state.test);
   };
 
-  afterClickOnDropDown = () => {
-    // await na gini to handle drop down
-  };
+  groupDropDownOptions = (x, y) => {
+    // if (x === 0) {
+      const array = y[x].num.map((value) => 
+          <MDBDropdownItem>{value}</MDBDropdownItem>
+      ); 
+      return (
+          <MDBDropdownMenu basic>{array}</MDBDropdownMenu>
+      );
+  }
 
   dropdownItems = [
     {
@@ -68,6 +69,7 @@ class Buttons extends React.Component {
     },
     {
       type: "Choose Group",
+      num: ['Choose a group first!'],
       isActive: 4,
     },
   ];
@@ -77,7 +79,8 @@ class Buttons extends React.Component {
   };
 
   render() {
-    console.log(`${this.state.test} in buttons after render`);
+    let i = this.state.test;
+
     if (this.props.type === "save") {
       return (
         <MDBBtn id="save" rounded color="success">
@@ -85,11 +88,9 @@ class Buttons extends React.Component {
           Save
         </MDBBtn>
       );
-    } else if (this.props.type === "people") {
-      console.log(`${this.state.test} refreshed`);
-      return <DropDown something={this.state.test} />;
     } else if (this.props.type === "group") {
       return (
+        <div className='d-flex flex-row justify-content-around'>
         <MDBDropdown>
           <MDBDropdownToggle id="dd1" caret rounded color="blue-grey">
             {this.dropdownItems[this.state.test].type}
@@ -106,6 +107,13 @@ class Buttons extends React.Component {
             </MDBDropdownItem>
           </MDBDropdownMenu>
         </MDBDropdown>
+        <MDBDropdown>
+        <MDBDropdownToggle caret id="dd2" rounded color="blue-grey">
+          Number of People
+        </MDBDropdownToggle>
+            {this.groupDropDownOptions(this.state.test, this.dropdownItems)}
+        </MDBDropdown>
+        </div>
       );
     } else if (this.props.type === "add") {
       return (
