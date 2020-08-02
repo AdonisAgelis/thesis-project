@@ -26,22 +26,23 @@ class Profile extends React.Component {
               columnPos={columnPos}
               parentCallback={this.callbackFunction}
             />
-            {this.state.midMenuisOpen === "1" ? (
-              true
-            ) : (
+            {this.state.midMenuisOpen === "2" ? (
               <ColumnsProfile columnPos={columnPos + 5} />
-            )}
-            {this.state.midMenuisOpen === "1" ? (
-              true
             ) : (
-              <ColumnsProfile columnPos={columnPos + 1} />
+              true
             )}
-
-            {/* <ColumnsProfile columnPos={columnPos + 5} />
-            <ColumnsProfile columnPos={columnPos + 1} /> */}
+            {this.state.midMenuisOpen === "2" ? (
+              <ColumnsProfile columnPos={columnPos + 1} />
+            ) : (
+              true
+            )}
+            {this.state.midMenuisOpen === "3" ? (
+              <ColumnsProfile columnPos={columnPos + 5} />
+            ) : (
+              true
+            )}
           </MDBMask>
         </MDBView>
-        <Footer />
       </div>
     );
   }
