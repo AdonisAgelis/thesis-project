@@ -28,17 +28,7 @@ class ColumnsProfile extends React.Component {
       return (
         <MDBCol md={this.props.columnPos}>
           <MDBAnimation type="fadeInDown" delay=".3s">
-            <MDBCard
-              style={{
-                height: "40rem",
-                borderRadius: "1rem",
-                boxShadow: "20px 25px 10px rgba(24,24,24, .5)",
-                backgroundImage: `url(${Background})`,
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-                position: "relative",
-              }}
-            >
+            <MDBCard>
               <MDBCardTitle
                 style={{
                   display: "grid",
@@ -78,18 +68,9 @@ class ColumnsProfile extends React.Component {
       return (
         <MDBCol md={this.props.columnPos}>
           <MDBAnimation type="fadeInDown" delay=".4s">
-            <MDBCard
-              style={{
-                height: "40rem",
-                borderRadius: "1rem",
-                boxShadow: "20px 25px 10px rgba(24,24,24, .5)",
-              }}
-            >
+            <MDBCard>
               <MDBCardImage className="img-fluid" />
-              <MDBCardBody
-                style={{ backgroundColor: "121212" }}
-                className="rounded mb-0"
-              >
+              <MDBCardBody>
                 <MDBCardTitle style={{ textAlign: "center" }}>
                   <h4 style={{ color: "white" }}>Name of Room</h4>
                 </MDBCardTitle>
@@ -115,24 +96,16 @@ class ColumnsProfile extends React.Component {
       return (
         <MDBCol md={this.props.columnPos}>
           <MDBAnimation type="fadeInDown" delay=".5s">
-            <MDBCard
-              style={{
-                height: "40rem",
-                borderRadius: "1rem",
-                boxShadow: "20px 25px 10px rgba(24,24,24, .5)",
-              }}
-            >
+            <MDBCard>
               <MDBCardImage className="img-fluid" />
-              <MDBCardBody
-                style={{ backgroundColor: "121212" }}
-                className="rounded mb-0"
-              >
+              <MDBCardBody>
                 <MDBCardTitle style={{ textAlign: "center" }}>
-                  <h4 style={{ color: "white" }}>
+                  <h4 style={{ color: "white", marginTop: "1rem" }}>
                     <MDBIcon icon="tools" style={{ marginRight: "1rem" }} />
                     Drag & Drop
                   </h4>
                 </MDBCardTitle>
+                <canvas id="myCanvas"></canvas>
                 <MDBCardText style={{ textAlign: "center" }}></MDBCardText>
               </MDBCardBody>
             </MDBCard>
