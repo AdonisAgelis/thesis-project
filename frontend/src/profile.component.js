@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import { MDBMask, MDBView } from "mdbreact";
+import { MDBMask, MDBCard, MDBView, MDBCardBody } from "mdbreact";
 import "./profile.css";
 import Navbar from "./navbar.component";
 import Footer from "./footer.component";
@@ -19,7 +19,6 @@ class Profile extends React.Component {
     return (
       <div id="profile">
         {/* <Navbar /> */}
-
         <MDBView>
           <MDBMask className="d-flex justify-content-center align-items-center gradient">
             <ColumnsProfile

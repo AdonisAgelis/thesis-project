@@ -1,5 +1,6 @@
 #profile .view {
-  background-image: url("prof.jpg") !important;
+  /* background-image: url("prof.jpg") !important; */
+  background-color: #313131;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -18,14 +19,17 @@
     from(rgba(0, 0, 0, 0.7), to(rgba(19, 19, 19, 0.4)) 100%)
   );
   background: linear-gradient(
-    320deg,
+    10deg,
     rgba(165, 161, 161, 0.479),
     rgba(77, 72, 72, 0.253) 100%
   );
 }
 
 #profile .card {
-  background-color: rgb(12, 12, 12);
+  border-radius: 1rem;
+
+  background: transparent;
+  box-shadow: -6px 6px 3px #1a1a1a, 3px 3px 5px #666666;
 }
 
 #profile h6 {
@@ -56,13 +60,12 @@
 }
 
 #profile .styleBtn {
-  background-image: linear-gradient(
-    0deg,
-    rgb(12, 12, 12) 0%,
-    rgb(12, 12, 12) 100%
-  );
-  box-shadow: none;
+  background-color: transparent !important;
+  color: #ffffff;
   text-align: left;
+  border-radius: 1rem;
+  background: linear-gradient(10deg, #444444, #3a3a3a);
+  box-shadow: -5px 5px 1px #1a1a1a, 5px 5px 11px #494949;
 }
 
 #avatar {
@@ -95,27 +98,32 @@
 #run {
   border-radius: 1rem;
   box-shadow: 5px 5px 5px rgba(56, 55, 55, 0.5);
+  border-radius: 1rem;
+  background: linear-gradient(10deg, #720808, #963434);
+  box-shadow: -5px 5px 1px #1a1a1a, 5px 5px 11px #494949;
 }
 
 #dd1 {
   border-radius: 1rem;
-  background-color: #202020 !important;
-  box-shadow: 5px 5px 5px rgba(56, 55, 55, 0.5);
+  background: linear-gradient(10deg, #444444, #3a3a3a);
+  box-shadow: -5px 5px 1px #1a1a1a, 5px 5px 11px #494949;
 }
 
 #dd2 {
   border-radius: 1rem;
-  background-color: #202020 !important;
-  box-shadow: 5px 5px 5px rgba(56, 55, 55, 0.5);
+  background: linear-gradient(10deg, #444444, #3a3a3a);
+  box-shadow: -5px 5px 1px #1a1a1a, 5px 5px 11px #494949;
 }
 
 #save {
   border-radius: 1rem;
-  box-shadow: 5px 5px 5px rgba(56, 55, 55, 0.5);
+  background: linear-gradient(10deg, #135725, #263d2e);
+  box-shadow: -5px 5px 1px #1a1a1a, 5px 5px 11px #494949;
 }
 
 #add {
   border-radius: 1rem;
-  background-color: #202020 !important;
-  box-shadow: 5px 5px 5px rgba(56, 55, 55, 0.5);
+
+  background: linear-gradient(10deg, #444444, #3a3a3a);
+  box-shadow: -5px 5px 1px #1a1a1a, 5px 5px 11px #494949;
 }
