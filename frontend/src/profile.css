@@ -1,6 +1,6 @@
 #profile .view {
-  /* background-image: url("prof.jpg") !important; */
-  background-color: #313131;
+  background-image: url("prof.jpg") !important;
+  /* background-color: #313131; */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -20,16 +20,14 @@
   );
   background: linear-gradient(
     10deg,
-    rgba(165, 161, 161, 0.479),
-    rgba(77, 72, 72, 0.253) 100%
+    rgba(0, 0, 0, 0.753),
+    rgba(255, 255, 255, 0.342) 100%
   );
 }
 
 #profile .card {
-  border-radius: 1rem;
-
-  background: transparent;
-  box-shadow: -6px 6px 3px #1a1a1a, 3px 3px 5px #666666;
+  background: linear-gradient(10deg, #000000, #000000);
+  box-shadow: -3px 3px 3px #1a1a1a, 3px 3px 5px #666666;
 }
 
 #profile h6 {
@@ -63,9 +61,15 @@
   background-color: transparent !important;
   color: #ffffff;
   text-align: left;
-  border-radius: 1rem;
-  background: linear-gradient(10deg, #444444, #3a3a3a);
-  box-shadow: -5px 5px 1px #1a1a1a, 5px 5px 11px #494949;
+
+  background: #404040;
+  box-shadow: inset -1px -1px 38px #000000, inset -1px 1px 38px #333333;
+}
+
+#profile .styleBtn2 {
+  background-color: white !important;
+  color: #000000;
+  text-align: left;
 }
 
 #avatar {
@@ -89,41 +93,41 @@
 }
 
 #myCanvas {
-  border: 1px solid white;
-  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.541);
+  background-color: rgb(255, 255, 255);
   width: 100%;
   height: 50vh;
+  opacity: 0.9 !important;
 }
 
 #run {
-  border-radius: 1rem;
-  box-shadow: 5px 5px 5px rgba(56, 55, 55, 0.5);
-  border-radius: 1rem;
-  background: linear-gradient(10deg, #720808, #963434);
-  box-shadow: -5px 5px 1px #1a1a1a, 5px 5px 11px #494949;
+  background-color: rgb(151, 44, 44) !important;
+  color: #000000;
 }
 
 #dd1 {
-  border-radius: 1rem;
-  background: linear-gradient(10deg, #444444, #3a3a3a);
-  box-shadow: -5px 5px 1px #1a1a1a, 5px 5px 11px #494949;
+  background-color: transparent !important;
+  background: #404040;
+  box-shadow: inset -1px -1px 38px #00000062, inset -1px 1px 38px #333333;
 }
 
 #dd2 {
-  border-radius: 1rem;
-  background: linear-gradient(10deg, #444444, #3a3a3a);
-  box-shadow: -5px 5px 1px #1a1a1a, 5px 5px 11px #494949;
+  background-color: transparent !important;
+  background: #404040;
+  box-shadow: inset -1px -1px 38px #00000062, inset -1px 1px 38px #333333fa;
 }
 
 #save {
-  border-radius: 1rem;
-  background: linear-gradient(10deg, #135725, #263d2e);
-  box-shadow: -5px 5px 1px #1a1a1a, 5px 5px 11px #494949;
+  background-color: rgb(26, 71, 32) !important;
+  color: #000000;
 }
 
 #add {
-  border-radius: 1rem;
+  background-color: transparent !important;
+  background: #404040;
+  box-shadow: inset -1px -1px 38px #00000062, inset -1px 1px 38px #333333;
+}
 
-  background: linear-gradient(10deg, #444444, #3a3a3a);
-  box-shadow: -5px 5px 1px #1a1a1a, 5px 5px 11px #494949;
+#stamos {
+  color: aqua !important;
 }

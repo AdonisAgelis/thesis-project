@@ -28,7 +28,7 @@ class ColumnsProfile extends React.Component {
       return (
         <MDBCol md={this.props.columnPos}>
           <MDBAnimation type="fadeInDown" delay=".3s">
-            <MDBCard>
+            <MDBCard style={{ opacity: "0.9" }}>
               <MDBCardTitle
                 style={{
                   display: "grid",
@@ -42,6 +42,7 @@ class ColumnsProfile extends React.Component {
                 <a href="http://localhost:3000">
                   <img src={logo} className="img-fluid" />
                 </a>
+
                 {/* <h4>
                     <MDBIcon
                       icon="user"
@@ -54,10 +55,20 @@ class ColumnsProfile extends React.Component {
                     Sensei
                   </h4> */}
               </MDBCardTitle>
+              <hr
+                className="hr-light"
+                style={{ width: "90%", marginLeft: "5%" }}
+              />
+
               <Buttons type="home" />
+
               <Buttons type="new" func={this.sendColumnMidIsOpen} />
               <Buttons type="load" />
               <Buttons type="graph" />
+              <hr
+                className="hr-light"
+                style={{ width: "90%", marginLeft: "5%" }}
+              />
               <Buttons type="reset" />
               <Buttons type="logout" />
             </MDBCard>
@@ -68,14 +79,23 @@ class ColumnsProfile extends React.Component {
       return (
         <MDBCol md={this.props.columnPos}>
           <MDBAnimation type="fadeInDown" delay=".4s">
-            <MDBCard>
+            <MDBCard style={{ background: "rgba(0, 0, 0, 0.9" }}>
               <MDBCardImage className="img-fluid" />
               <MDBCardBody>
                 <MDBCardTitle style={{ textAlign: "center" }}>
                   <h4 style={{ color: "white" }}>Name of Room</h4>
                 </MDBCardTitle>
+                <hr
+                  className="hr-light"
+                  style={{ width: "90%", marginLeft: "5%" }}
+                />
                 <MDBCardText style={{ textAlign: "center" }}></MDBCardText>
+
                 <canvas id="myCanvas"></canvas>
+                <hr
+                  className="hr-light"
+                  style={{ width: "90%", marginLeft: "5%" }}
+                />
                 <div
                   className="d-flex flex-row justify-content-around"
                   style={{ display: "flex", flexWrap: "wrap" }}
@@ -96,7 +116,7 @@ class ColumnsProfile extends React.Component {
       return (
         <MDBCol md={this.props.columnPos}>
           <MDBAnimation type="fadeInDown" delay=".5s">
-            <MDBCard>
+            <MDBCard style={{ background: "rgba(0, 0, 0, 0.9" }}>
               <MDBCardImage className="img-fluid" />
               <MDBCardBody>
                 <MDBCardTitle style={{ textAlign: "center" }}>
@@ -104,6 +124,10 @@ class ColumnsProfile extends React.Component {
                     <MDBIcon icon="tools" style={{ marginRight: "1rem" }} />
                     Drag & Drop
                   </h4>
+                  <hr
+                    className="hr-light"
+                    style={{ width: "90%", marginLeft: "5%" }}
+                  />
                 </MDBCardTitle>
                 <canvas id="myCanvas"></canvas>
                 <MDBCardText style={{ textAlign: "center" }}></MDBCardText>

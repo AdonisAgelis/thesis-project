@@ -166,14 +166,14 @@ class Buttons extends React.Component {
       );
     } else if (this.props.type === "logout") {
       return (
-        <MDBBtn className="styleBtn">
+        <MDBBtn className="styleBtn2">
           <MDBIcon icon="sign-out-alt" style={{ marginRight: "1rem" }} />
           Log Out
         </MDBBtn>
       );
     } else if (this.props.type === "reset") {
       return (
-        <MDBBtn className="styleBtn" style={{ marginTop: "5rem" }}>
+        <MDBBtn className="styleBtn2" style={{ marginTop: "5rem" }}>
           <MDBIcon icon="undo" style={{ marginRight: "1rem" }} />
           Reset Password
         </MDBBtn>
