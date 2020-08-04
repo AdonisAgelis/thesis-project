@@ -83,12 +83,13 @@ class ColumnsProfile extends React.Component {
               <MDBCardImage className="img-fluid" />
               <MDBCardBody>
                 <MDBCardTitle style={{ textAlign: "center" }}>
-                  <h4 style={{ color: "white" }}>Name of Room</h4>
+                  <h5 style={{ color: "white" }}>Name of Room</h5>
                 </MDBCardTitle>
                 <hr
                   className="hr-light"
                   style={{ width: "90%", marginLeft: "5%" }}
                 />
+
                 <MDBCardText style={{ textAlign: "center" }}></MDBCardText>
 
                 <canvas id="myCanvas"></canvas>
@@ -120,16 +121,20 @@ class ColumnsProfile extends React.Component {
               <MDBCardImage className="img-fluid" />
               <MDBCardBody>
                 <MDBCardTitle style={{ textAlign: "center" }}>
-                  <h4 style={{ color: "white", marginTop: "1rem" }}>
+                  <h5 style={{ color: "white", marginTop: "1rem" }}>
                     <MDBIcon icon="tools" style={{ marginRight: "1rem" }} />
                     Drag & Drop
-                  </h4>
+                  </h5>
                   <hr
                     className="hr-light"
                     style={{ width: "90%", marginLeft: "5%" }}
                   />
                 </MDBCardTitle>
                 <canvas id="myCanvas"></canvas>
+                <hr
+                  className="hr-light"
+                  style={{ width: "90%", marginLeft: "5%" }}
+                />
                 <MDBCardText style={{ textAlign: "center" }}></MDBCardText>
               </MDBCardBody>
             </MDBCard>
