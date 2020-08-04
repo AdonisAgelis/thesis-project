@@ -32,20 +32,21 @@ class Buttons extends React.Component {
     super(props);
 
     this.state = {
-      test: 3,
-      people: "NUMBER OF PEOPLE",
+      typeOfPeople: 3,
+      numOfPeople: "NUMBER OF PEOPLE",
     };
   }
 
   handleDropDown = async (index) => {
-    await this.setState({ test: index });
-    console.log(this.state.test);
-    await this.setState({ people: "NUMBER OF PEOPLE" });
+    if (index != this.state.typeOfPeople) {
+      await this.setState({ typeOfPeople: index });
+      await this.setState({ numOfPeople: "NUMBER OF PEOPLE" });
+    }
   };
 
   handleSecondDropDown = async (testing) => {
-    await this.setState({ people: testing });
-    console.log(this.state.people);
+    await this.setState({ numOfPeople: testing });
+    console.log(this.state.numOfPeople);
   };
 
   groupDropDownOptions = (x, y) => {
@@ -85,8 +86,6 @@ class Buttons extends React.Component {
   };
 
   render() {
-    let i = this.state.test;
-
     if (this.props.type === "save") {
       return (
         <MDBBtn id="save" rounded color="success">
@@ -99,7 +98,7 @@ class Buttons extends React.Component {
         <div className="d-flex flex-row justify-content-around">
           <MDBDropdown>
             <MDBDropdownToggle id="dd1" caret rounded color="blue-grey">
-              {this.dropdownItems[this.state.test].type}
+              {this.dropdownItems[this.state.typeOfPeople].type}
             </MDBDropdownToggle>
             <MDBDropdownMenu basic>
               <MDBDropdownItem onClick={() => this.handleDropDown(0)}>
@@ -115,9 +114,12 @@ class Buttons extends React.Component {
           </MDBDropdown>
           <MDBDropdown>
             <MDBDropdownToggle caret id="dd2" rounded color="blue-grey">
-              {this.state.people}
+              {this.state.numOfPeople}
             </MDBDropdownToggle>
-            {this.groupDropDownOptions(this.state.test, this.dropdownItems)}
+            {this.groupDropDownOptions(
+              this.state.typeOfPeople,
+              this.dropdownItems
+            )}
           </MDBDropdown>
         </div>
       );
