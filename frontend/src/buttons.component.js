@@ -1,24 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import {
-  MDBMask,
-  MDBRow,
-  MDBCol,
   MDBIcon,
   MDBBtn,
-  MDBView,
-  MDBContainer,
-  MDBCard,
-  MDBCardBody,
-  MDBCardImage,
-  MDBCardTitle,
-  MDBCardText,
-  MDBInput,
-  MDBAnimation,
-  MDBBtnGroup,
-  MDBNav,
-  MDBNavLink,
   MDBDropdown,
   MDBDropdownToggle,
   MDBDropdownMenu,
@@ -27,38 +12,34 @@ import {
 
 import "./profile.css";
 
-class Buttons extends React.Component {
-  constructor(props) {
-    super(props);
+const Buttons = props => {
 
-    this.state = {
-      typeOfPeople: 3,
-      numOfPeople: "NUMBER OF PEOPLE",
-    };
-  }
+  const [buttonProp, setButtonProp] = useState(props);
 
-  handleDropDown = async (index) => {
-    if (index != this.state.typeOfPeople) {
-      await this.setState({ typeOfPeople: index });
-      await this.setState({ numOfPeople: "NUMBER OF PEOPLE" });
+  const [typeOfPeople, setTypeOfPeople] = useState(3);
+  const [numOfPeople, setNumOfPeople] = useState('NUMBER OF PEOPLE');    
+
+  const handleDropDown = async (index) => {
+    if (index != typeOfPeople) {
+      await setTypeOfPeople(index);
+      await setNumOfPeople('NUMBER OF PEOPLE');
     }
   };
 
-  handleSecondDropDown = async (testing) => {
-    await this.setState({ numOfPeople: testing });
-    console.log(this.state.numOfPeople);
+  const handleSecondDropDown = async (testing) => {
+    await setNumOfPeople(testing);
   };
 
-  groupDropDownOptions = (x, y) => {
+  const groupDropDownOptions = (x, y) => {
     const array = y[x].num.map((value) => (
-      <MDBDropdownItem onClick={() => this.handleSecondDropDown(value)}>
+      <MDBDropdownItem onClick={() => handleSecondDropDown(value)}>
         {value}
       </MDBDropdownItem>
     ));
     return <MDBDropdownMenu basic>{array}</MDBDropdownMenu>;
   };
 
-  dropdownItems = [
+  const dropdownItems = [
     {
       type: "School",
       num: [5, 10, 15],
@@ -81,97 +62,96 @@ class Buttons extends React.Component {
     },
   ];
 
-  sendColumnMidIsOpen = () => {
-    this.props.func("2");
+  const sendColumnMidIsOpen = () => {
+    buttonProp.func("2");
   };
 
-  render() {
-    if (this.props.type === "save") {
+    if (buttonProp.type === "save") {
       return (
         <MDBBtn id="save" rounded color="success">
           <MDBIcon icon="save" style={{ marginRight: "1rem" }} />
           Save
         </MDBBtn>
       );
-    } else if (this.props.type === "group") {
+    } else if (buttonProp.type === "group") {
       return (
         <div className="d-flex flex-row justify-content-around">
           <MDBDropdown>
             <MDBDropdownToggle id="dd1" caret rounded color="blue-grey">
-              {this.dropdownItems[this.state.typeOfPeople].type}
+              {dropdownItems[typeOfPeople].type}
             </MDBDropdownToggle>
             <MDBDropdownMenu basic>
-              <MDBDropdownItem onClick={() => this.handleDropDown(0)}>
-                {this.dropdownItems[0].type}
+              <MDBDropdownItem onClick={() => handleDropDown(0)}>
+                {dropdownItems[0].type}
               </MDBDropdownItem>
-              <MDBDropdownItem onClick={() => this.handleDropDown(1)}>
-                {this.dropdownItems[1].type}
+              <MDBDropdownItem onClick={() => handleDropDown(1)}>
+                {dropdownItems[1].type}
               </MDBDropdownItem>
-              <MDBDropdownItem onClick={() => this.handleDropDown(2)}>
-                {this.dropdownItems[2].type}
+              <MDBDropdownItem onClick={() => handleDropDown(2)}>
+                {dropdownItems[2].type}
               </MDBDropdownItem>
             </MDBDropdownMenu>
           </MDBDropdown>
           <MDBDropdown>
             <MDBDropdownToggle caret id="dd2" rounded color="blue-grey">
-              {this.state.numOfPeople}
+              {numOfPeople}
             </MDBDropdownToggle>
-            {this.groupDropDownOptions(
-              this.state.typeOfPeople,
-              this.dropdownItems
+            {groupDropDownOptions(
+              typeOfPeople,
+              dropdownItems
             )}
           </MDBDropdown>
         </div>
       );
-    } else if (this.props.type === "add") {
+    } else if (buttonProp.type === "add") {
       return (
         <MDBBtn id="add" color="blue-grey">
           <MDBIcon icon="arrow-alt-circle-up" /> Add
         </MDBBtn>
       );
-    } else if (this.props.type === "run") {
+    } else if (buttonProp.type === "run") {
       return (
         <MDBBtn id="run" rounded color="danger">
           <MDBIcon icon="tachometer-alt" style={{ marginRight: "1rem" }} />
           Run Simulation
         </MDBBtn>
       );
-    } else if (this.props.type === "home") {
+    } else if (buttonProp.type === "home") {
       return (
         <MDBBtn className="styleBtn">
           <MDBIcon icon="home" style={{ marginRight: "1rem" }} />
           Home
         </MDBBtn>
       );
-    } else if (this.props.type === "new") {
+    } else if (buttonProp.type === "new") {
       return (
-        <MDBBtn className="styleBtn" onClick={this.sendColumnMidIsOpen}>
+        <MDBBtn className="styleBtn" onClick={sendColumnMidIsOpen}>
           <MDBIcon icon="plus-circle" style={{ marginRight: "1rem" }} />
           New Template
         </MDBBtn>
       );
-    } else if (this.props.type === "load") {
+    } else if (buttonProp.type === "load") {
       return (
         <MDBBtn className="styleBtn">
           <MDBIcon icon="sync" style={{ marginRight: "1rem" }} />
           Load Template
         </MDBBtn>
       );
-    } else if (this.props.type === "graph") {
+    } else if (buttonProp.type === "graph") {
       return (
         <MDBBtn className="styleBtn">
           <MDBIcon icon="chart-area" style={{ marginRight: "1rem" }} />
           Graphs
         </MDBBtn>
       );
-    } else if (this.props.type === "logout") {
+    } else if (buttonProp.type === "logout") {
       return (
         <MDBBtn className="styleBtn2">
           <MDBIcon icon="sign-out-alt" style={{ marginRight: "1rem" }} />
           Log Out
         </MDBBtn>
       );
-    } else if (this.props.type === "reset") {
+    } else if (buttonProp.type === "reset") {
       return (
         <MDBBtn className="styleBtn2" style={{ marginTop: "5rem" }}>
           <MDBIcon icon="undo" style={{ marginRight: "1rem" }} />
@@ -179,7 +159,6 @@ class Buttons extends React.Component {
         </MDBBtn>
       );
     }
-  }
 }
 
 export default Buttons;
