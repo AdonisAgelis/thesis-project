@@ -1,16 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
 import {
   MDBCol,
   MDBIcon,
-  MDBBtn,
   MDBCard,
   MDBCardBody,
   MDBCardImage,
   MDBCardTitle,
   MDBCardText,
   MDBAnimation,
-  MDBNav,
 } from "mdbreact";
 
 import "./profile.css";
@@ -18,15 +16,17 @@ import Background from "./columnsback.jpg";
 import Buttons from "./buttons.component";
 import logo from "./logo.png";
 
-class ColumnsProfile extends React.Component {
-  sendColumnMidIsOpen = (childData) => {
-    this.props.parentCallback(childData);
+const ColumnsProfile = props => {
+
+  const [columnProp, setColumnProp] = useState(props);
+
+  const sendColumnMidIsOpen = (childData) => {
+    columnProp.parentCallback(childData);
   };
 
-  render() {
-    if (this.props.columnPos === 2) {
+    if (columnProp.columnPos === 2) {
       return (
-        <MDBCol md={this.props.columnPos}>
+        <MDBCol md={columnProp.columnPos}>
           <MDBAnimation type="fadeInDown" delay=".3s">
             <MDBCard style={{ opacity: "0.9" }}>
               <MDBCardTitle
@@ -62,7 +62,7 @@ class ColumnsProfile extends React.Component {
 
               <Buttons type="home" />
 
-              <Buttons type="new" func={this.sendColumnMidIsOpen} />
+              <Buttons type="new" func={sendColumnMidIsOpen} />
               <Buttons type="load" />
               <Buttons type="graph" />
               <hr
@@ -75,9 +75,9 @@ class ColumnsProfile extends React.Component {
           </MDBAnimation>
         </MDBCol>
       );
-    } else if (this.props.columnPos === 7) {
+    } else if (columnProp.columnPos === 7) {
       return (
-        <MDBCol md={this.props.columnPos}>
+        <MDBCol md={columnProp.columnPos}>
           <MDBAnimation type="fadeInDown" delay=".4s">
             <MDBCard style={{ background: "rgba(0, 0, 0, 0.9" }}>
               <MDBCardImage className="img-fluid" />
@@ -113,9 +113,9 @@ class ColumnsProfile extends React.Component {
           </MDBAnimation>
         </MDBCol>
       );
-    } else if (this.props.columnPos === 3) {
+    } else if (columnProp.columnPos === 3) {
       return (
-        <MDBCol md={this.props.columnPos}>
+        <MDBCol md={columnProp.columnPos}>
           <MDBAnimation type="fadeInDown" delay=".5s">
             <MDBCard style={{ background: "rgba(0, 0, 0, 0.9" }}>
               <MDBCardImage className="img-fluid" />
@@ -142,7 +142,6 @@ class ColumnsProfile extends React.Component {
         </MDBCol>
       );
     }
-  }
 }
 
 export default ColumnsProfile;

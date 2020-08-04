@@ -1,5 +1,4 @@
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
 import {
   MDBMask,
   MDBRow,
@@ -17,24 +16,8 @@ import "./signup.css";
 import Navbar from "./navbar.component";
 import Footer from "./footer.component";
 
-class SignUp extends React.Component {
-  state = {
-    collapseID: "",
-  };
-
-  toggleCollapse = (collapseID) => () =>
-    this.setState((prevState) => ({
-      collapseID: prevState.collapseID !== collapseID ? collapseID : "",
-    }));
-
-  render() {
-    const overlay = (
-      <div
-        id="sidenav-overlay"
-        style={{ backgroundColor: "transparent" }}
-        onClick={this.toggleCollapse("navbarCollapse")}
-      />
-    );
+const SignUp = () => {
+  
     return (
       <div id="signup">
         
@@ -128,7 +111,6 @@ class SignUp extends React.Component {
         <Footer />
       </div>
     );
-  }
 }
 
 export default SignUp;

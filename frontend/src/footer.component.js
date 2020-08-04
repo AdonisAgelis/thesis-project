@@ -2,8 +2,7 @@ import React from "react";
 
 import { MDBRow, MDBCol, MDBContainer } from "mdbreact";
 
-class Footer extends React.Component {
-  render() {
+const Footer = () => {
     return (
       <MDBContainer className="container-fluid">
         <MDBRow className="py-4">
@@ -16,7 +15,6 @@ class Footer extends React.Component {
         </MDBRow>
       </MDBContainer>
     );
-  }
 }
 
 export default Footer;

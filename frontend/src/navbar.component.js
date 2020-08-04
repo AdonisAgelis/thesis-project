@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import {
   MDBNavbar,
@@ -13,18 +13,14 @@ import {
 
 import logo from "./logo.png";
 
-class Navbar extends React.Component {
-  state = {
-    collapsed: false,
+const Navbar = () => {
+
+  const [collapsed, setCollapsed] = useState(false);
+
+  const handleTogglerClick = () => {
+    setCollapsed(!collapsed);
   };
 
-  handleTogglerClick = () => {
-    this.setState({
-      collapsed: !this.state.collapsed,
-    });
-  };
-
-  render() {
     const activeNavBtn = () => {
       const url = window.location.href;
 
@@ -116,7 +112,7 @@ class Navbar extends React.Component {
       <div
         id="sidenav-overlay"
         style={{ backgroundColor: "transparent" }}
-        onClick={this.handleTogglerClick}
+        onClick={handleTogglerClick}
       />
     );
     return (
@@ -135,16 +131,15 @@ class Navbar extends React.Component {
                 <img src={logo} className="img-fluid" />
               </a>
             </MDBNavbarBrand>
-            <MDBNavbarToggler onClick={this.handleTogglerClick} />
-            <MDBCollapse isOpen={this.state.collapsed} navbar>
+            <MDBNavbarToggler onClick={handleTogglerClick} />
+            <MDBCollapse isOpen={collapsed} navbar>
               {activeNavBtn()}
             </MDBCollapse>
           </MDBContainer>
         </MDBNavbar>
-        {this.state.collapsed && overlay}
+        {collapsed && overlay}
       </div>
     );
-  }
 }
 
 export default Navbar;

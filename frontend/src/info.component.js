@@ -1,5 +1,4 @@
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
 import {
   MDBMask,
   MDBRow,
@@ -14,25 +13,8 @@ import mern from "./mern.png";
 import Navbar from "./navbar.component.js";
 import Footer from "./footer.component";
 
-class Info extends React.Component {
-  state = {
-    collapsed: false,
-  };
+const Info = () => {
 
-  handleTogglerClick = () => {
-    this.setState({
-      collapsed: !this.state.collapsed,
-    });
-  };
-
-  render() {
-    const overlay = (
-      <div
-        id="sidenav-overlay"
-        style={{ backgroundColor: "transparent" }}
-        onClick={this.handleTogglerClick}
-      />
-    );
     return (
       <div id="info">
         <Navbar />
@@ -70,7 +52,6 @@ class Info extends React.Component {
         <Footer />
       </div>
     );
-  }
 }
 
 export default Info;

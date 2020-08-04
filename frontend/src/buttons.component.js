@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
 
 import {
   MDBIcon,
@@ -20,7 +19,7 @@ const Buttons = props => {
   const [numOfPeople, setNumOfPeople] = useState('NUMBER OF PEOPLE');    
 
   const handleDropDown = async (index) => {
-    if (index != typeOfPeople) {
+    if (index !== typeOfPeople) {
       await setTypeOfPeople(index);
       await setNumOfPeople('NUMBER OF PEOPLE');
     }

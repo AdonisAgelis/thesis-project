@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -10,8 +10,7 @@ import LogIn from "./login.component";
 import Info from "./info.component";
 import Profile from "./profile.component";
 
-class App extends Component {
-  render() {
+const App = () => {
     return (
       <Router>
         <Route path="/" exact component={Main} />
@@ -21,7 +20,6 @@ class App extends Component {
         <Route path="/profile" component={Profile} />
       </Router>
     );
-  }
 }
 
 export default App;
