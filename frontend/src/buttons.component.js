@@ -37,9 +37,10 @@ class Buttons extends React.Component {
     };
   }
 
-  handleDropDown = async (index, testing) => {
+  handleDropDown = async (index) => {
     await this.setState({ test: index });
     console.log(this.state.test);
+    await this.setState({ people: "NUMBER OF PEOPLE" });
   };
 
   handleSecondDropDown = async (testing) => {
