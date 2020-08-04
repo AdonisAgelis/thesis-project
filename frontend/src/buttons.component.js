@@ -37,13 +37,15 @@ class Buttons extends React.Component {
     };
   }
 
-  handleDropDown = async (index, testing) => {
+  handleDropDown = async (index) => {
     await this.setState({ test: index });
-    // console.log(this.state.test);
+    console.log(this.state.test);
+    await this.setState({ people: "NUMBER OF PEOPLE" });
   };
 
   handleSecondDropDown = async (testing) => {
     await this.setState({ people: testing });
+    console.log(this.state.people);
   };
 
   groupDropDownOptions = (x, y) => {
@@ -54,9 +56,6 @@ class Buttons extends React.Component {
     ));
     return <MDBDropdownMenu basic>{array}</MDBDropdownMenu>;
   };
-
-  // resetOption =  (x) => {
-  // }
 
   dropdownItems = [
     {
@@ -86,7 +85,7 @@ class Buttons extends React.Component {
   };
 
   render() {
-    const i = this.state.test;
+    let i = this.state.test;
 
     if (this.props.type === "save") {
       return (
@@ -119,7 +118,6 @@ class Buttons extends React.Component {
               {this.state.people}
             </MDBDropdownToggle>
             {this.groupDropDownOptions(this.state.test, this.dropdownItems)}
-            {/* {this.resetOption(i)} */}
           </MDBDropdown>
         </div>
       );
