@@ -26,11 +26,6 @@ const Profile = () => {
             ) : (
               true
             )}
-            {midMenuisOpen === "2" ? (
-              <ColumnsProfile columnPos={columnPos + 1} />
-            ) : (
-              true
-            )}
             {midMenuisOpen === "3" ? (
               <ColumnsProfile columnPos={columnPos + 5} />
             ) : (
