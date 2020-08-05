@@ -1,5 +1,5 @@
 #profile .view {
-  /* background-image: url("prof.jpg") !important; */
+  background-image: url("prof.jpg") !important;
   background-color: #4a4b3a;
   background-repeat: no-repeat;
   background-size: cover;
@@ -20,8 +20,8 @@
   );
   background: linear-gradient(
     10deg,
-    rgba(236, 0, 0, 0),
-    rgba(34, 34, 34, 0.562) 100%
+    rgba(39, 39, 39, 0.199),
+    rgba(253, 253, 253, 0.185) 100%
   );
 }
 
