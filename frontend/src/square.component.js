@@ -1,17 +1,15 @@
 import React, { useState, forwardRef, useRef, useImperativeHandle } from 'react'
 import DnDIcons from './dndIcons.component';
 
-const Square = (props) => {
-
-    const [itemProp, setItemProp] = useState(props);
-
-    const fill = 'black';
+export default function Square({black, children}) {
+    const fill = black ? 'black' : 'white';
+    const stroke = black ? 'white' : 'black';
+    // const [itemProp, setItemProp] = useState(props);
     return <div style={{ backgroundColor: fill,
-                       width: '100%',
-                       height: '100%'
+                       color: stroke,
+                       width: '50px',
+                       height: '50px'
                     }}>
-                    {itemProp.children}
+                    {children}
             </div>
 }
-
-export default Square;

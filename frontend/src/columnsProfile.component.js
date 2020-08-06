@@ -78,7 +78,7 @@ const ColumnsProfile = props => {
               <hr style={{ width: "90%", marginLeft: "5%" }}/>
               <MDBCardText style={{ textAlign: "center" }}></MDBCardText>
               <div class="workspace-container">
-                <div id = 'item1'><Room itemPosition = {[0, 0]}/></div>
+                <div id = 'item1'><Room itemPosition = {[0, 0]} /></div>
                 <div id = 'item2'></div>
               </div>
               <hr
