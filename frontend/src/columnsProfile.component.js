@@ -9,17 +9,16 @@ import {
   MDBCardText,
   MDBAnimation,
   MDBTypography,
-  MDBIcon
+  MDBIcon,
 } from "mdbreact";
 
 import "./profile.css";
-import Room from './room.component';
+import Room from "./room.component";
 import Background from "./columnsback.jpg";
 import Buttons from "./buttons.component";
 import logo from "./logo.png";
 
-const ColumnsProfile = props => {
-
+const ColumnsProfile = (props) => {
   const [columnProp, setColumnProp] = useState(props);
 
   const sendColumnMidIsOpen = (childData) => {
@@ -73,17 +72,19 @@ const ColumnsProfile = props => {
             <MDBCardImage className="img-fluid" />
             <MDBCardBody>
               <MDBCardTitle style={{ textAlign: "center" }}>
-                <MDBTypography style={{ color: 'white' }} tag='h4'>Name of Room</MDBTypography>
+                <MDBTypography style={{ color: "white" }} tag="h4">
+                  Name of Room
+                </MDBTypography>
               </MDBCardTitle>
-              <hr style={{ width: "90%", marginLeft: "5%" }}/>
+              <hr style={{ width: "90%", marginLeft: "5%" }} />
               <MDBCardText style={{ textAlign: "center" }}></MDBCardText>
-              <div class="workspace-container">
-                <div id = 'item1'><Room itemPosition = {[0, 0]} /></div>
-                <div id = 'item2'></div>
+
+              <div id="item1">
+                <Room itemPosition={[0, 0]} />
               </div>
-              <hr
-                style={{ width: "90%", marginLeft: "5%"}}
-              />
+              <div id="item2"></div>
+
+              <hr style={{ width: "90%", marginLeft: "5%" }} />
               <div
                 className="d-flex flex-row justify-content-between"
                 style={{ display: "flex", flexWrap: "wrap" }}
@@ -99,6 +100,6 @@ const ColumnsProfile = props => {
       </MDBCol>
     );
   }
-}
+};
 
 export default ColumnsProfile;

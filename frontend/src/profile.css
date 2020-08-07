@@ -119,23 +119,24 @@
   grid-template-columns: auto auto auto auto auto auto;
   grid-gap: 10px;
   background-color: rgba(0, 0, 0, 0);
-  padding: 10px;
+
   height: 49vh;
 }
 
 .workspace-container > div {
   background-color: white;
   text-align: center;
-  padding: 20px 0;
+
   font-size: 30px;
 }
 
 #item1 {
-  grid-column: 1 / 6;
+  grid-column: 1/6;
+  overflow: hidden;
 }
 
 #item2 {
-  background-color:rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .vl {
