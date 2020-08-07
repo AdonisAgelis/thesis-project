@@ -17,6 +17,7 @@ import Room from "./room.component";
 import Background from "./columnsback.jpg";
 import Buttons from "./buttons.component";
 import logo from "./logo.png";
+import DnDIcons from "./dndIcons.component";
 
 const ColumnsProfile = (props) => {
   const [columnProp, setColumnProp] = useState(props);
@@ -78,11 +79,12 @@ const ColumnsProfile = (props) => {
               </MDBCardTitle>
               <hr style={{ width: "90%", marginLeft: "5%" }} />
               <MDBCardText style={{ textAlign: "center" }}></MDBCardText>
-
-              <div id="item1">
-                <Room itemPosition={[0, 0]} />
+              <div className="workspace-container">
+                <div id="item1">
+                  <Room itemPosition={[1, 1]} />
+                </div>
+                <div id="item2"></div>
               </div>
-              <div id="item2"></div>
 
               <hr style={{ width: "90%", marginLeft: "5%" }} />
               <div

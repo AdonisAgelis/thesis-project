@@ -5,7 +5,7 @@ import DnDIcons from "./dndIcons.component";
 const renderSquare = (i, [itemX, itemY]) => {
   const x = i % 8;
   const y = Math.floor(i / 8);
-  const black = (x + y) % 2 === 1;
+  const black = (x + y) % 2 !== 1;
   const isItemHere = x === itemX && y === itemY;
   const piece = isItemHere ? <DnDIcons role="entrance" /> : null;
 
@@ -29,9 +29,9 @@ export default function Room({ itemPosition }) {
       style={{
         width: "100%",
         height: "100%",
-        display: "flex",
-        flexWrap: "wrap",
-        flexBasis: "1px",
+        display: "grid",
+        gridTemplateColumns: "repeat(40, [col] 20px)",
+        overflow: "scroll",
       }}
     >
       {squares}
