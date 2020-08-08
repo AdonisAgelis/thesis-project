@@ -78,7 +78,7 @@ const ColumnsProfile = (props) => {
               <MDBCardBody>
                 <MDBCardTitle style={{ textAlign: "center" }}>
                   <MDBTypography style={{ color: "white" }} tag="h4">
-                    Name of Room
+                    {/* Name of Room */}
                 </MDBTypography>
                 </MDBCardTitle>
                 <hr style={{ width: "90%", marginLeft: "5%" }} />

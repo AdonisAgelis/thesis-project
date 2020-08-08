@@ -15,6 +15,7 @@ const renderSquare = (i, [itemX, itemY]) => {
   for (let rightSideWall = 78; rightSideWall < 978; rightSideWall += 40) {
     leftSideWallArray.push(rightSideWall);
   }
+
   let black = null;
   if (i > 41 && i < 78) {
     black = true;
