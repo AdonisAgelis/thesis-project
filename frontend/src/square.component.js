@@ -7,7 +7,7 @@ import React, {
 import DnDIcons from "./dndIcons.component";
 
 export default function Square({ black, children }) {
-  const fill = "white"; /*? "grey" : "white"*/
+  const fill = black ? "rgba(40, 40, 40, 0.1)" : "white";
   const stroke = "black"; /*? "white" : "grey"*/
   // const [itemProp, setItemProp] = useState(props);
   return (

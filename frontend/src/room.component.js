@@ -5,9 +5,34 @@ import DnDIcons from "./dndIcons.component";
 const renderSquare = (i, [itemX, itemY]) => {
   const x = i % 8;
   const y = Math.floor(i / 8);
-  const black = (x + y) % 2 !== 1;
+  // const black = (x + y) % 2 !== 1;
+  let leftSideWallArray = [];
+  let rightSideWallArray = [];
+
+  for (let leftSideWall = 41; leftSideWall < 941; leftSideWall += 40) {
+    leftSideWallArray.push(leftSideWall);
+  }
+  for (let rightSideWall = 78; rightSideWall < 978; rightSideWall += 40) {
+    leftSideWallArray.push(rightSideWall);
+  }
+  let black = null;
+  if (i > 41 && i < 78) {
+    black = true;
+  } else if (leftSideWallArray.includes(i)) {
+    console.log("gamw tin manas");
+    black = true;
+  } else if (rightSideWallArray.includes(i)) {
+    black = true;
+  } else if (i > 921 && i < 958) {
+    black = true;
+  } else {
+    console.log("gamw ton pateras");
+
+    black = false;
+  }
   const isItemHere = x === itemX && y === itemY;
-  const piece = isItemHere ? <DnDIcons role="entrance" /> : null;
+  // const piece = isItemHere ? <DnDIcons role="entrance" /> : null;
+  const piece = isItemHere ? null : null;
 
   return (
     <div key={i} style={{ width: "20px", height: "20px" }}>
