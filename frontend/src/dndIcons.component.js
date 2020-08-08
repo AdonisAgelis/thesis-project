@@ -20,7 +20,7 @@ const DnDIcons = (props) => {
     if (roleProp.role === 'entrance') {
         return <div
             ref={drag} className='draggableIcons'>
-            <MDBIcon icon="door-open" />
+            <MDBIcon icon="door-closed" />
         </div>
     } else if (roleProp.role === 'exit') {
         return <div
@@ -35,12 +35,12 @@ const DnDIcons = (props) => {
     } else if (roleProp.role === 'accessPoint') {
         return <div
             ref={drag} className='draggableIcons'>
-            <MDBIcon icon="door-open" />
+            <MDBIcon icon="wifi" />
         </div>
     } else if (roleProp.role === 'exhibit') {
         return <div
             ref={drag} className='draggableIcons'>
-            <MDBIcon icon="door-open" />
+            <MDBIcon icon="university" />
         </div>
     }
 }

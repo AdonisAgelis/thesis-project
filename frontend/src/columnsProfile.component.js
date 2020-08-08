@@ -98,7 +98,7 @@ const ColumnsProfile = (props) => {
                       <DnDIcons role="accessPoint" /><p>ACCESS POINT</p>
                     </div>
                     <div className="dragNdrop">
-                      <DnDIcons role="entrance" /><p>EXHIBIT</p>
+                      <DnDIcons role="exhibit" /><p>EXHIBIT</p>
                     </div>
                   </div>
                 </div>
