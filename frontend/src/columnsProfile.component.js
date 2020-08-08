@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 
 import {
   MDBCol,
@@ -68,55 +70,54 @@ const ColumnsProfile = (props) => {
     );
   } else if (columnProp.columnPos === 7) {
     return (
-      <MDBCol md={columnProp.columnPos}>
-        <MDBAnimation type="fadeInDown" delay=".4s">
-          <MDBCard style={{ background: "rgba(0, 0, 0, 0.9" }}>
-            <MDBCardImage className="img-fluid" />
-            <MDBCardBody>
-              <MDBCardTitle style={{ textAlign: "center" }}>
-                <MDBTypography style={{ color: "white" }} tag="h4">
-                  Name of Room
+      <DndProvider backend={HTML5Backend}>
+        <MDBCol md={columnProp.columnPos}>
+          <MDBAnimation type="fadeInDown" delay=".4s">
+            <MDBCard style={{ background: "rgba(0, 0, 0, 0.9" }}>
+              <MDBCardImage className="img-fluid" />
+              <MDBCardBody>
+                <MDBCardTitle style={{ textAlign: "center" }}>
+                  <MDBTypography style={{ color: "white" }} tag="h4">
+                    Name of Room
                 </MDBTypography>
-              </MDBCardTitle>
-              <hr style={{ width: "90%", marginLeft: "5%" }} />
-              <MDBCardText style={{ textAlign: "center" }}></MDBCardText>
-              <div className="workspace-container">
-                <div id="item1">
-                  <Room itemPosition={[1, 1]} />
-                </div>
-                <div id="item2">
-                  <div className="dragNdrop">
-                    <DnDIcons role="entrance" />: ENTRANCE
+                </MDBCardTitle>
+                <hr style={{ width: "90%", marginLeft: "5%" }} />
+                <MDBCardText style={{ textAlign: "center" }}></MDBCardText>
+                <div className="workspace-container">
+                  <div id="item1">
+                    <Room itemPosition={[1, 1]} />
                   </div>
-                  <div className="dragNdrop">
-                    <DnDIcons role="exit" />: EXIT
-                  </div>
-                  <div className="dragNdrop">
-                    <DnDIcons role="accessPoint" />: ACCESS POINT{" "}
-                    <MDBBadge color="danger" className="ml-2">
-                      4
-                    </MDBBadge>
-                  </div>
-                  <div className="dragNdrop">
-                    <DnDIcons role="entrance" />: EXHIBIT
+                  <div id="item2">
+                    <div className="dragNdrop">
+                      <DnDIcons role="entrance" /><p>ENTRANCE</p>
+                    </div>
+                    <div className="dragNdrop">
+                      <DnDIcons role="exit" /><p>EXIT</p>
+                    </div>
+                    <div className="dragNdrop">
+                      <DnDIcons role="accessPoint" /><p>ACCESS POINT</p>
+                    </div>
+                    <div className="dragNdrop">
+                      <DnDIcons role="entrance" /><p>EXHIBIT</p>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <hr style={{ width: "90%", marginLeft: "5%" }} />
-              <div
-                className="d-flex flex-row justify-content-between"
-                style={{ display: "flex", flexWrap: "wrap" }}
-              >
-                <Buttons type={"save"} />
-                <Buttons type={"group"} />
-                <Buttons type={"add"} />
-                <Buttons type={"run"} />
-              </div>
-            </MDBCardBody>
-          </MDBCard>
-        </MDBAnimation>
-      </MDBCol>
+                <hr style={{ width: "90%", marginLeft: "5%" }} />
+                <div
+                  className="d-flex flex-row justify-content-between"
+                  style={{ display: "flex", flexWrap: "wrap" }}
+                >
+                  <Buttons type={"save"} />
+                  <Buttons type={"group"} />
+                  <Buttons type={"add"} />
+                  <Buttons type={"run"} />
+                </div>
+              </MDBCardBody>
+            </MDBCard>
+          </MDBAnimation>
+        </MDBCol>
+      </DndProvider>
     );
   }
 };

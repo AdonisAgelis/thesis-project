@@ -1,24 +1,47 @@
 import React, { useState } from 'react';
+import { DnDItemTypes } from './dndItemTypes';
+import { useDrag } from 'react-dnd';
 
 import './profile.css';
-import {MDBIcon} from 'mdbreact';
+import { MDBIcon } from 'mdbreact';
 
 const DnDIcons = (props) => {
 
     const [roleProp, setRoleProp] = useState(props);
-    
+    let dndProp = roleProp.role.toUpperCase();
+
+    const [{ isDragging }, drag] = useDrag({
+        item: { type: DnDItemTypes.ENTRANCE, type: DnDItemTypes.EXIT, type: DnDItemTypes.WALL, type: DnDItemTypes.ACCESSPOINT, type: DnDItemTypes.EXHIBIT },
+        collect: monitor => ({
+            isDragging: !!monitor.isDragging(),
+        })
+    });
+
     if (roleProp.role === 'entrance') {
-        return <MDBIcon icon="door-open" />
+        return <div
+            ref={drag} className='draggableIcons'>
+            <MDBIcon icon="door-open" />
+        </div>
     } else if (roleProp.role === 'exit') {
-        return <MDBIcon icon="door-closed" />
-    } else if (roleProp.role === 'verticalWall') {
-        return <MDBIcon icon="door-open" />
-    } else if (roleProp.role === 'horizontalWall') {
-        return <MDBIcon icon="door-open" />
+        return <div
+            ref={drag} className='draggableIcons'>
+            <MDBIcon icon="door-open" />
+        </div>
+    } else if (roleProp.role === 'wall') {
+        return <div
+            ref={drag} className='draggableIcons'>
+            <MDBIcon icon="door-open" />
+        </div>
     } else if (roleProp.role === 'accessPoint') {
-        return <MDBIcon icon="door-open" />
+        return <div
+            ref={drag} className='draggableIcons'>
+            <MDBIcon icon="door-open" />
+        </div>
     } else if (roleProp.role === 'exhibit') {
-        return <MDBIcon icon="door-open" />
+        return <div
+            ref={drag} className='draggableIcons'>
+            <MDBIcon icon="door-open" />
+        </div>
     }
 }
 

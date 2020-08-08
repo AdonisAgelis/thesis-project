@@ -19,14 +19,12 @@ const renderSquare = (i, [itemX, itemY]) => {
   if (i > 41 && i < 78) {
     black = true;
   } else if (leftSideWallArray.includes(i)) {
-    console.log("gamw tin manas");
     black = true;
   } else if (rightSideWallArray.includes(i)) {
     black = true;
   } else if (i > 921 && i < 958) {
     black = true;
   } else {
-    console.log("gamw ton pateras");
 
     black = false;
   }
