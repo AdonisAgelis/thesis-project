@@ -136,3 +136,20 @@
   border-left: 6px solid red;
   height: 100px;
 }
+
+.dragNdrop {
+  background-color: transparent !important;
+  background: #ffffff;
+  color: white;
+  text-align: center;
+  padding: 1rem 1rem;
+  margin-bottom: 1rem;
+
+  font-size: 13px;
+
+  box-shadow: inset -1px -1px 38px #00000062, inset -1px 1px 38px #333333fa;
+}
+
+.startingWall {
+  border: 1px solid black rgb(255, 255, 255);
+}

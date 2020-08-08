@@ -10,6 +10,7 @@ import {
   MDBAnimation,
   MDBTypography,
   MDBIcon,
+  MDBBadge,
 } from "mdbreact";
 
 import "./profile.css";
@@ -83,7 +84,23 @@ const ColumnsProfile = (props) => {
                 <div id="item1">
                   <Room itemPosition={[1, 1]} />
                 </div>
-                <div id="item2"></div>
+                <div id="item2">
+                  <div className="dragNdrop">
+                    <DnDIcons role="entrance" />: ENTRANCE
+                  </div>
+                  <div className="dragNdrop">
+                    <DnDIcons role="exit" />: EXIT
+                  </div>
+                  <div className="dragNdrop">
+                    <DnDIcons role="accessPoint" />: ACCESS POINT{" "}
+                    <MDBBadge color="danger" className="ml-2">
+                      4
+                    </MDBBadge>
+                  </div>
+                  <div className="dragNdrop">
+                    <DnDIcons role="entrance" />: EXHIBIT
+                  </div>
+                </div>
               </div>
 
               <hr style={{ width: "90%", marginLeft: "5%" }} />

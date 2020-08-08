@@ -5,6 +5,7 @@ import React, {
   useImperativeHandle,
 } from "react";
 import DnDIcons from "./dndIcons.component";
+import "./profile.css";
 
 export default function Square({ black, children }) {
   const fill = black ? "rgba(40, 40, 40, 0.1)" : "white";
