@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { DnDItemTypes } from './dndItemTypes';
+import { DnDItemTypes } from '../dndItemTypes';
 import { useDrag } from 'react-dnd';
 
-import './profile.css';
+import '../styles/profile.css';
 import { MDBIcon } from 'mdbreact';
 
 const DnDIcons = (props) => {

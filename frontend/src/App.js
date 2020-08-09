@@ -1,14 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import "./index.css";
+import "./styles/index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import Main from "./main.component";
-import SignUp from "./signup.component";
-import LogIn from "./login.component";
-import Info from "./info.component";
-import Profile from "./profile.component";
+import Main from "./UIComponents/main.component";
+import SignUp from "./UIComponents/signup.component";
+import LogIn from "./UIComponents/login.component";
+import Info from "./UIComponents/info.component";
+import Profile from "./UIComponents/profile.component";
 
 const App = () => {
     return (

@@ -7,10 +7,10 @@ import {
   MDBContainer,
   MDBAnimation,
 } from "mdbreact";
-import "./info.css";
+import "../styles/info.css";
 
-import mern from "./mern.png";
-import Navbar from "./navbar.component.js";
+import mern from "../images/mern.png";
+import Navbar from "./navbar.component";
 import Footer from "./footer.component";
 
 const Info = () => {

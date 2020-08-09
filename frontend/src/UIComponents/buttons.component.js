@@ -9,7 +9,7 @@ import {
   MDBDropdownItem,
 } from "mdbreact";
 
-import "./profile.css";
+import "../styles/profile.css";
 
 const Buttons = props => {
 

@@ -12,7 +12,7 @@ import {
   MDBInput,
   MDBAnimation,
 } from "mdbreact";
-import "./signup.css";
+import "../styles/signup.css";
 import Navbar from "./navbar.component";
 import Footer from "./footer.component";
 

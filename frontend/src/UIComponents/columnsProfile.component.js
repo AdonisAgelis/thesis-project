@@ -11,15 +11,12 @@ import {
   MDBCardText,
   MDBAnimation,
   MDBTypography,
-  MDBIcon,
-  MDBBadge,
 } from "mdbreact";
 
-import "./profile.css";
+import "../styles/profile.css";
 import Room from "./room.component";
-import Background from "./columnsback.jpg";
 import Buttons from "./buttons.component";
-import logo from "./logo.png";
+import logo from "../images/logo.png";
 import DnDIcons from "./dndIcons.component";
 
 const ColumnsProfile = (props) => {

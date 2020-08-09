@@ -8,8 +8,8 @@ import {
   MDBContainer,
   MDBAnimation,
 } from "mdbreact";
-import "./index.css";
-import kar from "./pexels-photo-1244705.png";
+import "../styles/index.css";
+import kar from "../images/pexels-photo-1244705.png";
 import Navbar from "./navbar.component";
 import Footer from "./footer.component";
 

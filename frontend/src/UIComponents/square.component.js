@@ -1,6 +1,6 @@
 import React from "react";
-import "./profile.css";
-import { DnDItemTypes } from "./dndItemTypes";
+import "../styles/profile.css";
+import { DnDItemTypes } from "../dndItemTypes";
 import { useDrop } from 'react-dnd';
 
 export default function Square({ black, children }) {

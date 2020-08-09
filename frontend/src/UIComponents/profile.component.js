@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { MDBMask, MDBView } from "mdbreact";
-import "./profile.css";
+import "../styles/profile.css";
 import ColumnsProfile from "./columnsProfile.component";
 
 const Profile = () => {
