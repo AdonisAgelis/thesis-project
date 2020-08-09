@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import Square from "./square.component";
 import DnDIcons from "./dndIcons.component";
 
-const renderSquare = (i, [itemX, itemY]) => {
-  const x = i % 8;
-  const y = Math.floor(i / 8);
-  // const black = (x + y) % 2 !== 1;
+// i : number of squares
+const renderSquare = (i) => {
+
   let leftSideWallArray = [];
   let rightSideWallArray = [];
 
@@ -26,26 +25,27 @@ const renderSquare = (i, [itemX, itemY]) => {
   } else if (i > 921 && i < 958) {
     black = true;
   } else {
-
     black = false;
   }
-  const isItemHere = x === itemX && y === itemY;
-  // const piece = isItemHere ? <DnDIcons role="entrance" /> : null;
-  const piece = isItemHere ? null : null;
 
   return (
     <div key={i} style={{ width: "20px", height: "20px" }}>
-      <Square black={black}>{piece}</Square>
+      <Square black={black}>{renderPiece(i)}</Square>
     </div>
   );
 };
 
-export default function Room({ itemPosition }) {
-  // const [roomProp, setRoomProp] = useState(props);
+const renderPiece = (i, itemPosition) => {
+  if (i === itemPosition) {
+    return <DnDIcons role='entrance'/>
+  }
+};
+
+export default function Room() {
 
   const squares = [];
   for (let i = 0; i < 1000; i++) {
-    squares.push(renderSquare(i, itemPosition));
+    squares.push(renderSquare(i));
   }
 
   return (

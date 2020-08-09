@@ -85,7 +85,7 @@ const ColumnsProfile = (props) => {
                 <MDBCardText style={{ textAlign: "center" }}></MDBCardText>
                 <div className="workspace-container">
                   <div id="item1">
-                    <Room itemPosition={[1, 1]} />
+                    <Room />
                   </div>
                   <div id="item2">
                     <div className="dragNdrop">

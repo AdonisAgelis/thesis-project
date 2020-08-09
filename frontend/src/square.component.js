@@ -1,16 +1,21 @@
-import React, {
-  useState,
-  forwardRef,
-  useRef,
-  useImperativeHandle,
-} from "react";
-import DnDIcons from "./dndIcons.component";
+import React from "react";
 import "./profile.css";
+import { DnDItemTypes } from "./dndItemTypes";
+import { useDrop } from 'react-dnd';
 
 export default function Square({ black, children }) {
   const fill = black ? "rgba(40, 40, 40, 0.1)" : "white";
   const stroke = "black"; /*? "white" : "grey"*/
-  // const [itemProp, setItemProp] = useState(props);
+
+  // const [{ isOver, canDrop }, drop] = useDrop({
+  //   accept: DnDItemTypes.ENTRANCE,
+  //   drop: () => moveIcon(i),
+  //   collect: (mon) => ({
+  //     isOver: !!mon.isOver(),
+  //     canDrop: !!mon.canDrop()
+  //   })
+  // });
+
   return (
     <div
       style={{
