@@ -18,8 +18,12 @@ import Room from "./room.component";
 import Buttons from "./buttons.component";
 import logo from "../images/logo.png";
 import DnDIcons from "./dndIcons.component";
+import { useSelector, useDispatch } from "react-redux";
+import { increment } from '../actions';
 
 const ColumnsProfile = (props) => {
+  const tester = useSelector(state => state.testReducer);
+  const dispatch = useDispatch();
   const [columnProp, setColumnProp] = useState(props);
 
   const sendColumnMidIsOpen = (childData) => {
@@ -49,7 +53,7 @@ const ColumnsProfile = (props) => {
               className="hr-light"
               style={{ width: "90%", marginLeft: "5%" }}
             />
-
+            <div><h1>{tester}</h1><button onClick={() => dispatch(increment(5))}>+</button></div>
             <Buttons type="home" />
 
             <Buttons type="new" func={sendColumnMidIsOpen} />
