@@ -10,24 +10,29 @@ import {
 } from "mdbreact";
 
 import "../styles/profile.css";
-import { useDispatch } from "react-redux";
-import { dropSecondColumn } from "../actions";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  dropSecondColumn,
+  updateFirstDropDown,
+  updateSecondDropDown,
+} from "../actions";
 
 const Buttons = (props) => {
   const [buttonProp, setButtonProp] = useState(props);
-  const columnToggle = useDispatch();
-  const [typeOfPeople, setTypeOfPeople] = useState(3);
-  const [numOfPeople, setNumOfPeople] = useState("NUMBER OF PEOPLE");
-
+  const dispatch = useDispatch();
+  const peopleType = useSelector((state) => state.dropdownSelectionsReducer);
+  const peopleNum = useSelector(
+    (state) => state.dropdownSecondSelectionsReducer
+  );
   const handleDropDown = async (index) => {
-    if (index !== typeOfPeople) {
-      await setTypeOfPeople(index);
-      await setNumOfPeople("NUMBER OF PEOPLE");
+    if (index !== peopleType) {
+      await dispatch(updateFirstDropDown(index));
+      await dispatch(updateSecondDropDown("NUMBER OF PEOPLE"));
     }
   };
 
   const handleSecondDropDown = async (testing) => {
-    await setNumOfPeople(testing);
+    await dispatch(updateSecondDropDown(testing));
   };
 
   const groupDropDownOptions = (x, y) => {
@@ -62,10 +67,6 @@ const Buttons = (props) => {
     },
   ];
 
-  const sendColumnMidIsOpen = () => {
-    buttonProp.func("2");
-  };
-
   if (buttonProp.type === "save") {
     return (
       <MDBBtn id="save" rounded color="success">
@@ -78,7 +79,7 @@ const Buttons = (props) => {
       <div className="d-flex flex-row justify-content-around">
         <MDBDropdown>
           <MDBDropdownToggle id="dd1" caret rounded color="blue-grey">
-            {dropdownItems[typeOfPeople].type}
+            {dropdownItems[peopleType].type}
           </MDBDropdownToggle>
           <MDBDropdownMenu basic>
             <MDBDropdownItem onClick={() => handleDropDown(0)}>
@@ -94,9 +95,9 @@ const Buttons = (props) => {
         </MDBDropdown>
         <MDBDropdown>
           <MDBDropdownToggle caret id="dd2" rounded color="blue-grey">
-            {numOfPeople}
+            {peopleNum}
           </MDBDropdownToggle>
-          {groupDropDownOptions(typeOfPeople, dropdownItems)}
+          {groupDropDownOptions(peopleType, dropdownItems)}
         </MDBDropdown>
       </div>
     );
@@ -122,10 +123,7 @@ const Buttons = (props) => {
     );
   } else if (buttonProp.type === "new") {
     return (
-      <MDBBtn
-        className="styleBtn"
-        onClick={() => columnToggle(dropSecondColumn())}
-      >
+      <MDBBtn className="styleBtn" onClick={() => dispatch(dropSecondColumn())}>
         <MDBIcon icon="plus-circle" style={{ marginRight: "1rem" }} />
         New Template
       </MDBBtn>
