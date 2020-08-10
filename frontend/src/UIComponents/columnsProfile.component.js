@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 import {
   MDBCol,
@@ -19,16 +19,9 @@ import Buttons from "./buttons.component";
 import logo from "../images/logo.png";
 import DnDIcons from "./dndIcons.component";
 import { useSelector, useDispatch } from "react-redux";
-import { increment } from '../actions';
 
 const ColumnsProfile = (props) => {
-  const tester = useSelector(state => state.testReducer);
-  const dispatch = useDispatch();
   const [columnProp, setColumnProp] = useState(props);
-
-  const sendColumnMidIsOpen = (childData) => {
-    columnProp.parentCallback(childData);
-  };
 
   if (columnProp.columnPos === 2) {
     return (
@@ -53,10 +46,10 @@ const ColumnsProfile = (props) => {
               className="hr-light"
               style={{ width: "90%", marginLeft: "5%" }}
             />
-            <div><h1>{tester}</h1><button onClick={() => dispatch(increment(5))}>+</button></div>
+
             <Buttons type="home" />
 
-            <Buttons type="new" func={sendColumnMidIsOpen} />
+            <Buttons type="new" />
             <Buttons type="load" />
             <Buttons type="graph" />
             <hr
@@ -80,7 +73,7 @@ const ColumnsProfile = (props) => {
                 <MDBCardTitle style={{ textAlign: "center" }}>
                   <MDBTypography style={{ color: "white" }} tag="h4">
                     {/* Name of Room */}
-                </MDBTypography>
+                  </MDBTypography>
                 </MDBCardTitle>
                 <hr style={{ width: "90%", marginLeft: "5%" }} />
                 <MDBCardText style={{ textAlign: "center" }}></MDBCardText>
@@ -90,16 +83,20 @@ const ColumnsProfile = (props) => {
                   </div>
                   <div id="item2">
                     <div className="dragNdrop">
-                      <DnDIcons role="entrance" /><p>ENTRANCE</p>
+                      <DnDIcons role="entrance" />
+                      <p>ENTRANCE</p>
                     </div>
                     <div className="dragNdrop">
-                      <DnDIcons role="exit" /><p>EXIT</p>
+                      <DnDIcons role="exit" />
+                      <p>EXIT</p>
                     </div>
                     <div className="dragNdrop">
-                      <DnDIcons role="accessPoint" /><p>ACCESS POINT</p>
+                      <DnDIcons role="accessPoint" />
+                      <p>ACCESS POINT</p>
                     </div>
                     <div className="dragNdrop">
-                      <DnDIcons role="exhibit" /><p>EXHIBIT</p>
+                      <DnDIcons role="exhibit" />
+                      <p>EXHIBIT</p>
                     </div>
                   </div>
                 </div>

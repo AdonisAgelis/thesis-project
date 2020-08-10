@@ -1,8 +1,8 @@
-import testReducer from './test';
-import { combineReducers } from 'redux';
+import dropMidColumnReducer from "./profile";
+import { combineReducers } from "redux";
 
 const allReducers = combineReducers({
-    testReducer
+  dropMidColumnReducer,
 });
 
 export default allReducers;
