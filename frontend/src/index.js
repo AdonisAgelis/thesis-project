@@ -1,9 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { render } from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import rootReducer from './images/rootReducer';
 import "./styles/index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
@@ -12,13 +9,9 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
 
-const store = createStore(rootReducer, window.STATE_FROM_SERVER);
-
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
       <App />
-    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
