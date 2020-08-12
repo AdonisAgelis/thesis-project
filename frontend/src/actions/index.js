@@ -17,3 +17,10 @@ export const updateSecondDropDown = (value) => {
     payload: value,
   };
 };
+
+export const extractSquarePosition = (value) => {
+  return {
+    type: 'EXTRACT_SQUARE_POSITION',
+    payload: value
+  }
+};

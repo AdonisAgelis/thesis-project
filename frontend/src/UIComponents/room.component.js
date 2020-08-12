@@ -30,7 +30,7 @@ const renderSquare = (i) => {
 
   return (
     <div key={i} style={{ width: "20px", height: "20px" }}>
-      <Square black={black}>{renderPiece(i)}</Square>
+      <Square black={black} pos={i}>{renderPiece(i)}</Square>
     </div>
   );
 };

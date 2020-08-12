@@ -152,12 +152,15 @@
 }
 
 .draggableIcons {
+  background-color: transparent;
+  color: white;
   opacity: 1;
   font-size: 25;
   font-weight: bold;
   cursor: move;
-  height: 20px;
-  width: 20px;
+  height: 18px;
+  width: 18px;
+  z-index: 2;
 }
 
 p {
