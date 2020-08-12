@@ -7,22 +7,31 @@ const renderSquare = (i) => {
 
   let leftSideWallArray = [];
   let rightSideWallArray = [];
+  let topSideWallArray = [];
+  let botSideWallArray = [];
 
   for (let leftSideWall = 41; leftSideWall < 941; leftSideWall += 40) {
     leftSideWallArray.push(leftSideWall);
   }
   for (let rightSideWall = 78; rightSideWall < 978; rightSideWall += 40) {
-    leftSideWallArray.push(rightSideWall);
+    rightSideWallArray.push(rightSideWall);
   }
 
+  for (let topSideWall = 42; topSideWall < 78; topSideWall++) {
+    topSideWallArray.push(topSideWall);
+  }
+
+  for (let botSideWall = 922; botSideWall < 958; botSideWall++) {
+    botSideWallArray.push(botSideWall);
+  }
+
+  const verticalWallArrays = leftSideWallArray.concat(rightSideWallArray);
+  const horizontalWallArrays = topSideWallArray.concat(botSideWallArray);
+  const WallArrays = verticalWallArrays.concat(horizontalWallArrays);
+
   let black = null;
-  if (i > 41 && i < 78) {
-    black = true;
-  } else if (leftSideWallArray.includes(i)) {
-    black = true;
-  } else if (rightSideWallArray.includes(i)) {
-    black = true;
-  } else if (i > 921 && i < 958) {
+
+  if (WallArrays.includes(i)) {
     black = true;
   } else {
     black = false;
@@ -30,14 +39,14 @@ const renderSquare = (i) => {
 
   return (
     <div key={i} style={{ width: "20px", height: "20px" }}>
-      <Square black={black} pos={i}>{renderPiece(i)}</Square>
+      <Square black={black} pos={i} walls={WallArrays}>{renderPiece(i)}</Square>
     </div>
   );
 };
 
 const renderPiece = (i, itemPosition) => {
   if (i === itemPosition) {
-    return <DnDIcons role='entrance'/>
+    return <DnDIcons role='entrance' />
   }
 };
 

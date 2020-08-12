@@ -6,7 +6,7 @@ import { extractSquarePosition } from '../actions';
 import { useDispatch, useSelector } from 'react-redux';
 import DnDIcons from "./dndIcons.component";
 
-export default function Square({ black, pos, children }) {
+export default function Square({ black, pos, children, walls }) {
   const fill = black ? "rgba(40, 40, 40, 0.1)" : "white";
   const stroke = "black"; /*? "white" : "grey"*/
   const dispatch = useDispatch();
@@ -27,7 +27,7 @@ export default function Square({ black, pos, children }) {
 
   let bg = isOver ? 'blue' : fill
 
-  if (pos !== headButt) {
+  if (pos !== headButt && fill == 'rgba(40, 40, 40, 0.1)') {
     return (
       <div
         ref={drop}
@@ -42,7 +42,21 @@ export default function Square({ black, pos, children }) {
         {children}
       </div>
     );
-  } else if (pos === headButt) {
+  } else if (pos !== headButt && fill == 'white') {
+    return (
+      <div
+        style={{
+          backgroundColor: bg,
+          color: stroke,
+          width: "20px",
+          height: "20px",
+          border: "rgba(40, 40, 40, 0.1) solid 1px",
+        }}
+      >
+        {children}
+      </div>
+    );
+  } else if (walls.includes(headButt)) {
     return <DnDIcons role='entrance' />
   }
 }
