@@ -43,6 +43,6 @@ export default function Square({ black, pos, children }) {
       </div>
     );
   } else if (pos === headButt) {
-    return <DnDIcons role = 'entrance'/>
+    return <DnDIcons role='entrance' />
   }
 }

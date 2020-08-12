@@ -1,5 +1,5 @@
 const extractPositionReducer = (
-    state = 0,
+    state = null,
     action
   ) => {
     switch (action.type) {
