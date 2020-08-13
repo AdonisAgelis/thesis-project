@@ -10,6 +10,8 @@ const renderSquare = (i) => {
   let topSideWallArray = [];
   let botSideWallArray = [];
 
+  console.log('Ai gamis');
+
   for (let leftSideWall = 41; leftSideWall < 941; leftSideWall += 40) {
     leftSideWallArray.push(leftSideWall);
   }
