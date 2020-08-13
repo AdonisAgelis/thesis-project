@@ -18,16 +18,9 @@ export const updateSecondDropDown = (value) => {
   };
 };
 
-export const extractEntrancePosition = (value) => {
+export const extractSquarePosition = (value) => {
   return {
-    type: 'EXTRACT_ENTRANCE_POSITION',
-    payload: value
-  }
-};
-
-export const extractExitPosition = (value) => {
-  return {
-    type: 'EXTRACT_EXIT_POSITION',
+    type: 'EXTRACT_SQUARE_POSITION',
     payload: value
   }
 };

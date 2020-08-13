@@ -11,7 +11,7 @@ const DnDIcons = (props) => {
     let dndProp = roleProp.role.toUpperCase();
 
     const [{ isDragging }, drag] = useDrag({
-        item: { type: DnDItemTypes.ENTRANCE, type: DnDItemTypes.EXIT },
+        item: { type: DnDItemTypes.ENTRANCE },
         collect: monitor => ({
             isDragging: !!monitor.isDragging(),
         })

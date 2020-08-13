@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/profile.css";
 import { DnDItemTypes } from "../dndItemTypes";
 import { useDrop } from 'react-dnd';
-import { extractEntrancePosition, extractExitPosition } from '../actions';
+import { extractSquarePosition } from '../actions';
 import { useDispatch, useSelector } from 'react-redux';
 import DnDIcons from "./dndIcons.component";
 
@@ -12,14 +12,14 @@ export default function Square({ black, pos, children, walls }) {
   const dispatch = useDispatch();
   const headButt = useSelector(state => state.extractPositionReducer);
 
-  const entranceTargetId = (x) => {
-    dispatch(extractEntrancePosition(x));
+  const extractTargetId = (x) => {
+    dispatch(extractSquarePosition(x));
     return { id: x }
   };
 
   const [{ isOver }, drop] = useDrop({
     accept: DnDItemTypes.ENTRANCE,
-    drop: (item, monitor) => entranceTargetId(monitor.targetId),
+    drop: (item, monitor) => extractTargetId(monitor.targetId),
     collect: monitor => ({
       isOver: !!monitor.isOver(),
     })

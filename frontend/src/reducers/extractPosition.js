@@ -1,16 +1,11 @@
-const state = {entrance: null, exit: null};
-
 const extractPositionReducer = (
-    state,
+    state = null,
     action
   ) => {
     switch (action.type) {
-      case "EXTRACT_ENTRANCE_POSITION":
+      case "EXTRACT_SQUARE_POSITION":
         action.payload = parseInt(action.payload.replace('T', ''), 10);
-        return (state.entrance = action.payload);
-      case 'EXTRACT_EXIT_POSITION':
-        action.payload = parseInt(action.payload.replace('T', ''), 10);
-        return (state.entrance = action.payload);
+        return (state = action.payload);
       default:
         return state;
     }
