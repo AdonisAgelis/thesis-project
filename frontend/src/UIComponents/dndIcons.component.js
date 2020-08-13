@@ -17,6 +17,13 @@ const DnDIcons = (props) => {
         })
     });
 
+    const [{ isDraggingExit }, dragExit] = useDrag({
+        item: { type: DnDItemTypes.EXIT },
+        collect: monitor => ({
+            isDraggingExit: !!monitor.isDragging(),
+        })
+    });
+
     if (roleProp.role === 'entrance') {
         return <div
             ref={drag} className='draggableIcons'>
@@ -24,22 +31,22 @@ const DnDIcons = (props) => {
         </div>
     } else if (roleProp.role === 'exit') {
         return <div
-            ref={drag} className='draggableIcons'>
+            ref={dragExit} className='draggableIcons'>
             <MDBIcon icon="door-open" />
         </div>
     } else if (roleProp.role === 'wall') {
         return <div
-            ref={drag} className='draggableIcons'>
+            className='draggableIcons'>
             <MDBIcon icon="door-open" />
         </div>
     } else if (roleProp.role === 'accessPoint') {
         return <div
-            ref={drag} className='draggableIcons'>
+            className='draggableIcons'>
             <MDBIcon icon="wifi" />
         </div>
     } else if (roleProp.role === 'exhibit') {
         return <div
-            ref={drag} className='draggableIcons'>
+            className='draggableIcons'>
             <MDBIcon icon="university" />
         </div>
     }
