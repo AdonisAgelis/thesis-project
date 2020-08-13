@@ -19,13 +19,13 @@ export default function Square({ black, pos, walls }) {
 
   const extractTargetId = (x, item) => {
     if (item.type === 'entrance') {
-      dispatch(extractTypeOfDraggable(item.type))
+      dispatch(extractTypeOfDraggable(item.type));
       dispatch(extractEntrancePosition(x));
     } else if (item.type === 'exit') {
-      dispatch(extractTypeOfDraggable(item.type))
+      dispatch(extractTypeOfDraggable(item.type));
       dispatch(extractExitPosition(x));
     }
-    return { id: x }
+    return { id: x };
   };
 
   const [{ isOver }, drop] = useDrop({
