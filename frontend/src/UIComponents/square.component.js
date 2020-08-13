@@ -7,13 +7,14 @@ import DnDIcons from "./dndIcons.component";
 
 import "../styles/profile.css";
 
-export default function Square({ black, pos, walls }) {
+export default function Square({ black, pos }) {
   const fill = black ? "rgba(40, 40, 40, 0.1)" : "white";
+  const roomCorners = [41, 78, 921, 958];
   const stroke = "black"; /*? "white" : "grey"*/
   const dispatch = useDispatch();
   let entrancePosition = useSelector(state => state.extractPositionReducer.entrance);
   let exitPosition = useSelector(state => state.extractPositionReducer.exit);
-  let typeOfDraggable =  useSelector(state => state.extractTypeOfDraggableReducer);
+  let typeOfDraggable = useSelector(state => state.extractTypeOfDraggableReducer);
 
   const extractTargetId = (x, item) => {
     if (item.type === 'entrance') {
@@ -37,20 +38,7 @@ export default function Square({ black, pos, walls }) {
   let bg = isOver ? 'yellow' : fill;
 
   if (pos !== entrancePosition && pos !== exitPosition && fill === 'rgba(40, 40, 40, 0.1)') {
-    return (
-      <div
-        ref={drop}
-        style={{
-          backgroundColor: bg,
-          color: stroke,
-          width: "20px",
-          height: "20px",
-          border: "rgba(40, 40, 40, 0.1) solid 1px",
-        }}
-      >
-      </div>
-    );
-  } else if (pos !== entrancePosition && pos !== exitPosition && fill === 'white') {
+    if (roomCorners.includes(pos)) {
       return (
         <div
           style={{
@@ -63,6 +51,34 @@ export default function Square({ black, pos, walls }) {
         >
         </div>
       );
+    } else {
+      return (
+        <div
+          ref={drop}
+          style={{
+            backgroundColor: bg,
+            color: stroke,
+            width: "20px",
+            height: "20px",
+            border: "rgba(40, 40, 40, 0.1) solid 1px",
+          }}
+        >
+        </div>
+      );
+    }
+  } else if (pos !== entrancePosition && pos !== exitPosition && fill === 'white') {
+    return (
+      <div
+        style={{
+          backgroundColor: bg,
+          color: stroke,
+          width: "20px",
+          height: "20px",
+          border: "rgba(40, 40, 40, 0.1) solid 1px",
+        }}
+      >
+      </div>
+    );
   } else if (typeOfDraggable === 'entrance') {
     return <DnDIcons role='entrance' />
   } else if (typeOfDraggable === 'exit') {
