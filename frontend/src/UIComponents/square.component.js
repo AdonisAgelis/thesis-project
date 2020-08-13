@@ -11,11 +11,9 @@ export default function Square({ black, pos, walls }) {
   const fill = black ? "rgba(40, 40, 40, 0.1)" : "white";
   const stroke = "black"; /*? "white" : "grey"*/
   const dispatch = useDispatch();
-  let headButt = useSelector(state => state.extractPositionReducer.entrance);
-  let ejected = useSelector(state => state.extractPositionReducer.exit);
+  let entrancePosition = useSelector(state => state.extractPositionReducer.entrance);
+  let exitPosition = useSelector(state => state.extractPositionReducer.exit);
   let typeOfDraggable =  useSelector(state => state.extractTypeOfDraggableReducer);
-
-  // console.log(typeOfDraggable);
 
   const extractTargetId = (x, item) => {
     if (item.type === 'entrance') {
@@ -38,7 +36,7 @@ export default function Square({ black, pos, walls }) {
 
   let bg = isOver ? 'yellow' : fill;
 
-  if (pos !== headButt && pos !== ejected && fill === 'rgba(40, 40, 40, 0.1)') {
+  if (pos !== entrancePosition && pos !== exitPosition && fill === 'rgba(40, 40, 40, 0.1)') {
     return (
       <div
         ref={drop}
@@ -52,7 +50,7 @@ export default function Square({ black, pos, walls }) {
       >
       </div>
     );
-  } else if (pos !== headButt && pos !== ejected && fill === 'white') {
+  } else if (pos !== entrancePosition && pos !== exitPosition && fill === 'white') {
       return (
         <div
           style={{
@@ -70,24 +68,4 @@ export default function Square({ black, pos, walls }) {
   } else if (typeOfDraggable === 'exit') {
     return <DnDIcons role='exit' />
   }
-  // else if (x) {
-  //   console.log('Ent1');
-  //     if (x && y === false) {
-  //       console.log('Ent2');
-  //       return <DnDIcons role='entrance' />
-  //     } else if (x && y) {
-  //       console.log('Ent3');
-  //       y = false;
-  //       return <DnDIcons role='exit' />
-  //     }
-  // } else if (y) {
-  //   console.log('Ex1');
-  //     if (y && x) {
-  //       console.log('Ex2');
-  //       return <DnDIcons role='entrance' />
-  //     } else if (y && !x) {
-  //       console.log('Ex3');
-  //       return <DnDIcons role='exit' />
-  //     }
-  // }
 }
