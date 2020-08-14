@@ -20,21 +20,47 @@ export const updateSecondDropDown = (value) => {
 
 export const extractEntrancePosition = (value) => {
   return {
-    type: 'EXTRACT_ENTRANCE_POSITION',
-    payload: value
-  }
+    type: "EXTRACT_ENTRANCE_POSITION",
+    payload: value,
+  };
 };
 
 export const extractExitPosition = (value) => {
   return {
-    type: 'EXTRACT_EXIT_POSITION',
-    payload: value
-  }
+    type: "EXTRACT_EXIT_POSITION",
+    payload: value,
+  };
 };
 
 export const extractTypeOfDraggable = (value) => {
   return {
-    type: 'EXTRACT_TYPE_OF_DRAGGABLE',
-    payload: value
-  }
+    type: "EXTRACT_TYPE_OF_DRAGGABLE",
+    payload: value,
+  };
+};
+
+export const extractAccessPointPosition = (value) => {
+  return {
+    type: "EXTRACT_ACCESS_POINT_POSITION",
+    payload: value,
+  };
+};
+
+export const extractExhibitPosition = (value) => {
+  return {
+    type: "EXTRACT_EXHIBIT_POSITION",
+    payload: value,
+  };
+};
+
+export const extractValidDropColorForEntranceExit = () => {
+  return {
+    type: "EXTRACT_VALID_DROP_COLOR_FOR_ENTRANCE_EXIT",
+  };
+};
+
+export const extractValidDropColorForElse = () => {
+  return {
+    type: "EXTRACT_VALID_DROP_COLOR_FOR_ELSE",
+  };
 };

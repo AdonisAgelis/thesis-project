@@ -1,8 +1,9 @@
 import dropMidColumnReducer from "./dropMidColumn";
 import dropdownSelectionsReducer from "./dropdownSelections";
 import dropdownSecondSelectionsReducer from "./dropdownSecondSelection";
-import extractPositionReducer from './extractPosition';
-import extractTypeOfDraggableReducer from './typeOfDragItems';
+import extractPositionReducer from "./extractPosition";
+import extractTypeOfDraggableReducer from "./typeOfDragItems";
+import colorPickerForDropReducer from "./colorPickerForDrop";
 import { combineReducers } from "redux";
 
 const allReducers = combineReducers({
@@ -10,7 +11,8 @@ const allReducers = combineReducers({
   dropdownSelectionsReducer,
   dropdownSecondSelectionsReducer,
   extractPositionReducer,
-  extractTypeOfDraggableReducer
+  extractTypeOfDraggableReducer,
+  colorPickerForDropReducer,
 });
 
 export default allReducers;
