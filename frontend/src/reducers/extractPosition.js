@@ -2,7 +2,7 @@ const initialState = {
   entrance: null,
   exit: null,
   accessPoint: null,
-  exhbit: null,
+  exhibit: null,
 };
 
 const extractPositionReducer = (state = initialState, action) => {
