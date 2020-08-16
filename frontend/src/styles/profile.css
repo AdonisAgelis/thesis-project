@@ -27,7 +27,7 @@
 
 #profile .card {
   background: linear-gradient(10deg, #000000, #000000);
-  box-shadow: -3px 3px 3px #1a1a1a, 3px 3px 5px #2b2828;
+  box-shadow: -3px 3px 3px #0c0c0c31, 3px 3px 5px #0c0c0c31;
 }
 
 #profile h6 {
@@ -151,6 +151,21 @@
   box-shadow: inset -1px -1px 38px #00000062, inset -1px 1px 38px #333333fa;
 }
 
+.information {
+  background-color: white !important;
+  color: #000000;
+  text-align: left;
+
+  display: grid;
+  grid-template-columns: 0.1rem auto;
+  text-align: left;
+  padding: 1rem 1rem 1rem 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2.5rem;
+  margin-left: 1.5rem;
+  font-size: 13px;
+}
+
 .draggableIcons {
   background-color: transparent;
   color: white;
@@ -158,9 +173,21 @@
   font-size: 25;
   font-weight: bold;
   cursor: move;
-  height: 18px;
-  width: 18px;
-  z-index: 2;
+  height: 20px;
+  width: 20px;
+  z-index: 1;
+}
+
+.draggableIconsInside {
+  background-color: red !important;
+  color: red !important;
+  opacity: 1 !important;
+  font-size: 25 !important;
+  font-weight: bold !important;
+  cursor: move !important;
+  height: 18px !important;
+  width: 18px !important ;
+  z-index: -1 !important;
 }
 
 p {

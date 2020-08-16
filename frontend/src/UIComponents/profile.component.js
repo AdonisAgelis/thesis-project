@@ -15,6 +15,7 @@ const Profile = () => {
       <MDBView>
         <MDBMask className="d-flex justify-content-center align-items-center gradient">
           <ColumnsProfile columnPos={columnPos} />
+
           {midMenuisOpen === "2" ? (
             <ColumnsProfile columnPos={columnPos + 5} />
           ) : (
