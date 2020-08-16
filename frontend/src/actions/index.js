@@ -64,3 +64,9 @@ export const extractValidDropColorForElse = () => {
     type: "EXTRACT_VALID_DROP_COLOR_FOR_ELSE",
   };
 };
+
+export const extractWallPosition = (value) => {
+  return {
+    type: "EXTRACT_WALL_POSITION",
+  };
+};
