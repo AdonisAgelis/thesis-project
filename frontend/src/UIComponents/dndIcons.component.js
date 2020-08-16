@@ -41,6 +41,13 @@ const DnDIcons = (props) => {
     }),
   });
 
+  const [{ isDraggingWall }, dragWall] = useDrag({
+    item: { type: DnDItemTypes.WALL },
+    collect: (monitor) => ({
+      isDraggingWall: !!monitor.isDragging(),
+    }),
+  });
+
   const dispatch = useDispatch();
 
   if (roleProp.role === "entrance") {
@@ -62,17 +69,6 @@ const DnDIcons = (props) => {
         className="draggableIcons"
         onDrag={() => {
           dispatch(extractValidDropColorForEntranceExit());
-        }}
-      >
-        <MDBIcon icon="door-open" />
-      </div>
-    );
-  } else if (roleProp.role === "wall") {
-    return (
-      <div
-        className="draggableIcons"
-        onDrag={() => {
-          dispatch(extractValidDropColorForElse());
         }}
       >
         <MDBIcon icon="door-open" />
@@ -100,6 +96,18 @@ const DnDIcons = (props) => {
         }}
       >
         <MDBIcon icon="university" />
+      </div>
+    );
+  } else if (roleProp.role === "wall") {
+    return (
+      <div
+        ref={dragWall}
+        className="draggableIcons"
+        onDrag={() => {
+          dispatch(extractValidDropColorForElse());
+        }}
+      >
+        <MDBIcon icon="square-full" />
       </div>
     );
   }

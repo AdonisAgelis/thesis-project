@@ -108,6 +108,10 @@ const ColumnsProfile = (props) => {
                       <DnDIcons role="exhibit" />
                       <p>EXHIBIT</p>
                     </div>
+                    <div className="dragNdrop">
+                      <DnDIcons role="wall" />
+                      <p>WALL</p>
+                    </div>
                     <hr
                       className="hr-light"
                       style={{ width: "100%", marginLeft: "10px" }}
