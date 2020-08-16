@@ -13,14 +13,18 @@ import DnDIcons from "./dndIcons.component";
 
 import "../styles/profile.css";
 
+let counterAP = 0;
+let counterExhibit = 0;
+let accessPointPositionArray = [];
+let exhibitPositionArray = [];
+
 export default function Square({ black, pos, walls }) {
   const fill = black ? "rgba(40, 40, 40, 0.1)" : "white";
   const roomCorners = [41, 78, 921, 958];
   const stroke = "black"; /*? "white" : "grey"*/
-
+  const dispatch = useDispatch();
   //Selector for taking data
 
-  const dispatch = useDispatch();
   let blackSquareColor = useSelector(
     (state) => state.colorPickerForDropReducer.blackSquare
   );
@@ -33,17 +37,26 @@ export default function Square({ black, pos, walls }) {
   let exitPosition = useSelector((state) => state.extractPositionReducer.exit);
 
   let accessPointPosition = useSelector(
-    (state) => state.extractPositionReducer.accessPoint
+    (state) => state.extractPositionReducer.accessPoint[counterAP]
   );
+  if (typeof accessPointPosition == "number") {
+    counterAP++;
+    accessPointPositionArray.push(accessPointPosition);
+  }
+
   let exhibitPosition = useSelector(
-    (state) => state.extractPositionReducer.exhibit
+    (state) => state.extractPositionReducer.exhibit[counterExhibit]
   );
+
+  if (typeof exhibitPosition == "number") {
+    counterExhibit++;
+    exhibitPositionArray.push(exhibitPosition);
+  }
+
   let typeOfDraggable = useSelector(
     (state) => state.extractTypeOfDraggableReducer
   );
-
   //After drop dispatch to reducers
-
   const extractTargetId = (x, item) => {
     if (
       item.type === "entrance" &&
@@ -95,12 +108,11 @@ export default function Square({ black, pos, walls }) {
   let insideBg = isOver ? whiteSquareColor : fill;
 
   // Render different Squares
-
   if (
     pos !== entrancePosition &&
     pos !== exitPosition &&
-    pos !== accessPointPosition &&
-    pos !== exhibitPosition &&
+    !accessPointPositionArray.includes(pos) &&
+    !exhibitPositionArray.includes(pos) &&
     fill === "rgba(40, 40, 40, 0.1)"
   ) {
     if (roomCorners.includes(pos)) {
@@ -132,8 +144,8 @@ export default function Square({ black, pos, walls }) {
   } else if (
     pos !== entrancePosition &&
     pos !== exitPosition &&
-    pos !== accessPointPosition &&
-    pos !== exhibitPosition &&
+    !accessPointPositionArray.includes(pos) &&
+    !exhibitPositionArray.includes(pos) &&
     fill === "white"
   ) {
     return (

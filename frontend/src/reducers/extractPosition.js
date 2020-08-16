@@ -1,8 +1,10 @@
 const initialState = {
   entrance: null,
   exit: null,
-  accessPoint: null,
-  exhibit: null,
+  accessPoint: [null, null],
+  exhibit: [null, null, null, null, null, null, null, null, null, null],
+  counterAccessPoint: 0,
+  counterExhibit: 0,
 };
 
 const extractPositionReducer = (state = initialState, action) => {
@@ -16,12 +18,19 @@ const extractPositionReducer = (state = initialState, action) => {
       state.exit = action.payload;
       return state;
     case "EXTRACT_ACCESS_POINT_POSITION":
-      action.payload = parseInt(action.payload.replace("T", ""), 10);
-      state.accessPoint = action.payload;
+      if (state.counterAccessPoint < 2) {
+        action.payload = parseInt(action.payload.replace("T", ""), 10);
+        state.accessPoint[state.counterAccessPoint] = action.payload;
+        state.counterAccessPoint++;
+      }
+
       return state;
     case "EXTRACT_EXHIBIT_POSITION":
-      action.payload = parseInt(action.payload.replace("T", ""), 10);
-      state.exhibit = action.payload;
+      if (state.counterExhibit < 10) {
+        action.payload = parseInt(action.payload.replace("T", ""), 10);
+        state.exhibit[state.counterExhibit] = action.payload;
+        state.counterExhibit++;
+      }
       return state;
     default:
       return { ...state };
