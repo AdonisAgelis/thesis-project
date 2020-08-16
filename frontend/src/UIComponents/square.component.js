@@ -18,6 +18,8 @@ export default function Square({ black, pos, walls }) {
   const roomCorners = [41, 78, 921, 958];
   const stroke = "black"; /*? "white" : "grey"*/
 
+  //Selector for taking data
+
   const dispatch = useDispatch();
   let blackSquareColor = useSelector(
     (state) => state.colorPickerForDropReducer.blackSquare
@@ -39,6 +41,8 @@ export default function Square({ black, pos, walls }) {
   let typeOfDraggable = useSelector(
     (state) => state.extractTypeOfDraggableReducer
   );
+
+  //After drop dispatch to reducers
 
   const extractTargetId = (x, item) => {
     if (
@@ -69,6 +73,8 @@ export default function Square({ black, pos, walls }) {
     return { id: x };
   };
 
+  //Hook for making the squares droppable
+
   const [{ isOver }, drop] = useDrop({
     accept: [
       DnDItemTypes.ENTRANCE,
@@ -83,8 +89,12 @@ export default function Square({ black, pos, walls }) {
     }),
   });
 
+  //Background icon color change after drag
+
   let bg = isOver ? blackSquareColor : fill;
   let insideBg = isOver ? whiteSquareColor : fill;
+
+  // Render different Squares
 
   if (
     pos !== entrancePosition &&

@@ -40,6 +40,7 @@ const DnDIcons = (props) => {
       isDraggingExhibit: !!monitor.isDragging(),
     }),
   });
+
   const dispatch = useDispatch();
 
   if (roleProp.role === "entrance") {
