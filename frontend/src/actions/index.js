@@ -68,5 +68,6 @@ export const extractValidDropColorForElse = () => {
 export const extractWallPosition = (value) => {
   return {
     type: "EXTRACT_WALL_POSITION",
+    payload: value,
   };
 };

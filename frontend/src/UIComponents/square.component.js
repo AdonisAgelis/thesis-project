@@ -7,6 +7,7 @@ import {
   extractTypeOfDraggable,
   extractExhibitPosition,
   extractAccessPointPosition,
+  extractWallPosition,
 } from "../actions";
 import { useDispatch, useSelector } from "react-redux";
 import DnDIcons from "./dndIcons.component";
@@ -64,7 +65,7 @@ export default function Square({ black, pos, walls }) {
     (state) => state.extractPositionReducer.wall[counterWall]
   );
 
-  if (typeof exhibitPosition == "number") {
+  if (typeof wallPosition == "number") {
     counterWall++;
     wallPositionArray.push(wallPosition);
   }
@@ -99,7 +100,7 @@ export default function Square({ black, pos, walls }) {
       !walls.includes(parseInt(x.replace("T", ""), 10))
     ) {
       dispatch(extractTypeOfDraggable(item.type));
-      dispatch(extractExhibitPosition(x));
+      dispatch(extractWallPosition(x));
     }
     return { id: x };
   };
@@ -190,7 +191,7 @@ export default function Square({ black, pos, walls }) {
   } else if (typeOfDraggable === "exhibit") {
     return <DnDIcons className="draggableIconsInside" role="exhibit" />;
   } else if (typeOfDraggable === "wall") {
-    return <DnDIcons className="draggableIconsInside" role="wall" />;
+    return <DnDIcons role="wall" />;
   } else {
     return true;
   }
