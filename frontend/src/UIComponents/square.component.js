@@ -165,7 +165,7 @@ export default function Square({ black, pos, walls }) {
   } else if (typeOfDraggable === "exit") {
     return <DnDIcons role="exit" />;
   } else if (typeOfDraggable === "accessPoint") {
-    return <DnDIcons role="accessPoint" />;
+    return <DnDIcons className="draggableIconsInside" role="accessPoint" />;
   } else if (typeOfDraggable === "exhibit") {
     return <DnDIcons role="exhibit" />;
   } else {

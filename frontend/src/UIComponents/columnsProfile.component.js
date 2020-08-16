@@ -11,6 +11,7 @@ import {
   MDBCardText,
   MDBAnimation,
   MDBTypography,
+  MDBIcon,
 } from "mdbreact";
 
 import "../styles/profile.css";
@@ -66,22 +67,31 @@ const ColumnsProfile = (props) => {
     return (
       <DndProvider backend={HTML5Backend}>
         <MDBCol md={columnProp.columnPos}>
-          <MDBAnimation type="fadeInDown" delay=".4s">
+          <MDBAnimation type="fadeInDown" delay=".3s">
             <MDBCard style={{ background: "rgba(0, 0, 0, 0.9" }}>
               <MDBCardImage className="img-fluid" />
               <MDBCardBody>
                 <MDBCardTitle style={{ textAlign: "center" }}>
-                  <MDBTypography style={{ color: "white" }} tag="h4">
-                    {/* Name of Room */}
-                  </MDBTypography>
+                  <MDBTypography
+                    style={{ color: "white" }}
+                    tag="h4"
+                  ></MDBTypography>
                 </MDBCardTitle>
-                <hr style={{ width: "90%", marginLeft: "5%" }} />
                 <MDBCardText style={{ textAlign: "center" }}></MDBCardText>
                 <div className="workspace-container">
                   <div id="item1">
                     <Room />
                   </div>
+
                   <div id="item2">
+                    <div className="information">
+                      <i class="fas fa-info-circle"></i> <p>INSTRUCTIONS</p>
+                    </div>
+                    <hr
+                      className="hr-light"
+                      style={{ width: "100%", marginLeft: "10px" }}
+                    />
+
                     <div className="dragNdrop">
                       <DnDIcons role="entrance" />
                       <p>ENTRANCE</p>
@@ -98,14 +108,19 @@ const ColumnsProfile = (props) => {
                       <DnDIcons role="exhibit" />
                       <p>EXHIBIT</p>
                     </div>
+                    <hr
+                      className="hr-light"
+                      style={{ width: "100%", marginLeft: "10px" }}
+                    />
                   </div>
                 </div>
 
-                <hr style={{ width: "90%", marginLeft: "5%" }} />
                 <div
                   className="d-flex flex-row justify-content-between"
                   style={{ display: "flex", flexWrap: "wrap" }}
                 >
+                  <hr className="hr-light" style={{ width: "100%" }} />
+
                   <Buttons type={"save"} />
                   <Buttons type={"group"} />
                   <Buttons type={"add"} />
