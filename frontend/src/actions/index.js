@@ -71,3 +71,9 @@ export const extractWallPosition = (value) => {
     payload: value,
   };
 };
+
+export const changeColorAfterDropping = () => {
+  return {
+    type: 'CHANGE_COLOR_AFTER_DROPPING'
+  };
+};

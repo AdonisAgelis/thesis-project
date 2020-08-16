@@ -178,18 +178,6 @@
   z-index: 1;
 }
 
-.draggableIconsInside {
-  background-color: red !important;
-  color: red !important;
-  opacity: 1 !important;
-  font-size: 25 !important;
-  font-weight: bold !important;
-  cursor: move !important;
-  height: 18px !important;
-  width: 18px !important ;
-  z-index: -1 !important;
-}
-
 p {
   margin: 0px 0px 0px 1.5rem !important;
 }

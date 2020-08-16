@@ -4,6 +4,7 @@ import dropdownSecondSelectionsReducer from "./dropdownSecondSelection";
 import extractPositionReducer from "./extractPosition";
 import extractTypeOfDraggableReducer from "./typeOfDragItems";
 import colorPickerForDropReducer from "./colorPickerForDrop";
+import colorChangerOnDropReducer from './colorChangerOnDrop';
 import { combineReducers } from "redux";
 
 const allReducers = combineReducers({
@@ -13,6 +14,7 @@ const allReducers = combineReducers({
   extractPositionReducer,
   extractTypeOfDraggableReducer,
   colorPickerForDropReducer,
+  colorChangerOnDropReducer
 });
 
 export default allReducers;

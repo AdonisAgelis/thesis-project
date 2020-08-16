@@ -25,7 +25,6 @@ const extractPositionReducer = (state = initialState, action) => {
         state.accessPoint[state.counterAccessPoint] = action.payload;
         state.counterAccessPoint++;
       }
-
       return state;
     case "EXTRACT_EXHIBIT_POSITION":
       if (state.counterExhibit < 10) {
@@ -38,7 +37,6 @@ const extractPositionReducer = (state = initialState, action) => {
       action.payload = parseInt(action.payload.replace("T", ""), 10);
       state.wall[state.counterWall] = action.payload;
       state.counterWall++;
-
       return state;
     default:
       return { ...state };

@@ -8,6 +8,7 @@ import {
   extractExhibitPosition,
   extractAccessPointPosition,
   extractWallPosition,
+  changeColorAfterDropping
 } from "../actions";
 import { useDispatch, useSelector } from "react-redux";
 import DnDIcons from "./dndIcons.component";
@@ -23,25 +24,65 @@ let wallPositionArray = [];
 
 export default function Square({ black, pos, walls }) {
   const fill = black ? "rgba(40, 40, 40, 0.1)" : "white";
-  const roomCorners = [41, 78, 921, 958];
   const stroke = "black"; /*? "white" : "grey"*/
   const dispatch = useDispatch();
-  //Selector for taking data
+  const roomCorners = [41, 78, 921, 958];
+  const outerLeftSide = [];
+  const outerRightSide = [];
+  const outerTopSide = [];
+  const outerBotSide = [];
 
+  // Make outer squares non-droppable zone
+
+  for (let outerLeft = 40; outerLeft <= 920; outerLeft += 40) {
+    outerLeftSide.push(outerLeft);
+  }
+
+  for (let outerRight = 79; outerRight <= 959; outerRight += 40) {
+    outerRightSide.push(outerRight);
+  }
+
+  for (let outerTop = 0; outerTop <= 39; outerTop++) {
+    outerTopSide.push(outerTop);
+  }
+
+  for (let outerBot = 960; outerBot <= 999; outerBot++) {
+    outerBotSide.push(outerBot);
+  }
+
+  const outerVerticalSquares = outerLeftSide.concat(outerRightSide);
+  const outerHorizonalSquares = outerTopSide.concat(outerBotSide);
+  const outerSquares = outerVerticalSquares.concat(outerHorizonalSquares);
+
+  // Change colors after dropping items on white squares
+
+  let backGround = useSelector(
+    (state) => state.colorChangerOnDropReducer.bgColor
+  );
+
+  let icons = useSelector(
+    (state) => state.colorChangerOnDropReducer.iconColor
+  );
+
+  //Selector for taking data
   let blackSquareColor = useSelector(
     (state) => state.colorPickerForDropReducer.blackSquare
   );
+
   let whiteSquareColor = useSelector(
     (state) => state.colorPickerForDropReducer.whiteSquare
   );
+
   let entrancePosition = useSelector(
     (state) => state.extractPositionReducer.entrance
   );
+
   let exitPosition = useSelector((state) => state.extractPositionReducer.exit);
 
   let accessPointPosition = useSelector(
     (state) => state.extractPositionReducer.accessPoint[counterAP]
   );
+
   if (typeof accessPointPosition == "number") {
     counterAP++;
     accessPointPositionArray.push(accessPointPosition);
@@ -60,7 +101,6 @@ export default function Square({ black, pos, walls }) {
     (state) => state.extractTypeOfDraggableReducer
   );
 
-  //
   let wallPosition = useSelector(
     (state) => state.extractPositionReducer.wall[counterWall]
   );
@@ -69,6 +109,7 @@ export default function Square({ black, pos, walls }) {
     counterWall++;
     wallPositionArray.push(wallPosition);
   }
+
   //After drop dispatch to reducers
   const extractTargetId = (x, item) => {
     if (
@@ -89,18 +130,21 @@ export default function Square({ black, pos, walls }) {
     ) {
       dispatch(extractTypeOfDraggable(item.type));
       dispatch(extractAccessPointPosition(x));
+      dispatch(changeColorAfterDropping())
     } else if (
       item.type === "exhibit" &&
       !walls.includes(parseInt(x.replace("T", ""), 10))
     ) {
       dispatch(extractTypeOfDraggable(item.type));
       dispatch(extractExhibitPosition(x));
+      dispatch(changeColorAfterDropping())
     } else if (
       item.type === "wall" &&
       !walls.includes(parseInt(x.replace("T", ""), 10))
     ) {
       dispatch(extractTypeOfDraggable(item.type));
       dispatch(extractWallPosition(x));
+      dispatch(changeColorAfterDropping())
     }
     return { id: x };
   };
@@ -187,9 +231,9 @@ export default function Square({ black, pos, walls }) {
   } else if (typeOfDraggable === "exit") {
     return <DnDIcons role="exit" />;
   } else if (typeOfDraggable === "accessPoint") {
-    return <DnDIcons className="draggableIconsInside" role="accessPoint" />;
+    return <DnDIcons role="accessPoint" />;
   } else if (typeOfDraggable === "exhibit") {
-    return <DnDIcons className="draggableIconsInside" role="exhibit" />;
+    return <DnDIcons role="exhibit" />;
   } else if (typeOfDraggable === "wall") {
     return <DnDIcons role="wall" />;
   } else {
