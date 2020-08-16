@@ -3,8 +3,10 @@ const initialState = {
   exit: null,
   accessPoint: [null, null],
   exhibit: [null, null, null, null, null, null, null, null, null, null],
+  wall: [null],
   counterAccessPoint: 0,
   counterExhibit: 0,
+  counterWall: 0,
 };
 
 const extractPositionReducer = (state = initialState, action) => {
@@ -31,6 +33,12 @@ const extractPositionReducer = (state = initialState, action) => {
         state.exhibit[state.counterExhibit] = action.payload;
         state.counterExhibit++;
       }
+      return state;
+    case "EXTRACT_WALL_POSITION":
+      action.payload = parseInt(action.payload.replace("T", ""), 10);
+      state.wall[state.counterWall] = action.payload;
+      state.counterWall++;
+
       return state;
     default:
       return { ...state };

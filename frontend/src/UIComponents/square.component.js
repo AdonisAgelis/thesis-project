@@ -15,8 +15,10 @@ import "../styles/profile.css";
 
 let counterAP = 0;
 let counterExhibit = 0;
+let counterWall = 0;
 let accessPointPositionArray = [];
 let exhibitPositionArray = [];
+let wallPositionArray = [];
 
 export default function Square({ black, pos, walls }) {
   const fill = black ? "rgba(40, 40, 40, 0.1)" : "white";
@@ -56,6 +58,16 @@ export default function Square({ black, pos, walls }) {
   let typeOfDraggable = useSelector(
     (state) => state.extractTypeOfDraggableReducer
   );
+
+  //
+  let wallPosition = useSelector(
+    (state) => state.extractPositionReducer.wall[counterWall]
+  );
+
+  if (typeof exhibitPosition == "number") {
+    counterWall++;
+    wallPositionArray.push(wallPosition);
+  }
   //After drop dispatch to reducers
   const extractTargetId = (x, item) => {
     if (
@@ -82,6 +94,12 @@ export default function Square({ black, pos, walls }) {
     ) {
       dispatch(extractTypeOfDraggable(item.type));
       dispatch(extractExhibitPosition(x));
+    } else if (
+      item.type === "wall" &&
+      !walls.includes(parseInt(x.replace("T", ""), 10))
+    ) {
+      dispatch(extractTypeOfDraggable(item.type));
+      dispatch(extractExhibitPosition(x));
     }
     return { id: x };
   };
@@ -94,6 +112,7 @@ export default function Square({ black, pos, walls }) {
       DnDItemTypes.EXIT,
       DnDItemTypes.ACCESSPOINT,
       DnDItemTypes.EXHIBIT,
+      DnDItemTypes.WALL,
     ],
     drop: (item, monitor) => extractTargetId(monitor.targetId, item),
 
@@ -113,6 +132,7 @@ export default function Square({ black, pos, walls }) {
     pos !== exitPosition &&
     !accessPointPositionArray.includes(pos) &&
     !exhibitPositionArray.includes(pos) &&
+    !wallPositionArray.includes(pos) &&
     fill === "rgba(40, 40, 40, 0.1)"
   ) {
     if (roomCorners.includes(pos)) {
@@ -146,6 +166,7 @@ export default function Square({ black, pos, walls }) {
     pos !== exitPosition &&
     !accessPointPositionArray.includes(pos) &&
     !exhibitPositionArray.includes(pos) &&
+    !wallPositionArray.includes(pos) &&
     fill === "white"
   ) {
     return (
@@ -167,7 +188,9 @@ export default function Square({ black, pos, walls }) {
   } else if (typeOfDraggable === "accessPoint") {
     return <DnDIcons className="draggableIconsInside" role="accessPoint" />;
   } else if (typeOfDraggable === "exhibit") {
-    return <DnDIcons role="exhibit" />;
+    return <DnDIcons className="draggableIconsInside" role="exhibit" />;
+  } else if (typeOfDraggable === "wall") {
+    return <DnDIcons className="draggableIconsInside" role="wall" />;
   } else {
     return true;
   }
