@@ -1,6 +1,6 @@
 const initialState = {
   blackSquare: null,
-  whiteSquare: null,
+  whiteSquare: null
 };
 
 const colorPickerForDropReducer = (state = initialState, action) => {

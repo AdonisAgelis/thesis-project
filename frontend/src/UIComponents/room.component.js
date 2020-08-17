@@ -5,6 +5,35 @@ import DnDIcons from "./dndIcons.component";
 // i : number of squares
 const renderSquare = (i) => {
 
+  const outerLeftSide = [];
+  const outerRightSide = [];
+  const outerTopSide = [];
+  const outerBotSide = [];
+
+  // Make outer squares non-droppable zone
+
+  for (let outerLeft = 40; outerLeft <= 920; outerLeft += 40) {
+    outerLeftSide.push(outerLeft);
+  }
+
+  for (let outerRight = 79; outerRight <= 959; outerRight += 40) {
+    outerRightSide.push(outerRight);
+  }
+
+  for (let outerTop = 0; outerTop <= 39; outerTop++) {
+    outerTopSide.push(outerTop);
+  }
+
+  for (let outerBot = 960; outerBot <= 999; outerBot++) {
+    outerBotSide.push(outerBot);
+  }
+
+  const outerVerticalSquares = outerLeftSide.concat(outerRightSide);
+  const outerHorizonalSquares = outerTopSide.concat(outerBotSide);
+  const outerSquares = outerVerticalSquares.concat(outerHorizonalSquares);
+
+  // Black Squares
+
   let leftSideWallArray = [];
   let rightSideWallArray = [];
   let topSideWallArray = [];
@@ -39,7 +68,7 @@ const renderSquare = (i) => {
 
   return (
     <div key={i} style={{ width: "20px", height: "20px" }}>
-      <Square black={black} pos={i} walls={WallArrays}>{renderPiece(i)}</Square>
+      <Square black={black} pos={i} walls={WallArrays} outerSquares={outerSquares}>{renderPiece(i)}</Square>
     </div>
   );
 };
