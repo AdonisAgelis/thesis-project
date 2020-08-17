@@ -11,7 +11,6 @@ import {
   MDBCardText,
   MDBAnimation,
   MDBTypography,
-  MDBIcon,
 } from "mdbreact";
 
 import "../styles/profile.css";
@@ -19,7 +18,6 @@ import Room from "./room.component";
 import Buttons from "./buttons.component";
 import logo from "../images/logo.png";
 import DnDIcons from "./dndIcons.component";
-import { useSelector, useDispatch } from "react-redux";
 
 const ColumnsProfile = (props) => {
   const [columnProp, setColumnProp] = useState(props);
@@ -94,7 +92,6 @@ const ColumnsProfile = (props) => {
 
                     <div className="dragNdrop">
                       <DnDIcons role="entrance" />
-
                       <p>ENTRANCE</p>
                     </div>
                     <div className="dragNdrop">
