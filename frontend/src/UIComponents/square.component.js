@@ -9,6 +9,10 @@ import {
   extractAccessPointPosition,
   extractWallPosition,
   changeColorAfterDropping,
+  extractEntranceBadge,
+  extractExhibitBadge,
+  extractExitBadge,
+  extractAccessPointBadge,
 } from "../actions";
 import { useDispatch, useSelector } from "react-redux";
 import DnDIcons from "./dndIcons.component";
@@ -29,7 +33,7 @@ export default function Square({ black, pos, walls, outerSquares }) {
   const dispatch = useDispatch();
   const roomCorners = [41, 78, 921, 958];
 
-  //Selector for taking data
+  //Selectors for taking data
   let blackSquareColor = useSelector(
     (state) => state.colorPickerForDropReducer.blackSquare
   );
@@ -83,24 +87,28 @@ export default function Square({ black, pos, walls, outerSquares }) {
     ) {
       await dispatch(extractTypeOfDraggable(item.type));
       await dispatch(extractEntrancePosition(x));
+      await dispatch(extractEntranceBadge());
     } else if (
       item.type === "exit" &&
       walls.includes(parseInt(x.replace("T", ""), 10))
     ) {
       await dispatch(extractTypeOfDraggable(item.type));
       await dispatch(extractExitPosition(x));
+      await dispatch(extractExitBadge());
     } else if (
       item.type === "accessPoint" &&
       !walls.includes(parseInt(x.replace("T", ""), 10))
     ) {
       await dispatch(extractTypeOfDraggable(item.type));
       await dispatch(extractAccessPointPosition(x));
+      await dispatch(extractAccessPointBadge());
     } else if (
       item.type === "exhibit" &&
       !walls.includes(parseInt(x.replace("T", ""), 10))
     ) {
       await dispatch(extractTypeOfDraggable(item.type));
       await dispatch(extractExhibitPosition(x));
+      await dispatch(extractExhibitBadge());
     } else if (
       item.type === "wall" &&
       !walls.includes(parseInt(x.replace("T", ""), 10))

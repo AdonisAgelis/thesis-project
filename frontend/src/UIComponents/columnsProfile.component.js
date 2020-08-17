@@ -11,6 +11,8 @@ import {
   MDBCardText,
   MDBAnimation,
   MDBTypography,
+  MDBIcon,
+  MDBBadge,
 } from "mdbreact";
 
 import "../styles/profile.css";
@@ -18,9 +20,29 @@ import Room from "./room.component";
 import Buttons from "./buttons.component";
 import logo from "../images/logo.png";
 import DnDIcons from "./dndIcons.component";
+import { useSelector, useDispatch } from "react-redux";
 
 const ColumnsProfile = (props) => {
   const [columnProp, setColumnProp] = useState(props);
+
+  //SELECTORS
+
+  let entranceNumberBadge = useSelector(
+    (state) => state.badgeModifierReducer.entranceBadge
+  );
+  let exitNumberBadge = useSelector(
+    (state) => state.badgeModifierReducer.exitBadge
+  );
+  let accessPointNumberBadge = useSelector(
+    (state) => state.badgeModifierReducer.accessPointBadge
+  );
+  let exhibitNumberBadge = useSelector(
+    (state) => state.badgeModifierReducer.exhibitBadge
+  );
+
+  // DISPATCH
+
+  const dispatch = useDispatch();
 
   if (columnProp.columnPos === 2) {
     return (
@@ -83,7 +105,7 @@ const ColumnsProfile = (props) => {
 
                   <div id="item2">
                     <div className="information">
-                      <i id='infoIcon' class="fas fa-info-circle"></i> <p>INSTRUCTIONS</p>
+                      <i class="fas fa-info-circle"></i> <p>INSTRUCTIONS</p>
                     </div>
                     <hr
                       className="hr-light"
@@ -92,19 +114,40 @@ const ColumnsProfile = (props) => {
 
                     <div className="dragNdrop">
                       <DnDIcons role="entrance" />
-                      <p>ENTRANCE</p>
+
+                      <p>
+                        ENTRANCE{" "}
+                        <MDBBadge color="danger" className="ml-2">
+                          {entranceNumberBadge}
+                        </MDBBadge>
+                      </p>
                     </div>
                     <div className="dragNdrop">
                       <DnDIcons role="exit" />
-                      <p>EXIT</p>
+                      <p>
+                        EXIT{" "}
+                        <MDBBadge color="danger" className="ml-2">
+                          {exitNumberBadge}
+                        </MDBBadge>
+                      </p>
                     </div>
                     <div className="dragNdrop">
                       <DnDIcons role="accessPoint" />
-                      <p>ACCESS POINT</p>
+                      <p>
+                        WIFI AP
+                        <MDBBadge className="ml-2" color="danger">
+                          {accessPointNumberBadge}
+                        </MDBBadge>
+                      </p>
                     </div>
                     <div className="dragNdrop">
                       <DnDIcons role="exhibit" />
-                      <p>EXHIBIT</p>
+                      <p>
+                        EXHIBIT{" "}
+                        <MDBBadge color="danger" className="ml-2">
+                          {exhibitNumberBadge}
+                        </MDBBadge>
+                      </p>
                     </div>
                     <div className="dragNdrop">
                       <DnDIcons role="wall" />
