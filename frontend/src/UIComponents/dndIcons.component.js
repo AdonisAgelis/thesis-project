@@ -55,6 +55,7 @@ const DnDIcons = (props) => {
       <div
         ref={drag}
         className="draggableIcons"
+        style={{ cursor: "move" }}
         onDrag={() => {
           dispatch(extractValidDropColorForEntranceExit());
         }}
@@ -67,6 +68,7 @@ const DnDIcons = (props) => {
       <div
         ref={dragExit}
         className="draggableIcons"
+        style={{ cursor: "move" }}
         onDrag={() => {
           dispatch(extractValidDropColorForEntranceExit());
         }}
@@ -78,7 +80,8 @@ const DnDIcons = (props) => {
     return (
       <div
         ref={dragAP}
-        className="draggableIcons"
+        className="draggableIconsInside"
+        style={{ cursor: "move" }}
         onDrag={() => {
           dispatch(extractValidDropColorForElse());
         }}
@@ -90,7 +93,8 @@ const DnDIcons = (props) => {
     return (
       <div
         ref={dragExhibit}
-        className="draggableIcons"
+        className="draggableIconsInside"
+        style={{ cursor: "move" }}
         onDrag={() => {
           dispatch(extractValidDropColorForElse());
         }}
@@ -102,12 +106,13 @@ const DnDIcons = (props) => {
     return (
       <div
         ref={dragWall}
-        className="draggableIcons"
+        className="draggableIconsWall"
+        style={{ cursor: "move" }}
         onDrag={() => {
           dispatch(extractValidDropColorForElse());
         }}
       >
-        <MDBIcon icon="square-full" />
+        <MDBIcon style={{ height: "20px" }} icon="square-full" />
       </div>
     );
   }

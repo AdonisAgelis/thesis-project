@@ -94,6 +94,7 @@ const ColumnsProfile = (props) => {
 
                     <div className="dragNdrop">
                       <DnDIcons role="entrance" />
+
                       <p>ENTRANCE</p>
                     </div>
                     <div className="dragNdrop">

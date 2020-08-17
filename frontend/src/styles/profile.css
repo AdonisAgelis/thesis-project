@@ -132,11 +132,6 @@
   width: 12rem;
 }
 
-.vl {
-  border-left: 6px solid red;
-  height: 100px;
-}
-
 .dragNdrop {
   background-color: transparent !important;
   background: #ffffff;
@@ -164,14 +159,69 @@
   margin-left: 1.5rem;
   font-size: 13px;
 }
-
-.draggableIcons {
+.draggableicons {
   background-color: transparent;
   color: white;
   opacity: 1;
   font-size: 25;
   font-weight: bold;
-  cursor: move;
+  height: 20px;
+  width: 20px;
+  z-index: 1;
+}
+
+.draggableIcons:last-child {
+  background-color: white;
+  color: black;
+  opacity: 1;
+  font-size: 25;
+  font-weight: bold;
+  height: 20px;
+  width: 20px;
+  z-index: 1;
+}
+
+.draggableIconsInside {
+  background-color: transparent;
+  color: white;
+  opacity: 1;
+  font-size: 25;
+  font-weight: bold;
+  height: 20px;
+  width: 20px;
+  z-index: 1;
+}
+
+.draggableIconsInside:last-child {
+  background-color: white;
+  color: black;
+  opacity: 1;
+  font-size: 25;
+  font-weight: bold;
+  height: 20px;
+  width: 20px;
+  z-index: 1;
+  padding: 0px 0px 0px 1px;
+}
+
+.draggableIconsWall {
+  background-color: transparent;
+  color: white;
+  opacity: 1;
+  font-size: 25;
+  font-weight: bold;
+  height: 20px;
+  width: 20px;
+  z-index: 1;
+  padding: 0px 0px 0px 1px;
+}
+
+.draggableIconsWall:last-child {
+  background-color: rgba(40, 40, 40, 0.1);
+  color: rgba(40, 40, 40, 0.1);
+  opacity: 1;
+  font-size: 25;
+  font-weight: bold;
   height: 20px;
   width: 20px;
   z-index: 1;
