@@ -85,7 +85,7 @@ const ColumnsProfile = (props) => {
 
                   <div id="item2">
                     <div className="information">
-                      <i class="fas fa-info-circle"></i> <p>INSTRUCTIONS</p>
+                      <i id='infoIcon' class="fas fa-info-circle"></i> <p>INSTRUCTIONS</p>
                     </div>
                     <hr
                       className="hr-light"
