@@ -11,7 +11,6 @@ import {
   MDBCardText,
   MDBAnimation,
   MDBTypography,
-  MDBIcon,
   MDBBadge,
 } from "mdbreact";
 
@@ -69,7 +68,6 @@ const ColumnsProfile = (props) => {
             />
 
             <Buttons type="home" />
-
             <Buttons type="new" />
             <Buttons type="load" />
             <Buttons type="graph" />
@@ -102,19 +100,15 @@ const ColumnsProfile = (props) => {
                   <div id="item1">
                     <Room />
                   </div>
-
                   <div id="item2">
-                    <div className="information">
-                      <i class="fas fa-info-circle"></i> <p>INSTRUCTIONS</p>
-                    </div>
+                    <Buttons type='info' />
+                    <Buttons type='undo' />
                     <hr
                       className="hr-light"
                       style={{ width: "100%", marginLeft: "10px" }}
                     />
-
                     <div className="dragNdrop">
                       <DnDIcons role="entrance" />
-
                       <p>
                         ENTRANCE{" "}
                         <MDBBadge color="danger" className="ml-2">
@@ -153,10 +147,6 @@ const ColumnsProfile = (props) => {
                       <DnDIcons role="wall" />
                       <p>WALL</p>
                     </div>
-                    <hr
-                      className="hr-light"
-                      style={{ width: "100%", marginLeft: "10px" }}
-                    />
                   </div>
                 </div>
 

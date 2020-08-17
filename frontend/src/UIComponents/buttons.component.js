@@ -156,6 +156,26 @@ const Buttons = (props) => {
         Reset Password
       </MDBBtn>
     );
+  } else if (buttonProp.type === 'info') {
+    return (
+      <MDBBtn className="styleBtn2" style={{
+        display: 'grid',
+        gridTemplateColumns: '2rem auto', marginLeft: '25px', paddingLeft: '1rem', paddingRight: '3.7rem', marginBottom: '1rem', marginTop:'1rem', textAlign: 'center'
+      }}>
+        <MDBIcon icon="info-circle" style={{ marginRight: "6px", marginTop: '4.5px' }} />
+        Tutorial
+      </MDBBtn>
+    )
+  } else if (buttonProp.type === 'undo') {
+    return (
+      <MDBBtn className="styleBtn2" style={{
+        display: 'grid',
+        gridTemplateColumns: '2rem auto', marginLeft: '25px', paddingLeft: '1rem', paddingRight: '5.2rem', textAlign: 'center'
+      }}>
+        <MDBIcon icon="backspace" style={{ marginRight: "6px", marginTop: '4.5px' }} />
+        Undo
+      </MDBBtn>
+    )
   }
 };
 
