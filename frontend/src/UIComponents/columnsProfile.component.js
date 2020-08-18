@@ -17,6 +17,7 @@ import {
 import "../styles/profile.css";
 import Room from "./room.component";
 import Buttons from "./buttons.component";
+import TutorialModal from './tutorialModal.component';
 import logo from "../images/logo.png";
 import DnDIcons from "./dndIcons.component";
 import { useSelector, useDispatch } from "react-redux";
@@ -101,7 +102,7 @@ const ColumnsProfile = (props) => {
                     <Room />
                   </div>
                   <div id="item2">
-                    <Buttons type='info' />
+                    <TutorialModal type='info' />
                     <Buttons type='undo' />
                     <hr
                       className="hr-light"

@@ -8,7 +8,6 @@ import {
   extractExhibitPosition,
   extractAccessPointPosition,
   extractWallPosition,
-  changeColorAfterDropping,
   extractEntranceBadge,
   extractExhibitBadge,
   extractExitBadge,

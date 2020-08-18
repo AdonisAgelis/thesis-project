@@ -9,6 +9,7 @@ import {
   MDBDropdownItem,
 } from "mdbreact";
 
+import TutorialModal from './tutorialModal.component';
 import "../styles/profile.css";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -19,6 +20,9 @@ import {
 } from "../actions";
 
 const Buttons = (props) => {
+
+  console.log(props);
+
   const [buttonProp, setButtonProp] = useState(props);
   const dispatch = useDispatch();
 
@@ -195,6 +199,7 @@ const Buttons = (props) => {
         <MDBIcon icon="info-circle" style={{ marginRight: "6px", marginTop: '4.5px' }} />
         Tutorial
       </MDBBtn>
+      // <TutorialModal />
     )
   } else if (buttonProp.type === 'undo') {
     return (
