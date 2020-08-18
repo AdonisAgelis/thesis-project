@@ -80,14 +80,6 @@ const Navbar = () => {
             >
               Hey <i>User</i> !
             </MDBNavItem>
-            <MDBNavItem>
-              <MDBNavLink to="/">Log Out</MDBNavLink>
-            </MDBNavItem>
-            <MDBNavItem>
-              <MDBNavLink to="/signup" style={{ textDecoration: "underline" }}>
-                Reset Password
-              </MDBNavLink>
-            </MDBNavItem>
           </MDBNavbarNav>
         );
       } else {
