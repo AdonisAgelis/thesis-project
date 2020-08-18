@@ -15,15 +15,19 @@ import {
   dropSecondColumn,
   updateFirstDropDown,
   updateSecondDropDown,
+  enableButtonsAfterClicking
 } from "../actions";
 
 const Buttons = (props) => {
   const [buttonProp, setButtonProp] = useState(props);
   const dispatch = useDispatch();
+
   const peopleType = useSelector((state) => state.dropdownSelectionsReducer);
+
   const peopleNum = useSelector(
     (state) => state.dropdownSecondSelectionsReducer
   );
+
   const handleDropDown = async (index) => {
     if (index !== peopleType) {
       await dispatch(updateFirstDropDown(index));
@@ -43,6 +47,32 @@ const Buttons = (props) => {
     ));
     return <MDBDropdownMenu basic>{array}</MDBDropdownMenu>;
   };
+
+  let entranceNumberBadge = useSelector(
+    (state) => state.badgeModifierReducer.entranceBadge
+  );
+  
+  let exitNumberBadge = useSelector(
+    (state) => state.badgeModifierReducer.exitBadge
+  );
+  
+  let accessPointNumberBadge = useSelector(
+    (state) => state.badgeModifierReducer.accessPointBadge
+  );
+  
+  let exhibitNumberBadge = useSelector(
+    (state) => state.badgeModifierReducer.exhibitBadge
+  );
+
+  let EnableRestfButtons = useSelector(
+    (state) => state.buttonEnablingReducer.disabledBtn
+  );
+  
+  const RestOfButtonsEnabled = () => {
+    dispatch(enableButtonsAfterClicking());
+  };
+
+  let enableSave = !(entranceNumberBadge === 0 && exitNumberBadge === 0 && accessPointNumberBadge <= 1 && exhibitNumberBadge <= 9);
 
   const dropdownItems = [
     {
@@ -69,7 +99,7 @@ const Buttons = (props) => {
 
   if (buttonProp.type === "save") {
     return (
-      <MDBBtn id="save" rounded color="success">
+      <MDBBtn onClick={() => RestOfButtonsEnabled()} disabled={enableSave} id="save" rounded color="success">
         <MDBIcon icon="save" style={{ marginRight: "1rem" }} />
         Save
       </MDBBtn>
@@ -78,7 +108,7 @@ const Buttons = (props) => {
     return (
       <div className="d-flex flex-row justify-content-around">
         <MDBDropdown>
-          <MDBDropdownToggle id="dd1" caret rounded color="blue-grey">
+          <MDBDropdownToggle disabled={EnableRestfButtons} id="dd1" caret rounded color="blue-grey">
             {dropdownItems[peopleType].type}
           </MDBDropdownToggle>
           <MDBDropdownMenu basic>
@@ -94,7 +124,7 @@ const Buttons = (props) => {
           </MDBDropdownMenu>
         </MDBDropdown>
         <MDBDropdown>
-          <MDBDropdownToggle caret id="dd2" rounded color="blue-grey">
+          <MDBDropdownToggle disabled={EnableRestfButtons} caret id="dd2" rounded color="blue-grey">
             {peopleNum}
           </MDBDropdownToggle>
           {groupDropDownOptions(peopleType, dropdownItems)}
@@ -103,13 +133,13 @@ const Buttons = (props) => {
     );
   } else if (buttonProp.type === "add") {
     return (
-      <MDBBtn id="add" color="blue-grey">
+      <MDBBtn disabled={EnableRestfButtons} id="add" color="blue-grey">
         <MDBIcon icon="arrow-alt-circle-up" /> Add
       </MDBBtn>
     );
   } else if (buttonProp.type === "run") {
     return (
-      <MDBBtn id="run" rounded color="danger">
+      <MDBBtn disabled={EnableRestfButtons} id="run" rounded color="danger">
         <MDBIcon icon="tachometer-alt" style={{ marginRight: "1rem" }} />
         Run Simulation
       </MDBBtn>
@@ -160,7 +190,7 @@ const Buttons = (props) => {
     return (
       <MDBBtn className="styleBtn2" style={{
         display: 'grid',
-        gridTemplateColumns: '2rem auto', marginLeft: '25px', paddingLeft: '1rem', paddingRight: '3.7rem', marginBottom: '1rem', marginTop:'1rem', textAlign: 'center'
+        gridTemplateColumns: '2rem auto', marginLeft: '25px', paddingLeft: '1rem', paddingRight: '3.7rem', marginBottom: '1rem', marginTop: '1rem', textAlign: 'center'
       }}>
         <MDBIcon icon="info-circle" style={{ marginRight: "6px", marginTop: '4.5px' }} />
         Tutorial

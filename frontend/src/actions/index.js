@@ -79,18 +79,29 @@ export const extractEntranceBadge = () => {
     type: "EXTRACT_ENTRANCE_BADGE",
   };
 };
+
 export const extractExitBadge = () => {
   return {
     type: "EXTRACT_EXIT_BADGE",
   };
 };
+
 export const extractAccessPointBadge = () => {
   return {
     type: "EXTRACT_ACCESS_POINT_BADGE",
   };
 };
+
 export const extractExhibitBadge = () => {
   return {
     type: "EXTRACT_EXHIBIT_BADGE",
+  };
+};
+
+// ENABLING BUTTONS
+
+export const enableButtonsAfterClicking = () => {
+  return {
+    type: 'ENABLE_BUTTONS_AFTER_CLICKING'
   };
 };
