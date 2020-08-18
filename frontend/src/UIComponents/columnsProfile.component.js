@@ -102,7 +102,7 @@ const ColumnsProfile = (props) => {
                     <Room />
                   </div>
                   <div id="item2">
-                    <TutorialModal type='info' />
+                    <Buttons type='info' />
                     <Buttons type='undo' />
                     <hr
                       className="hr-light"
