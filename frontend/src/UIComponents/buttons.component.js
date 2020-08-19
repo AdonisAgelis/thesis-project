@@ -15,7 +15,7 @@ import {
   dropSecondColumn,
   updateFirstDropDown,
   updateSecondDropDown,
-  enableButtonsAfterClicking
+  enableButtonsAfterClicking,
 } from "../actions";
 
 const Buttons = (props) => {
@@ -73,7 +73,12 @@ const Buttons = (props) => {
     dispatch(enableButtonsAfterClicking());
   };
 
-  let enableSave = !(entranceNumberBadge === 0 && exitNumberBadge === 0 && accessPointNumberBadge <= 1 && exhibitNumberBadge <= 9);
+  let enableSave = !(
+    entranceNumberBadge === 0 &&
+    exitNumberBadge === 0 &&
+    accessPointNumberBadge <= 1 &&
+    exhibitNumberBadge <= 9
+  );
 
   const dropdownItems = [
     {
@@ -100,7 +105,13 @@ const Buttons = (props) => {
 
   if (buttonProp.type === "save") {
     return (
-      <MDBBtn onClick={() => RestOfButtonsEnabled()} disabled={enableSave} id="save" rounded color="success">
+      <MDBBtn
+        onClick={() => RestOfButtonsEnabled()}
+        disabled={enableSave}
+        id="save"
+        rounded
+        color="success"
+      >
         <MDBIcon icon="save" style={{ marginRight: "1rem" }} />
         Save
       </MDBBtn>
@@ -109,7 +120,13 @@ const Buttons = (props) => {
     return (
       <div className="d-flex flex-row justify-content-around">
         <MDBDropdown>
-          <MDBDropdownToggle disabled={EnableRestfButtons} id="dd1" caret rounded color="blue-grey">
+          <MDBDropdownToggle
+            disabled={EnableRestfButtons}
+            id="dd1"
+            caret
+            rounded
+            color="blue-grey"
+          >
             {dropdownItems[peopleType].type}
           </MDBDropdownToggle>
           <MDBDropdownMenu basic>
@@ -125,7 +142,13 @@ const Buttons = (props) => {
           </MDBDropdownMenu>
         </MDBDropdown>
         <MDBDropdown>
-          <MDBDropdownToggle disabled={EnableRestfButtons} caret id="dd2" rounded color="blue-grey">
+          <MDBDropdownToggle
+            disabled={EnableRestfButtons}
+            caret
+            id="dd2"
+            rounded
+            color="blue-grey"
+          >
             {peopleNum}
           </MDBDropdownToggle>
           {groupDropDownOptions(peopleType, dropdownItems)}
@@ -189,14 +212,24 @@ const Buttons = (props) => {
     );
   } else if (buttonProp.type === 'undo') {
     return (
-      <MDBBtn className="styleBtn2" style={{
-        display: 'grid',
-        gridTemplateColumns: '2rem auto', marginLeft: '25px', paddingLeft: '1rem', paddingRight: '5.2rem', textAlign: 'center'
-      }}>
-        <MDBIcon icon="backspace" style={{ marginRight: "6px", marginTop: '4.5px' }} />
+      <MDBBtn
+        className="styleBtn2"
+        style={{
+          display: "grid",
+          gridTemplateColumns: "2rem auto",
+          marginLeft: "25px",
+          paddingLeft: "1rem",
+          paddingRight: "5.2rem",
+          textAlign: "center",
+        }}
+      >
+        <MDBIcon
+          icon="backspace"
+          style={{ marginRight: "6px", marginTop: "4.5px" }}
+        />
         Undo
       </MDBBtn>
-    )
+    );
   }
 };
 
