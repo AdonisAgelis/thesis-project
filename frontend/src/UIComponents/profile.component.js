@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { MDBMask, MDBView } from "mdbreact";
 import "../styles/profile.css";
 import ColumnsProfile from "./columnsProfile.component";
-import Navbar from './navbar.component';
+import Navbar from "./navbar.component";
 import { useSelector } from "react-redux";
 
 const Profile = () => {
@@ -14,7 +14,6 @@ const Profile = () => {
     <div id="profile">
       <MDBView>
         <MDBMask className="d-flex justify-content-center align-items-center gradient">
-          <Navbar />
           <ColumnsProfile columnPos={columnPos} />
 
           {midMenuisOpen === "2" ? (

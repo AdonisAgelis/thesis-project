@@ -47,7 +47,7 @@ const ColumnsProfile = (props) => {
     return (
       <MDBCol md={columnProp.columnPos}>
         <MDBAnimation type="fadeInDown" delay=".3s">
-          <MDBCard style={{ opacity: "0.9" }}>
+          <MDBCard style={{ opacity: "0.8" }}>
             <MDBCardTitle
               style={{
                 display: "grid",
@@ -55,11 +55,15 @@ const ColumnsProfile = (props) => {
                 textAlign: "center",
                 marginTop: "4rem",
                 color: "white",
-                marginBottom: "5rem",
+                marginBottom: "4rem",
               }}
             >
               <a href="http://localhost:3000">
-                <img src={logo} className="img-fluid" />
+                <img
+                  src={logo}
+                  style={{ height: "4rem", marginLeft: "2rem" }}
+                  className="img-fluid"
+                />
               </a>
             </MDBCardTitle>
             <hr
@@ -86,7 +90,7 @@ const ColumnsProfile = (props) => {
       <DndProvider backend={HTML5Backend}>
         <MDBCol md={columnProp.columnPos}>
           <MDBAnimation type="fadeInDown" delay=".3s">
-            <MDBCard style={{ background: "rgba(0, 0, 0, 0.9" }}>
+            <MDBCard style={{ background: "rgba(0, 0, 0, 0.8" }}>
               <MDBCardImage className="img-fluid" />
               <MDBCardBody>
                 <MDBCardTitle style={{ textAlign: "center" }}>
@@ -101,8 +105,8 @@ const ColumnsProfile = (props) => {
                     <Room />
                   </div>
                   <div id="item2">
-                    <Buttons type='info' />
-                    <Buttons type='undo' />
+                    <Buttons type="info" />
+                    <Buttons type="undo" />
                     <hr
                       className="hr-light"
                       style={{ width: "100%", marginLeft: "10px" }}
