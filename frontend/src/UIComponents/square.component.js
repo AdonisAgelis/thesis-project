@@ -17,7 +17,6 @@ import { useDispatch, useSelector } from "react-redux";
 import DnDIcons from "./dndIcons.component";
 
 import "../styles/profile.css";
-import { MDBIcon } from "mdbreact";
 
 let counterAP = 0;
 let counterExhibit = 0;
@@ -28,7 +27,7 @@ let wallPositionArray = [];
 
 export default function Square({ black, pos, walls, outerSquares }) {
   const fill = black ? "rgba(40, 40, 40, 0.1)" : "white";
-  const stroke = "black"; /*? "white" : "grey"*/
+  const stroke = "black";
   const dispatch = useDispatch();
   const roomCorners = [41, 78, 921, 958];
 

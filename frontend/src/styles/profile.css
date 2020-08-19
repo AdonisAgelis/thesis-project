@@ -233,3 +233,7 @@ p {
 #infoIcon {
   margin-top: 0.2rem;
 }
+
+.modal-backdrop.show {
+  opacity: 0 !important;
+}

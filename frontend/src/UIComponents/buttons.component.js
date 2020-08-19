@@ -9,7 +9,6 @@ import {
   MDBDropdownItem,
 } from "mdbreact";
 
-import TutorialModal from './tutorialModal.component';
 import "../styles/profile.css";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -20,8 +19,6 @@ import {
 } from "../actions";
 
 const Buttons = (props) => {
-
-  console.log(props);
 
   const [buttonProp, setButtonProp] = useState(props);
   const dispatch = useDispatch();
@@ -55,15 +52,15 @@ const Buttons = (props) => {
   let entranceNumberBadge = useSelector(
     (state) => state.badgeModifierReducer.entranceBadge
   );
-  
+
   let exitNumberBadge = useSelector(
     (state) => state.badgeModifierReducer.exitBadge
   );
-  
+
   let accessPointNumberBadge = useSelector(
     (state) => state.badgeModifierReducer.accessPointBadge
   );
-  
+
   let exhibitNumberBadge = useSelector(
     (state) => state.badgeModifierReducer.exhibitBadge
   );
@@ -71,7 +68,7 @@ const Buttons = (props) => {
   let EnableRestfButtons = useSelector(
     (state) => state.buttonEnablingReducer.disabledBtn
   );
-  
+
   const RestOfButtonsEnabled = () => {
     dispatch(enableButtonsAfterClicking());
   };
@@ -190,17 +187,6 @@ const Buttons = (props) => {
         Reset Password
       </MDBBtn>
     );
-  } else if (buttonProp.type === 'info') {
-    return (
-      <MDBBtn className="styleBtn2" style={{
-        display: 'grid',
-        gridTemplateColumns: '2rem auto', marginLeft: '25px', paddingLeft: '1rem', paddingRight: '3.7rem', marginBottom: '1rem', marginTop: '1rem', textAlign: 'center'
-      }}>
-        <MDBIcon icon="info-circle" style={{ marginRight: "6px", marginTop: '4.5px' }} />
-        Tutorial
-      </MDBBtn>
-      // <TutorialModal />
-    )
   } else if (buttonProp.type === 'undo') {
     return (
       <MDBBtn className="styleBtn2" style={{
