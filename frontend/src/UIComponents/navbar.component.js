@@ -121,7 +121,7 @@ const Navbar = () => {
             <a href="http://localhost:3000/">
               <img
                 src={logo}
-                style={{ height: "3rem" }}
+                style={{ height: "2.5rem" }}
                 className="img-fluid"
               />
             </a>

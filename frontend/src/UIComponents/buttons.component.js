@@ -7,6 +7,7 @@ import {
   MDBDropdownToggle,
   MDBDropdownMenu,
   MDBDropdownItem,
+  MDBAnimation,
 } from "mdbreact";
 
 import "../styles/profile.css";
@@ -19,7 +20,6 @@ import {
 } from "../actions";
 
 const Buttons = (props) => {
-
   const [buttonProp, setButtonProp] = useState(props);
   const dispatch = useDispatch();
 
@@ -177,7 +177,12 @@ const Buttons = (props) => {
     );
   } else if (buttonProp.type === "new") {
     return (
-      <MDBBtn className="styleBtn" onClick={() => dispatch(dropSecondColumn())}>
+      <MDBBtn
+        className="styleBtn"
+        onClick={() => {
+          dispatch(dropSecondColumn());
+        }}
+      >
         <MDBIcon icon="plus-circle" style={{ marginRight: "1rem" }} />
         New Template
       </MDBBtn>
@@ -210,7 +215,7 @@ const Buttons = (props) => {
         Reset Password
       </MDBBtn>
     );
-  } else if (buttonProp.type === 'undo') {
+  } else if (buttonProp.type === "undo") {
     return (
       <MDBBtn
         className="styleBtn2"

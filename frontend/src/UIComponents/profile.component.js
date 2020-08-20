@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MDBMask, MDBView } from "mdbreact";
+import { MDBMask, MDBView, MDBAnimation } from "mdbreact";
 import "../styles/profile.css";
 import ColumnsProfile from "./columnsProfile.component";
 import Navbar from "./navbar.component";
@@ -14,8 +14,16 @@ const Profile = () => {
     <div id="profile">
       <MDBView>
         <MDBMask className="d-flex justify-content-center align-items-center gradient">
-          <ColumnsProfile columnPos={columnPos} />
-
+          {midMenuisOpen !== "2" ? (
+            <ColumnsProfile columnPos={columnPos} />
+          ) : (
+            true
+          )}
+          {midMenuisOpen === "2" ? (
+            <ColumnsProfile columnPos={columnPos} />
+          ) : (
+            true
+          )}
           {midMenuisOpen === "2" ? (
             <ColumnsProfile columnPos={columnPos + 5} />
           ) : (

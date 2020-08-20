@@ -17,13 +17,16 @@ import {
 import "../styles/profile.css";
 import Room from "./room.component";
 import Buttons from "./buttons.component";
-import TutorialModal from './tutorialModal.component';
+import TutorialModal from "./tutorialModal.component";
 import logo from "../images/logo.png";
 import DnDIcons from "./dndIcons.component";
 import { useSelector, useDispatch } from "react-redux";
 
 const ColumnsProfile = (props) => {
   const [columnProp, setColumnProp] = useState(props);
+
+  let animationType;
+  let animationDelay;
 
   //SELECTORS
 
@@ -40,6 +43,15 @@ const ColumnsProfile = (props) => {
     (state) => state.badgeModifierReducer.exhibitBadge
   );
 
+  let midMenuisOpen = useSelector((state) => state.dropMidColumnReducer);
+
+  if (midMenuisOpen !== "2") {
+    animationType = "fadeInDown";
+    animationDelay = ".3s";
+  } else {
+    animationType = "fadeInRight";
+    animationDelay = ".0s";
+  }
   // DISPATCH
 
   const dispatch = useDispatch();
@@ -47,7 +59,7 @@ const ColumnsProfile = (props) => {
   if (columnProp.columnPos === 2) {
     return (
       <MDBCol md={columnProp.columnPos}>
-        <MDBAnimation type="fadeInDown" delay=".3s">
+        <MDBAnimation type={animationType} delay={animationDelay}>
           <MDBCard style={{ opacity: "0.8" }}>
             <MDBCardTitle
               style={{
@@ -62,7 +74,7 @@ const ColumnsProfile = (props) => {
               <a href="http://localhost:3000">
                 <img
                   src={logo}
-                  style={{ height: "4rem", marginLeft: "2rem" }}
+                  style={{ height: "3rem", marginLeft: "2rem" }}
                   className="img-fluid"
                 />
               </a>
@@ -80,6 +92,7 @@ const ColumnsProfile = (props) => {
               className="hr-light"
               style={{ width: "90%", marginLeft: "5%" }}
             />
+
             <Buttons type="reset" />
             <Buttons type="logout" />
           </MDBCard>
@@ -107,7 +120,7 @@ const ColumnsProfile = (props) => {
                   </div>
                   <div id="item2">
                     <TutorialModal />
-                    <Buttons type='undo' />
+                    <Buttons type="undo" />
                     <hr
                       className="hr-light"
                       style={{ width: "100%", marginLeft: "10px" }}
