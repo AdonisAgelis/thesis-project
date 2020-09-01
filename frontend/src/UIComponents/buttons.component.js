@@ -17,6 +17,7 @@ import {
   updateFirstDropDown,
   updateSecondDropDown,
   enableButtonsAfterClicking,
+  enableDropDownOptions,
 } from "../actions";
 
 const Buttons = (props) => {
@@ -65,12 +66,20 @@ const Buttons = (props) => {
     (state) => state.badgeModifierReducer.exhibitBadge
   );
 
-  let EnableRestfButtons = useSelector(
+  let enableRestOfButtons = useSelector(
     (state) => state.buttonEnablingReducer.disabledBtn
+  );
+
+  let enableDropDownButtons = useSelector(
+    (state) => state.buttonEnablingReducer.disabledGroupBtns
   );
 
   const RestOfButtonsEnabled = () => {
     dispatch(enableButtonsAfterClicking());
+  };
+
+  const DropDownEnabled = () => {
+    dispatch(enableDropDownOptions());
   };
 
   let enableSave = !(
@@ -121,7 +130,7 @@ const Buttons = (props) => {
       <div className="d-flex flex-row justify-content-around">
         <MDBDropdown>
           <MDBDropdownToggle
-            disabled={EnableRestfButtons}
+            disabled={enableDropDownButtons}
             id="dd1"
             caret
             rounded
@@ -143,7 +152,7 @@ const Buttons = (props) => {
         </MDBDropdown>
         <MDBDropdown>
           <MDBDropdownToggle
-            disabled={EnableRestfButtons}
+            disabled={enableDropDownButtons}
             caret
             id="dd2"
             rounded
@@ -157,13 +166,13 @@ const Buttons = (props) => {
     );
   } else if (buttonProp.type === "add") {
     return (
-      <MDBBtn disabled={EnableRestfButtons} id="add" color="blue-grey">
+      <MDBBtn disabled={enableDropDownButtons} id="add" color="blue-grey">
         <MDBIcon icon="arrow-alt-circle-up" /> Add
       </MDBBtn>
     );
   } else if (buttonProp.type === "run") {
     return (
-      <MDBBtn disabled={EnableRestfButtons} id="run" rounded color="danger">
+      <MDBBtn onClick={() => DropDownEnabled()} disabled={enableRestOfButtons} id="run" rounded color="danger">
         <MDBIcon icon="tachometer-alt" style={{ marginRight: "1rem" }} />
         Run Simulation
       </MDBBtn>
