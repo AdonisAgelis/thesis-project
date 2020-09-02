@@ -46,7 +46,7 @@ const SignUp = () => {
 
               <MDBCol md="6" xl="5" className="mb-4">
                 <MDBAnimation type="fadeInRight" delay=".3s">
-                  <MDBCard id="classic-card">
+                  <MDBCard id="classic-card" style={{ marginLeft: "5rem" }}>
                     <MDBCardBody className="white-text">
                       <h3 className="text-center">Login</h3>
                       <hr className="hr-light" />

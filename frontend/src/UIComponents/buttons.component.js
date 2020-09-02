@@ -222,8 +222,10 @@ const Buttons = (props) => {
   } else if (buttonProp.type === "reset") {
     return (
       <MDBBtn className="styleBtn2" style={{ marginTop: "5rem" }}>
-        <MDBIcon icon="undo" style={{ marginRight: "1rem" }} />
-        Reset Password
+        <span>
+          <MDBIcon icon="undo" style={{ marginRight: "1rem" }} />
+          Reset Password
+        </span>
       </MDBBtn>
     );
   } else if (buttonProp.type === "undo") {

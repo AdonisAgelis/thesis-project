@@ -1,62 +1,61 @@
 #login .view {
-    background-image: url("../images/british-museum.jpg") !important;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    height: 100vh;
-  }
-  
-  #login .gradient {
-    background: -webkit-linear-gradient(
-      45deg,
-      rgba(0, 0, 0, 0.7),
-      rgba(118, 116, 121, 0.4) 100%
-    );
-    background: -webkit-gradient(
-      linear,
-      45deg,
-      from(rgba(0, 0, 0, 0.7), to(rgba(19, 19, 19, 0.4)) 100%)
-    );
-    background: linear-gradient(
-      45deg,
-      rgba(119, 116, 116, 0.322),
-      rgba(19, 17, 14, 0.699) 100%
-    );
-  }
-  
-  #login .card {
-    background-color: rgba(12, 12, 12, 0.822);
-  }
-  
-  #login h6 {
-    line-height: 1.7;
-  }
-  
-  #login .navbar {
-    transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
-  }
-  
-  #login .top-nav-collapse {
+  background-image: url("../images/british-museum.jpg") !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+}
+
+#login .gradient {
+  background: -webkit-linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.7),
+    rgba(118, 116, 121, 0.4) 100%
+  );
+  background: -webkit-gradient(
+    linear,
+    45deg,
+    from(rgba(0, 0, 0, 0.7), to(rgba(19, 19, 19, 0.4)) 100%)
+  );
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0),
+    rgba(46, 46, 46, 0.753) 100%
+  );
+}
+
+#login .card {
+  background-color: rgba(12, 12, 12, 0.822);
+}
+
+#login h6 {
+  line-height: 1.7;
+}
+
+#login .navbar {
+  transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
+}
+
+#login .top-nav-collapse {
+  background: black !important;
+}
+
+@media (max-width: 768px) {
+  #login .navbar:not(.top-nav-collapse) {
     background: black !important;
   }
-  
-  @media (max-width: 768px) {
-    #login .navbar:not(.top-nav-collapse) {
-      background: black !important;
-    }
-  }
-  
-  #login label {
-    color: #fff !important;
-  }
-  
-  .md-form input:not(.browser-default):focus:not([readonly]) {
-    border-bottom: 1px solid #2E2E2E !important;
-    box-shadow: 0 1px 0 0 #2E2E2E !important;
-  }
+}
 
-  #forgot {
-    color: white;
-    text-decoration-line: underline;
-  }
-  
+#login label {
+  color: #fff !important;
+}
+
+.md-form input:not(.browser-default):focus:not([readonly]) {
+  border-bottom: 1px solid #2e2e2e !important;
+  box-shadow: 0 1px 0 0 #2e2e2e !important;
+}
+
+#forgot {
+  color: white;
+  text-decoration-line: underline;
+}
