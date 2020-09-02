@@ -1,76 +1,76 @@
 #info .gradient {
-    background: -moz-linear-gradient(
-      45deg,
-      rgba(42, 27, 161, 0.7),
-      rgba(29, 210, 177, 0.7) 100%
-    );
-    background: -webkit-linear-gradient(
-      45deg,
-      rgba(42, 27, 161, 0.7),
-      rgba(29, 210, 177, 0.7) 100%
-    );
-    background: -webkit-gradient(
-      linear,
-      45deg,
-      from(rgba(42, 27, 161, 0.7)),
-      to(rgba(29, 210, 177, 0.7))
-    );
-    background: -o-linear-gradient(
-      45deg,
-      rgba(42, 27, 161, 0.7),
-      rgba(29, 210, 177, 0.7) 100%
-    );
-    background: linear-gradient(
-      45deg,
-      rgba(204, 203, 203, 0.425),
-      rgba(29, 28, 25, 0.945) 100%
-    );
-  }
-  
-  #info .view {
-    background-image: url("../images/info_2.jpg")!important;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    min-height: 100vh;
-  }
-  
-  #info h6 {
-    line-height: 1.7;
-  }
-  
-  @media only screen and (max-width: 400px) {
-    #info .animated img {
-      max-height: 50vh;
-      transform: translateX(-50%);
-      left: 50%;
-      position: absolute;
-    }
-  }
-  @media only screen and (max-width: 767px) {
-    #info .animated img {
-      max-height: 35vh;
-      transform: translateX(-50%);
-      left: 50%;
-    }
-  }
+  background: -moz-linear-gradient(
+    45deg,
+    rgba(42, 27, 161, 0.7),
+    rgba(29, 210, 177, 0.7) 100%
+  );
+  background: -webkit-linear-gradient(
+    45deg,
+    rgba(42, 27, 161, 0.7),
+    rgba(29, 210, 177, 0.7) 100%
+  );
+  background: -webkit-gradient(
+    linear,
+    45deg,
+    from(rgba(42, 27, 161, 0.7)),
+    to(rgba(29, 210, 177, 0.7))
+  );
+  background: -o-linear-gradient(
+    45deg,
+    rgba(42, 27, 161, 0.7),
+    rgba(29, 210, 177, 0.7) 100%
+  );
+  background: linear-gradient(
+    0deg,
+    rgba(82, 81, 81, 0.144),
+    rgba(29, 28, 25, 0.945) 100%
+  );
+}
 
-  @media (max-width: 768px) {
-    #info .navbar:not(.top-nav-collapse) {
-      background: black !important;
-    }
+#info .view {
+  background-image: url("../images/info_2.jpg") !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  min-height: 100vh;
+}
+
+#info h6 {
+  line-height: 1.7;
+}
+
+@media only screen and (max-width: 400px) {
+  #info .animated img {
+    max-height: 50vh;
+    transform: translateX(-50%);
+    left: 50%;
+    position: absolute;
   }
-  
-  @media (max-width: 767px) and (orientation: landscape) {
-    #info .animated img {
-      max-height: 50vh;
-      transform: translateX(-50%);
-      left: 50%;
-      position: relative;
-    }
+}
+@media only screen and (max-width: 767px) {
+  #info .animated img {
+    max-height: 35vh;
+    transform: translateX(-50%);
+    left: 50%;
   }
-  @media (max-width: 1000px) and (orientation: landscape) {
-    #info .view {
-      min-height: 150vh;
-    }
+}
+
+@media (max-width: 768px) {
+  #info .navbar:not(.top-nav-collapse) {
+    background: black !important;
   }
+}
+
+@media (max-width: 767px) and (orientation: landscape) {
+  #info .animated img {
+    max-height: 50vh;
+    transform: translateX(-50%);
+    left: 50%;
+    position: relative;
+  }
+}
+@media (max-width: 1000px) and (orientation: landscape) {
+  #info .view {
+    min-height: 150vh;
+  }
+}
