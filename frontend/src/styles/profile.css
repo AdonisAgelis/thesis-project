@@ -66,10 +66,34 @@
   border-radius: 3px;
 }
 
-#profile .styleBtn2 {
+#profile .styleBtn:hover {
   background-color: white !important;
+  overflow: hidden;
   color: #000000;
   text-align: left;
+  display: inline-block;
+  width: auto;
+  height: auto;
+}
+
+#profile .styleBtn2 {
+  background-color: white !important;
+  overflow: hidden;
+  color: #000000;
+  text-align: left;
+  display: inline-block;
+  width: auto;
+  height: auto;
+}
+
+#profile .styleBtn2:hover {
+  background-color: transparent !important;
+  background: #404040;
+  border: solid 1px white;
+  border-radius: 3px;
+  color: white;
+  text-align: left;
+  display: inherit;
 }
 
 .profBtn {

@@ -82,7 +82,7 @@ const Buttons = (props) => {
     dispatch(enableDropDownOptions());
   };
 
-  let enableAdd = (peopleNum === 'NUMBER OF PEOPLE');
+  let enableAdd = peopleNum === "NUMBER OF PEOPLE";
 
   let enableSave = !(
     entranceNumberBadge === 0 &&
@@ -174,7 +174,13 @@ const Buttons = (props) => {
     );
   } else if (buttonProp.type === "run") {
     return (
-      <MDBBtn onClick={() => DropDownEnabled()} disabled={enableRestOfButtons} id="run" rounded color="danger">
+      <MDBBtn
+        onClick={() => DropDownEnabled()}
+        disabled={enableRestOfButtons}
+        id="run"
+        rounded
+        color="danger"
+      >
         <MDBIcon icon="tachometer-alt" style={{ marginRight: "1rem" }} />
         Run Simulation
       </MDBBtn>
@@ -215,8 +221,10 @@ const Buttons = (props) => {
   } else if (buttonProp.type === "logout") {
     return (
       <MDBBtn className="styleBtn2">
-        <MDBIcon icon="sign-out-alt" style={{ marginRight: "1rem" }} />
-        Log Out
+        <span>
+          <MDBIcon icon="sign-out-alt" style={{ marginRight: "1rem" }} />
+          Log Out
+        </span>
       </MDBBtn>
     );
   } else if (buttonProp.type === "reset") {
