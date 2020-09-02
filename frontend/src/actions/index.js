@@ -105,3 +105,9 @@ export const enableButtonsAfterClicking = () => {
     type: 'ENABLE_BUTTONS_AFTER_CLICKING'
   };
 };
+
+export const enableDropDownOptions = () => {
+  return {
+    type: 'ENABLE_DROP_DOWN_OPTIONS'
+  };
+};
