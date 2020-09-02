@@ -82,6 +82,8 @@ const Buttons = (props) => {
     dispatch(enableDropDownOptions());
   };
 
+  let enableAdd = (peopleNum === 'NUMBER OF PEOPLE');
+
   let enableSave = !(
     entranceNumberBadge === 0 &&
     exitNumberBadge === 0 &&
@@ -166,7 +168,7 @@ const Buttons = (props) => {
     );
   } else if (buttonProp.type === "add") {
     return (
-      <MDBBtn disabled={enableDropDownButtons} id="add" color="blue-grey">
+      <MDBBtn disabled={enableAdd} id="add" color="blue-grey">
         <MDBIcon icon="arrow-alt-circle-up" /> Add
       </MDBBtn>
     );
