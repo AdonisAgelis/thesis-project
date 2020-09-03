@@ -50,16 +50,26 @@ export default function Square({ black, pos, walls, outerSquares }) {
     (state) => state.extractPositionReducer.accessPoint[counterAP]
   );
 
-  if (typeof accessPointPosition == "number") {
+  if (typeof accessPointPosition === "number") {
     counterAP++;
     accessPointPositionArray.push(accessPointPosition);
+  };
+
+  console.log(accessPointPositionArray);
+
+  let positionThatWillUndo = useSelector(
+    (state) => state.extractPositionReducer.positionThatWillUndo
+  );
+
+  if (accessPointPositionArray.includes(positionThatWillUndo)) {
+    accessPointPositionArray.pop(positionThatWillUndo);
   }
 
   let exhibitPosition = useSelector(
     (state) => state.extractPositionReducer.exhibit[counterExhibit]
   );
 
-  if (typeof exhibitPosition == "number") {
+  if (typeof exhibitPosition === "number") {
     counterExhibit++;
     exhibitPositionArray.push(exhibitPosition);
   }
@@ -72,7 +82,7 @@ export default function Square({ black, pos, walls, outerSquares }) {
     (state) => state.extractPositionReducer.wall[counterWall]
   );
 
-  if (typeof wallPosition == "number") {
+  if (typeof wallPosition === "number") {
     counterWall++;
     wallPositionArray.push(wallPosition);
   }
