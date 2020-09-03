@@ -63,20 +63,22 @@ const extractPositionReducer = (state = initialState, action) => {
           state.allPositions.pop();
           state.counterAllPositions--;
         } else if (state.allPositions[state.counterAllPositions - 1] === state.accessPoint[state.counterAccessPoint - 1]) {
-          console.log(state.counterAllPositions);
           state.positionThatWillUndo = state.allPositions[state.counterAllPositions - 1];
           state.accessPoint[state.counterAccessPoint - 1] = null;
           state.allPositions.pop();
           state.counterAccessPoint--;
           state.counterAllPositions--;
-          console.log(state.counterAllPositions);
         } else if (state.allPositions[state.counterAllPositions - 1] === state.exhibit[state.counterExhibit - 1]) {
+          state.positionThatWillUndo = state.allPositions[state.counterAllPositions - 1];
           state.exhibit[state.counterExhibit - 1] = null;
           state.allPositions.pop();
+          state.counterExhibit--;
           state.counterAllPositions--;
         } else if (state.allPositions[state.counterAllPositions - 1] === state.wall[state.counterWall - 1]) {
+          state.positionThatWillUndo = state.allPositions[state.counterAllPositions - 1];
           state.wall[state.counterWall - 1] = null;
           state.allPositions.pop();
+          state.counterWall--;
           state.counterAllPositions--;
         }
       }
