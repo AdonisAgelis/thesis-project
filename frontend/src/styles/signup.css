@@ -1,3 +1,7 @@
+#signup {
+  background-color: rgb(252, 243, 214);
+}
+
 #signup .view {
   background-image: url("../images/louvre.png") !important;
   background-repeat: no-repeat;

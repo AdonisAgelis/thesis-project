@@ -1,3 +1,7 @@
+#main {
+  background-color: rgb(252, 243, 214);
+}
+
 #main .gradient {
   background: -moz-linear-gradient(
     0deg,
