@@ -18,6 +18,7 @@ import {
   updateSecondDropDown,
   enableButtonsAfterClicking,
   enableDropDownOptions,
+  undoAfterClicking
 } from "../actions";
 
 const Buttons = (props) => {
@@ -239,6 +240,9 @@ const Buttons = (props) => {
   } else if (buttonProp.type === "undo") {
     return (
       <MDBBtn
+        onClick={() => {
+          dispatch(undoAfterClicking());
+        }}
         className="styleBtn2"
         style={{
           display: "grid",

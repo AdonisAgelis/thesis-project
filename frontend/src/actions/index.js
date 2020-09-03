@@ -111,3 +111,11 @@ export const enableDropDownOptions = () => {
     type: 'ENABLE_DROP_DOWN_OPTIONS'
   };
 };
+
+// UNDO FEATURE
+
+export const undoAfterClicking = () => {
+  return {
+    type: 'UNDO_AFTER_CLICKING'
+  };
+};
