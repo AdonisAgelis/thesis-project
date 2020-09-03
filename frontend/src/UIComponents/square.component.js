@@ -55,14 +55,13 @@ export default function Square({ black, pos, walls, outerSquares }) {
     accessPointPositionArray.push(accessPointPosition);
   };
 
-  console.log(accessPointPositionArray);
-
   let positionThatWillUndo = useSelector(
     (state) => state.extractPositionReducer.positionThatWillUndo
   );
 
   if (accessPointPositionArray.includes(positionThatWillUndo)) {
     accessPointPositionArray.pop(positionThatWillUndo);
+    counterAP--;
   }
 
   let exhibitPosition = useSelector(
@@ -74,6 +73,11 @@ export default function Square({ black, pos, walls, outerSquares }) {
     exhibitPositionArray.push(exhibitPosition);
   }
 
+  if (exhibitPositionArray.includes(positionThatWillUndo)) {
+    exhibitPositionArray.pop(positionThatWillUndo);
+    counterExhibit--;
+  }
+
   let typeOfDraggable = useSelector(
     (state) => state.extractTypeOfDraggableReducer
   );
@@ -81,6 +85,11 @@ export default function Square({ black, pos, walls, outerSquares }) {
   let wallPosition = useSelector(
     (state) => state.extractPositionReducer.wall[counterWall]
   );
+
+  if (wallPositionArray.includes(positionThatWillUndo)) {
+    wallPositionArray.pop(positionThatWillUndo);
+    counterWall--;
+  }
 
   if (typeof wallPosition === "number") {
     counterWall++;
