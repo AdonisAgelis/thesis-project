@@ -1,3 +1,7 @@
+#login {
+  background-color: rgb(252, 243, 214);
+}
+
 #login .view {
   background-image: url("../images/british-museum.jpg") !important;
   background-repeat: no-repeat;
