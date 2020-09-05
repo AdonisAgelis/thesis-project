@@ -52,19 +52,19 @@ const Buttons = (props) => {
   };
 
   let entranceNumberBadge = useSelector(
-    (state) => state.badgeModifierReducer.entranceBadge
+    (state) => state.extractPositionReducer.entranceBadge
   );
 
   let exitNumberBadge = useSelector(
-    (state) => state.badgeModifierReducer.exitBadge
+    (state) => state.extractPositionReducer.exitBadge
   );
 
   let accessPointNumberBadge = useSelector(
-    (state) => state.badgeModifierReducer.accessPointBadge
+    (state) => state.extractPositionReducer.accessPointBadge
   );
 
   let exhibitNumberBadge = useSelector(
-    (state) => state.badgeModifierReducer.exhibitBadge
+    (state) => state.extractPositionReducer.exhibitBadge
   );
 
   let enableRestOfButtons = useSelector(
