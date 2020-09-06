@@ -49,7 +49,7 @@ const TutorialModal = () => {
           you want to save your template it needs to have at least 1 Entrance, 1
           Exit, 1 WiFi Access Point and finally 1 Exhibit. Once you drag and
           drop these items the 'Save' button becomes available! If you are ready
-          go ahead and save your progress, do it, else keep dragging items until
+          go ahead and save your progress, else keep dragging items until
           you create your desired template. There can only be 1 entrance and 1
           exit, but you can use 2 WiFi Access Points, up to 10 Exhibits and as
           many Wall blocks as you like! The black squares are the outer walls of
