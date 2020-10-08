@@ -9,6 +9,7 @@ import {
   MDBNavbarToggler,
   MDBCollapse,
   MDBContainer,
+  MDBAnimation,
 } from "mdbreact";
 
 import logo from "../images/logo.png";
@@ -25,7 +26,7 @@ const Navbar = () => {
 
     if (url === "http://localhost:3000/login") {
       return (
-        <MDBNavbarNav right style={{marginRight: '5.5rem'}}>
+        <MDBNavbarNav right style={{ marginRight: "5.5rem" }}>
           <MDBNavItem>
             <MDBNavLink to="/signup">Sign Up</MDBNavLink>
           </MDBNavItem>
@@ -57,7 +58,7 @@ const Navbar = () => {
       );
     } else if (url === "http://localhost:3000/signup") {
       return (
-        <MDBNavbarNav right style={{marginRight: '5.5rem'}}>
+        <MDBNavbarNav right style={{ marginRight: "5.5rem" }}>
           <MDBNavItem active>
             <MDBNavLink to="/signup">Sign Up</MDBNavLink>
           </MDBNavItem>
@@ -83,7 +84,7 @@ const Navbar = () => {
       );
     } else {
       return (
-        <MDBNavbarNav right style={{marginRight: '5.5rem'}}>
+        <MDBNavbarNav right style={{ marginRight: "5.5rem" }}>
           <MDBNavItem>
             <MDBNavLink to="/signup">Sign Up</MDBNavLink>
           </MDBNavItem>

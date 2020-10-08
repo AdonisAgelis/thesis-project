@@ -1,12 +1,12 @@
 import React from "react";
 
-import { MDBRow, MDBCol, MDBContainer } from "mdbreact";
+import { MDBRow, MDBCol, MDBContainer, MDBIcon } from "mdbreact";
 
 const Footer = () => {
   return (
     <MDBContainer
       className="container-fluid"
-      style={{ backgroundColor: "tramsparent" }}
+      style={{ backgroundColor: "transparent" }}
     >
       <MDBRow className="py-4">
         <MDBCol xl="12" className="text-center">
