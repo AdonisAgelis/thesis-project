@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Square from "./square.component";
-import DnDIcons from "./dndIcons.component";
+import DragAndDropItems from "./dragAndDropItems.component";
 
 // i : number of squares
 const renderSquare = (i) => {
@@ -39,18 +39,21 @@ const renderSquare = (i) => {
   let topSideWallArray = [];
   let botSideWallArray = [];
 
-  for (let leftSideWall = 41; leftSideWall < 941; leftSideWall += 40) {
+  let x = 40 * 1;
+  let y = 17;
+
+  for (let leftSideWall = 41 + y + x; leftSideWall < 941 - x; leftSideWall += 40) {
     leftSideWallArray.push(leftSideWall);
   }
-  for (let rightSideWall = 78; rightSideWall < 978; rightSideWall += 40) {
+  for (let rightSideWall = 78 - y + x; rightSideWall < 978 - x; rightSideWall += 40) {
     rightSideWallArray.push(rightSideWall);
   }
 
-  for (let topSideWall = 42; topSideWall < 78; topSideWall++) {
+  for (let topSideWall = 42 + x + y; topSideWall < 78 + x - y; topSideWall++) {
     topSideWallArray.push(topSideWall);
   }
 
-  for (let botSideWall = 922; botSideWall < 958; botSideWall++) {
+  for (let botSideWall = 922 - x + y; botSideWall < 958 - x - y; botSideWall++) {
     botSideWallArray.push(botSideWall);
   }
 
@@ -75,11 +78,11 @@ const renderSquare = (i) => {
 
 const renderPiece = (i, itemPosition) => {
   if (i === itemPosition) {
-    return <DnDIcons role='entrance' />
+    return <DragAndDropItems role='entrance' />
   }
 };
 
-export default function Room() {
+export default function RoomTemplate() {
 
   const squares = [];
   for (let i = 0; i < 1000; i++) {

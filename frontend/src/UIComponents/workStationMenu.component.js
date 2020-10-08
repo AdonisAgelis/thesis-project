@@ -14,15 +14,15 @@ import {
   MDBBadge,
 } from "mdbreact";
 
-import "../styles/profile.css";
-import Room from "./room.component";
+import "../styles/workstation.css";
+import RoomTemplate from "./roomTemplate.component";
 import Buttons from "./buttons.component";
 import TutorialModal from "./tutorialModal.component";
 import logo from "../images/logo.png";
-import DnDIcons from "./dndIcons.component";
+import DragAndDropItems from "./dragAndDropItems.component";
 import { useSelector, useDispatch } from "react-redux";
 
-const ColumnsProfile = (props) => {
+const WorkStationMenu = (props) => {
   const [columnProp, setColumnProp] = useState(props);
 
   let animationType;
@@ -116,7 +116,7 @@ const ColumnsProfile = (props) => {
                 <MDBCardText style={{ textAlign: "center" }}></MDBCardText>
                 <div className="workspace-container">
                   <div id="item1">
-                    <Room />
+                    <RoomTemplate />
                   </div>
                   <div id="item2">
                     <TutorialModal />
@@ -126,7 +126,7 @@ const ColumnsProfile = (props) => {
                       style={{ width: "100%", marginLeft: "10px" }}
                     />
                     <div className="dragNdrop">
-                      <DnDIcons role="entrance" />
+                      <DragAndDropItems role="entrance" />
                       <p>
                         ENTRANCE{" "}
                         <MDBBadge color="danger" className="ml-2">
@@ -135,7 +135,7 @@ const ColumnsProfile = (props) => {
                       </p>
                     </div>
                     <div className="dragNdrop">
-                      <DnDIcons role="exit" />
+                      <DragAndDropItems role="exit" />
                       <p>
                         EXIT{" "}
                         <MDBBadge color="danger" className="ml-2">
@@ -144,7 +144,7 @@ const ColumnsProfile = (props) => {
                       </p>
                     </div>
                     <div className="dragNdrop">
-                      <DnDIcons role="accessPoint" />
+                      <DragAndDropItems role="accessPoint" />
                       <p>
                         WIFI AP
                         <MDBBadge className="ml-2" color="danger">
@@ -153,7 +153,7 @@ const ColumnsProfile = (props) => {
                       </p>
                     </div>
                     <div className="dragNdrop">
-                      <DnDIcons role="exhibit" />
+                      <DragAndDropItems role="exhibit" />
                       <p>
                         EXHIBIT{" "}
                         <MDBBadge color="danger" className="ml-2">
@@ -162,7 +162,7 @@ const ColumnsProfile = (props) => {
                       </p>
                     </div>
                     <div className="dragNdrop">
-                      <DnDIcons role="wall" />
+                      <DragAndDropItems role="wall" />
                       <p>WALL</p>
                     </div>
                   </div>
@@ -188,4 +188,4 @@ const ColumnsProfile = (props) => {
   }
 };
 
-export default ColumnsProfile;
+export default WorkStationMenu;

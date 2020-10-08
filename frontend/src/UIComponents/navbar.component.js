@@ -25,7 +25,7 @@ const Navbar = () => {
 
     if (url === "http://localhost:3000/login") {
       return (
-        <MDBNavbarNav right>
+        <MDBNavbarNav right style={{marginRight: '5.5rem'}}>
           <MDBNavItem>
             <MDBNavLink to="/signup">Sign Up</MDBNavLink>
           </MDBNavItem>
@@ -57,7 +57,7 @@ const Navbar = () => {
       );
     } else if (url === "http://localhost:3000/signup") {
       return (
-        <MDBNavbarNav right>
+        <MDBNavbarNav right style={{marginRight: '5.5rem'}}>
           <MDBNavItem active>
             <MDBNavLink to="/signup">Sign Up</MDBNavLink>
           </MDBNavItem>
@@ -71,7 +71,7 @@ const Navbar = () => {
           </MDBNavItem>
         </MDBNavbarNav>
       );
-    } else if (url === "http://localhost:3000/profile") {
+    } else if (url === "http://localhost:3000/workstation") {
       return (
         <MDBNavbarNav right>
           <MDBNavItem
@@ -83,7 +83,7 @@ const Navbar = () => {
       );
     } else {
       return (
-        <MDBNavbarNav right>
+        <MDBNavbarNav right style={{marginRight: '5.5rem'}}>
           <MDBNavItem>
             <MDBNavLink to="/signup">Sign Up</MDBNavLink>
           </MDBNavItem>
