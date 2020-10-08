@@ -9,7 +9,7 @@ import {
   MDBIcon,
 } from "mdbreact";
 
-import "../styles/profile.css";
+import "../styles/workstation.css";
 
 const TutorialModal = () => {
   const [modal, setModal] = useState(false);

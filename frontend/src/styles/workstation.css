@@ -1,4 +1,4 @@
-#profile .view {
+#workstation .view {
   background-image: url("../images/prof.jpg") !important;
   background-color: #4a4b3a;
   background-repeat: no-repeat;
@@ -7,7 +7,7 @@
   height: 100vh;
 }
 
-#profile .gradient {
+#workstation .gradient {
   background: -webkit-linear-gradient(
     45deg,
     rgba(0, 0, 0, 0.7),
@@ -25,30 +25,30 @@
   );
 }
 
-#profile .card {
+#workstation .card {
   background: linear-gradient(10deg, #000000, #000000);
   box-shadow: -3px 3px 3px #0c0c0c31, 3px 3px 5px #0c0c0c31;
 }
 
-#profile h6 {
+#workstation h6 {
   line-height: 1.7;
 }
 
-#profile .navbar {
+#workstation .navbar {
   transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
 }
 
-#profile .top-nav-collapse {
+#workstation .top-nav-collapse {
   background: black !important;
 }
 
 @media (max-width: 768px) {
-  #profile .navbar:not(.top-nav-collapse) {
+  #workstation .navbar:not(.top-nav-collapse) {
     background: black !important;
   }
 }
 
-#profile label {
+#workstation label {
   color: #fff !important;
 }
 
@@ -57,7 +57,7 @@
   box-shadow: 0 1px 0 0 #2e2e2e !important;
 }
 
-#profile .styleBtn {
+#workstation .styleBtn {
   background-color: transparent !important;
   color: #ffffff;
   text-align: left;
@@ -66,7 +66,7 @@
   border-radius: 3px;
 }
 
-#profile .styleBtn:hover {
+#workstation .styleBtn:hover {
   background-color: white !important;
   overflow: hidden;
   color: #000000;
@@ -76,7 +76,7 @@
   height: auto;
 }
 
-#profile .styleBtn2 {
+#workstation .styleBtn2 {
   background-color: white !important;
   overflow: hidden;
   color: #000000;
@@ -85,7 +85,7 @@
   height: auto;
 }
 
-#profile .styleBtn2:hover {
+#workstation .styleBtn2:hover {
   background-color: transparent !important;
   color: #ffffff;
   text-align: left;

@@ -10,7 +10,7 @@ import {
   MDBAnimation,
 } from "mdbreact";
 
-import "../styles/profile.css";
+import "../styles/workstation.css";
 import { useSelector, useDispatch } from "react-redux";
 import {
   dropSecondColumn,

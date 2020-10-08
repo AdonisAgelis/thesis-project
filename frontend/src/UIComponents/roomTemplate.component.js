@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Square from "./square.component";
-import DnDIcons from "./dndIcons.component";
+import DragAndDropItems from "./dragAndDropItems.component";
 
 // i : number of squares
 const renderSquare = (i) => {
@@ -75,11 +75,11 @@ const renderSquare = (i) => {
 
 const renderPiece = (i, itemPosition) => {
   if (i === itemPosition) {
-    return <DnDIcons role='entrance' />
+    return <DragAndDropItems role='entrance' />
   }
 };
 
-export default function Room() {
+export default function RoomTemplate() {
 
   const squares = [];
   for (let i = 0; i < 1000; i++) {

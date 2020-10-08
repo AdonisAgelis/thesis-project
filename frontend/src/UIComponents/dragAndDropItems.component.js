@@ -5,11 +5,11 @@ import {
   extractValidDropColorForEntranceExit,
   extractValidDropColorForElse,
 } from "../actions";
-import "../styles/profile.css";
+import "../styles/workstation.css";
 import { MDBIcon } from "mdbreact";
 import { useDispatch } from "react-redux";
 
-const DnDIcons = (props) => {
+const DragAndDropItems = (props) => {
   const [roleProp, setRoleProp] = useState(props);
   let dndProp = roleProp.role.toUpperCase();
 
@@ -118,4 +118,4 @@ const DnDIcons = (props) => {
   }
 };
 
-export default DnDIcons;
+export default DragAndDropItems;

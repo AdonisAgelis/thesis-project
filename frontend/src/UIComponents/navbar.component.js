@@ -71,7 +71,7 @@ const Navbar = () => {
           </MDBNavItem>
         </MDBNavbarNav>
       );
-    } else if (url === "http://localhost:3000/profile") {
+    } else if (url === "http://localhost:3000/workstation") {
       return (
         <MDBNavbarNav right>
           <MDBNavItem

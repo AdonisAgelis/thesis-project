@@ -1,31 +1,30 @@
 import React, { useState } from "react";
 import { MDBMask, MDBView, MDBAnimation } from "mdbreact";
-import "../styles/profile.css";
-import ColumnsProfile from "./columnsProfile.component";
-import Navbar from "./navbar.component";
+import "../styles/workstation.css";
+import WorkStationMenu from "./workStationMenu.component";
 import { useSelector } from "react-redux";
 
-const Profile = () => {
+const WorkStation = () => {
   const midMenuisOpen = useSelector((state) => state.dropMidColumnReducer);
 
   const columnPos = 2;
 
   return (
-    <div id="profile">
+    <div id="workstation">
       <MDBView>
         <MDBMask className="d-flex justify-content-center align-items-center gradient">
           {midMenuisOpen !== "2" ? (
-            <ColumnsProfile columnPos={columnPos} />
+            <WorkStationMenu columnPos={columnPos} />
           ) : (
             true
           )}
           {midMenuisOpen === "2" ? (
-            <ColumnsProfile columnPos={columnPos} />
+            <WorkStationMenu columnPos={columnPos} />
           ) : (
             true
           )}
           {midMenuisOpen === "2" ? (
-            <ColumnsProfile columnPos={columnPos + 5} />
+            <WorkStationMenu columnPos={columnPos + 5} />
           ) : (
             true
           )}
@@ -35,4 +34,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default WorkStation;

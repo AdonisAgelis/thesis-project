@@ -14,9 +14,9 @@ import {
   extractAccessPointBadge,
 } from "../actions";
 import { useDispatch, useSelector } from "react-redux";
-import DnDIcons from "./dndIcons.component";
+import DragAndDropItems from "./dragAndDropItems.component";
 
-import "../styles/profile.css";
+import "../styles/workstation.css";
 
 let counterAP = 0;
 let counterExhibit = 0;
@@ -229,15 +229,15 @@ export default function Square({ black, pos, walls, outerSquares }) {
       );
     }
   } else if (typeOfDraggable === "entrance") {
-    return <DnDIcons role="entrance" />;
+    return <DragAndDropItems role="entrance" />;
   } else if (typeOfDraggable === "exit") {
-    return <DnDIcons role="exit" />;
+    return <DragAndDropItems role="exit" />;
   } else if (typeOfDraggable === "accessPoint") {
-    return <DnDIcons role="accessPoint" />;
+    return <DragAndDropItems role="accessPoint" />;
   } else if (typeOfDraggable === "exhibit") {
-    return <DnDIcons role="exhibit" />;
+    return <DragAndDropItems role="exhibit" />;
   } else if (typeOfDraggable === "wall") {
-    return <DnDIcons role="wall" />;
+    return <DragAndDropItems role="wall" />;
   } else {
     return true;
   }

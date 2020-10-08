@@ -13,7 +13,7 @@ import kar from "../images/pexels-photo-1244705.png";
 import Navbar from "./navbar.component";
 import Footer from "./footer.component";
 
-const Main = () => {
+const Landing = () => {
   return (
     <div id="main">
       <Navbar />
@@ -65,4 +65,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Landing;
