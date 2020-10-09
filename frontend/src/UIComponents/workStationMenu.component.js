@@ -17,7 +17,7 @@ import {
 import "../styles/workstation.css";
 import RoomTemplate from "./roomTemplate.component";
 import Buttons from "./buttons.component";
-import TutorialModal from "./tutorialModal.component";
+import Modal from "./modal.component";
 import logo from "../images/logo.png";
 import DragAndDropItems from "./dragAndDropItems.component";
 import { useSelector, useDispatch } from "react-redux";
@@ -92,7 +92,6 @@ const WorkStationMenu = (props) => {
               className="hr-light"
               style={{ width: "90%", marginLeft: "5%" }}
             />
-
             <Buttons type="reset" />
             <Buttons type="logout" />
           </MDBCard>
@@ -119,7 +118,7 @@ const WorkStationMenu = (props) => {
                     <RoomTemplate />
                   </div>
                   <div id="item2">
-                    <TutorialModal />
+                    <Modal />
                     <Buttons type="undo" />
                     <hr
                       className="hr-light"

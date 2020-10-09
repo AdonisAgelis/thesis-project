@@ -1,18 +1,19 @@
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import Square from "./square.component";
 import DragAndDropItems from "./dragAndDropItems.component";
 
 // i : number of squares
-const renderSquare = (i) => {
+const renderSquare = (i, height, width) => {
 
   const outerLeftSide = [];
   const outerRightSide = [];
   const outerTopSide = [];
   const outerBotSide = [];
 
-  let z = 0;
+  let z = 23 - height;
   let x = 40 * z;
-  let y = 0;
+  let y = 38 - width;
 
   // Make outer squares non-droppable zone
 
@@ -93,9 +94,17 @@ const renderPiece = (i, itemPosition) => {
 
 export default function RoomTemplate() {
 
+  let height = useSelector(
+    (state) => state.extractPositionReducer.height
+  );
+
+  let width = useSelector(
+    (state) => state.extractPositionReducer.width
+  );
+
   const squares = [];
   for (let i = 0; i < 1000; i++) {
-    squares.push(renderSquare(i));
+    squares.push(renderSquare(i, height, width));
   }
 
   return (

@@ -119,3 +119,13 @@ export const undoAfterClicking = () => {
     type: 'UNDO_AFTER_CLICKING'
   };
 };
+
+// CHANGE DIMENSIONS
+
+export const changeDimensions = (valueX, valueY) => {
+  return {
+    type: 'CHANGE_DIMENSIONS',
+    payloadX: valueX,
+    payloadY: valueY 
+  };
+};

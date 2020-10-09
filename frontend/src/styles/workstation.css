@@ -309,3 +309,12 @@ p {
 .modal-content {
   border: 2px solid black !important;
 }
+
+#workstation label {
+  color: black !important;
+}
+
+.fa-arrows-alt-v:before {
+  content: "\f338";
+  margin-left: 0.4rem !important;
+}

@@ -15,11 +15,19 @@ const initialState = {
   exitBadge: 0,
   accessPointBadge: 0,
   exhibitBadge: 0,
+  height: 23,
+  width: 38
 };
 
 const extractPositionReducer = (state = initialState, action) => {
   state.positionThatWillUndo = null;
   switch (action.type) {
+    case "CHANGE_DIMENSIONS":
+      state.height = action.payloadX;
+      console.log(action.payloadX);
+      state.width = action.payloadY;
+      console.log(action.payloadY);
+      return state;
     case "EXTRACT_ENTRANCE_POSITION":
       action.payload = parseInt(action.payload.replace("T", ""), 10);
       state.entrance = action.payload;
