@@ -10,21 +10,29 @@ const renderSquare = (i) => {
   const outerTopSide = [];
   const outerBotSide = [];
 
+  let z = 6;
+  let x = 40 * z;
+  let y = 15;
+
   // Make outer squares non-droppable zone
 
   for (let outerLeft = 40; outerLeft <= 920; outerLeft += 40) {
-    outerLeftSide.push(outerLeft);
+    for (let a = outerLeft; a <= outerLeft + y; a++) {
+      outerLeftSide.push(a);
+    }
   }
 
   for (let outerRight = 79; outerRight <= 959; outerRight += 40) {
-    outerRightSide.push(outerRight);
+    for (let b = outerRight; b >= outerRight - y; b--) {
+      outerRightSide.push(b);
+    }
   }
 
-  for (let outerTop = 0; outerTop <= 39; outerTop++) {
+  for (let outerTop = 0; outerTop <= (39 * (z + 1)) + z; outerTop++) {
     outerTopSide.push(outerTop);
   }
 
-  for (let outerBot = 960; outerBot <= 999; outerBot++) {
+  for (let outerBot = (960 - (39 * z)) - z; outerBot <= 999; outerBot++) {
     outerBotSide.push(outerBot);
   }
 
@@ -38,9 +46,6 @@ const renderSquare = (i) => {
   let rightSideWallArray = [];
   let topSideWallArray = [];
   let botSideWallArray = [];
-
-  let x = 40 * 1;
-  let y = 17;
 
   for (let leftSideWall = 41 + y + x; leftSideWall < 941 - x; leftSideWall += 40) {
     leftSideWallArray.push(leftSideWall);
