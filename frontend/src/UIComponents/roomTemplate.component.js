@@ -12,7 +12,7 @@ const renderSquare = (i) => {
 
   let z = 6;
   let x = 40 * z;
-  let y = 15;
+  let y = 10;
 
   // Make outer squares non-droppable zone
 
@@ -39,6 +39,10 @@ const renderSquare = (i) => {
   const outerVerticalSquares = outerLeftSide.concat(outerRightSide);
   const outerHorizonalSquares = outerTopSide.concat(outerBotSide);
   const outerSquares = outerVerticalSquares.concat(outerHorizonalSquares);
+
+  // Room Corners
+
+  const roomCorners = [42 + x + y - 1, 78 + x - y, 922 - x + y - 1, 958 - x - y];
 
   // Black Squares
 
@@ -76,7 +80,7 @@ const renderSquare = (i) => {
 
   return (
     <div key={i} style={{ width: "20px", height: "20px" }}>
-      <Square black={black} pos={i} walls={WallArrays} outerSquares={outerSquares}>{renderPiece(i)}</Square>
+      <Square black={black} pos={i} walls={WallArrays} outerSquares={outerSquares} roomCorners={roomCorners}>{renderPiece(i)}</Square>
     </div>
   );
 };

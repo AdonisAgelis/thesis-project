@@ -25,11 +25,10 @@ let accessPointPositionArray = [];
 let exhibitPositionArray = [];
 let wallPositionArray = [];
 
-export default function Square({ black, pos, walls, outerSquares }) {
+export default function Square({ black, pos, walls, outerSquares, roomCorners }) {
   const fill = black ? "rgba(40, 40, 40, 0.1)" : "white";
   const stroke = "black";
   const dispatch = useDispatch();
-  const roomCorners = [41, 78, 921, 958];
 
   //Selectors for taking data
   let blackSquareColor = useSelector(
