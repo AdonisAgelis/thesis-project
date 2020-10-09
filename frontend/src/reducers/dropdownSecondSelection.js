@@ -5,7 +5,6 @@ const dropdownSecondSelectionsReducer = (
   switch (action.type) {
     case "UPDATE_SECOND_DROPDOWN":
       return (state = action.payload);
-
     default:
       return state;
   }

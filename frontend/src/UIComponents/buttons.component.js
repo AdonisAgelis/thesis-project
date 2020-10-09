@@ -86,10 +86,10 @@ const Buttons = (props) => {
   let enableAdd = peopleNum === "NUMBER OF PEOPLE";
 
   let enableSave = !(
-    entranceNumberBadge === 0 &&
-    exitNumberBadge === 0 &&
-    accessPointNumberBadge <= 1 &&
-    exhibitNumberBadge <= 9
+    entranceNumberBadge === 1 &&
+    exitNumberBadge === 1 &&
+    accessPointNumberBadge >= 1 &&
+    exhibitNumberBadge >= 1
   );
 
   const dropdownItems = [
