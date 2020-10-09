@@ -1,8 +1,8 @@
 const initialState = {
   entrance: null,
   exit: null,
-  accessPoint: [null, null],
-  exhibit: [null, null, null, null, null, null, null, null, null, null],
+  accessPoint: [null],
+  exhibit: [null],
   wall: [null],
   positionThatWillUndo: null,
   counterAccessPoint: 0,
@@ -11,10 +11,10 @@ const initialState = {
   counterAllPositions: 0,
   allPositions: [null],
   // Badges
-  entranceBadge: 1,
-  exitBadge: 1,
-  accessPointBadge: 2,
-  exhibitBadge: 10,
+  entranceBadge: 0,
+  exitBadge: 0,
+  accessPointBadge: 0,
+  exhibitBadge: 0,
 };
 
 const extractPositionReducer = (state = initialState, action) => {
@@ -33,22 +33,18 @@ const extractPositionReducer = (state = initialState, action) => {
       state.counterAllPositions++;
       return state;
     case "EXTRACT_ACCESS_POINT_POSITION":
-      if (state.counterAccessPoint < 2) {
-        action.payload = parseInt(action.payload.replace("T", ""), 10);
-        state.accessPoint[state.counterAccessPoint] = action.payload;
-        state.counterAccessPoint++;
-        state.allPositions[state.counterAllPositions] = action.payload;
-        state.counterAllPositions++;
-      }
+      action.payload = parseInt(action.payload.replace("T", ""), 10);
+      state.accessPoint[state.counterAccessPoint] = action.payload;
+      state.counterAccessPoint++;
+      state.allPositions[state.counterAllPositions] = action.payload;
+      state.counterAllPositions++;
       return state;
     case "EXTRACT_EXHIBIT_POSITION":
-      if (state.counterExhibit < 10) {
-        action.payload = parseInt(action.payload.replace("T", ""), 10);
-        state.exhibit[state.counterExhibit] = action.payload;
-        state.counterExhibit++;
-        state.allPositions[state.counterAllPositions] = action.payload;
-        state.counterAllPositions++;
-      }
+      action.payload = parseInt(action.payload.replace("T", ""), 10);
+      state.exhibit[state.counterExhibit] = action.payload;
+      state.counterExhibit++;
+      state.allPositions[state.counterAllPositions] = action.payload;
+      state.counterAllPositions++;
       return state;
     case "EXTRACT_WALL_POSITION":
       action.payload = parseInt(action.payload.replace("T", ""), 10);
@@ -58,24 +54,20 @@ const extractPositionReducer = (state = initialState, action) => {
       state.counterAllPositions++;
       return state;
     case "EXTRACT_ENTRANCE_BADGE":
-      if (state.entranceBadge > 0) {
-        state.entranceBadge = state.entranceBadge - 1;
+      if (state.entranceBadge < 1) {
+        state.entranceBadge = state.entranceBadge + 1;
       }
       return state;
     case "EXTRACT_EXIT_BADGE":
-      if (state.exitBadge > 0) {
-        state.exitBadge = state.exitBadge - 1;
+      if (state.exitBadge < 1) {
+        state.exitBadge = state.exitBadge + 1;
       }
       return state;
     case "EXTRACT_ACCESS_POINT_BADGE":
-      if (state.accessPointBadge > 0) {
-        state.accessPointBadge = state.accessPointBadge - 1;
-      }
+      state.accessPointBadge = state.accessPointBadge + 1;
       return state;
     case "EXTRACT_EXHIBIT_BADGE":
-      if (state.exhibitBadge > 0) {
-        state.exhibitBadge = state.exhibitBadge - 1;
-      }
+      state.exhibitBadge = state.exhibitBadge + 1;
       return state;
     case "UNDO_AFTER_CLICKING":
       if (state.allPositions[state.counterAllPositions] !== null) {
@@ -83,12 +75,12 @@ const extractPositionReducer = (state = initialState, action) => {
           state.entrance = null;
           state.allPositions.pop();
           state.counterAllPositions--;
-          state.entranceBadge++;
+          state.entranceBadge--;
         } else if (state.allPositions[state.counterAllPositions - 1] === state.exit) {
           state.exit = null;
           state.allPositions.pop();
           state.counterAllPositions--;
-          state.exitBadge++;
+          state.exitBadge--;
         } else if (state.allPositions[state.counterAllPositions - 1] === state.accessPoint[state.counterAccessPoint - 1]) {
           state.positionThatWillUndo = state.allPositions[state.counterAllPositions - 1];
           state.accessPoint[state.counterAccessPoint - 1] = null;
@@ -96,7 +88,7 @@ const extractPositionReducer = (state = initialState, action) => {
           if (state.counterAccessPoint > 0) {
             state.counterAccessPoint--;
             state.counterAllPositions--;
-            state.accessPointBadge++;
+            state.accessPointBadge--;
           }
         } else if (state.allPositions[state.counterAllPositions - 1] === state.exhibit[state.counterExhibit - 1]) {
           state.positionThatWillUndo = state.allPositions[state.counterAllPositions - 1];
@@ -105,7 +97,7 @@ const extractPositionReducer = (state = initialState, action) => {
           if (state.counterExhibit > 0) {
             state.counterExhibit--;
             state.counterAllPositions--;
-            state.exhibitBadge++;
+            state.exhibitBadge--;
           }
         } else if (state.allPositions[state.counterAllPositions - 1] === state.wall[state.counterWall - 1]) {
           state.positionThatWillUndo = state.allPositions[state.counterAllPositions - 1];

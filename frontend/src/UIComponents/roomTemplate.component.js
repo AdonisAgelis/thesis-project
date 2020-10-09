@@ -10,9 +10,9 @@ const renderSquare = (i) => {
   const outerTopSide = [];
   const outerBotSide = [];
 
-  let z = 6;
+  let z = 0;
   let x = 40 * z;
-  let y = 10;
+  let y = 0;
 
   // Make outer squares non-droppable zone
 
