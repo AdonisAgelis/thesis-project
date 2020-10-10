@@ -8,7 +8,7 @@ import {
   MDBModalHeader,
   MDBModalFooter,
   MDBIcon,
-  MDBInput
+  MDBInput,
 } from "mdbreact";
 
 import "../styles/workstation.css";
@@ -19,16 +19,16 @@ const Modal = () => {
 
   const toggle = () => {
     setModal(!modal);
-    dispatch(changeDimensions(height, width))
   };
 
-  let height = useSelector(
-    (state) => state.extractPositionReducer.height
-  );
+  const resizeButtonEvent = () => {
+    dispatch(changeDimensions(height, width));
+    toggle();
+  };
 
-  let width = useSelector(
-    (state) => state.extractPositionReducer.width
-  );
+  let height = useSelector((state) => state.extractPositionReducer.height);
+
+  let width = useSelector((state) => state.extractPositionReducer.width);
 
   const dispatch = useDispatch();
 
@@ -55,7 +55,13 @@ const Modal = () => {
         />
         Dimensions
       </MDBBtn>
-      <MDBModal isOpen={modal} toggle={toggle} keyboard='true' size='lg' position="right">
+      <MDBModal
+        isOpen={modal}
+        toggle={toggle}
+        keyboard="true"
+        size="lg"
+        position="right"
+      >
         <MDBModalHeader toggle={toggle}>Change Dimensions</MDBModalHeader>
         <MDBModalBody>
           <MDBInput
@@ -64,6 +70,7 @@ const Modal = () => {
             label="Insert Height (Max Height: 23 squares)"
             icon="arrows-alt-v"
             valueDefault={height}
+            onChange={(e) => (height = parseInt(e.target.value, 10))}
           />
           <MDBInput
             className="black-text"
@@ -71,10 +78,11 @@ const Modal = () => {
             label="Insert Width (Max Width: 38 squares)"
             icon="arrows-alt-h"
             valueDefault={width}
+            onChange={(e) => (width = parseInt(e.target.value, 10))}
           />
         </MDBModalBody>
         <MDBModalFooter>
-          <MDBBtn outline color="black" onClick={toggle}>
+          <MDBBtn outline color="black" onClick={() => resizeButtonEvent()}>
             Resize
           </MDBBtn>
         </MDBModalFooter>
