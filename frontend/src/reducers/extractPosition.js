@@ -16,17 +16,39 @@ const initialState = {
   accessPointBadge: 0,
   exhibitBadge: 0,
   height: 23,
-  width: 38
+  width: 38,
+  isResized: false
 };
 
 const extractPositionReducer = (state = initialState, action) => {
   state.positionThatWillUndo = null;
   switch (action.type) {
+    case "CHANGE_IS_RESIZED":
+      state.isResized = !state.isResized;
+      return state;
     case "CHANGE_DIMENSIONS":
       state.height = action.payloadX;
-      console.log(action.payloadX);
       state.width = action.payloadY;
-      console.log(action.payloadY);
+      state.entrance = null;
+      state.exit = null;
+      state.accessPoint = [null];
+      state.accessPoint.length = 1;
+      state.exhibit = [null];
+      state.exhibit.length = 1;
+      state.wall = [null];
+      state.wall.length = 1;
+      state.positionThatWillUndo = null;
+      state.counterAccessPoint = 0;
+      state.counterExhibit = 0;
+      state.counterWall = 0;
+      state.counterAllPositions = 0;
+      state.allPositions = [null];
+      state.allPositions.length = 1;
+      state.entranceBadge = 0;
+      state.exitBadge = 0;
+      state.accessPointBadge = 0;
+      state.exhibitBadge = 0;
+      state.isResized = true;
       return state;
     case "EXTRACT_ENTRANCE_POSITION":
       action.payload = parseInt(action.payload.replace("T", ""), 10);

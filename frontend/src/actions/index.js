@@ -129,3 +129,17 @@ export const changeDimensions = (valueX, valueY) => {
     payloadY: valueY 
   };
 };
+
+export const changeIsResized = () => {
+  return {
+    type: 'CHANGE_IS_RESIZED'
+  };
+};
+
+// Reset type of Draggable
+
+export const resetTypeOfDraggable = () => {
+  return {
+    type: "RESET_TYPE_OF_DRAGGABLE"
+  };
+};

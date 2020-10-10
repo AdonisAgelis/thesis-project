@@ -12,6 +12,9 @@ import {
   extractExhibitBadge,
   extractExitBadge,
   extractAccessPointBadge,
+  changeDimensions,
+  changeIsResized,
+  resetTypeOfDraggable,
 } from "../actions";
 import { useDispatch, useSelector } from "react-redux";
 import DragAndDropItems from "./dragAndDropItems.component";
@@ -29,6 +32,24 @@ export default function Square({ black, pos, walls, outerSquares, roomCorners })
   const fill = black ? "rgba(40, 40, 40, 0.1)" : "white";
   const stroke = "black";
   const dispatch = useDispatch();
+
+  // Delete all elements from arrays
+  let resizedTemplate = useSelector(
+    (state) => state.extractPositionReducer.isResized
+  );
+
+  // console.log(accessPointPositionArray);
+
+  if (resizedTemplate === true) {
+    accessPointPositionArray = [];
+    exhibitPositionArray = [];
+    wallPositionArray = [];
+    dispatch(changeIsResized());
+    dispatch(resetTypeOfDraggable());
+    counterAP = 0;
+    counterExhibit = 0;
+    counterWall = 0;
+  }
 
   //Selectors for taking data
   let blackSquareColor = useSelector(
@@ -48,6 +69,8 @@ export default function Square({ black, pos, walls, outerSquares, roomCorners })
   let accessPointPosition = useSelector(
     (state) => state.extractPositionReducer.accessPoint[counterAP]
   );
+
+  console.log(typeof (accessPointPosition));
 
   if (typeof accessPointPosition === "number") {
     counterAP++;
