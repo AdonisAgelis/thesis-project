@@ -62,8 +62,8 @@ const Modal = () => {
         size="lg"
         position="right"
       >
-        <MDBModalHeader style={{ paddingLeft: "17rem" }} toggle={toggle}>
-          Change Dimensions
+        <MDBModalHeader style={{ paddingLeft: "18rem" }} toggle={toggle}>
+          <b> Change Dimensions</b>
         </MDBModalHeader>
 
         <MDBModalBody>

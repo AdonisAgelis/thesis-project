@@ -83,11 +83,14 @@
   text-align: left;
   width: auto;
   height: auto;
+  border: solid 0.1px rgba(0, 0, 0, 0);
+  border-radius: 3px;
 }
 
 #workstation .styleBtn2:hover {
   background-color: transparent !important;
   color: #ffffff;
+
   text-align: left;
   background: #404040;
   border: solid 0.1px white;
@@ -319,4 +322,8 @@ p {
 .fa-arrows-alt-v:before {
   content: "\f338";
   margin-left: 0.4rem !important;
+}
+
+.fade {
+  transition: 0s !important;
 }
