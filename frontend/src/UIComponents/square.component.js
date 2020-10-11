@@ -38,8 +38,6 @@ export default function Square({ black, pos, walls, outerSquares, roomCorners })
     (state) => state.extractPositionReducer.isResized
   );
 
-  // console.log(accessPointPositionArray);
-
   if (resizedTemplate === true) {
     accessPointPositionArray = [];
     exhibitPositionArray = [];
@@ -69,8 +67,6 @@ export default function Square({ black, pos, walls, outerSquares, roomCorners })
   let accessPointPosition = useSelector(
     (state) => state.extractPositionReducer.accessPoint[counterAP]
   );
-
-  console.log(typeof (accessPointPosition));
 
   if (typeof accessPointPosition === "number") {
     counterAP++;
