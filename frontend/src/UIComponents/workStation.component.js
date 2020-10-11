@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MDBMask, MDBView, MDBAnimation } from "mdbreact";
+import { MDBMask, MDBView, MDBAnimation, MDBIcon } from "mdbreact";
 import "../styles/workstation.css";
 import WorkStationMenu from "./workStationMenu.component";
 import { useSelector } from "react-redux";

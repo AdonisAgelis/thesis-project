@@ -62,7 +62,10 @@ const Modal = () => {
         size="lg"
         position="right"
       >
-        <MDBModalHeader toggle={toggle}>Change Dimensions</MDBModalHeader>
+        <MDBModalHeader style={{ paddingLeft: "17rem" }} toggle={toggle}>
+          Change Dimensions
+        </MDBModalHeader>
+
         <MDBModalBody>
           <MDBInput
             className="black-text"
@@ -82,7 +85,12 @@ const Modal = () => {
           />
         </MDBModalBody>
         <MDBModalFooter>
-          <MDBBtn outline color="black" onClick={() => resizeButtonEvent()}>
+          <MDBBtn
+            style={{ borderRadius: "4px" }}
+            outline
+            color="black"
+            onClick={() => resizeButtonEvent()}
+          >
             Resize
           </MDBBtn>
         </MDBModalFooter>

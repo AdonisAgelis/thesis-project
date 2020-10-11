@@ -307,7 +307,9 @@ p {
 }
 
 .modal-content {
-  border: 2px solid black !important;
+  background-color: rgba(255, 255, 255, 0.877) !important;
+  margin-top: 7rem !important;
+  border-radius: 4px !important;
 }
 
 #workstation label {

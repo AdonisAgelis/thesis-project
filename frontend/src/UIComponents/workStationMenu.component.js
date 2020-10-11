@@ -12,6 +12,7 @@ import {
   MDBAnimation,
   MDBTypography,
   MDBBadge,
+  MDBIcon,
 } from "mdbreact";
 
 import "../styles/workstation.css";
