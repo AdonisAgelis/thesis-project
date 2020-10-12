@@ -143,27 +143,3 @@ export const resetTypeOfDraggable = () => {
     type: "RESET_TYPE_OF_DRAGGABLE"
   };
 };
-
-// Disable all buttons after resizing Dimensions
-
-export const resizedDimensions = () => {
-  return {
-    type: 'RESIZED_DIMENSIONS'
-  };
-};
-
-// Disable Add Button after Resize
-
-export const disableAddButton = () => {
-  return {
-    type: 'DISABLE_ADD_BUTTON'
-  };
-};
-
-// Update First Dropdown menu after Resize
-
-export const updateFirstDropDownAfterResize = () => {
-  return {
-    type: 'UPDATE_FIRST_DROPDOWN_AFTER_RESIZE'
-  };
-};
