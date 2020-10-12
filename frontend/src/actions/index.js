@@ -102,13 +102,13 @@ export const extractExhibitBadge = () => {
 
 export const enableButtonsAfterClicking = () => {
   return {
-    type: 'ENABLE_BUTTONS_AFTER_CLICKING'
+    type: "ENABLE_BUTTONS_AFTER_CLICKING",
   };
 };
 
 export const enableDropDownOptions = () => {
   return {
-    type: 'ENABLE_DROP_DOWN_OPTIONS'
+    type: "ENABLE_DROP_DOWN_OPTIONS",
   };
 };
 
@@ -116,7 +116,7 @@ export const enableDropDownOptions = () => {
 
 export const undoAfterClicking = () => {
   return {
-    type: 'UNDO_AFTER_CLICKING'
+    type: "UNDO_AFTER_CLICKING",
   };
 };
 
@@ -124,15 +124,15 @@ export const undoAfterClicking = () => {
 
 export const changeDimensions = (valueX, valueY) => {
   return {
-    type: 'CHANGE_DIMENSIONS',
+    type: "CHANGE_DIMENSIONS",
     payloadX: valueX,
-    payloadY: valueY 
+    payloadY: valueY,
   };
 };
 
 export const changeIsResized = () => {
   return {
-    type: 'CHANGE_IS_RESIZED'
+    type: "CHANGE_IS_RESIZED",
   };
 };
 
@@ -140,30 +140,6 @@ export const changeIsResized = () => {
 
 export const resetTypeOfDraggable = () => {
   return {
-    type: "RESET_TYPE_OF_DRAGGABLE"
-  };
-};
-
-// Disable all buttons after resizing Dimensions
-
-export const resizedDimensions = () => {
-  return {
-    type: 'RESIZED_DIMENSIONS'
-  };
-};
-
-// Disable Add Button after Resize
-
-export const disableAddButton = () => {
-  return {
-    type: 'DISABLE_ADD_BUTTON'
-  };
-};
-
-// Update First Dropdown menu after Resize
-
-export const updateFirstDropDownAfterResize = () => {
-  return {
-    type: 'UPDATE_FIRST_DROPDOWN_AFTER_RESIZE'
+    type: "RESET_TYPE_OF_DRAGGABLE",
   };
 };
