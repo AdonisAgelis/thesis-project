@@ -18,7 +18,7 @@ import {
   updateSecondDropDown,
   enableButtonsAfterClicking,
   enableDropDownOptions,
-  undoAfterClicking
+  undoAfterClicking,
 } from "../actions";
 
 const Buttons = (props) => {

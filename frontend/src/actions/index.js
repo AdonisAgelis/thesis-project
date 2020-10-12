@@ -102,13 +102,13 @@ export const extractExhibitBadge = () => {
 
 export const enableButtonsAfterClicking = () => {
   return {
-    type: 'ENABLE_BUTTONS_AFTER_CLICKING'
+    type: "ENABLE_BUTTONS_AFTER_CLICKING",
   };
 };
 
 export const enableDropDownOptions = () => {
   return {
-    type: 'ENABLE_DROP_DOWN_OPTIONS'
+    type: "ENABLE_DROP_DOWN_OPTIONS",
   };
 };
 
@@ -116,7 +116,7 @@ export const enableDropDownOptions = () => {
 
 export const undoAfterClicking = () => {
   return {
-    type: 'UNDO_AFTER_CLICKING'
+    type: "UNDO_AFTER_CLICKING",
   };
 };
 
@@ -124,15 +124,15 @@ export const undoAfterClicking = () => {
 
 export const changeDimensions = (valueX, valueY) => {
   return {
-    type: 'CHANGE_DIMENSIONS',
+    type: "CHANGE_DIMENSIONS",
     payloadX: valueX,
-    payloadY: valueY 
+    payloadY: valueY,
   };
 };
 
 export const changeIsResized = () => {
   return {
-    type: 'CHANGE_IS_RESIZED'
+    type: "CHANGE_IS_RESIZED",
   };
 };
 
@@ -140,6 +140,6 @@ export const changeIsResized = () => {
 
 export const resetTypeOfDraggable = () => {
   return {
-    type: "RESET_TYPE_OF_DRAGGABLE"
+    type: "RESET_TYPE_OF_DRAGGABLE",
   };
 };
