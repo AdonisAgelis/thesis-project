@@ -18,7 +18,10 @@ import {
   updateSecondDropDown,
   enableButtonsAfterClicking,
   enableDropDownOptions,
-  undoAfterClicking
+  undoAfterClicking,
+  resizedDimensions,
+  disableAddButton,
+  updateFirstDropDownAfterResize
 } from "../actions";
 
 const Buttons = (props) => {
@@ -91,6 +94,12 @@ const Buttons = (props) => {
     accessPointNumberBadge >= 1 &&
     exhibitNumberBadge >= 1
   );
+
+  if (enableSave === true) {
+    dispatch(resizedDimensions());
+    dispatch(disableAddButton());
+    dispatch(updateFirstDropDownAfterResize());
+  }
 
   const dropdownItems = [
     {
