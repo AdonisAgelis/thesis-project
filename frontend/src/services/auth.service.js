@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API_URL = "http://localhost:8080/api/auth/";
 
-const AuthService = () => {
+class AuthService {
   login = (email, password) => {
     return axios
       .post(API_URL + "login", { email, password })
@@ -26,6 +26,6 @@ const AuthService = () => {
       password,
     });
   };
-};
+}
 
 export default new AuthService();

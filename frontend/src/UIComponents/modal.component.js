@@ -12,7 +12,7 @@ import {
 } from "mdbreact";
 
 import "../styles/workstation.css";
-import { changeDimensions } from "../actions";
+import { changeDimensions } from "../actions/workstation";
 
 const Modal = () => {
   const [modal, setModal] = useState(false);

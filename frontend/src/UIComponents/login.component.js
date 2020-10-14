@@ -1,4 +1,13 @@
 import React from "react";
+
+import { Redirect } from "react-router-dom";
+import Form from "react-validation/build/form";
+import Input from "react-validation/build/input";
+import CheckButton from "react-validation/build/button";
+import { dispatch, useDispatch, useSelector } from "react-redux";
+import { useState, useHistory, useLoading } from "react";
+import { login } from "../actions/auth";
+
 import {
   MDBMask,
   MDBRow,
@@ -15,8 +24,44 @@ import {
 import "../styles/login.css";
 import Navbar from "./navbar.component";
 import Footer from "./footer.component";
+import authReducer from "../reducers/auth";
+import messageReducer from "../reducers/message";
 
-const SignUp = () => {
+const LogIn = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
+  // const history = useHistory();
+  const isLoggedIn = useSelector((state) => state, authReducer.isLoggedIn);
+  const message = useSelector((state) => state.messageReducer.message);
+
+  const onChangeEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const onChangePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    setLoading(true);
+  };
+
+  if (true) {
+    dispatch(login(email, password))
+      .then(() => {
+        // history.push("/workstation");
+        window.location.reload();
+      })
+      .catch(() => {
+        setLoading(true);
+      });
+  } else {
+    setLoading(false);
+  }
+
   return (
     <MDBAnimation type="fadeIn">
       <div id="login">
@@ -48,6 +93,7 @@ const SignUp = () => {
                 <MDBCol md="6" xl="5" className="mb-4">
                   <MDBAnimation type="fadeInRight" delay=".3s">
                     <MDBCard id="classic-card" style={{ marginLeft: "5rem" }}>
+                      onSubmit={handleLogin}
                       <MDBCardBody className="white-text">
                         <h3 className="text-center">Login</h3>
                         <hr className="hr-light" />
@@ -56,6 +102,8 @@ const SignUp = () => {
                           iconClass="white-text"
                           label="Your email"
                           icon="envelope"
+                          onChange={onChangeEmail}
+                          value={email}
                         />
                         <MDBInput
                           className="white-text"
@@ -63,9 +111,12 @@ const SignUp = () => {
                           label="Your password"
                           icon="lock"
                           type="password"
+                          value={password}
+                          onChange={onChangePassword}
                         />
                         <div className="text-center mt-4 black-text">
                           <MDBBtn color="white">Login</MDBBtn>
+
                           <hr className="hr-light" />
                           <div className="text-center d-flex justify-content-center white-label">
                             <a href="#!" className="p-2 m-2">
@@ -109,5 +160,4 @@ const SignUp = () => {
     </MDBAnimation>
   );
 };
-
-export default SignUp;
+export default LogIn;

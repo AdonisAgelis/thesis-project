@@ -4,7 +4,7 @@ import { useDrag } from "react-dnd";
 import {
   extractValidDropColorForEntranceExit,
   extractValidDropColorForElse,
-} from "../actions";
+} from "../actions/workstation";
 import "../styles/workstation.css";
 import { MDBIcon } from "mdbreact";
 import { useDispatch } from "react-redux";
