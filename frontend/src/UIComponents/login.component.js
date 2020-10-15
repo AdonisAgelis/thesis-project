@@ -5,7 +5,7 @@ import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { dispatch, useDispatch, useSelector } from "react-redux";
-import { useState, useHistory, useLoading } from "react";
+import { useState, useHistory } from "react";
 import { login } from "../actions/auth";
 
 import {
@@ -32,7 +32,7 @@ const LogIn = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
-  // const history = useHistory();
+  const history = useHistory;
   const isLoggedIn = useSelector((state) => state, authReducer.isLoggedIn);
   const message = useSelector((state) => state.messageReducer.message);
 
@@ -52,7 +52,7 @@ const LogIn = () => {
   if (true) {
     dispatch(login(email, password))
       .then(() => {
-        // history.push("/workstation");
+        history.push("/workstation");
         window.location.reload();
       })
       .catch(() => {
