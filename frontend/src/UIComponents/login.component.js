@@ -21,6 +21,7 @@ import {
   MDBInput,
   MDBAnimation,
 } from "mdbreact";
+
 import "../styles/login.css";
 import Navbar from "./navbar.component";
 import Footer from "./footer.component";
@@ -103,27 +104,35 @@ const LogIn = () => {
 
                 <MDBCol md="6" xl="5" className="mb-4">
                   <MDBAnimation type="fadeInRight" delay=".3s">
-                    <form onSubmit={handleLogin}>
+                    <form className='needs-validation' onSubmit={handleLogin}>
                       <MDBCard id="classic-card" style={{ marginLeft: "5rem" }}>
                         <MDBCardBody className="white-text">
                           <h3 className="text-center">Login</h3>
                           <hr className="hr-light" />
                           <MDBInput
-                            className="white-text"
+                            className="white-text form-control"
                             iconClass="white-text"
+                            name='email'
                             label="Your email"
                             icon="envelope"
-                            onChange={onChangeEmail}
+                            type='email'
                             value={email}
+                            onChange={onChangeEmail}
+                            required
                           />
+                          <div className="invalid-feedback">
+                            Please provide a valid email.
+                          </div>
                           <MDBInput
-                            className="white-text"
+                            className="white-text form-control"
                             iconClass="white-text"
+                            name='password'
                             label="Your password"
                             icon="lock"
                             type="password"
                             value={password}
                             onChange={onChangePassword}
+                            required
                           />
                           <div className="text-center mt-4 black-text">
                             <MDBBtn color="white" type="submit" value="submit">
