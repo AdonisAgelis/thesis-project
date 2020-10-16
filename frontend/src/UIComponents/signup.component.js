@@ -15,8 +15,45 @@ import {
 import "../styles/signup.css";
 import Navbar from "./navbar.component";
 import Footer from "./footer.component";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { register } from "../actions/auth";
 
 const SignUp = () => {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [successful, setSuccessful] = useState(false);
+  const dispatch = useDispatch();
+
+  const onChangeUsername = (e) => {
+    setUsername(e.target.value);
+  };
+
+  const onChangeEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const onChangePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+
+    setSuccessful(false);
+
+    if (false) {
+      dispatch(register(username, email, password))
+        .then(() => {
+          setSuccessful(true);
+        })
+        .catch(() => {
+          setSuccessful(false);
+        });
+    }
+  };
+
   return (
     <MDBAnimation type="fadeIn">
       <div id="signup">
@@ -47,58 +84,69 @@ const SignUp = () => {
 
                 <MDBCol md="6" xl="5" className="mb-4">
                   <MDBAnimation type="fadeInRight" delay=".3s">
-                    <MDBCard id="classic-card" style={{ marginLeft: "5rem" }}>
-                      <MDBCardBody className="white-text">
-                        <h3 className="text-center">Sign Up</h3>
-                        <hr className="hr-light" />
-                        <MDBInput
-                          className="white-text"
-                          iconClass="white-text"
-                          label="Your name"
-                          icon="user"
-                        />
-                        <MDBInput
-                          className="white-text"
-                          iconClass="white-text"
-                          label="Your email"
-                          icon="envelope"
-                        />
-                        <MDBInput
-                          className="white-text"
-                          iconClass="white-text"
-                          label="Your password"
-                          icon="lock"
-                          type="password"
-                        />
-                        <div className="text-center mt-4 black-text">
-                          <MDBBtn color="white">Sign Up</MDBBtn>
+                    <form onSubmit={handleRegister}>
+                      <MDBCard id="classic-card" style={{ marginLeft: "5rem" }}>
+                        <MDBCardBody className="white-text">
+                          <h3 className="text-center">Sign Up</h3>
                           <hr className="hr-light" />
-                          <div className="text-center d-flex justify-content-center white-label">
-                            <a href="#!" className="p-2 m-2">
-                              <MDBIcon
-                                fab
-                                icon="twitter"
-                                className="white-text"
-                              />
-                            </a>
-                            <a href="#!" className="p-2 m-2">
-                              <MDBIcon
-                                fab
-                                icon="linkedin"
-                                className="white-text"
-                              />
-                            </a>
-                            <a href="#!" className="p-2 m-2">
-                              <MDBIcon
-                                fab
-                                icon="instagram"
-                                className="white-text"
-                              />
-                            </a>
+                          <MDBInput
+                            className="white-text"
+                            iconClass="white-text"
+                            label="Your name"
+                            icon="user"
+                            required="true"
+                            onChange={onChangeUsername}
+                            min="2"
+                          />
+                          <MDBInput
+                            className="white-text"
+                            iconClass="white-text"
+                            label="Your email"
+                            icon="envelope"
+                            required="true"
+                            onChange={onChangeEmail}
+                          />
+                          <MDBInput
+                            className="white-text"
+                            iconClass="white-text"
+                            label="Your password"
+                            icon="lock"
+                            type="password"
+                            required="true"
+                            onChange={onChangePassword}
+                          />
+                          <div className="text-center mt-4 black-text">
+                            <MDBBtn color="white" type="submit" value="submit">
+                              Sign Up
+                            </MDBBtn>
+                            <hr className="hr-light" />
+                            <div className="text-center d-flex justify-content-center white-label">
+                              <a href="#!" className="p-2 m-2">
+                                <MDBIcon
+                                  fab
+                                  icon="twitter"
+                                  className="white-text"
+                                />
+                              </a>
+                              <a href="#!" className="p-2 m-2">
+                                <MDBIcon
+                                  fab
+                                  icon="linkedin"
+                                  className="white-text"
+                                />
+                              </a>
+                              <a href="#!" className="p-2 m-2">
+                                <MDBIcon
+                                  fab
+                                  icon="instagram"
+                                  className="white-text"
+                                />
+                              </a>
+                            </div>
                           </div>
-                        </div>
-                      </MDBCardBody>
-                    </MDBCard>
+                        </MDBCardBody>
+                      </MDBCard>
+                    </form>
                   </MDBAnimation>
                 </MDBCol>
               </MDBRow>
