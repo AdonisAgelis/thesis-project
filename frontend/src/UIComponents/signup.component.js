@@ -43,7 +43,18 @@ const SignUp = () => {
 
     setSuccessful(false);
 
-    if (false) {
+    e.target.setCustomValidity('Ayo');
+
+    const pass1 = /[A-Z]/g;
+    const pass2 = /[a-z]/g;
+    const pass3 = /[0-9]/g;
+
+    const password1 = password.search(pass1);
+    const password2 = password.search(pass2);
+    const password3 = password.search(pass3);
+
+    if (username.length >= 3 && username.length <= 20 && password.length >= 5 && password.length <= 15 && password1 != -1 && password2 != -1 && password3 != -1) {
+      alert('WeakAss');
       dispatch(register(username, email, password))
         .then(() => {
           setSuccessful(true);
@@ -51,6 +62,8 @@ const SignUp = () => {
         .catch(() => {
           setSuccessful(false);
         });
+    } else {
+      alert('!');
     }
   };
 
@@ -92,28 +105,34 @@ const SignUp = () => {
                           <MDBInput
                             className="white-text"
                             iconClass="white-text"
+                            name='username'
+                            type='text'
                             label="Your name"
                             icon="user"
-                            required="true"
                             onChange={onChangeUsername}
-                            min="2"
+                            min="3"
+                            required
                           />
                           <MDBInput
                             className="white-text"
                             iconClass="white-text"
+                            name='email'
+                            type='email'
                             label="Your email"
                             icon="envelope"
-                            required="true"
                             onChange={onChangeEmail}
+                            required
                           />
                           <MDBInput
-                            className="white-text"
+                            className="white-text form-control"
                             iconClass="white-text"
+                            name='password'
+                            type='password'
                             label="Your password"
                             icon="lock"
                             type="password"
-                            required="true"
                             onChange={onChangePassword}
+                            required
                           />
                           <div className="text-center mt-4 black-text">
                             <MDBBtn color="white" type="submit" value="submit">
