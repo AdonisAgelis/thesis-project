@@ -18,7 +18,6 @@ import Footer from "./footer.component";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../actions/auth";
-let isValid = true;
 
 const SignUp = () => {
   const [username, setUsername] = useState("");
@@ -26,11 +25,16 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [successful, setSuccessful] = useState(false);
   const [usernameIsValid, setUsernameIsValid] = useState(true);
+  const [passwordIsValid, setPasswordIsValid] = useState(true);
   const dispatch = useDispatch();
 
   let placeholderUsername = usernameIsValid
     ? "Your Name"
     : "Username must be 3-20 characters!";
+
+  let placeholderPassword = passwordIsValid
+    ? 'Your password'
+    : 'Invalid Password!';
 
   const onChangeUsername = (e) => {
     setUsername(e.target.value);
@@ -49,24 +53,27 @@ const SignUp = () => {
 
     setSuccessful(false);
 
-    const pass1 = /[A-Z]/g;
-    const pass2 = /[a-z]/g;
-    const pass3 = /[0-9]/g;
+    const passUpper = /[A-Z]/g;
+    const passLower = /[a-z]/g;
+    const passNumber = /[0-9]/g;
+    const passSymbol = /[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/g;
 
-    const password1 = password.search(pass1);
-    const password2 = password.search(pass2);
-    const password3 = password.search(pass3);
+    const passwordUpper = password.search(passUpper);
+    const passwordLower = password.search(passLower);
+    const passwordNumber = password.search(passNumber);
+    const passwordSymbol = password.search(passSymbol);
 
     if (
       username.length >= 3 &&
       username.length <= 20 &&
-      password.length >= 5 &&
+      password.length >= 4 &&
       password.length <= 15 &&
-      password1 != -1 &&
-      password2 != -1 &&
-      password3 != -1
+      passwordUpper != -1 &&
+      passwordLower != -1 &&
+      passwordNumber != -1 &&
+      passwordSymbol != -1
     ) {
-      alert("WeakAss");
+      alert("Successful Sign Up!");
       dispatch(register(username, email, password))
         .then(() => {
           setSuccessful(true);
@@ -76,7 +83,10 @@ const SignUp = () => {
         });
     } else if (username.length < 3 || username.length > 20) {
       setUsernameIsValid(false);
-      console.log("hey");
+      console.log("Wrong Username!");
+    } else if (passwordUpper === -1 || passwordLower === -1 || passwordNumber === -1 || passwordSymbol === -1) {
+      setPasswordIsValid(false);
+      console.log("Wrong Password!");
     }
   };
 
@@ -120,9 +130,10 @@ const SignUp = () => {
                             iconClass="white-text"
                             name="username"
                             type="text"
+                            label={placeholderUsername}
                             icon="user"
                             onChange={onChangeUsername}
-                            label={placeholderUsername}
+                            required
                           />
                           <MDBInput
                             className="white-text"
@@ -139,9 +150,8 @@ const SignUp = () => {
                             iconClass="white-text"
                             name="password"
                             type="password"
-                            label="Your password"
+                            label={placeholderPassword}
                             icon="lock"
-                            type="password"
                             onChange={onChangePassword}
                             required
                           />
