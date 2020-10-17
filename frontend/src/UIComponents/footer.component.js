@@ -11,8 +11,8 @@ const Footer = () => {
       <MDBRow className="py-4">
         <MDBCol xl="12" className="text-center">
           <p style={{ margin: "auto" }}>
-            © 2020 . All Rights Reserved. Designed by Stamos Kantarakis and
-            Adonis Agelis
+            © 2020 . All Rights Reserved. Designed by Stamos Kantarakis
+            (Mr.Cockbig-19) and Adonios Agelios IV
           </p>
         </MDBCol>
       </MDBRow>

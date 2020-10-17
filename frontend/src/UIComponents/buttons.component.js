@@ -19,7 +19,7 @@ import {
   enableButtonsAfterClicking,
   enableDropDownOptions,
   undoAfterClicking,
-} from "../actions";
+} from "../actions/workstation";
 
 const Buttons = (props) => {
   const [buttonProp, setButtonProp] = useState(props);

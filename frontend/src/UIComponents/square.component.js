@@ -15,7 +15,7 @@ import {
   changeDimensions,
   changeIsResized,
   resetTypeOfDraggable,
-} from "../actions";
+} from "../actions/workstation";
 import { useDispatch, useSelector } from "react-redux";
 import DragAndDropItems from "./dragAndDropItems.component";
 
@@ -28,7 +28,13 @@ let accessPointPositionArray = [];
 let exhibitPositionArray = [];
 let wallPositionArray = [];
 
-export default function Square({ black, pos, walls, outerSquares, roomCorners }) {
+export default function Square({
+  black,
+  pos,
+  walls,
+  outerSquares,
+  roomCorners,
+}) {
   const fill = black ? "rgba(40, 40, 40, 0.1)" : "white";
   const stroke = "black";
   const dispatch = useDispatch();
@@ -75,7 +81,7 @@ export default function Square({ black, pos, walls, outerSquares, roomCorners })
   if (typeof accessPointPosition === "number") {
     counterAP++;
     accessPointPositionArray.push(accessPointPosition);
-  };
+  }
 
   let positionThatWillUndo = useSelector(
     (state) => state.extractPositionReducer.positionThatWillUndo
