@@ -53,13 +53,6 @@ const SignUp = () => {
     setPassword(e.target.value);
   };
 
-  const checkEmail = (email) => {
-    const validEmail = /\S+@\S+\.\S+/g;
-    return validEmail.test(email);
-  };
-
-  const validatedEmail = checkEmail(email);
-
   const handleRegister = (e) => {
     e.preventDefault();
 
@@ -74,6 +67,13 @@ const SignUp = () => {
     const passwordLower = password.search(passLower);
     const passwordNumber = password.search(passNumber);
     const passwordSymbol = password.search(passSymbol);
+
+    const checkEmail = (email) => {
+      const validEmail = /\S+@\S+\.\S+/g;
+      return validEmail.test(email);
+    };
+  
+    const validatedEmail = checkEmail(email);
 
     if (
       username.length >= 3 &&
