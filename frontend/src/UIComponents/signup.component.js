@@ -16,7 +16,7 @@ import "../styles/signup.css";
 import Navbar from "./navbar.component";
 import Footer from "./footer.component";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { register } from "../actions/auth";
 
 const SignUp = () => {
@@ -25,12 +25,17 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [successful, setSuccessful] = useState(false);
   const [usernameIsValid, setUsernameIsValid] = useState(true);
+  const [emailIsValid, setEmailIsValid] = useState(true);
   const [passwordIsValid, setPasswordIsValid] = useState(true);
   const dispatch = useDispatch();
 
   let placeholderUsername = usernameIsValid
-    ? "Your Name"
+    ? "Your name"
     : "Username must be 3-20 characters!";
+
+  let placeholderEmail = emailIsValid
+    ? 'Your email'
+    : 'Invalid Email!';
 
   let placeholderPassword = passwordIsValid
     ? 'Your password'
@@ -47,6 +52,13 @@ const SignUp = () => {
   const onChangePassword = (e) => {
     setPassword(e.target.value);
   };
+
+  const checkEmail = (email) => {
+    const validEmail = /\S+@\S+\.\S+/g;
+    return validEmail.test(email);
+  };
+
+  const validatedEmail = checkEmail(email);
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -71,7 +83,8 @@ const SignUp = () => {
       passwordUpper != -1 &&
       passwordLower != -1 &&
       passwordNumber != -1 &&
-      passwordSymbol != -1
+      passwordSymbol != -1 &&
+      validatedEmail === true
     ) {
       alert("Successful Sign Up!");
       dispatch(register(username, email, password))
@@ -84,6 +97,9 @@ const SignUp = () => {
     } else if (username.length < 3 || username.length > 20) {
       setUsernameIsValid(false);
       console.log("Wrong Username!");
+    } else if (validatedEmail === false) {
+      setEmailIsValid(false);
+      console.log('Wrong email!');
     } else if (passwordUpper === -1 || passwordLower === -1 || passwordNumber === -1 || passwordSymbol === -1) {
       setPasswordIsValid(false);
       console.log("Wrong Password!");
@@ -140,7 +156,7 @@ const SignUp = () => {
                             iconClass="white-text"
                             name="email"
                             type="email"
-                            label="Your email"
+                            label={placeholderEmail}
                             icon="envelope"
                             onChange={onChangeEmail}
                             required
