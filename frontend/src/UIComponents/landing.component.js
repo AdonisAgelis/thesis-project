@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import UserService from '../services/user.service';
 import {
   MDBMask,
   MDBRow,
@@ -14,6 +15,24 @@ import Navbar from "./navbar.component";
 import Footer from "./footer.component";
 
 const Landing = () => {
+  const [content, setContent] = useState('');
+
+  useEffect(() => {
+    UserService.getPublicContentHome().then(
+      response => {
+        setContent(response.data);
+      },
+      error => {
+        setContent({
+          content:
+            (error.response && error.response.data) ||
+            error.message ||
+            error.toString()
+        });
+      }
+    );
+  });
+
   return (
     <div id="main">
       <Navbar />

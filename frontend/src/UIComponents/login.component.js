@@ -1,11 +1,7 @@
-import React from "react";
-
+import React, { useEffect, useState, useHistory } from "react";
+import UserService from '../services/user.service';
 import { Redirect } from "react-router-dom";
-import Form from "react-validation/build/form";
-import Input from "react-validation/build/input";
-import CheckButton from "react-validation/build/button";
 import { dispatch, useDispatch, useSelector } from "react-redux";
-import { useState, useHistory, useLoading } from "react";
 import { login } from "../actions/auth";
 
 import {
@@ -46,6 +42,25 @@ const LogIn = () => {
   const history = useHistory;
   const isLoggedIn = useSelector((state) => state, authReducer.isLoggedIn);
   const message = useSelector((state) => state.messageReducer.message);
+  let [toWorkstation, setToWorkstation] = useState(false);
+
+  const [content, setContent] = useState('');
+
+  useEffect(() => {
+    UserService.getPublicContentLogIn().then(
+      response => {
+        setContent(response.data);
+      },
+      error => {
+        setContent({
+          content:
+            (error.response && error.response.data) ||
+            error.message ||
+            error.toString()
+        });
+      }
+    );
+  });
 
   const onChangeEmail = (e) => {
     setEmail(e.target.value);
@@ -76,6 +91,7 @@ const LogIn = () => {
 
   return (
     <MDBAnimation type="fadeIn">
+      {toWorkstation ? <Redirect to='/workstation' /> : null}
       <div id="login">
         <Navbar />
         <MDBView>

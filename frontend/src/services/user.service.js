@@ -3,7 +3,7 @@ import authHeader from "./auth-header";
 
 const API_URL = "http://localhost:8080/";
 
-const UserService = () => {
+class UserService {
   getPublicContentHome = () => {
     return axios.get(API_URL);
   };

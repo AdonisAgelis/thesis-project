@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+import UserService from '../services/user.service';
+import { Redirect } from 'react-router-dom';
 import {
   MDBMask,
   MDBRow,
@@ -27,7 +29,26 @@ const SignUp = () => {
   const [usernameIsValid, setUsernameIsValid] = useState(true);
   const [emailIsValid, setEmailIsValid] = useState(true);
   const [passwordIsValid, setPasswordIsValid] = useState(true);
+  let [toWorkstation, setToWorkstation] = useState(false);
   const dispatch = useDispatch();
+
+  const [content, setContent] = useState('');
+
+  useEffect(() => {
+    UserService.getPublicContentSignUp().then(
+      response => {
+        setContent(response.data);
+      },
+      error => {
+        setContent({
+          content:
+            (error.response && error.response.data) ||
+            error.message ||
+            error.toString()
+        });
+      }
+    );
+  });
 
   let placeholderUsername = usernameIsValid
     ? "Your name"
@@ -87,6 +108,7 @@ const SignUp = () => {
       validatedEmail === true
     ) {
       alert("Successful Sign Up!");
+      setToWorkstation(true);
       dispatch(register(username, email, password))
         .then(() => {
           setSuccessful(true);
@@ -108,6 +130,7 @@ const SignUp = () => {
 
   return (
     <MDBAnimation type="fadeIn">
+      {toWorkstation ? <Redirect to='/workstation' /> : null}
       <div id="signup">
         <MDBView>
           <MDBMask className="d-flex justify-content-center align-items-center gradient">

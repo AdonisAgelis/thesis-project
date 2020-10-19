@@ -17,9 +17,7 @@ const App = () => {
       <MDBAnimation type="fadeIn">
         <Route path="/" exact component={Landing} />
       </MDBAnimation>
-
       <Route path="/signup" component={SignUp} />
-
       <MDBAnimation type="fadeIn">
         <Route path="/login" component={LogIn} />
       </MDBAnimation>
