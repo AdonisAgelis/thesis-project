@@ -8,7 +8,7 @@ const Role = db.role;
 require('dotenv').config();
 
 const corsOptions = {
-    origin: 'http://localhost:3000'
+    origin: 'http://localhost:8081'
 };
 
 app.use(cors(corsOptions));
@@ -52,7 +52,7 @@ app.get("/", (req, res) => {
 require('./routes/auth.routes')(app);
 require('./routes/user.routes')(app);
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8082;
 
 app.listen(PORT, () => {
     console.log("Server is running on Port: " + PORT);
