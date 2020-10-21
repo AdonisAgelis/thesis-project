@@ -7,7 +7,6 @@ class AuthService {
     return axios
       .post(API_URL + "signin", { email, password })
       .then((response) => {
-        console.log('Stamos');
         if (response.data.accessToken) {
           localStorage.setItem("user", JSON.stringify(response.data));
         }

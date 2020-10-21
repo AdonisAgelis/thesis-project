@@ -74,12 +74,10 @@ const LogIn = () => {
     e.preventDefault();
     dispatch(login(email, password))
       .then(() => {
-        console.log('Yo');
         setToWorkstation(true);
         // window.location.reload();
       })
       .catch(() => {
-        console.log('!!!!!!');
         setLoading(true);
       });
   };
