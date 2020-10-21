@@ -15,21 +15,21 @@ const WorkStation = () => {
 
   const [content, setContent] = useState('');
 
-  useEffect(() => {
-    UserService.getUserWorkstation().then(
-      response => {
-        setContent(response.data);
-      },
-      error => {
-        setContent({
-          content:
-            (error.response && error.response.data) ||
-            error.message ||
-            error.toString()
-        });
-      }
-    );
-  });
+  // useEffect(() => {
+  //   UserService.getUserWorkstation().then(
+  //     response => {
+  //       setContent(response.data);
+  //     },
+  //     error => {
+  //       setContent({
+  //         content:
+  //           (error.response && error.response.data) ||
+  //           error.message ||
+  //           error.toString()
+  //       });
+  //     }
+  //   );
+  // });
 
   return (
     <div id="workstation">

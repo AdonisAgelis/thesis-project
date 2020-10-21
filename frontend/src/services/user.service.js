@@ -1,7 +1,7 @@
 import axios from "axios";
 import authHeader from "./auth-header";
 
-const API_URL = "http://localhost:8082";
+const API_URL = "http://localhost:8082/api/test/";
 
 class UserService {
   getPublicContentHome = () => {
@@ -13,7 +13,7 @@ class UserService {
   };
 
   getPublicContentLogIn = () => {
-    return axios.get(API_URL + "login");
+    return axios.get(API_URL + "signin");
   };
 
   getPublicContentInfo = () => {

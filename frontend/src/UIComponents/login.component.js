@@ -71,22 +71,17 @@ const LogIn = () => {
   };
 
   const handleLogin = (e) => {
-    console.log("!");
     e.preventDefault();
-
-    if (false) {
-      dispatch(login(email, password))
-        .then(() => {
-          history.push("/workstation");
-          window.location.reload();
-        })
-        .catch(() => {
-          setLoading(true);
-        });
-    } else {
-      setLoading(false);
-      alert("!!!");
-    }
+    dispatch(login(email, password))
+      .then(() => {
+        console.log('Yo');
+        setToWorkstation(true);
+        // window.location.reload();
+      })
+      .catch(() => {
+        console.log('!!!!!!');
+        setLoading(true);
+      });
   };
 
   return (

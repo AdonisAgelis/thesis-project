@@ -17,21 +17,21 @@ import Footer from "./footer.component";
 const Landing = () => {
   const [content, setContent] = useState('');
 
-  useEffect(() => {
-    UserService.getPublicContentHome().then(
-      response => {
-        setContent(response.data);
-      },
-      error => {
-        setContent({
-          content:
-            (error.response && error.response.data) ||
-            error.message ||
-            error.toString()
-        });
-      }
-    );
-  });
+  // useEffect(() => {
+  //   UserService.getPublicContentHome().then(
+  //     response => {
+  //       setContent(response.data);
+  //     },
+  //     error => {
+  //       setContent({
+  //         content:
+  //           (error.response && error.response.data) ||
+  //           error.message ||
+  //           error.toString()
+  //       });
+  //     }
+  //   );
+  // });
 
   return (
     <div id="main">

@@ -34,21 +34,21 @@ const SignUp = () => {
 
   const [content, setContent] = useState('');
 
-  useEffect(() => {
-    UserService.getPublicContentSignUp().then(
-      response => {
-        setContent(response.data);
-      },
-      error => {
-        setContent({
-          content:
-            (error.response && error.response.data) ||
-            error.message ||
-            error.toString()
-        });
-      }
-    );
-  });
+  // useEffect(() => {
+  //   UserService.getPublicContentSignUp().then(
+  //     response => {
+  //       setContent(response.data);
+  //     },
+  //     error => {
+  //       setContent({
+  //         content:
+  //           (error.response && error.response.data) ||
+  //           error.message ||
+  //           error.toString()
+  //       });
+  //     }
+  //   );
+  // });
 
   let placeholderUsername = usernameIsValid
     ? "Your name"

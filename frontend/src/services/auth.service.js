@@ -1,16 +1,16 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8081/api/auth/";
+const API_URL = "http://localhost:8082/api/auth/";
 
 class AuthService {
   login = (email, password) => {
     return axios
-      .post(API_URL + "login", { email, password })
+      .post(API_URL + "signin", { email, password })
       .then((response) => {
+        console.log('Stamos');
         if (response.data.accessToken) {
           localStorage.setItem("user", JSON.stringify(response.data));
         }
-
         return response.data;
       });
   };
