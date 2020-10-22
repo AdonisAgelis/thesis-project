@@ -150,7 +150,7 @@ const SignUp = () => {
                     Web Application that simulates the movement of mobile users
                     inside interior enviroment. Log in and use the app.
                   </h6>
-                  <a href="http://localhost:3000/info">
+                  <a href="http://localhost:8081/info">
                     <MDBBtn outline color="white">
                       Learn More
                     </MDBBtn>
