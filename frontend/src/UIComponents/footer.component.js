@@ -1,23 +1,21 @@
 import React from "react";
-
-import { MDBRow, MDBCol, MDBContainer, MDBIcon } from "mdbreact";
+import { MDBCol, MDBContainer, MDBRow, MDBIcon, MDBFooter } from "mdbreact";
 
 const Footer = () => {
   return (
-    <MDBContainer
-      className="container-fluid"
-      style={{ backgroundColor: "transparent" }}
-    >
-      <MDBRow className="py-4">
-        <MDBCol xl="12" className="text-center">
-          <p style={{ margin: "auto" }}>
-            © 2020 . All Rights Reserved. Designed by Stamos Kantarakis
-            (Mr.Cockbig-19) and Adonios Agelios IV
-          </p>
-        </MDBCol>
-      </MDBRow>
-    </MDBContainer>
+    <MDBFooter color="black" className="font-small pt-1 mt-1">
+      <div className="text-center py-3">
+        <MDBContainer fluid>
+          <span className='footerIcons'><MDBIcon size='2x' fab icon="facebook-square" /></span><span className='footerIcons'><MDBIcon size='2x' fab icon="instagram" /></span><span className='footerIcons'><MDBIcon size='2x' fab icon="github-square" /></span><span className='footerIcons'><MDBIcon size='2x' fab icon="linkedin" /></span>
+        </MDBContainer>
+      </div>
+      <div className="footer-copyright text-center py-3">
+        <MDBContainer fluid>
+          &copy; {new Date().getFullYear()} Copyright: <a href="https://www.mdbootstrap.com"> SweetFruits <span>🍒</span></a>
+        </MDBContainer>
+      </div>
+    </MDBFooter>
   );
-};
+}
 
 export default Footer;

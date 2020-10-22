@@ -1,5 +1,5 @@
 #main {
-  background-color: rgb(252, 243, 214);
+  background-color: black;
 }
 
 #main .gradient {
@@ -78,4 +78,8 @@
   #main .view {
     min-height: 150vh;
   }
+}
+
+.footerIcons {
+  padding: 0rem 1rem 0rem 1rem;
 }

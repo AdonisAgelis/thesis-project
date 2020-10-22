@@ -72,7 +72,7 @@ const WorkStationMenu = (props) => {
                 marginBottom: "4rem",
               }}
             >
-              <a href="http://localhost:3000">
+              <a href="http://localhost:8081">
                 <img
                   src={logo}
                   style={{ height: "3rem", marginLeft: "2rem" }}

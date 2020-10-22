@@ -105,6 +105,15 @@
   transform: scale(1.2);
 }
 
+.img-fluid1 {
+  transition: transform 0.2s;
+  width: 100%; /* Animation */
+}
+
+.img-fluid1:hover {
+  transform: scale(1);
+}
+
 .profBtn {
   display: grid;
   place-items: center;

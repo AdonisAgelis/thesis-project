@@ -54,10 +54,10 @@ const Landing = () => {
                     Web Application that simulates the movement of mobile users
                     inside interior enviroment. Log in and use the app.
                   </h6>
-                  <a href="http://localhost:3000/login">
+                  <a href="http://localhost:8081/login">
                     <MDBBtn color="white">Log in</MDBBtn>
                   </a>
-                  <a href="http://localhost:3000/signup">
+                  <a href="http://localhost:8081/signup">
                     <MDBBtn outline color="white">
                       Sign Up
                     </MDBBtn>
@@ -70,7 +70,7 @@ const Landing = () => {
                   <img
                     src={kar}
                     alt=""
-                    className="img-fluid"
+                    className="img-fluid1"
                     style={{ marginLeft: "5rem" }}
                   />
                 </MDBAnimation>
