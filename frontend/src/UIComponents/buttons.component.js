@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 import {
   MDBIcon,
@@ -12,6 +13,7 @@ import {
 
 import "../styles/workstation.css";
 import { useSelector, useDispatch } from "react-redux";
+import { logout } from '../actions/auth';
 import {
   dropSecondColumn,
   updateFirstDropDown,
@@ -20,10 +22,22 @@ import {
   enableDropDownOptions,
   undoAfterClicking,
 } from "../actions/workstation";
+import { Redirect } from "react-router-dom";
 
 const Buttons = (props) => {
   const [buttonProp, setButtonProp] = useState(props);
   const dispatch = useDispatch();
+  const history = useHistory();
+
+  const routeChange = () => {
+    let path = '';
+    history.push(path)
+  };
+
+  const logOut = () => {
+    dispatch(logout());
+    console.log('Logged out!');
+  };
 
   const peopleType = useSelector((state) => state.dropdownSelectionsReducer);
 
@@ -221,7 +235,7 @@ const Buttons = (props) => {
     );
   } else if (buttonProp.type === "logout") {
     return (
-      <MDBBtn className="styleBtn2">
+      <MDBBtn onClick={() => {logOut(); routeChange();}} className="styleBtn2">
         <span>
           <MDBIcon icon="sign-out-alt" style={{ marginRight: "1rem" }} />
           Log Out
