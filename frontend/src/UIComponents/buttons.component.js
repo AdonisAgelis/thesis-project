@@ -22,7 +22,6 @@ import {
   enableDropDownOptions,
   undoAfterClicking,
 } from "../actions/workstation";
-import { Redirect } from "react-router-dom";
 
 const Buttons = (props) => {
   const [buttonProp, setButtonProp] = useState(props);
