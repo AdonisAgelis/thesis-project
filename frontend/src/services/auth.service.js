@@ -25,6 +25,29 @@ class AuthService {
       password,
     });
   };
+
+  // sendRoomData = (name,
+  //   entrance,
+  //   exit,
+  //   accessPoint,
+  //   exhibit,
+  //   wall,
+  //   positionThatWillUndo,
+  //   counterAccessPoint,
+  //   counterExhibit,
+  //   counterWall,
+  //   counterAllPositions,
+  //   allPositions,
+  //   entranceBadge,
+  //   exitBadge,
+  //   accessPointBadge,
+  //   exhibitBadge,
+  //   height,
+  //   width,
+  //   isResized,
+  //   dropdownSelectionsReducer) => {
+
+  //   }
 }
 
 export default new AuthService();

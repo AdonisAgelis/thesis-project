@@ -143,3 +143,17 @@ export const resetTypeOfDraggable = () => {
     type: "RESET_TYPE_OF_DRAGGABLE",
   };
 };
+
+// Send Square Component Variables
+
+export const sendSquareComponentVariables = (value1, value2, value3, value4, value5, value6) => {
+  return {
+    type: "SEND_SQUARE_COMPONENT_VARIABLES",
+    payload1: value1,
+    payload2: value2,
+    payload3: value3,
+    payload4: value4,
+    payload5: value5,
+    payload6: value6
+  };
+};

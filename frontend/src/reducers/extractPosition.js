@@ -17,7 +17,13 @@ const initialState = {
   exhibitBadge: 0,
   height: 23,
   width: 38,
-  isResized: false
+  isResized: false,
+  counterAPFromSquareComponent: 0,
+  counterExhibitFromSquareComponent: 0,
+  counterWallFromSquareComponent: 0,
+  accessPointPositionArrayFromSquareComponent: [],
+  exhibitPositionArrayFromSquareComponent: [],
+  wallPositionArrayFromSquareComponent: []
 };
 
 const extractPositionReducer = (state = initialState, action) => {
@@ -98,6 +104,14 @@ const extractPositionReducer = (state = initialState, action) => {
       return state;
     case "EXTRACT_EXHIBIT_BADGE":
       state.exhibitBadge = state.exhibitBadge + 1;
+      return state;
+    case "SEND_SQUARE_COMPONENT_VARIABLES":
+      state.counterAPFromSquareComponent = action.payload1;
+      state.counterExhibitFromSquareComponent = action.payload2;
+      state.counterWallFromSquareComponent = action.payload3;
+      state.accessPointPositionArrayFromSquareComponent = action.payload4;
+      state.exhibitPositionArrayFromSquareComponent = action.payload5;
+      state.wallPositionArrayFromSquareComponent = action.payload6;
       return state;
     case "UNDO_AFTER_CLICKING":
       if (state.allPositions[state.counterAllPositions] !== null) {

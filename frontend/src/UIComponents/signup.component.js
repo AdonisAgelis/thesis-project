@@ -130,7 +130,7 @@ const SignUp = () => {
 
   return (
     <MDBAnimation type="fadeIn">
-      {toWorkstation ? <Redirect to='/workstation' /> : null}
+      {toWorkstation ? <Redirect to='/login' /> : null}
       <div id="signup">
         <MDBView>
           <MDBMask className="d-flex justify-content-center align-items-center gradient">
