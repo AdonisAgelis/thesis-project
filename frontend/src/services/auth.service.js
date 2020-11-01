@@ -26,28 +26,12 @@ class AuthService {
     });
   };
 
-  // sendRoomData = (name,
-  //   entrance,
-  //   exit,
-  //   accessPoint,
-  //   exhibit,
-  //   wall,
-  //   positionThatWillUndo,
-  //   counterAccessPoint,
-  //   counterExhibit,
-  //   counterWall,
-  //   counterAllPositions,
-  //   allPositions,
-  //   entranceBadge,
-  //   exitBadge,
-  //   accessPointBadge,
-  //   exhibitBadge,
-  //   height,
-  //   width,
-  //   isResized,
-  //   dropdownSelectionsReducer) => {
-
-  //   }
+  sendRoomData = (roomData) => {
+    console.log('!!!!!!!!');
+    return axios.post(API_URL + "workstation", {
+      roomData
+    });
+  };
 }
 
 export default new AuthService();

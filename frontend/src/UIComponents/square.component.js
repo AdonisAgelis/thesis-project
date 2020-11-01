@@ -45,8 +45,6 @@ export default function Square({
     (state) => state.extractPositionReducer.isResized
   );
 
-  // console.log(accessPointPositionArray);
-
   if (resizedTemplate === true) {
     accessPointPositionArray = [];
     exhibitPositionArray = [];

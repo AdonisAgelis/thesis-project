@@ -22,6 +22,9 @@ import {
   enableDropDownOptions,
   undoAfterClicking,
 } from "../actions/workstation";
+import {
+  sendRoomData
+} from '../actions/auth';
 
 const Buttons = (props) => {
   const [buttonProp, setButtonProp] = useState(props);
@@ -128,10 +131,24 @@ const Buttons = (props) => {
     },
   ];
 
+  let roomdData = useSelector(
+    (state) => state.extractPositionReducer
+  );
+
+  const handleSave = (e) => {
+    dispatch(sendRoomData(roomdData))
+      // .then(() => {
+      //   // console.log('Success');
+      // })
+      // .catch(() => {
+      //   // console.log('Fail');
+      // });
+  };
+
   if (buttonProp.type === "save") {
     return (
       <MDBBtn
-        onClick={() => RestOfButtonsEnabled()}
+        onClick={() => {RestOfButtonsEnabled(); handleSave();}}
         disabled={enableSave}
         id="save"
         rounded

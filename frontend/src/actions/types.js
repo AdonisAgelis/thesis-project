@@ -5,3 +5,5 @@ export const LOGIN_FAIL = "LOGIN_FAIL";
 export const LOGOUT = "LOGOUT";
 export const SET_MESSAGE = "SET_MESSAGE";
 export const CLEAR_MESSAGE = "CLEAR_MESSAGE";
+export const SEND_ROOM_DATA_SUCCESS = "SEND_ROOM_DATA_SUCCESS";
+export const SEND_ROOM_DATA_FAIL = "SEND_ROOM_DATA_FAIL";

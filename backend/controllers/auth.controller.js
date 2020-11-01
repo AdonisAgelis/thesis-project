@@ -2,6 +2,7 @@ const config = require("../config/auth.config");
 const db = require("../models");
 const User = db.user;
 const Role = db.role;
+const Room = db.room;
 
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
@@ -106,4 +107,28 @@ exports.signin = (req, res) => {
                 accessToken: token
             });
         });
+};
+
+exports.saveRoomData = (req, res) => {
+
+    const room = new Room({
+        entrance: req.body.roomData.entrance
+    });
+
+    room.save((err, room) => {
+        if (err) {
+            res.status(500).send({ message: err });
+            return;
+        }
+
+        room.save(err => {
+            if (err) {
+                res.status(500).send({ message: err });
+                return;
+            }
+
+            res.send({ message: "Room was registered successfully!" });
+        });
+    }
+    );
 };

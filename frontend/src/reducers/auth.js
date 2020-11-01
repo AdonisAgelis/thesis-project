@@ -4,6 +4,8 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
+  SEND_ROOM_DATA_SUCCESS,
+  SEND_ROOM_DATA_FAIL
 } from "../actions/types";
 
 const user = JSON.parse(localStorage.getItem("user"));
@@ -43,6 +45,14 @@ const authReducer = (state = initialState, action) => {
         ...state,
         isLoggedIn: false,
         user: null,
+      };
+    case SEND_ROOM_DATA_SUCCESS:
+      return {
+        ...state
+      };
+    case SEND_ROOM_DATA_FAIL:
+      return {
+        ...state
       };
     default:
       return state;

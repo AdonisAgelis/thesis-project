@@ -5,6 +5,8 @@ import {
   LOGIN_FAIL,
   LOGOUT,
   SET_MESSAGE,
+  SEND_ROOM_DATA_SUCCESS,
+  SEND_ROOM_DATA_FAIL
 } from "./types";
 
 import AuthService from "../services/auth.service";
@@ -84,3 +86,36 @@ export const logout = () => (dispatch) => {
     type: LOGOUT,
   });
 };
+
+export const sendRoomData = (roomData) => (dispatch) => {
+  AuthService.sendRoomData(roomData).then(
+    (response) => {
+      dispatch({
+        type: SEND_ROOM_DATA_SUCCESS,
+      });
+
+      dispatch({
+        type: SET_MESSAGE,
+        payload: response.data.message,
+      });
+
+      return Promise.resolve();
+    },
+    (error) => {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      dispatch({
+        type: SEND_ROOM_DATA_FAIL,
+      });
+
+      dispatch({
+        type: SET_MESSAGE,
+        payload: message,
+      });
+    })
+}
