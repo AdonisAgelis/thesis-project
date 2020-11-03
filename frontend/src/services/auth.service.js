@@ -27,7 +27,7 @@ class AuthService {
   };
 
   sendRoomData = (roomData) => {
-    console.log('!!!!!!!!');
+    console.log('Saved!');
     return axios.post(API_URL + "workstation", {
       roomData
     });
