@@ -131,7 +131,13 @@ exports.saveRoomData = (req, res) => {
         height: req.body.roomData.height,
         width: req.body.roomData.width,
         isResized: req.body.roomData.isResized,
-        dropdownSelectionsReducer: req.body.roomData.dropdownSelectionsReducer
+        dropdownSelectionsReducer: req.body.roomData.dropdownSelectionsReducer,
+        counterAPFromSquareComponent: req.body.roomData.counterAPFromSquareComponent,
+        counterExhibitFromSquareComponent: req.body.roomData.counterExhibitFromSquareComponent,
+        counterWallFromSquareComponent: req.body.roomData.counterWallFromSquareComponent,
+        accessPointPositionArrayFromSquareComponent:  req.body.roomData.accessPointPositionArrayFromSquareComponent,
+        exhibitPositionArrayFromSquareComponent:  req.body.roomData.exhibitPositionArrayFromSquareComponent,
+        wallPositionArrayFromSquareComponent:  req.body.roomData.wallPositionArrayFromSquareComponent
     });
 
     room.save((err, room) => {

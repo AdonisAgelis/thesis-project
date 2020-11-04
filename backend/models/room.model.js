@@ -23,6 +23,12 @@ const Room = mongoose.model(
     width: Number,
     isResized: Boolean,
     dropdownSelectionsReducer: Number,
+    counterAPFromSquareComponent: Number,
+    counterExhibitFromSquareComponent: Number,
+    counterWallFromSquareComponent: Number,
+    accessPointPositionArrayFromSquareComponent: [Number],
+    exhibitPositionArrayFromSquareComponent: [Number],
+    wallPositionArrayFromSquareComponent: [Number]
   })
 );
 
