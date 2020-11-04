@@ -4,6 +4,7 @@ const Room = mongoose.model(
   "Room",
   new mongoose.Schema({
     // name: String,
+    userID : String,
     entrance: Number,
     exit: Number,
     accessPoint: [Number],

@@ -113,6 +113,7 @@ exports.saveRoomData = (req, res) => {
 
     const room = new Room({
         // name: req.body.roomData.name,
+        userID: req.body.roomData.userID,
         entrance: req.body.roomData.entrance,
         exit: req.body.roomData.exit,
         accessPoint: req.body.roomData.accessPoint,
