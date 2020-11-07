@@ -4,6 +4,12 @@ export const dropSecondColumn = () => {
   };
 };
 
+export const dropSecondColumnLoad = () => {
+  return {
+    type: "DROP_SECOND_COLUMN_LOAD",
+  };
+};
+
 export const updateFirstDropDown = (value) => {
   return {
     type: "UPDATE_FIRST_DROPDOWN",
@@ -130,6 +136,12 @@ export const changeDimensions = (valueX, valueY) => {
   };
 };
 
+export const resetRoom = () => {
+  return {
+    type: "RESET_ROOM",
+  };
+};
+
 export const changeIsResized = () => {
   return {
     type: "CHANGE_IS_RESIZED",
@@ -146,7 +158,14 @@ export const resetTypeOfDraggable = () => {
 
 // Send Square Component Variables
 
-export const sendSquareComponentVariables = (value1, value2, value3, value4, value5, value6) => {
+export const sendSquareComponentVariables = (
+  value1,
+  value2,
+  value3,
+  value4,
+  value5,
+  value6
+) => {
   return {
     type: "SEND_SQUARE_COMPONENT_VARIABLES",
     payload1: value1,
@@ -154,6 +173,6 @@ export const sendSquareComponentVariables = (value1, value2, value3, value4, val
     payload3: value3,
     payload4: value4,
     payload5: value5,
-    payload6: value6
+    payload6: value6,
   };
 };

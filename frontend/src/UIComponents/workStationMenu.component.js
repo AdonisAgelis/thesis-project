@@ -46,10 +46,10 @@ const WorkStationMenu = (props) => {
 
   let midMenuisOpen = useSelector((state) => state.dropMidColumnReducer);
 
-  if (midMenuisOpen !== "2") {
+  if (midMenuisOpen === "default") {
     animationType = "fadeInDown";
     animationDelay = ".3s";
-  } else {
+  } else if (midMenuisOpen === "new") {
     animationType = "fadeInRight";
     animationDelay = ".0s";
   }
@@ -57,7 +57,12 @@ const WorkStationMenu = (props) => {
 
   const dispatch = useDispatch();
 
-  if (columnProp.columnPos === 2) {
+  if (
+    (midMenuisOpen === "default" ||
+      midMenuisOpen === "load" ||
+      midMenuisOpen === "new") &&
+    columnProp.columnPos == 2
+  ) {
     return (
       <MDBCol md={columnProp.columnPos}>
         <MDBAnimation type={animationType} delay={animationDelay}>
@@ -99,7 +104,7 @@ const WorkStationMenu = (props) => {
         </MDBAnimation>
       </MDBCol>
     );
-  } else if (columnProp.columnPos === 7) {
+  } else if (midMenuisOpen === "new" && columnProp.columnPos == 7) {
     return (
       <DndProvider backend={HTML5Backend}>
         <MDBCol md={columnProp.columnPos}>
@@ -184,6 +189,26 @@ const WorkStationMenu = (props) => {
           </MDBAnimation>
         </MDBCol>
       </DndProvider>
+    );
+  } else if (midMenuisOpen === "load" && columnProp.columnPos == 7) {
+    return (
+      <MDBCol md={columnProp.columnPos}>
+        <MDBAnimation type="fadeInDown" delay=".3s">
+          <MDBCard style={{ background: "rgba(0, 0, 0, 0.8" }}>
+            <MDBCardImage className="img-fluid" />
+            <MDBCardBody>
+              <MDBCardTitle style={{ textAlign: "center" }}>
+                <MDBTypography
+                  style={{ color: "white" }}
+                  tag="h4"
+                ></MDBTypography>
+              </MDBCardTitle>
+              <MDBCardText style={{ textAlign: "center" }}></MDBCardText>
+              <div className="workspace-container"></div>
+            </MDBCardBody>
+          </MDBCard>
+        </MDBAnimation>
+      </MDBCol>
     );
   }
 };

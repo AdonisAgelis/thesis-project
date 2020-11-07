@@ -1,7 +1,9 @@
-const dropMidColumnReducer = (state = "1", action) => {
+const dropMidColumnReducer = (state = "default", action) => {
   switch (action.type) {
     case "DROP_SECOND_COLUMN":
-      return "2";
+      return "new";
+    case "DROP_SECOND_COLUMN_LOAD":
+      return "load";
     default:
       return state;
   }

@@ -15,7 +15,7 @@ import {
   changeDimensions,
   changeIsResized,
   resetTypeOfDraggable,
-  sendSquareComponentVariables
+  sendSquareComponentVariables,
 } from "../actions/workstation";
 import { useDispatch, useSelector } from "react-redux";
 import DragAndDropItems from "./dragAndDropItems.component";
@@ -78,13 +78,16 @@ export default function Square({
   if (typeof accessPointPosition === "number") {
     counterAP++;
     accessPointPositionArray.push(accessPointPosition);
-    dispatch(sendSquareComponentVariables(
-      counterAP,
-      counterExhibit,
-      counterWall,
-      accessPointPositionArray,
-      exhibitPositionArray,
-      wallPositionArray));
+    dispatch(
+      sendSquareComponentVariables(
+        counterAP,
+        counterExhibit,
+        counterWall,
+        accessPointPositionArray,
+        exhibitPositionArray,
+        wallPositionArray
+      )
+    );
   }
 
   let positionThatWillUndo = useSelector(
@@ -94,13 +97,16 @@ export default function Square({
   if (accessPointPositionArray.includes(positionThatWillUndo)) {
     accessPointPositionArray.pop(positionThatWillUndo);
     counterAP--;
-    dispatch(sendSquareComponentVariables(
-      counterAP,
-      counterExhibit,
-      counterWall,
-      accessPointPositionArray,
-      exhibitPositionArray,
-      wallPositionArray));
+    dispatch(
+      sendSquareComponentVariables(
+        counterAP,
+        counterExhibit,
+        counterWall,
+        accessPointPositionArray,
+        exhibitPositionArray,
+        wallPositionArray
+      )
+    );
   }
 
   let exhibitPosition = useSelector(
@@ -110,25 +116,31 @@ export default function Square({
   if (typeof exhibitPosition === "number") {
     counterExhibit++;
     exhibitPositionArray.push(exhibitPosition);
-    dispatch(sendSquareComponentVariables(
-      counterAP,
-      counterExhibit,
-      counterWall,
-      accessPointPositionArray,
-      exhibitPositionArray,
-      wallPositionArray));
+    dispatch(
+      sendSquareComponentVariables(
+        counterAP,
+        counterExhibit,
+        counterWall,
+        accessPointPositionArray,
+        exhibitPositionArray,
+        wallPositionArray
+      )
+    );
   }
 
   if (exhibitPositionArray.includes(positionThatWillUndo)) {
     exhibitPositionArray.pop(positionThatWillUndo);
     counterExhibit--;
-    dispatch(sendSquareComponentVariables(
-      counterAP,
-      counterExhibit,
-      counterWall,
-      accessPointPositionArray,
-      exhibitPositionArray,
-      wallPositionArray));
+    dispatch(
+      sendSquareComponentVariables(
+        counterAP,
+        counterExhibit,
+        counterWall,
+        accessPointPositionArray,
+        exhibitPositionArray,
+        wallPositionArray
+      )
+    );
   }
 
   let typeOfDraggable = useSelector(
@@ -142,25 +154,31 @@ export default function Square({
   if (wallPositionArray.includes(positionThatWillUndo)) {
     wallPositionArray.pop(positionThatWillUndo);
     counterWall--;
-    dispatch(sendSquareComponentVariables(
-      counterAP,
-      counterExhibit,
-      counterWall,
-      accessPointPositionArray,
-      exhibitPositionArray,
-      wallPositionArray));
+    dispatch(
+      sendSquareComponentVariables(
+        counterAP,
+        counterExhibit,
+        counterWall,
+        accessPointPositionArray,
+        exhibitPositionArray,
+        wallPositionArray
+      )
+    );
   }
 
   if (typeof wallPosition === "number") {
     counterWall++;
     wallPositionArray.push(wallPosition);
-    dispatch(sendSquareComponentVariables(
-      counterAP,
-      counterExhibit,
-      counterWall,
-      accessPointPositionArray,
-      exhibitPositionArray,
-      wallPositionArray));
+    dispatch(
+      sendSquareComponentVariables(
+        counterAP,
+        counterExhibit,
+        counterWall,
+        accessPointPositionArray,
+        exhibitPositionArray,
+        wallPositionArray
+      )
+    );
   }
 
   //After drop dispatch to reducers

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import UserService from '../services/user.service';
-import { Redirect } from 'react-router-dom';
+import UserService from "../services/user.service";
+import { Redirect } from "react-router-dom";
 import { MDBMask, MDBView } from "mdbreact";
 import "../styles/workstation.css";
 import WorkStationMenu from "./workStationMenu.component";
@@ -13,7 +13,7 @@ const WorkStation = () => {
 
   const columnPos = 2;
 
-  const [content, setContent] = useState('');
+  // const [content, setContent] = useState("");
 
   // useEffect(() => {
   //   UserService.getUserWorkstation().then(
@@ -36,21 +36,31 @@ const WorkStation = () => {
       {isLoggedIn ? null : null} {/*Change it later*/}
       <MDBView>
         <MDBMask className="d-flex justify-content-center align-items-center gradient">
-          {midMenuisOpen !== "2" ? (
+          {midMenuisOpen == "default" ? (
             <WorkStationMenu columnPos={columnPos} />
           ) : (
-              true
-            )}
-          {midMenuisOpen === "2" ? (
+            true
+          )}
+          {midMenuisOpen === "new" ? (
             <WorkStationMenu columnPos={columnPos} />
           ) : (
-              true
-            )}
-          {midMenuisOpen === "2" ? (
+            true
+          )}
+          {midMenuisOpen === "new" ? (
             <WorkStationMenu columnPos={columnPos + 5} />
           ) : (
-              true
-            )}
+            true
+          )}
+          {midMenuisOpen === "load" ? (
+            <WorkStationMenu columnPos={columnPos} />
+          ) : (
+            true
+          )}
+          {midMenuisOpen === "load" ? (
+            <WorkStationMenu columnPos={columnPos + 5} />
+          ) : (
+            true
+          )}
         </MDBMask>
       </MDBView>
     </div>

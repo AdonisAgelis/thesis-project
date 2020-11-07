@@ -13,18 +13,19 @@ import {
 
 import "../styles/workstation.css";
 import { useSelector, useDispatch } from "react-redux";
-import { logout } from '../actions/auth';
+import { logout } from "../actions/auth";
 import {
   dropSecondColumn,
+  dropSecondColumnLoad,
   updateFirstDropDown,
   updateSecondDropDown,
   enableButtonsAfterClicking,
   enableDropDownOptions,
   undoAfterClicking,
+  resetRoom,
+  resetTypeOfDraggable,
 } from "../actions/workstation";
-import {
-  sendRoomData
-} from '../actions/auth';
+import { sendRoomData } from "../actions/auth";
 
 const Buttons = (props) => {
   const [buttonProp, setButtonProp] = useState(props);
@@ -32,13 +33,13 @@ const Buttons = (props) => {
   const history = useHistory();
 
   const routeChange = () => {
-    let path = '';
-    history.push(path)
+    let path = "";
+    history.push(path);
   };
 
   const logOut = () => {
     dispatch(logout());
-    console.log('Logged out!');
+    console.log("Logged out!");
   };
 
   const peopleType = useSelector((state) => state.dropdownSelectionsReducer);
@@ -131,24 +132,31 @@ const Buttons = (props) => {
     },
   ];
 
-  let roomdData = useSelector(
-    (state) => state.extractPositionReducer
-  );
+  let roomdData = useSelector((state) => state.extractPositionReducer);
 
   const handleSave = (e) => {
-    dispatch(sendRoomData(roomdData))
-      // .then(() => {
-      //   // console.log('Success');
-      // })
-      // .catch(() => {
-      //   // console.log('Fail');
-      // });
+    dispatch(sendRoomData(roomdData));
+    // .then(() => {
+    //   // console.log('Success');
+    // })
+    // .catch(() => {
+    //   // console.log('Fail');
+    // });
+  };
+
+  const handleNew = (e) => {
+    dispatch(dropSecondColumn());
+    dispatch(resetRoom());
+    dispatch(resetTypeOfDraggable());
   };
 
   if (buttonProp.type === "save") {
     return (
       <MDBBtn
-        onClick={() => {RestOfButtonsEnabled(); handleSave();}}
+        onClick={() => {
+          RestOfButtonsEnabled();
+          handleSave();
+        }}
         disabled={enableSave}
         id="save"
         rounded
@@ -228,7 +236,7 @@ const Buttons = (props) => {
       <MDBBtn
         className="styleBtn"
         onClick={() => {
-          dispatch(dropSecondColumn());
+          handleNew();
         }}
       >
         <MDBIcon icon="plus-circle" style={{ marginRight: "1rem" }} />
@@ -237,7 +245,12 @@ const Buttons = (props) => {
     );
   } else if (buttonProp.type === "load") {
     return (
-      <MDBBtn className="styleBtn">
+      <MDBBtn
+        className="styleBtn"
+        onClick={() => {
+          dispatch(dropSecondColumnLoad());
+        }}
+      >
         <MDBIcon icon="sync" style={{ marginRight: "1rem" }} />
         Load Template
       </MDBBtn>
@@ -251,7 +264,13 @@ const Buttons = (props) => {
     );
   } else if (buttonProp.type === "logout") {
     return (
-      <MDBBtn onClick={() => {logOut(); routeChange();}} className="styleBtn2">
+      <MDBBtn
+        onClick={() => {
+          logOut();
+          routeChange();
+        }}
+        className="styleBtn2"
+      >
         <span>
           <MDBIcon icon="sign-out-alt" style={{ marginRight: "1rem" }} />
           Log Out
