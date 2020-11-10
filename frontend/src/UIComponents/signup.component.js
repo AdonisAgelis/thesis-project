@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import UserService from '../services/user.service';
-import { Redirect } from 'react-router-dom';
+import UserService from "../services/user.service";
+import { Redirect } from "react-router-dom";
 import {
   MDBMask,
   MDBRow,
@@ -29,22 +29,29 @@ const SignUp = () => {
   const [usernameIsValid, setUsernameIsValid] = useState(true);
   const [emailIsValid, setEmailIsValid] = useState(true);
   const [passwordIsValid, setPasswordIsValid] = useState(true);
+  let [liLowerUpperPasswordIcon, setLiLowerUpperPasswordIcon] = useState(
+    "circle"
+  );
+  let [liNumberPasswordIcon, setLiNumberPasswordIcon] = useState("circle");
+  let [liSpecialCharPasswordIcon, setLiSpecialCharPasswordIcon] = useState(
+    "circle"
+  );
   let [toWorkstation, setToWorkstation] = useState(false);
   const dispatch = useDispatch();
 
-  const [content, setContent] = useState('');
+  const [content, setContent] = useState("");
 
   useEffect(() => {
     UserService.getPublicContentSignUp().then(
-      response => {
+      (response) => {
         setContent(response.data);
       },
-      error => {
+      (error) => {
         setContent({
           content:
             (error.response && error.response.data) ||
             error.message ||
-            error.toString()
+            error.toString(),
         });
       }
     );
@@ -54,13 +61,11 @@ const SignUp = () => {
     ? "Your name"
     : "Username must be 3-20 characters!";
 
-  let placeholderEmail = emailIsValid
-    ? 'Your email'
-    : 'Invalid Email!';
+  let placeholderEmail = emailIsValid ? "Your email" : "Invalid Email!";
 
   let placeholderPassword = passwordIsValid
-    ? 'Your password'
-    : 'Invalid Password!';
+    ? "Your password"
+    : "Invalid Password!";
 
   const onChangeUsername = (e) => {
     setUsername(e.target.value);
@@ -71,6 +76,31 @@ const SignUp = () => {
   };
 
   const onChangePassword = (e) => {
+    if (
+      e.target.value.search(/[a-z]/g) !== -1 &&
+      e.target.value.search(/[A-Z]/g) !== -1
+    ) {
+      setLiLowerUpperPasswordIcon("check");
+    } else if (
+      e.target.value.search(/[a-z]/g) == -1 ||
+      e.target.value.search(/[A-Z]/g) == -1
+    ) {
+      setLiLowerUpperPasswordIcon("circle");
+    }
+    if (e.target.value.search(/[0-9]/g) !== -1) {
+      setLiNumberPasswordIcon("check");
+    } else if (e.target.value.search(/0-9]/g) == -1) {
+      setLiNumberPasswordIcon("circle");
+    }
+
+    if (e.target.value.search(/[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/g) !== -1) {
+      setLiSpecialCharPasswordIcon("check");
+    } else if (
+      e.target.value.search(/[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/g) == -1
+    ) {
+      setLiSpecialCharPasswordIcon("circle");
+    }
+
     setPassword(e.target.value);
   };
 
@@ -93,7 +123,7 @@ const SignUp = () => {
       const validEmail = /\S+@\S+\.\S+/g;
       return validEmail.test(email);
     };
-  
+
     const validatedEmail = checkEmail(email);
 
     if (
@@ -121,8 +151,13 @@ const SignUp = () => {
       console.log("Wrong Username!");
     } else if (validatedEmail === false) {
       setEmailIsValid(false);
-      console.log('Wrong email!');
-    } else if (passwordUpper === -1 || passwordLower === -1 || passwordNumber === -1 || passwordSymbol === -1) {
+      console.log("Wrong email!");
+    } else if (
+      passwordUpper === -1 ||
+      passwordLower === -1 ||
+      passwordNumber === -1 ||
+      passwordSymbol === -1
+    ) {
       setPasswordIsValid(false);
       console.log("Wrong Password!");
     }
@@ -130,7 +165,7 @@ const SignUp = () => {
 
   return (
     <MDBAnimation type="fadeIn">
-      {toWorkstation ? <Redirect to='/login' /> : null}
+      {toWorkstation ? <Redirect to="/login" /> : null}
       <div id="signup">
         <MDBView>
           <MDBMask className="d-flex justify-content-center align-items-center gradient">
@@ -194,6 +229,25 @@ const SignUp = () => {
                             onChange={onChangePassword}
                             required
                           />
+                          <div className="passwordchecker">
+                            <ul className="fa-ul">
+                              <li>
+                                <MDBIcon icon={liLowerUpperPasswordIcon} list />
+                                Lowercase & Uppercase
+                              </li>
+                              <li>
+                                <MDBIcon icon={liNumberPasswordIcon} list />
+                                Number (0-9)
+                              </li>
+                              <li>
+                                <MDBIcon
+                                  icon={liSpecialCharPasswordIcon}
+                                  list
+                                />
+                                Special Character (!@#$%)
+                              </li>
+                            </ul>
+                          </div>
                           <div className="text-center mt-4 black-text">
                             <MDBBtn color="white" type="submit" value="submit">
                               Sign Up
