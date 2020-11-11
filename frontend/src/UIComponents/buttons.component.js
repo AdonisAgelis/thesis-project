@@ -226,7 +226,10 @@ const Buttons = (props) => {
     );
   } else if (buttonProp.type === "home") {
     return (
-      <MDBBtn className="styleBtn">
+      <MDBBtn
+        className="styleBtn"
+        onClick={() => window.location.reload(false)}
+      >
         <MDBIcon icon="home" style={{ marginRight: "1rem" }} />
         Home
       </MDBBtn>
