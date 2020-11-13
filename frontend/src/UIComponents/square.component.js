@@ -182,43 +182,31 @@ export default function Square({
   }
 
   //After drop dispatch to reducers
-  const extractTargetId = async (x, item) => {
-    if (
-      item.type === "entrance" &&
-      walls.includes(parseInt(x.replace("T", ""), 10))
-    ) {
+  const extractTargetId = async (targetId, item, mapOfTargetId) => {
+    let arrayOfTargetId = Array.from(mapOfTargetId.keys());
+    let realTargetId = arrayOfTargetId.indexOf(targetId);
+
+    if (item.type === "entrance" && walls.includes(realTargetId)) {
       await dispatch(extractTypeOfDraggable(item.type));
-      await dispatch(extractEntrancePosition(x));
+      await dispatch(extractEntrancePosition(realTargetId));
       await dispatch(extractEntranceBadge());
-    } else if (
-      item.type === "exit" &&
-      walls.includes(parseInt(x.replace("T", ""), 10))
-    ) {
+    } else if (item.type === "exit" && walls.includes(realTargetId)) {
       await dispatch(extractTypeOfDraggable(item.type));
-      await dispatch(extractExitPosition(x));
+      await dispatch(extractExitPosition(realTargetId));
       await dispatch(extractExitBadge());
-    } else if (
-      item.type === "accessPoint" &&
-      !walls.includes(parseInt(x.replace("T", ""), 10))
-    ) {
+    } else if (item.type === "accessPoint" && !walls.includes(realTargetId)) {
       await dispatch(extractTypeOfDraggable(item.type));
-      await dispatch(extractAccessPointPosition(x));
+      await dispatch(extractAccessPointPosition(realTargetId));
       await dispatch(extractAccessPointBadge());
-    } else if (
-      item.type === "exhibit" &&
-      !walls.includes(parseInt(x.replace("T", ""), 10))
-    ) {
+    } else if (item.type === "exhibit" && !walls.includes(realTargetId)) {
       await dispatch(extractTypeOfDraggable(item.type));
-      await dispatch(extractExhibitPosition(x));
+      await dispatch(extractExhibitPosition(realTargetId));
       await dispatch(extractExhibitBadge());
-    } else if (
-      item.type === "wall" &&
-      !walls.includes(parseInt(x.replace("T", ""), 10))
-    ) {
+    } else if (item.type === "wall" && !walls.includes(realTargetId)) {
       await dispatch(extractTypeOfDraggable(item.type));
-      await dispatch(extractWallPosition(x));
+      await dispatch(extractWallPosition(realTargetId));
     }
-    return { id: x };
+    return { id: realTargetId };
   };
 
   //Hook for making the squares droppable
@@ -231,7 +219,14 @@ export default function Square({
       DnDItemTypes.EXHIBIT,
       DnDItemTypes.WALL,
     ],
-    drop: (item, monitor) => extractTargetId(monitor.targetId, item),
+    drop: (item, monitor) => {
+      // console.log(george.indexOf(monitor.targetId));
+      extractTargetId(
+        monitor.targetId,
+        item,
+        monitor.internalMonitor.registry.dropTargets
+      );
+    },
 
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),
@@ -327,3 +322,5 @@ export default function Square({
     return true;
   }
 }
+
+export const MemoizedSquare = React.memo(Square);

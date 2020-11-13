@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import Square from "./square.component";
-import DragAndDropItems from "./dragAndDropItems.component";
+import MemoizedSquare from "./square.component";
+// import DragAndDropItems from "./dragAndDropItems.component";
 
 // i : number of squares
 const renderSquare = (i, height, width) => {
-
   const outerLeftSide = [];
   const outerRightSide = [];
   const outerTopSide = [];
@@ -29,11 +28,11 @@ const renderSquare = (i, height, width) => {
     }
   }
 
-  for (let outerTop = 0; outerTop <= (39 * (z + 1)) + z; outerTop++) {
+  for (let outerTop = 0; outerTop <= 39 * (z + 1) + z; outerTop++) {
     outerTopSide.push(outerTop);
   }
 
-  for (let outerBot = (960 - (39 * z)) - z; outerBot <= 999; outerBot++) {
+  for (let outerBot = 960 - 39 * z - z; outerBot <= 999; outerBot++) {
     outerBotSide.push(outerBot);
   }
 
@@ -43,7 +42,12 @@ const renderSquare = (i, height, width) => {
 
   // Room Corners
 
-  const roomCorners = [42 + x + y - 1, 78 + x - y, 922 - x + y - 1, 958 - x - y];
+  const roomCorners = [
+    42 + x + y - 1,
+    78 + x - y,
+    922 - x + y - 1,
+    958 - x - y,
+  ];
 
   // Black Squares
 
@@ -52,10 +56,18 @@ const renderSquare = (i, height, width) => {
   let topSideWallArray = [];
   let botSideWallArray = [];
 
-  for (let leftSideWall = 41 + y + x; leftSideWall < 941 - x; leftSideWall += 40) {
+  for (
+    let leftSideWall = 41 + y + x;
+    leftSideWall < 941 - x;
+    leftSideWall += 40
+  ) {
     leftSideWallArray.push(leftSideWall);
   }
-  for (let rightSideWall = 78 - y + x; rightSideWall < 978 - x; rightSideWall += 40) {
+  for (
+    let rightSideWall = 78 - y + x;
+    rightSideWall < 978 - x;
+    rightSideWall += 40
+  ) {
     rightSideWallArray.push(rightSideWall);
   }
 
@@ -63,7 +75,11 @@ const renderSquare = (i, height, width) => {
     topSideWallArray.push(topSideWall);
   }
 
-  for (let botSideWall = 922 - x + y; botSideWall < 958 - x - y; botSideWall++) {
+  for (
+    let botSideWall = 922 - x + y;
+    botSideWall < 958 - x - y;
+    botSideWall++
+  ) {
     botSideWallArray.push(botSideWall);
   }
 
@@ -81,26 +97,21 @@ const renderSquare = (i, height, width) => {
 
   return (
     <div key={i} style={{ width: "20px", height: "20px" }}>
-      <Square black={black} pos={i} walls={WallArrays} outerSquares={outerSquares} roomCorners={roomCorners}>{renderPiece(i)}</Square>
+      <MemoizedSquare
+        black={black}
+        pos={i}
+        walls={WallArrays}
+        outerSquares={outerSquares}
+        roomCorners={roomCorners}
+      ></MemoizedSquare>
     </div>
   );
 };
 
-const renderPiece = (i, itemPosition) => {
-  if (i === itemPosition) {
-    return <DragAndDropItems role='entrance' />
-  }
-};
-
 export default function RoomTemplate() {
+  let height = useSelector((state) => state.extractPositionReducer.height);
 
-  let height = useSelector(
-    (state) => state.extractPositionReducer.height
-  );
-
-  let width = useSelector(
-    (state) => state.extractPositionReducer.width
-  );
+  let width = useSelector((state) => state.extractPositionReducer.width);
 
   const squares = [];
   for (let i = 0; i < 1000; i++) {

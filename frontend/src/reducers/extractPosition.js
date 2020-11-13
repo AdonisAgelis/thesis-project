@@ -60,56 +60,56 @@ const extractPositionReducer = (state = initialState, action) => {
       state.entrance = null;
       state.exit = null;
       state.accessPoint = [null];
+      state.accessPoint.length = 1;
       state.exhibit = [null];
+      state.exhibit.length = 1;
       state.wall = [null];
+      state.wall.length = 1;
       state.positionThatWillUndo = null;
       state.counterAccessPoint = 0;
       state.counterExhibit = 0;
       state.counterWall = 0;
       state.counterAllPositions = 0;
       state.allPositions = [null];
+      state.allPositions.length = 1;
       state.entranceBadge = 0;
       state.exitBadge = 0;
       state.accessPointBadge = 0;
       state.exhibitBadge = 0;
-      state.height = 23;
-      state.width = 38;
-      state.isResized = false;
+      state.isResized = true;
       state.counterAPFromSquareComponent = 0;
       state.counterExhibitFromSquareComponent = 0;
       state.counterWallFromSquareComponent = 0;
       state.accessPointPositionArrayFromSquareComponent = [];
+      state.accessPointPositionArrayFromSquareComponent.length = 1;
       state.exhibitPositionArrayFromSquareComponent = [];
+      state.exhibitPositionArrayFromSquareComponent.length = 1;
       state.wallPositionArrayFromSquareComponent = [];
+      state.wallPositionArrayFromSquareComponent.length = 1;
       return state;
     case "EXTRACT_ENTRANCE_POSITION":
-      action.payload = parseInt(action.payload.replace("T", ""), 10);
       state.entrance = action.payload;
       state.allPositions[state.counterAllPositions] = action.payload;
       state.counterAllPositions++;
       return state;
     case "EXTRACT_EXIT_POSITION":
-      action.payload = parseInt(action.payload.replace("T", ""), 10);
       state.exit = action.payload;
       state.allPositions[state.counterAllPositions] = action.payload;
       state.counterAllPositions++;
       return state;
     case "EXTRACT_ACCESS_POINT_POSITION":
-      action.payload = parseInt(action.payload.replace("T", ""), 10);
       state.accessPoint[state.counterAccessPoint] = action.payload;
       state.counterAccessPoint++;
       state.allPositions[state.counterAllPositions] = action.payload;
       state.counterAllPositions++;
       return state;
     case "EXTRACT_EXHIBIT_POSITION":
-      action.payload = parseInt(action.payload.replace("T", ""), 10);
       state.exhibit[state.counterExhibit] = action.payload;
       state.counterExhibit++;
       state.allPositions[state.counterAllPositions] = action.payload;
       state.counterAllPositions++;
       return state;
     case "EXTRACT_WALL_POSITION":
-      action.payload = parseInt(action.payload.replace("T", ""), 10);
       state.wall[state.counterWall] = action.payload;
       state.counterWall++;
       state.allPositions[state.counterAllPositions] = action.payload;

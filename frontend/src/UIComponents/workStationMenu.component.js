@@ -54,7 +54,6 @@ const WorkStationMenu = (props) => {
     animationDelay = ".0s";
   }
   // DISPATCH
-
   const dispatch = useDispatch();
 
   if (
