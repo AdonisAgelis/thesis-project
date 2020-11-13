@@ -187,24 +187,24 @@ export default function Square({
     let realTargetId = arrayOfTargetId.indexOf(targetId);
 
     if (item.type === "entrance" && walls.includes(realTargetId)) {
-      await dispatch(extractTypeOfDraggable(item.type));
-      await dispatch(extractEntrancePosition(realTargetId));
-      await dispatch(extractEntranceBadge());
+      dispatch(extractTypeOfDraggable(item.type));
+      dispatch(extractEntrancePosition(realTargetId));
+      dispatch(extractEntranceBadge());
     } else if (item.type === "exit" && walls.includes(realTargetId)) {
-      await dispatch(extractTypeOfDraggable(item.type));
-      await dispatch(extractExitPosition(realTargetId));
-      await dispatch(extractExitBadge());
+      dispatch(extractTypeOfDraggable(item.type));
+      dispatch(extractExitPosition(realTargetId));
+      dispatch(extractExitBadge());
     } else if (item.type === "accessPoint" && !walls.includes(realTargetId)) {
-      await dispatch(extractTypeOfDraggable(item.type));
-      await dispatch(extractAccessPointPosition(realTargetId));
-      await dispatch(extractAccessPointBadge());
+      dispatch(extractTypeOfDraggable(item.type));
+      dispatch(extractAccessPointPosition(realTargetId));
+      dispatch(extractAccessPointBadge());
     } else if (item.type === "exhibit" && !walls.includes(realTargetId)) {
-      await dispatch(extractTypeOfDraggable(item.type));
-      await dispatch(extractExhibitPosition(realTargetId));
-      await dispatch(extractExhibitBadge());
+      dispatch(extractTypeOfDraggable(item.type));
+      dispatch(extractExhibitPosition(realTargetId));
+      dispatch(extractExhibitBadge());
     } else if (item.type === "wall" && !walls.includes(realTargetId)) {
-      await dispatch(extractTypeOfDraggable(item.type));
-      await dispatch(extractWallPosition(realTargetId));
+      dispatch(extractTypeOfDraggable(item.type));
+      dispatch(extractWallPosition(realTargetId));
     }
     return { id: realTargetId };
   };

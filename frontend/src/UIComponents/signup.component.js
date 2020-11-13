@@ -30,11 +30,13 @@ const SignUp = () => {
   const [emailIsValid, setEmailIsValid] = useState(true);
   const [passwordIsValid, setPasswordIsValid] = useState(true);
   let [liLowerUpperPasswordIcon, setLiLowerUpperPasswordIcon] = useState(
-    "circle"
+    "exclamation-circle"
   );
-  let [liNumberPasswordIcon, setLiNumberPasswordIcon] = useState("circle");
+  let [liNumberPasswordIcon, setLiNumberPasswordIcon] = useState(
+    "exclamation-circle"
+  );
   let [liSpecialCharPasswordIcon, setLiSpecialCharPasswordIcon] = useState(
-    "circle"
+    "exclamation-circle"
   );
   let [toWorkstation, setToWorkstation] = useState(false);
   const dispatch = useDispatch();
@@ -85,12 +87,12 @@ const SignUp = () => {
       e.target.value.search(/[a-z]/g) == -1 ||
       e.target.value.search(/[A-Z]/g) == -1
     ) {
-      setLiLowerUpperPasswordIcon("circle");
+      setLiLowerUpperPasswordIcon("exclamation-circle");
     }
     if (e.target.value.search(/[0-9]/g) !== -1) {
       setLiNumberPasswordIcon("check");
     } else if (e.target.value.search(/0-9]/g) == -1) {
-      setLiNumberPasswordIcon("circle");
+      setLiNumberPasswordIcon("exclamation-circle");
     }
 
     if (e.target.value.search(/[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/g) !== -1) {
@@ -98,7 +100,7 @@ const SignUp = () => {
     } else if (
       e.target.value.search(/[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/g) == -1
     ) {
-      setLiSpecialCharPasswordIcon("circle");
+      setLiSpecialCharPasswordIcon("exclamation-circle");
     }
 
     setPassword(e.target.value);
