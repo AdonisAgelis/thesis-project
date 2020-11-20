@@ -24,6 +24,7 @@ const initialState = {
   accessPointPositionArrayFromSquareComponent: [],
   exhibitPositionArrayFromSquareComponent: [],
   wallPositionArrayFromSquareComponent: [],
+  nameOfTemplate: "Louvre Museum",
 };
 
 const extractPositionReducer = (state = initialState, action) => {
@@ -31,6 +32,9 @@ const extractPositionReducer = (state = initialState, action) => {
   switch (action.type) {
     case "CHANGE_IS_RESIZED":
       state.isResized = !state.isResized;
+      return state;
+    case "SEND_NAME_OF_TEMPLATE":
+      state.nameOfTemplate = action.payload;
       return state;
     case "CHANGE_DIMENSIONS":
       state.height = action.payloadX;

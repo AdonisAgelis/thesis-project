@@ -156,6 +156,15 @@ export const resetTypeOfDraggable = () => {
   };
 };
 
+//Send Name Of Template
+
+export const sendNameOfTemplate = (value) => {
+  return {
+    type: "SEND_NAME_OF_TEMPLATE",
+    payload: value,
+  };
+};
+
 // Send Square Component Variables
 
 export const sendSquareComponentVariables = (

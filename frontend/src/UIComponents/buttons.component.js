@@ -26,6 +26,7 @@ import {
   resetTypeOfDraggable,
 } from "../actions/workstation";
 import { sendRoomData } from "../actions/auth";
+import Modal from "./modal.component";
 
 const Buttons = (props) => {
   const [buttonProp, setButtonProp] = useState(props);
@@ -135,7 +136,7 @@ const Buttons = (props) => {
   let roomdData = useSelector((state) => state.extractPositionReducer);
 
   const handleSave = (e) => {
-    dispatch(sendRoomData(roomdData));
+    // dispatch(sendRoomData(roomdData));
     // .then(() => {
     //   // console.log('Success');
     // })
@@ -208,7 +209,8 @@ const Buttons = (props) => {
   } else if (buttonProp.type === "add") {
     return (
       <MDBBtn disabled={enableAdd} id="add" color="blue-grey">
-        <MDBIcon icon="arrow-alt-circle-up" /> Add
+        <MDBIcon icon="arrow-alt-circle-up" style={{ marginRight: "3px" }} />{" "}
+        Add
       </MDBBtn>
     );
   } else if (buttonProp.type === "run") {
@@ -220,7 +222,7 @@ const Buttons = (props) => {
         rounded
         color="danger"
       >
-        <MDBIcon icon="tachometer-alt" style={{ marginRight: "1rem" }} />
+        <MDBIcon icon="tachometer-alt" style={{ marginRight: "9px" }} />
         Run Simulation
       </MDBBtn>
     );

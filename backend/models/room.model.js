@@ -4,7 +4,7 @@ const Room = mongoose.model(
   "Room",
   new mongoose.Schema({
     // name: String,
-    userID : String,
+    userID: String,
     entrance: Number,
     exit: Number,
     accessPoint: [Number],
@@ -29,7 +29,8 @@ const Room = mongoose.model(
     counterWallFromSquareComponent: Number,
     accessPointPositionArrayFromSquareComponent: [Number],
     exhibitPositionArrayFromSquareComponent: [Number],
-    wallPositionArrayFromSquareComponent: [Number]
+    wallPositionArrayFromSquareComponent: [Number],
+    nameOfTemplate: String,
   })
 );
 

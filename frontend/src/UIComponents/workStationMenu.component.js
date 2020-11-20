@@ -123,7 +123,7 @@ const WorkStationMenu = (props) => {
                     <RoomTemplate />
                   </div>
                   <div id="item2">
-                    <Modal />
+                    <Modal type="resize" />
                     <Buttons type="undo" />
                     <hr
                       className="hr-light"
@@ -173,12 +173,16 @@ const WorkStationMenu = (props) => {
                 </div>
 
                 <div
-                  className="d-flex flex-row justify-content-between"
-                  style={{ display: "flex", flexWrap: "wrap" }}
+                  className="d-flex flex-row justify-content-around"
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    height: "105px",
+                  }}
                 >
                   <hr className="hr-light" style={{ width: "100%" }} />
+                  <Modal type={"save"} />
 
-                  <Buttons type={"save"} />
                   <Buttons type={"group"} />
                   <Buttons type={"add"} />
                   <Buttons type={"run"} />

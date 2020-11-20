@@ -141,6 +141,7 @@
 #dd1 {
   background-color: transparent !important;
   background: #404040;
+  padding: 1.1rem 1.1rem 1.1rem 1.1rem;
   border: solid 1px white;
   border-radius: 3px;
   /* box-shadow: inset -1px -1px 38px #00000062, inset -1px 1px 38px #333333; */
@@ -149,6 +150,8 @@
 #dd2 {
   background-color: transparent !important;
   background: #404040;
+  padding: 1.1rem 1.1rem 1.1rem 1.1rem;
+
   border: solid 1px white;
   border-radius: 3px;
   /* box-shadow: inset -1px -1px 38px #00000062, inset -1px 1px 38px #333333fa; */
@@ -157,6 +160,8 @@
 #save {
   background-color: rgb(28, 83, 35) !important;
   color: white;
+  padding-top: 1.15rem;
+  padding-bottom: 1.15rem;
 }
 
 #save:hover {
