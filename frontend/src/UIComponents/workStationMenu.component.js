@@ -16,6 +16,7 @@ import {
 } from "mdbreact";
 
 import "../styles/workstation.css";
+import LoadPagination from "./loadPagination.component";
 import RoomTemplate from "./roomTemplate.component";
 import Buttons from "./buttons.component";
 import Modal from "./modal.component";
@@ -197,17 +198,18 @@ const WorkStationMenu = (props) => {
     return (
       <MDBCol md={columnProp.columnPos}>
         <MDBAnimation type="fadeInDown" delay=".3s">
-          <MDBCard style={{ background: "rgba(0, 0, 0, 0.8" }}>
+          <MDBCard style={{ background: "rgba(0, 0, 0, 0.8", height: "42rem" }}>
             <MDBCardImage className="img-fluid" />
             <MDBCardBody>
               <MDBCardTitle style={{ textAlign: "center" }}>
-                <MDBTypography
-                  style={{ color: "white" }}
-                  tag="h4"
-                ></MDBTypography>
+                <MDBTypography style={{ color: "white" }} tag="h4">
+                  Select a Room for Loading
+                  <hr className="hr-light" style={{ width: "100%" }} />
+                </MDBTypography>
               </MDBCardTitle>
-              <MDBCardText style={{ textAlign: "center" }}></MDBCardText>
-              <div className="workspace-container"></div>
+              <div style={{ marginTop: "4rem" }}>
+                <LoadPagination />
+              </div>
             </MDBCardBody>
           </MDBCard>
         </MDBAnimation>

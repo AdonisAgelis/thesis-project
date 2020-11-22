@@ -341,3 +341,7 @@ p {
 .fade {
   transition: 0s !important;
 }
+
+#workstation label {
+  color: white !important;
+}
