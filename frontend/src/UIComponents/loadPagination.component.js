@@ -44,7 +44,6 @@ const LoadPagination = () => {
   return (
     <MDBDataTableV5
       striped
-      bordered
       hover
       entriesOptions={[5, 20, 25]}
       entries={5}
@@ -53,7 +52,9 @@ const LoadPagination = () => {
       fullPagination
       theadTextWhite
       tbodyTextWhite
-      style={{ backgroundColor: "rgba(255, 255, 255, 0)" }}
+      style={{
+        backgroundColor: "rgba(255, 255, 255, 0)",
+      }}
     />
   );
 };

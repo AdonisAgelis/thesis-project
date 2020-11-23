@@ -158,10 +158,11 @@ export const resetTypeOfDraggable = () => {
 
 //Send Name Of Template
 
-export const sendNameOfTemplate = (value) => {
+export const sendNameOfTemplate = (value1, value2) => {
   return {
     type: "SEND_NAME_OF_TEMPLATE",
-    payload: value,
+    payload1: value1,
+    payload2: value2,
   };
 };
 

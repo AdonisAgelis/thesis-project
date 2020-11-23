@@ -20,12 +20,21 @@ const Modal = (props) => {
   const [modalResize, setModalResize] = useState(false);
   const [modalSave, setModalSave] = useState(false);
 
+  let height = useSelector((state) => state.extractPositionReducer.height);
+  let roomdData = useSelector((state) => state.extractPositionReducer);
+  let width = useSelector((state) => state.extractPositionReducer.width);
+
+  let nameOfTemplate = useSelector(
+    (state) => state.extractPositionReducer.nameOfTemplate
+  );
+
   const toggleSave = () => {
     setModalSave(!modalSave);
   };
 
   const saveButtonEvent = () => {
-    dispatch(sendNameOfTemplate(nameOfTemplate));
+    const userInLocalStorage = JSON.parse(window.localStorage.getItem("user"));
+    dispatch(sendNameOfTemplate(nameOfTemplate, userInLocalStorage.id));
     dispatch(sendRoomData(roomdData));
     toggleSave();
   };
@@ -38,14 +47,6 @@ const Modal = (props) => {
     dispatch(changeDimensions(height, width));
     toggleResize();
   };
-
-  let height = useSelector((state) => state.extractPositionReducer.height);
-  let roomdData = useSelector((state) => state.extractPositionReducer);
-  let width = useSelector((state) => state.extractPositionReducer.width);
-
-  let nameOfTemplate = useSelector(
-    (state) => state.extractPositionReducer.nameOfTemplate
-  );
 
   const dispatch = useDispatch();
   if (modalProps.type === "resize") {

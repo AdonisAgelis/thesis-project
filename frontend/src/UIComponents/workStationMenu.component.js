@@ -207,7 +207,13 @@ const WorkStationMenu = (props) => {
                   <hr className="hr-light" style={{ width: "100%" }} />
                 </MDBTypography>
               </MDBCardTitle>
-              <div style={{ marginTop: "4rem" }}>
+              <div
+                style={{
+                  marginTop: "4rem",
+                  border: "solid 1px white",
+                  borderRadius: "3px",
+                }}
+              >
                 <LoadPagination />
               </div>
             </MDBCardBody>

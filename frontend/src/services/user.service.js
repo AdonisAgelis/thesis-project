@@ -21,8 +21,10 @@ class UserService {
   };
 
   getUserWorkstation = () => {
-    return axios.get(API_URL + "workstation", { headers: authHeader() });
+    return axios.get(API_URL + "workstation", {
+      headers: authHeader(),
+    });
   };
-};
+}
 
 export default new UserService();

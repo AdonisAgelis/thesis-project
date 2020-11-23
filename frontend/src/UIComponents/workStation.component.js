@@ -13,6 +13,11 @@ const WorkStation = () => {
 
   const columnPos = 2;
 
+  useEffect(() => {
+    const userInLocalStorage = JSON.parse(window.localStorage.getItem("user"));
+    console.log(typeof userInLocalStorage.id);
+  });
+
   // const [content, setContent] = useState("");
 
   // useEffect(() => {

@@ -6,7 +6,7 @@ import {
   LOGOUT,
   SET_MESSAGE,
   SEND_ROOM_DATA_SUCCESS,
-  SEND_ROOM_DATA_FAIL
+  SEND_ROOM_DATA_FAIL,
 } from "./types";
 
 import AuthService from "../services/auth.service";
@@ -117,5 +117,6 @@ export const sendRoomData = (roomData) => (dispatch) => {
         type: SET_MESSAGE,
         payload: message,
       });
-    })
-}
+    }
+  );
+};

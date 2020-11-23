@@ -1,4 +1,5 @@
 const initialState = {
+  userId: null,
   entrance: null,
   exit: null,
   accessPoint: [null],
@@ -15,6 +16,7 @@ const initialState = {
   exitBadge: 0,
   accessPointBadge: 0,
   exhibitBadge: 0,
+  //Dimensions of Room
   height: 23,
   width: 38,
   isResized: false,
@@ -34,7 +36,8 @@ const extractPositionReducer = (state = initialState, action) => {
       state.isResized = !state.isResized;
       return state;
     case "SEND_NAME_OF_TEMPLATE":
-      state.nameOfTemplate = action.payload;
+      state.nameOfTemplate = action.payload1;
+      state.userId = action.payload2;
       return state;
     case "CHANGE_DIMENSIONS":
       state.height = action.payloadX;

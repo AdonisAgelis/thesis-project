@@ -3,8 +3,7 @@ const mongoose = require("mongoose");
 const Room = mongoose.model(
   "Room",
   new mongoose.Schema({
-    // name: String,
-    userID: String,
+    userId: String,
     entrance: Number,
     exit: Number,
     accessPoint: [Number],
