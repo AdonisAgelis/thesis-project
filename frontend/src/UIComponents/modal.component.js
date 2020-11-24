@@ -19,6 +19,7 @@ const Modal = (props) => {
   const [modalProps, setModalProps] = useState(props);
   const [modalResize, setModalResize] = useState(false);
   const [modalSave, setModalSave] = useState(false);
+  const dispatch = useDispatch();
 
   let height = useSelector((state) => state.extractPositionReducer.height);
   let roomdData = useSelector((state) => state.extractPositionReducer);
@@ -48,7 +49,6 @@ const Modal = (props) => {
     toggleResize();
   };
 
-  const dispatch = useDispatch();
   if (modalProps.type === "resize") {
     return (
       <MDBContainer>

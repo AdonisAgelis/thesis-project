@@ -27,9 +27,16 @@ class AuthService {
   };
 
   sendRoomData = (roomData) => {
-    console.log('Saved!');
+    console.log("Saved!");
     return axios.post(API_URL + "workstation", {
-      roomData
+      roomData,
+    });
+  };
+
+  sendLocalStorageUserId = (localStorageUserId) => {
+    console.log("User Id was send succesfully!");
+    return axios.post("http://localhost:8082/api/test/info", {
+      localStorageUserId,
     });
   };
 }

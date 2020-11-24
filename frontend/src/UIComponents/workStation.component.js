@@ -4,18 +4,19 @@ import { Redirect } from "react-router-dom";
 import { MDBMask, MDBView } from "mdbreact";
 import "../styles/workstation.css";
 import WorkStationMenu from "./workStationMenu.component";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { sendLocalStorageUserId } from "../actions/auth";
 
 const WorkStation = () => {
   const midMenuisOpen = useSelector((state) => state.dropMidColumnReducer);
-
   const isLoggedIn = useSelector((state) => state.authReducer.isLoggedIn);
-
+  const dispatch = useDispatch();
   const columnPos = 2;
 
   useEffect(() => {
     const userInLocalStorage = JSON.parse(window.localStorage.getItem("user"));
-    console.log(typeof userInLocalStorage.id);
+    console.log(userInLocalStorage);
+    dispatch(sendLocalStorageUserId(userInLocalStorage));
   });
 
   // const [content, setContent] = useState("");
