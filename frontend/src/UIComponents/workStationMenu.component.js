@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 
@@ -23,6 +23,7 @@ import Modal from "./modal.component";
 import logo from "../images/logo.png";
 import DragAndDropItems from "./dragAndDropItems.component";
 import { useSelector, useDispatch } from "react-redux";
+import { sendLocalStorageUserId } from "../actions/auth";
 
 const WorkStationMenu = (props) => {
   const [columnProp, setColumnProp] = useState(props);
@@ -56,6 +57,11 @@ const WorkStationMenu = (props) => {
   }
   // DISPATCH
   const dispatch = useDispatch();
+  useEffect(() => {
+    const userInLocalStorage = JSON.parse(window.localStorage.getItem("user"));
+    console.log(userInLocalStorage);
+    dispatch(sendLocalStorageUserId(userInLocalStorage));
+  });
 
   if (
     (midMenuisOpen === "default" ||

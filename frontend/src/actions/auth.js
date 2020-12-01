@@ -132,7 +132,7 @@ export const sendLocalStorageUserId = (localStorageUserId) => (dispatch) => {
 
       dispatch({
         type: SET_MESSAGE,
-        payload: response.data.message,
+        payload: response.data,
       });
 
       return Promise.resolve();

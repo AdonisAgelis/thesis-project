@@ -8,16 +8,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { sendLocalStorageUserId } from "../actions/auth";
 
 const WorkStation = () => {
+  const [content, setContent] = useState("");
   const midMenuisOpen = useSelector((state) => state.dropMidColumnReducer);
   const isLoggedIn = useSelector((state) => state.authReducer.isLoggedIn);
   const dispatch = useDispatch();
   const columnPos = 2;
-
-  useEffect(() => {
-    const userInLocalStorage = JSON.parse(window.localStorage.getItem("user"));
-    console.log(userInLocalStorage);
-    dispatch(sendLocalStorageUserId(userInLocalStorage));
-  });
 
   // const [content, setContent] = useState("");
 

@@ -1,7 +1,31 @@
 import React from "react";
 import { MDBDataTableV5 } from "mdbreact";
+import { useSelector, useDispatch } from "react-redux";
 
 const LoadPagination = () => {
+  const rooms = useSelector((state) => state.messageReducer.message);
+
+  var names = rooms.map(function (room) {
+    return room.nameOfTemplate;
+  });
+  var heights = rooms.map(function (room) {
+    return room.height;
+  });
+  var widths = rooms.map(function (room) {
+    return room.widths;
+  });
+  var accessPoints = rooms.map(function (room) {
+    return room.accessPointBadge;
+  });
+  var exhibits = rooms.map(function (room) {
+    return room.exhibitBadge;
+  });
+
+  console.log(names);
+  console.log(heights);
+
+  const george = [{ name: "stamos" }, { name: "john" }];
+
   const [datatable, setDatatable] = React.useState({
     columns: [
       {
@@ -39,6 +63,7 @@ const LoadPagination = () => {
         width: 100,
       },
     ],
+    rows: george,
   });
 
   return (
