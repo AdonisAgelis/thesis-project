@@ -12,7 +12,7 @@ const LoadPagination = () => {
     return room.height;
   });
   var widths = rooms.map(function (room) {
-    return room.widths;
+    return room.width;
   });
   var accessPoints = rooms.map(function (room) {
     return room.accessPointBadge;
@@ -21,10 +21,16 @@ const LoadPagination = () => {
     return room.exhibitBadge;
   });
 
-  console.log(names);
-  console.log(heights);
-
-  const george = [{ name: "stamos" }, { name: "john" }];
+  let data = [];
+  for (var x = 0; x < names.length; x++) {
+    data[x] = {
+      name: names[x],
+      height: heights[x],
+      width: widths[x],
+      accessPoints: accessPoints[x],
+      exhibits: exhibits[x],
+    };
+  }
 
   const [datatable, setDatatable] = React.useState({
     columns: [
@@ -40,30 +46,30 @@ const LoadPagination = () => {
       },
       {
         label: "Height",
-        field: "Height",
+        field: "height",
         sort: "asc",
         width: 100,
       },
       {
         label: "Width",
-        field: "Width",
+        field: "width",
         sort: "asc",
         width: 100,
       },
       {
         label: "Access Points (Num)",
-        field: "Access Points",
+        field: "accessPoints",
         sort: "asc",
         width: 100,
       },
       {
         label: "Exhibits (Num)",
-        field: "Exhibits",
+        field: "exhibits",
         sort: "asc",
         width: 100,
       },
     ],
-    rows: george,
+    rows: data,
   });
 
   return (
