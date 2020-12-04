@@ -1,34 +1,49 @@
 import React from "react";
 import { MDBDataTableV5 } from "mdbreact";
 import { useSelector, useDispatch } from "react-redux";
+import { dropSecondColumn } from "../actions/workstation";
 
 const LoadPagination = () => {
   const rooms = useSelector((state) => state.messageReducer.message);
+  const dispatch = useDispatch();
 
-  var names = rooms.map(function (room) {
+  let names = rooms.map(function (room) {
     return room.nameOfTemplate;
   });
-  var heights = rooms.map(function (room) {
+  let heights = rooms.map(function (room) {
     return room.height;
   });
-  var widths = rooms.map(function (room) {
+  let widths = rooms.map(function (room) {
     return room.width;
   });
-  var accessPoints = rooms.map(function (room) {
+  let accessPoints = rooms.map(function (room) {
     return room.accessPointBadge;
   });
-  var exhibits = rooms.map(function (room) {
+  let exhibits = rooms.map(function (room) {
     return room.exhibitBadge;
   });
 
+  const handleRowClick = (roomId) => {
+    // insert code
+    const objectArray = Object.entries(rooms);
+
+    objectArray.forEach(([key, value]) => {
+      let stamos = Object.values(value);
+      console.log(stamos);
+    });
+
+    dispatch(dropSecondColumn());
+  };
+
   let data = [];
-  for (var x = 0; x < names.length; x++) {
-    data[x] = {
-      name: names[x],
-      height: heights[x],
-      width: widths[x],
-      accessPoints: accessPoints[x],
-      exhibits: exhibits[x],
+  for (let roomId = 0; roomId < names.length; roomId++) {
+    data[roomId] = {
+      name: names[roomId],
+      height: heights[roomId],
+      width: widths[roomId],
+      accessPoints: accessPoints[roomId],
+      exhibits: exhibits[roomId],
+      clickEvent: () => handleRowClick(roomId),
     };
   }
 
