@@ -39,6 +39,9 @@ export default function Square({
   const fill = black ? "rgba(40, 40, 40, 0.1)" : "white";
   const stroke = "black";
   const dispatch = useDispatch();
+  // counterAP = useSelector(
+  //   (state) => state.extractPositionReducer.counterAPFromSquareComponent
+  // );
 
   // Delete all elements from arrays
   let resizedTemplate = useSelector(
@@ -308,15 +311,21 @@ export default function Square({
         ></div>
       );
     }
-  } else if (typeOfDraggable === "entrance") {
+  } else if (typeOfDraggable === "entrance" || entrancePosition === pos) {
     return <DragAndDropItems role="entrance" />;
-  } else if (typeOfDraggable === "exit") {
+  } else if (typeOfDraggable === "exit" || exitPosition === pos) {
     return <DragAndDropItems role="exit" />;
-  } else if (typeOfDraggable === "accessPoint") {
+  } else if (
+    typeOfDraggable === "accessPoint" ||
+    accessPointPositionArray.includes(pos)
+  ) {
     return <DragAndDropItems role="accessPoint" />;
-  } else if (typeOfDraggable === "exhibit") {
+  } else if (
+    typeOfDraggable === "exhibit" ||
+    exhibitPositionArray.includes(pos)
+  ) {
     return <DragAndDropItems role="exhibit" />;
-  } else if (typeOfDraggable === "wall") {
+  } else if (typeOfDraggable === "wall" || wallPositionArray.includes(pos)) {
     return <DragAndDropItems role="wall" />;
   } else {
     return true;

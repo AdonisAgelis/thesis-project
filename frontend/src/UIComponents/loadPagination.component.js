@@ -1,7 +1,7 @@
 import React from "react";
 import { MDBDataTableV5 } from "mdbreact";
 import { useSelector, useDispatch } from "react-redux";
-import { dropSecondColumn } from "../actions/workstation";
+import { dropSecondColumn, sendRoomDataFromLoad } from "../actions/workstation";
 
 const LoadPagination = () => {
   const rooms = useSelector((state) => state.messageReducer.message);
@@ -25,12 +25,71 @@ const LoadPagination = () => {
 
   const handleRowClick = (roomId) => {
     // insert code
-    const objectArray = Object.entries(rooms);
+    // const objectArray = Object.entries(rooms);
 
-    objectArray.forEach(([key, value]) => {
-      let stamos = Object.values(value);
-      console.log(stamos);
-    });
+    const {
+      entrance,
+      exit,
+      accessPoint,
+      exhibit,
+      wall,
+      positionThatWillUndo,
+      counterAccessPoint,
+      counterExhibit,
+      counterWall,
+      counterAllPositions,
+      allPositions,
+      entranceBadge,
+      exitBadge,
+      accessPointBadge,
+      exhibitBadge,
+      height,
+      width,
+      isResized,
+      counterAPFromSquareComponent,
+      counterExhibitFromSquareComponent,
+      counterWallFromSquareComponent,
+      accessPointPositionArrayFromSquareComponent,
+      exhibitPositionArrayFromSquareComponent,
+      wallPositionArrayFromSquareComponent,
+      nameOfTemplate,
+      userId,
+    } = rooms[roomId];
+    console.log(counterExhibit);
+    dispatch(
+      sendRoomDataFromLoad(
+        entrance,
+        exit,
+        accessPoint,
+        exhibit,
+        wall,
+        positionThatWillUndo,
+        counterAccessPoint,
+        counterExhibit,
+        counterWall,
+        counterAllPositions,
+        allPositions,
+        entranceBadge,
+        exitBadge,
+        accessPointBadge,
+        exhibitBadge,
+        height,
+        width,
+        isResized,
+        counterAPFromSquareComponent,
+        counterExhibitFromSquareComponent,
+        counterWallFromSquareComponent,
+        accessPointPositionArrayFromSquareComponent,
+        exhibitPositionArrayFromSquareComponent,
+        wallPositionArrayFromSquareComponent,
+        nameOfTemplate,
+        userId
+      )
+    );
+    // objectArray.forEach(([key, value]) => {
+    //   let stamos = Object.values(value);
+    //   console.log(stamos);
+    // });
 
     dispatch(dropSecondColumn());
   };
