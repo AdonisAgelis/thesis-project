@@ -362,3 +362,46 @@ div.mdb-datatable div.mdb-dataTables_paginate {
   text-align: right;
   margin-right: 1rem;
 }
+
+table.table th,
+table.table td {
+  padding-top: 1.1rem;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+table.mdb-dataTable thead .sorting::before,
+table.mdb-dataTable thead .sorting_asc::before,
+table.mdb-dataTable thead .sorting_desc::before,
+table.mdb-dataTable thead .sorting_asc_disabled::before,
+table.mdb-dataTable thead .sorting_desc_disabled::before,
+table thead.mdb-dataTable-head .sorting::before,
+table thead.mdb-dataTable-head .sorting_asc::before,
+table thead.mdb-dataTable-head .sorting_desc::before,
+table thead.mdb-dataTable-head .sorting_asc_disabled::before,
+table thead.mdb-dataTable-head .sorting_desc_disabled::before {
+  left: -0.4rem;
+  font-family: "Font Awesome\ 5 Free", sans-serif;
+  font-size: 1rem;
+  font-weight: 900;
+  content: "\f062";
+  margin-left: 2rem;
+}
+
+table.mdb-dataTable thead .sorting::after,
+table.mdb-dataTable thead .sorting_asc::after,
+table.mdb-dataTable thead .sorting_desc::after,
+table.mdb-dataTable thead .sorting_asc_disabled::after,
+table.mdb-dataTable thead .sorting_desc_disabled::after,
+table thead.mdb-dataTable-head .sorting::after,
+table thead.mdb-dataTable-head .sorting_asc::after,
+table thead.mdb-dataTable-head .sorting_desc::after,
+table thead.mdb-dataTable-head .sorting_asc_disabled::after,
+table thead.mdb-dataTable-head .sorting_desc_disabled::after {
+  left: -0.4rem;
+  font-family: "Font Awesome\ 5 Free", sans-serif;
+  font-size: 1rem;
+  font-weight: 900;
+  content: "\f063";
+  margin-left: 2rem;
+}

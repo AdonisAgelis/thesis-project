@@ -150,7 +150,7 @@ const LoadPagination = () => {
     <MDBDataTableV5
       striped
       hover
-      entriesOptions={[5, 20, 25]}
+      entriesOptions={[5, 10, 15]}
       entries={5}
       pagesAmount={4}
       data={datatable}
