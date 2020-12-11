@@ -128,6 +128,7 @@ const extractPositionReducer = (state = initialState, action) => {
       state.exhibitPositionArrayFromSquareComponent.length = 1;
       state.wallPositionArrayFromSquareComponent = [];
       state.wallPositionArrayFromSquareComponent.length = 1;
+      state.nameOfTemplate = null;
       return state;
     case "EXTRACT_ENTRANCE_POSITION":
       state.entrance = action.payload;

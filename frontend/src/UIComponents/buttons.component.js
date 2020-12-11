@@ -135,15 +135,15 @@ const Buttons = (props) => {
 
   let roomdData = useSelector((state) => state.extractPositionReducer);
 
-  const handleSave = (e) => {
-    // dispatch(sendRoomData(roomdData));
-    // .then(() => {
-    //   // console.log('Success');
-    // })
-    // .catch(() => {
-    //   // console.log('Fail');
-    // });
-  };
+  // const handleSave = (e) => {
+  //   // dispatch(sendRoomData(roomdData));
+  //   // .then(() => {
+  //   //   // console.log('Success');
+  //   // })
+  //   // .catch(() => {
+  //   //   // console.log('Fail');
+  //   // });
+  // };
 
   const handleNew = (e) => {
     dispatch(dropSecondColumn());
@@ -151,23 +151,29 @@ const Buttons = (props) => {
     dispatch(resetTypeOfDraggable());
   };
 
-  if (buttonProp.type === "save") {
-    return (
-      <MDBBtn
-        onClick={() => {
-          RestOfButtonsEnabled();
-          handleSave();
-        }}
-        disabled={enableSave}
-        id="save"
-        rounded
-        color="success"
-      >
-        <MDBIcon icon="save" style={{ marginRight: "1rem" }} />
-        Save
-      </MDBBtn>
-    );
-  } else if (buttonProp.type === "group") {
+  const handleLoad = (e) => {
+    dispatch(resetRoom());
+    dispatch(resetTypeOfDraggable());
+    dispatch(dropSecondColumnLoad());
+  };
+
+  // if (buttonProp.type === "save") {
+  //   return (
+  //     <MDBBtn
+  //       onClick={() => {
+  //         RestOfButtonsEnabled();
+  //         handleSave();
+  //       }}
+  //       disabled={enableSave}
+  //       id="save"
+  //       rounded
+  //       color="success"
+  //     >
+  //       <MDBIcon icon="save" style={{ marginRight: "1rem" }} />
+  //       Save
+  //     </MDBBtn>
+  //   );
+  if (buttonProp.type === "group") {
     return (
       <div className="d-flex flex-row justify-content-around">
         <MDBDropdown>
@@ -253,7 +259,7 @@ const Buttons = (props) => {
       <MDBBtn
         className="styleBtn"
         onClick={() => {
-          dispatch(dropSecondColumnLoad());
+          handleLoad();
         }}
       >
         <MDBIcon icon="sync" style={{ marginRight: "1rem" }} />

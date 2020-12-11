@@ -39,9 +39,6 @@ export default function Square({
   const fill = black ? "rgba(40, 40, 40, 0.1)" : "white";
   const stroke = "black";
   const dispatch = useDispatch();
-  // counterAP = useSelector(
-  //   (state) => state.extractPositionReducer.counterAPFromSquareComponent
-  // );
 
   // Delete all elements from arrays
   let resizedTemplate = useSelector(

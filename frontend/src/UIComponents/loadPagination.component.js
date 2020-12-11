@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { MDBDataTableV5 } from "mdbreact";
 import { useSelector, useDispatch } from "react-redux";
-import { dropSecondColumn, sendRoomDataFromLoad } from "../actions/workstation";
+import {
+  dropSecondColumn,
+  sendRoomDataFromLoad,
+  resetRoom,
+  resetTypeOfDraggable,
+} from "../actions/workstation";
 
 const LoadPagination = () => {
   const rooms = useSelector((state) => state.messageReducer.message);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(resetRoom());
+    dispatch(resetTypeOfDraggable());
+  });
 
   let names = rooms.map(function (room) {
     return room.nameOfTemplate;
@@ -55,7 +65,7 @@ const LoadPagination = () => {
       nameOfTemplate,
       userId,
     } = rooms[roomId];
-    console.log(counterExhibit);
+
     dispatch(
       sendRoomDataFromLoad(
         entrance,
