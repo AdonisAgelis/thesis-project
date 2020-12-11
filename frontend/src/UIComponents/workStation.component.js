@@ -1,21 +1,18 @@
 import React, { useState, useEffect } from "react";
-import UserService from "../services/user.service";
-import { Redirect } from "react-router-dom";
 import { MDBMask, MDBView } from "mdbreact";
 import "../styles/workstation.css";
 import WorkStationMenu from "./workStationMenu.component";
 import { useSelector, useDispatch } from "react-redux";
-import { sendLocalStorageUserId } from "../actions/auth";
 
 const WorkStation = () => {
-  const [content, setContent] = useState("");
-  const midMenuisOpen = useSelector((state) => state.dropMidColumnReducer);
-  const isLoggedIn = useSelector((state) => state.authReducer.isLoggedIn);
   const dispatch = useDispatch();
+  const [content, setContent] = useState("");
+  const typeOfMenu = useSelector((state) => state.dropMidColumnReducer);
+  const isLoggedIn = useSelector((state) => state.authReducer.isLoggedIn);
   const columnPos = 2;
 
-  const createPages = () => {
-    if (midMenuisOpen === "default") {
+  const revealMenus = () => {
+    if (typeOfMenu === "default") {
       return (
         <div id="workstation">
           {isLoggedIn ? null : null} {/*Change it later*/}
@@ -26,7 +23,7 @@ const WorkStation = () => {
           </MDBView>
         </div>
       );
-    } else if (midMenuisOpen === "new" || midMenuisOpen === "load") {
+    } else if (typeOfMenu === "new" || typeOfMenu === "load") {
       return (
         <div id="workstation">
           {isLoggedIn ? null : null} {/*Change it later*/}
@@ -41,7 +38,7 @@ const WorkStation = () => {
     }
   };
 
-  return <div id="workstation">{createPages()}</div>;
+  return <div id="workstation">{revealMenus()}</div>;
 };
 
 export default WorkStation;
