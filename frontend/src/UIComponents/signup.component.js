@@ -22,6 +22,7 @@ import { useDispatch } from "react-redux";
 import { register } from "../actions/auth";
 
 const SignUp = () => {
+  const dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -39,7 +40,7 @@ const SignUp = () => {
     "exclamation-circle"
   );
   let [toWorkstation, setToWorkstation] = useState(false);
-  const dispatch = useDispatch();
+  let [passwordCheckerDisplay, setPasswordCheckerDisplay] = useState("none");
 
   const [content, setContent] = useState("");
 
@@ -78,6 +79,7 @@ const SignUp = () => {
   };
 
   const onChangePassword = (e) => {
+    setPasswordCheckerDisplay("block");
     if (
       e.target.value.search(/[a-z]/g) !== -1 &&
       e.target.value.search(/[A-Z]/g) !== -1
@@ -231,7 +233,10 @@ const SignUp = () => {
                             onChange={onChangePassword}
                             required
                           />
-                          <div className="passwordchecker">
+                          <div
+                            className="passwordchecker"
+                            style={{ display: passwordCheckerDisplay }}
+                          >
                             <ul className="fa-ul">
                               <li>
                                 <MDBIcon icon={liLowerUpperPasswordIcon} list />

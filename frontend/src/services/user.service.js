@@ -3,6 +3,9 @@ import authHeader from "./auth-header";
 
 const API_URL = "http://localhost:8082/api/test/";
 
+//Info for Workspace change
+//FIX ROUTES
+
 class UserService {
   getPublicContentHome = () => {
     return axios.get(API_URL);
