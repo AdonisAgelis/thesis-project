@@ -55,6 +55,7 @@ const WorkStationMenu = (props) => {
     animationType = "fadeInRight";
     animationDelay = ".0s";
   }
+  console.log(typeof columnProp.columnPos);
   // DISPATCH
   const dispatch = useDispatch();
   useEffect(() => {
@@ -67,10 +68,10 @@ const WorkStationMenu = (props) => {
     (midMenuisOpen === "default" ||
       midMenuisOpen === "load" ||
       midMenuisOpen === "new") &&
-    columnProp.columnPos == 2
+    columnProp.columnPos === 2
   ) {
     return (
-      <MDBCol md={columnProp.columnPos}>
+      <MDBCol md="2">
         <MDBAnimation type={animationType} delay={animationDelay}>
           <MDBCard style={{ opacity: "0.8" }}>
             <MDBCardTitle
@@ -110,7 +111,7 @@ const WorkStationMenu = (props) => {
         </MDBAnimation>
       </MDBCol>
     );
-  } else if (midMenuisOpen === "new" && columnProp.columnPos == 7) {
+  } else if (midMenuisOpen === "new" && columnProp.columnPos === 7) {
     return (
       <DndProvider backend={HTML5Backend}>
         <MDBCol md={columnProp.columnPos}>
@@ -200,7 +201,7 @@ const WorkStationMenu = (props) => {
         </MDBCol>
       </DndProvider>
     );
-  } else if (midMenuisOpen === "load" && columnProp.columnPos == 7) {
+  } else if (midMenuisOpen === "load" && columnProp.columnPos === 7) {
     return (
       <MDBCol md={columnProp.columnPos}>
         <MDBAnimation type="fadeInDown" delay=".3s">

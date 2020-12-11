@@ -14,58 +14,34 @@ const WorkStation = () => {
   const dispatch = useDispatch();
   const columnPos = 2;
 
-  // const [content, setContent] = useState("");
+  const createPages = () => {
+    if (midMenuisOpen === "default") {
+      return (
+        <div id="workstation">
+          {isLoggedIn ? null : null} {/*Change it later*/}
+          <MDBView>
+            <MDBMask className="d-flex justify-content-center align-items-center gradient">
+              <WorkStationMenu columnPos={columnPos} />
+            </MDBMask>
+          </MDBView>
+        </div>
+      );
+    } else if (midMenuisOpen === "new" || midMenuisOpen === "load") {
+      return (
+        <div id="workstation">
+          {isLoggedIn ? null : null} {/*Change it later*/}
+          <MDBView>
+            <MDBMask className="d-flex justify-content-center align-items-center gradient">
+              <WorkStationMenu columnPos={columnPos} />
+              <WorkStationMenu columnPos={columnPos + 5} />
+            </MDBMask>
+          </MDBView>
+        </div>
+      );
+    }
+  };
 
-  // useEffect(() => {
-  //   UserService.getUserWorkstation().then(
-  //     response => {
-  //       setContent(response.data);
-  //     },
-  //     error => {
-  //       setContent({
-  //         content:
-  //           (error.response && error.response.data) ||
-  //           error.message ||
-  //           error.toString()
-  //       });
-  //     }
-  //   );
-  // });
-
-  return (
-    <div id="workstation">
-      {isLoggedIn ? null : null} {/*Change it later*/}
-      <MDBView>
-        <MDBMask className="d-flex justify-content-center align-items-center gradient">
-          {midMenuisOpen == "default" ? (
-            <WorkStationMenu columnPos={columnPos} />
-          ) : (
-            true
-          )}
-          {midMenuisOpen === "new" ? (
-            <WorkStationMenu columnPos={columnPos} />
-          ) : (
-            true
-          )}
-          {midMenuisOpen === "new" ? (
-            <WorkStationMenu columnPos={columnPos + 5} />
-          ) : (
-            true
-          )}
-          {midMenuisOpen === "load" ? (
-            <WorkStationMenu columnPos={columnPos} />
-          ) : (
-            true
-          )}
-          {midMenuisOpen === "load" ? (
-            <WorkStationMenu columnPos={columnPos + 5} />
-          ) : (
-            true
-          )}
-        </MDBMask>
-      </MDBView>
-    </div>
-  );
+  return <div id="workstation">{createPages()}</div>;
 };
 
 export default WorkStation;

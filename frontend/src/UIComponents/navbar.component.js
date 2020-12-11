@@ -34,9 +34,7 @@ const Navbar = () => {
             <MDBNavLink to="/login">Log In</MDBNavLink>
           </MDBNavItem>
           <MDBNavItem>
-            <MDBNavLink Link to="/info">
-              Info
-            </MDBNavLink>
+            <MDBNavLink to="/info">Info</MDBNavLink>
           </MDBNavItem>
         </MDBNavbarNav>
       );
@@ -50,9 +48,7 @@ const Navbar = () => {
             <MDBNavLink to="/login">Log In</MDBNavLink>
           </MDBNavItem>
           <MDBNavItem active>
-            <MDBNavLink Link to="/info">
-              Info
-            </MDBNavLink>
+            <MDBNavLink to="/info">Info</MDBNavLink>
           </MDBNavItem>
         </MDBNavbarNav>
       );
@@ -66,9 +62,7 @@ const Navbar = () => {
             <MDBNavLink to="/login">Log In</MDBNavLink>
           </MDBNavItem>
           <MDBNavItem>
-            <MDBNavLink Link to="/info">
-              Info
-            </MDBNavLink>
+            <MDBNavLink to="/info">Info</MDBNavLink>
           </MDBNavItem>
         </MDBNavbarNav>
       );
@@ -92,9 +86,7 @@ const Navbar = () => {
             <MDBNavLink to="/login">Log In</MDBNavLink>
           </MDBNavItem>
           <MDBNavItem>
-            <MDBNavLink Link to="/info">
-              Info
-            </MDBNavLink>
+            <MDBNavLink to="/info">Info</MDBNavLink>
           </MDBNavItem>
         </MDBNavbarNav>
       );
