@@ -3,6 +3,7 @@ import { MDBMask, MDBView } from "mdbreact";
 import "../styles/workstation.css";
 import WorkStationMenu from "./workStationMenu.component";
 import { useSelector, useDispatch } from "react-redux";
+import getUserWorkstation from "./services";
 
 const WorkStation = () => {
   const dispatch = useDispatch();
@@ -10,6 +11,12 @@ const WorkStation = () => {
   const typeOfMenu = useSelector((state) => state.dropMidColumnReducer);
   const isLoggedIn = useSelector((state) => state.authReducer.isLoggedIn);
   const columnPos = 2;
+
+  useEffect(() => {
+    const userInLocalStorage = JSON.parse(window.localStorage.getItem("user"));
+    // dispatch(sendLocalStorageUserId(userInLocalStorage));
+    getUserWorkstation(userInLocalStorage);
+  });
 
   const revealMenus = () => {
     if (typeOfMenu === "default") {

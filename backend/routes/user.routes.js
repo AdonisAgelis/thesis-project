@@ -10,11 +10,15 @@ module.exports = function (app) {
     next();
   });
 
-  app.get("/api/test/info", controller.userBoard);
+  app.get("/api/info", controller.allAccess);
 
-  app.get("/api/test/signin", controller.userBoard);
+  app.get("/api/signin", controller.allAccess);
 
-  app.get("/api/test/signup", controller.userBoard);
+  app.get("/api/signup", controller.allAccess);
 
-  app.get("/api/test/workstation", [authJwt.verifyToken], controller.userBoard);
+  app.get(
+    "/api/workstation",
+    [authJwt.verifyToken],
+    controller.userWorkstation
+  );
 };

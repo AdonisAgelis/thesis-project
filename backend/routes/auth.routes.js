@@ -24,5 +24,5 @@ module.exports = function (app) {
 
   app.post("/api/auth/workstation", authController.saveRoomData);
 
-  app.post("/api/test/info", userController.allAccess);
+  app.post("/api/info", userController.userWorkstation);
 };

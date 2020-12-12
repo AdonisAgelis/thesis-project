@@ -34,9 +34,6 @@ const LoadPagination = () => {
   });
 
   const handleRowClick = (roomId) => {
-    // insert code
-    // const objectArray = Object.entries(rooms);
-
     const {
       entrance,
       exit,
@@ -96,11 +93,6 @@ const LoadPagination = () => {
         userId
       )
     );
-    // objectArray.forEach(([key, value]) => {
-    //   let stamos = Object.values(value);
-    //   console.log(stamos);
-    // });
-
     dispatch(dropSecondColumn());
   };
 

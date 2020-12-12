@@ -24,6 +24,7 @@ import logo from "../images/logo.png";
 import DragAndDropItems from "./dragAndDropItems.component";
 import { useSelector, useDispatch } from "react-redux";
 import { sendLocalStorageUserId } from "../actions/auth";
+import getUserWorkstation from "../services/user.service";
 
 const WorkStationMenu = (props) => {
   const [columnProp, setColumnProp] = useState(props);
@@ -31,8 +32,15 @@ const WorkStationMenu = (props) => {
   let animationType;
   let animationDelay;
 
-  //SELECTORS
+  // DISPATCH
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const userInLocalStorage = JSON.parse(window.localStorage.getItem("user"));
+    dispatch(sendLocalStorageUserId(userInLocalStorage));
+  });
 
+  //SELECTORS
+  // const rooms = useSelector((state) => state.messageReducer.message);
   let entranceNumberBadge = useSelector(
     (state) => state.extractPositionReducer.entranceBadge
   );
@@ -55,14 +63,6 @@ const WorkStationMenu = (props) => {
     animationType = "fadeInRight";
     animationDelay = ".0s";
   }
-  console.log(typeof columnProp.columnPos);
-  // DISPATCH
-  const dispatch = useDispatch();
-  useEffect(() => {
-    const userInLocalStorage = JSON.parse(window.localStorage.getItem("user"));
-    console.log(userInLocalStorage);
-    dispatch(sendLocalStorageUserId(userInLocalStorage));
-  });
 
   if (
     (midMenuisOpen === "default" ||

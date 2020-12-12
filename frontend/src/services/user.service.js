@@ -1,7 +1,7 @@
 import axios from "axios";
 import authHeader from "./auth-header";
 
-const API_URL = "http://localhost:8082/api/test/";
+const API_URL = "http://localhost:8082/api/";
 
 //Info for Workspace change
 //FIX ROUTES
@@ -23,9 +23,10 @@ class UserService {
     return axios.get(API_URL + "info");
   };
 
-  getUserWorkstation = () => {
+  getUserWorkstation = (localStorageUserId) => {
     return axios.get(API_URL + "workstation", {
       headers: authHeader(),
+      data: localStorageUserId,
     });
   };
 }

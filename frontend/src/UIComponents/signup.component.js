@@ -152,10 +152,8 @@ const SignUp = () => {
         });
     } else if (username.length < 3 || username.length > 20) {
       setUsernameIsValid(false);
-      console.log("Wrong Username!");
     } else if (validatedEmail === false) {
       setEmailIsValid(false);
-      console.log("Wrong email!");
     } else if (
       passwordUpper === -1 ||
       passwordLower === -1 ||
@@ -163,7 +161,6 @@ const SignUp = () => {
       passwordSymbol === -1
     ) {
       setPasswordIsValid(false);
-      console.log("Wrong Password!");
     }
   };
 
