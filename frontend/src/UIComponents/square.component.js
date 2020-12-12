@@ -108,14 +108,9 @@ export default function Square({
   // Delete all elements from arrays
 
   if (resizedTemplate === true) {
-    accessPointPositionArray = [];
-    exhibitPositionArray = [];
-    wallPositionArray = [];
+    dispatch(sendSquareComponentVariables(0, 0, 0, [], [], []));
     dispatch(changeIsResized());
     dispatch(resetTypeOfDraggable());
-    counterAP = 0;
-    counterExhibit = 0;
-    counterWall = 0;
   }
 
   if (typeof accessPointPosition === "number") {
