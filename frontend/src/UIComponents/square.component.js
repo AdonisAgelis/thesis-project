@@ -22,12 +22,12 @@ import DragAndDropItems from "./dragAndDropItems.component";
 
 import "../styles/workstation.css";
 
-let counterAP = 0;
-let counterExhibit = 0;
-let counterWall = 0;
-let accessPointPositionArray = [];
-let exhibitPositionArray = [];
-let wallPositionArray = [];
+// let counterAP = 0;
+// let counterExhibit = 0;
+// let counterWall = 0;
+// let accessPointPositionArray = [];
+// let exhibitPositionArray = [];
+// let wallPositionArray = [];
 
 export default function Square({
   black,
@@ -40,23 +40,37 @@ export default function Square({
   const stroke = "black";
   const dispatch = useDispatch();
 
-  // Delete all elements from arrays
+  let counterAP = useSelector(
+    (state) => state.extractPositionReducer.counterAPFromSquareComponent
+  );
+
+  let counterExhibit = useSelector(
+    (state) => state.extractPositionReducer.counterExhibitFromSquareComponent
+  );
+
+  let counterWall = useSelector(
+    (state) => state.extractPositionReducer.counterWallFromSquareComponent
+  );
+  let accessPointPositionArray = useSelector(
+    (state) =>
+      state.extractPositionReducer.accessPointPositionArrayFromSquareComponent
+  );
+
+  let exhibitPositionArray = useSelector(
+    (state) =>
+      state.extractPositionReducer.exhibitPositionArrayFromSquareComponent
+  );
+
+  let wallPositionArray = useSelector(
+    (state) => state.extractPositionReducer.wallPositionArrayFromSquareComponent
+  );
+
   let resizedTemplate = useSelector(
     (state) => state.extractPositionReducer.isResized
   );
 
-  if (resizedTemplate === true) {
-    accessPointPositionArray = [];
-    exhibitPositionArray = [];
-    wallPositionArray = [];
-    dispatch(changeIsResized());
-    dispatch(resetTypeOfDraggable());
-    counterAP = 0;
-    counterExhibit = 0;
-    counterWall = 0;
-  }
-
   //Selectors for taking data
+
   let blackSquareColor = useSelector(
     (state) => state.colorPickerForDropReducer.blackSquare
   );
@@ -75,6 +89,35 @@ export default function Square({
     (state) => state.extractPositionReducer.accessPoint[counterAP]
   );
 
+  let positionThatWillUndo = useSelector(
+    (state) => state.extractPositionReducer.positionThatWillUndo
+  );
+
+  let exhibitPosition = useSelector(
+    (state) => state.extractPositionReducer.exhibit[counterExhibit]
+  );
+
+  let typeOfDraggable = useSelector(
+    (state) => state.extractTypeOfDraggableReducer
+  );
+
+  let wallPosition = useSelector(
+    (state) => state.extractPositionReducer.wall[counterWall]
+  );
+
+  // Delete all elements from arrays
+
+  if (resizedTemplate === true) {
+    accessPointPositionArray = [];
+    exhibitPositionArray = [];
+    wallPositionArray = [];
+    dispatch(changeIsResized());
+    dispatch(resetTypeOfDraggable());
+    counterAP = 0;
+    counterExhibit = 0;
+    counterWall = 0;
+  }
+
   if (typeof accessPointPosition === "number") {
     counterAP++;
     accessPointPositionArray.push(accessPointPosition);
@@ -90,10 +133,6 @@ export default function Square({
     );
   }
 
-  let positionThatWillUndo = useSelector(
-    (state) => state.extractPositionReducer.positionThatWillUndo
-  );
-
   if (accessPointPositionArray.includes(positionThatWillUndo)) {
     accessPointPositionArray.pop(positionThatWillUndo);
     counterAP--;
@@ -108,10 +147,6 @@ export default function Square({
       )
     );
   }
-
-  let exhibitPosition = useSelector(
-    (state) => state.extractPositionReducer.exhibit[counterExhibit]
-  );
 
   if (typeof exhibitPosition === "number") {
     counterExhibit++;
@@ -142,14 +177,6 @@ export default function Square({
       )
     );
   }
-
-  let typeOfDraggable = useSelector(
-    (state) => state.extractTypeOfDraggableReducer
-  );
-
-  let wallPosition = useSelector(
-    (state) => state.extractPositionReducer.wall[counterWall]
-  );
 
   if (wallPositionArray.includes(positionThatWillUndo)) {
     wallPositionArray.pop(positionThatWillUndo);
