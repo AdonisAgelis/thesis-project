@@ -1,3 +1,7 @@
+#workstation {
+  color: white;
+}
+
 #workstation .view {
   background-image: url("../images/prof.jpg") !important;
   background-color: #4a4b3a;
@@ -49,7 +53,15 @@
 }
 
 #workstation label {
-  color: #fff !important;
+  color: #fff;
+}
+
+.mdb-datatable-info d-flex align-items-center {
+  color: white;
+}
+
+.card .md-form label {
+  color: black !important;
 }
 
 .md-form input:not(.browser-default):focus:not([readonly]) {
@@ -329,9 +341,9 @@ p {
   border-radius: 4px !important;
 }
 
-#workstation label {
+/* #workstation label {
   color: black !important;
-}
+} */
 
 .fa-arrows-alt-v:before {
   content: "\f338";
@@ -342,9 +354,13 @@ p {
   transition: 0s !important;
 }
 
-#workstation label {
-  color: white !important;
+.black-text label {
+  color: red !important;
 }
+
+/* #workstation label {
+  color: black !important;
+} */
 
 /* .table-bordered {
   border: 1px solid #dee2e6;

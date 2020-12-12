@@ -81,7 +81,7 @@ const Modal = (props) => {
           position="right"
         >
           <MDBModalHeader
-            style={{ paddingLeft: "18rem" }}
+            style={{ paddingLeft: "18rem", color: "black" }}
             toggle={toggleResize}
           >
             <b> Change Dimensions</b>
@@ -153,7 +153,10 @@ const Modal = (props) => {
           size="lg"
           position="bottom"
         >
-          <MDBModalHeader style={{ paddingLeft: "18rem" }} toggle={toggleSave}>
+          <MDBModalHeader
+            style={{ paddingLeft: "18rem", color: "black" }}
+            toggle={toggleSave}
+          >
             <b>Name your Template</b>
           </MDBModalHeader>
 
