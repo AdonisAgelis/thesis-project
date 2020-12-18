@@ -22,13 +22,6 @@ import DragAndDropItems from "./dragAndDropItems.component";
 
 import "../styles/workstation.css";
 
-// let counterAP = 0;
-// let counterExhibit = 0;
-// let counterWall = 0;
-// let accessPointPositionArray = [];
-// let exhibitPositionArray = [];
-// let wallPositionArray = [];
-
 export default function Square({
   black,
   pos,

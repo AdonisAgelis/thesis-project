@@ -3,7 +3,7 @@ import { MDBMask, MDBView } from "mdbreact";
 import "../styles/workstation.css";
 import WorkStationMenu from "./workStationMenu.component";
 import { useSelector, useDispatch } from "react-redux";
-import getUserWorkstation from "./services";
+import getUserWorkstation from "../services/user.service";
 
 const WorkStation = () => {
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ const WorkStation = () => {
   useEffect(() => {
     const userInLocalStorage = JSON.parse(window.localStorage.getItem("user"));
     // dispatch(sendLocalStorageUserId(userInLocalStorage));
-    getUserWorkstation(userInLocalStorage);
+    // getUserWorkstation(userInLocalStorage);
   });
 
   const revealMenus = () => {
