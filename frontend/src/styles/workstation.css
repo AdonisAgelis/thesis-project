@@ -143,6 +143,8 @@
 #run {
   background-color: rgb(151, 44, 44) !important;
   color: white;
+  height: 53px;
+  border-radius: 3px;
 }
 
 #run:hover {
@@ -173,6 +175,8 @@
   color: white;
   padding-top: 1.06rem;
   padding-bottom: 1.06rem;
+  height: 53px;
+  border-radius: 3px;
 }
 
 #save:hover {
@@ -187,7 +191,7 @@
   padding-bottom: 1rem;
   border: solid 1px white;
   border-radius: 3px;
-  height: 55px;
+  height: 53px;
   /* box-shadow: inset -1px -1px 38px #00000062, inset -1px 1px 38px #333333; */
   /* RIP LeFish 22/12/2020 */
 }
