@@ -13,7 +13,7 @@ import {
 
 import "../styles/workstation.css";
 import { changeDimensions, sendNameOfTemplate } from "../actions/workstation";
-import { sendRoomData } from "../actions/auth";
+import { sendLocalStorageUserId, sendRoomData } from "../actions/auth";
 
 const Modal = (props) => {
   const [modalProps, setModalProps] = useState(props);
@@ -37,6 +37,7 @@ const Modal = (props) => {
     const userInLocalStorage = JSON.parse(window.localStorage.getItem("user"));
     dispatch(sendNameOfTemplate(nameOfTemplate, userInLocalStorage.id));
     dispatch(sendRoomData(roomdData));
+    dispatch(sendLocalStorageUserId(userInLocalStorage));
     toggleSave();
   };
 
