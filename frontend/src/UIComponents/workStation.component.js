@@ -4,12 +4,14 @@ import "../styles/workstation.css";
 import WorkStationMenu from "./workStationMenu.component";
 import { useSelector, useDispatch } from "react-redux";
 import getUserWorkstation from "../services/user.service";
+import { Redirect } from "react-router-dom";
 
 const WorkStation = () => {
   const dispatch = useDispatch();
   const [content, setContent] = useState("");
   const typeOfMenu = useSelector((state) => state.dropMidColumnReducer);
   const isLoggedIn = useSelector((state) => state.authReducer.isLoggedIn);
+  console.log(isLoggedIn);
   const columnPos = 2;
 
   useEffect(() => {
@@ -22,7 +24,7 @@ const WorkStation = () => {
     if (typeOfMenu === "default") {
       return (
         <div id="workstation">
-          {isLoggedIn ? null : null} {/*Change it later*/}
+          {isLoggedIn ? <Redirect to='/workstation' /> : <Redirect to='/login' />} {/*Change it later*/}
           <MDBView>
             <MDBMask className="d-flex justify-content-center align-items-center gradient">
               <WorkStationMenu columnPos={columnPos} />
@@ -33,7 +35,7 @@ const WorkStation = () => {
     } else if (typeOfMenu === "new" || typeOfMenu === "load") {
       return (
         <div id="workstation">
-          {isLoggedIn ? null : null} {/*Change it later*/}
+          {isLoggedIn ? <Redirect to='/workstation' /> : <Redirect to='/login' />} {/*Change it later*/}
           <MDBView>
             <MDBMask className="d-flex justify-content-center align-items-center gradient">
               <WorkStationMenu columnPos={columnPos} />
