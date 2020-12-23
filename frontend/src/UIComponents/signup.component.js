@@ -86,21 +86,21 @@ const SignUp = () => {
     ) {
       setLiLowerUpperPasswordIcon("check");
     } else if (
-      e.target.value.search(/[a-z]/g) == -1 ||
-      e.target.value.search(/[A-Z]/g) == -1
+      e.target.value.search(/[a-z]/g) === -1 ||
+      e.target.value.search(/[A-Z]/g) === -1
     ) {
       setLiLowerUpperPasswordIcon("exclamation-circle");
     }
     if (e.target.value.search(/[0-9]/g) !== -1) {
       setLiNumberPasswordIcon("check");
-    } else if (e.target.value.search(/0-9]/g) == -1) {
+    } else if (e.target.value.search(/0-9]/g) === -1) {
       setLiNumberPasswordIcon("exclamation-circle");
     }
 
     if (e.target.value.search(/[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/g) !== -1) {
       setLiSpecialCharPasswordIcon("check");
     } else if (
-      e.target.value.search(/[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/g) == -1
+      e.target.value.search(/[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/g) === -1
     ) {
       setLiSpecialCharPasswordIcon("exclamation-circle");
     }
@@ -135,10 +135,10 @@ const SignUp = () => {
       username.length <= 20 &&
       password.length >= 4 &&
       password.length <= 15 &&
-      passwordUpper != -1 &&
-      passwordLower != -1 &&
-      passwordNumber != -1 &&
-      passwordSymbol != -1 &&
+      passwordUpper !== -1 &&
+      passwordLower !== -1 &&
+      passwordNumber !== -1 &&
+      passwordSymbol !== -1 &&
       validatedEmail === true
     ) {
       alert("Successful Sign Up!");

@@ -11,7 +11,6 @@ const WorkStation = () => {
   const [content, setContent] = useState("");
   const typeOfMenu = useSelector((state) => state.dropMidColumnReducer);
   const isLoggedIn = useSelector((state) => state.authReducer.isLoggedIn);
-  console.log(isLoggedIn);
   const columnPos = 2;
 
   useEffect(() => {

@@ -40,7 +40,7 @@ const Navbar = () => {
       );
     } else if (url === "http://localhost:8081/info") {
       return (
-        <MDBNavbarNav right>
+        <MDBNavbarNav right style={{ marginRight: "5.5rem" }}>
           <MDBNavItem>
             <MDBNavLink to="/signup">Sign Up</MDBNavLink>
           </MDBNavItem>

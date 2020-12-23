@@ -74,3 +74,7 @@
     min-height: 150vh;
   }
 }
+
+#info {
+  background-color: #000;
+}
