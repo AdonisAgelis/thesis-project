@@ -428,3 +428,12 @@ table thead.mdb-dataTable-head .sorting_desc_disabled::after {
   content: "\f063";
   margin-left: 2rem;
 }
+
+.pagination .page-item .page-link {
+  font-size: .9rem;
+  color: #868e96 !important;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  transition: all 0.3s linear;
+}
