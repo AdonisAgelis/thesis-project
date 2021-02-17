@@ -158,7 +158,7 @@ exports.saveRoomData = (req, res) => {
         return;
       }
 
-      res.send({ message: "Room was registered successfully!" });
+      // res.send({ message: "Room was registered successfully!" });
     });
   });
 };

@@ -8,6 +8,8 @@ import {
   resetTypeOfDraggable,
 } from "../actions/workstation";
 
+import "../styles/workstation.css";
+
 const LoadPagination = () => {
   const rooms = useSelector((state) => state.messageReducer.message);
   const dispatch = useDispatch();
@@ -152,7 +154,7 @@ const LoadPagination = () => {
     <MDBDataTableV5
       striped
       hover
-      entriesOptions={[5, 10, 15]}
+      entriesOptions={[5]}
       entries={5}
       pagesAmount={4}
       data={datatable}
