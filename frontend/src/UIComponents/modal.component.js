@@ -11,9 +11,10 @@ import {
   MDBInput,
 } from "mdbreact";
 
-import "../styles/workstation.css";
 import { changeDimensions, sendNameOfTemplate } from "../actions/workstation";
 import { sendLocalStorageUserId, sendRoomData } from "../actions/auth";
+
+import "../styles/workstation.css";
 
 const Modal = (props) => {
   const [modalProps, setModalProps] = useState(props);
@@ -25,9 +26,31 @@ const Modal = (props) => {
   let roomdData = useSelector((state) => state.extractPositionReducer);
   let width = useSelector((state) => state.extractPositionReducer.width);
 
+  let enableSaveButton;
+
+  let entranceBadgeNum = useSelector(
+    (state) => state.extractPositionReducer.entranceBadge
+  );
+
+  let exitBadgeNum = useSelector(
+    (state) => state.extractPositionReducer.exitBadge
+  );
+
+  let accessPointBadgeNum = useSelector(
+    (state) => state.extractPositionReducer.accessPointBadge
+  );
+
+  let exhibitBadgeNum = useSelector(
+    (state) => state.extractPositionReducer.exhibitBadge
+  );
+
   let nameOfTemplate = useSelector(
     (state) => state.extractPositionReducer.nameOfTemplate
   );
+
+  const enableSave = () => {
+    
+  };
 
   const toggleSave = () => {
     setModalSave(!modalSave);
