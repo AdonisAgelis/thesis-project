@@ -48,9 +48,14 @@ const Modal = (props) => {
     (state) => state.extractPositionReducer.nameOfTemplate
   );
 
-  const enableSave = () => {
-    
-  };
+  let enableSave = !(
+    entranceBadgeNum === 1 &&
+    exitBadgeNum === 1 &&
+    accessPointBadgeNum >= 1 &&
+    exhibitBadgeNum >= 1
+  );
+
+  console.log(`This is ${enableSave}`);
 
   const toggleSave = () => {
     setModalSave(!modalSave);
@@ -155,6 +160,7 @@ const Modal = (props) => {
         }}
       >
         <MDBBtn
+          disabled = {enableSave}
           id="save"
           style={{
             display: "grid",
