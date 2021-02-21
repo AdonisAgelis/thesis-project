@@ -106,15 +106,21 @@ export const extractExhibitBadge = () => {
 
 // ENABLING BUTTONS
 
-export const enableButtonsAfterClicking = () => {
+export const enableSimulationButton = () => {
   return {
-    type: "ENABLE_BUTTONS_AFTER_CLICKING",
+    type: "ENABLE_SIMULATION_BUTTON",
   };
 };
 
 export const enableDropDownOptions = () => {
   return {
     type: "ENABLE_DROP_DOWN_OPTIONS",
+  };
+};
+
+export const sendSaveButtonState = () => {
+  return {
+    type: "SEND_SAVE_BUTTON_STATE",
   };
 };
 

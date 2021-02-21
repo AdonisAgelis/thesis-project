@@ -11,7 +11,7 @@ import {
   MDBInput,
 } from "mdbreact";
 
-import { changeDimensions, sendNameOfTemplate } from "../actions/workstation";
+import { changeDimensions, sendNameOfTemplate, sendSaveButtonState } from "../actions/workstation";
 import { sendLocalStorageUserId, sendRoomData } from "../actions/auth";
 
 import "../styles/workstation.css";
@@ -25,8 +25,7 @@ const Modal = (props) => {
   let height = useSelector((state) => state.extractPositionReducer.height);
   let roomdData = useSelector((state) => state.extractPositionReducer);
   let width = useSelector((state) => state.extractPositionReducer.width);
-
-  let enableSaveButton;
+  let saveBtn = useSelector((state) => state.buttonEnablingReducer.saveBtn);
 
   let entranceBadgeNum = useSelector(
     (state) => state.extractPositionReducer.entranceBadge
@@ -55,8 +54,6 @@ const Modal = (props) => {
     exhibitBadgeNum >= 1
   );
 
-  console.log(`This is ${enableSave}`);
-
   const toggleSave = () => {
     setModalSave(!modalSave);
   };
@@ -67,6 +64,7 @@ const Modal = (props) => {
     dispatch(sendRoomData(roomdData));
     dispatch(sendLocalStorageUserId(userInLocalStorage));
     toggleSave();
+    dispatch(sendSaveButtonState(saveBtn));
   };
 
   const toggleResize = () => {

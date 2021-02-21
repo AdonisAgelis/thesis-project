@@ -24,6 +24,7 @@ import {
   undoAfterClicking,
   resetRoom,
   resetTypeOfDraggable,
+  enableSimulationButton,
 } from "../actions/workstation";
 import { sendRoomData } from "../actions/auth";
 import Modal from "./modal.component";
@@ -85,16 +86,18 @@ const Buttons = (props) => {
     (state) => state.extractPositionReducer.exhibitBadge
   );
 
-  let enableRestOfButtons = useSelector(
-    (state) => state.buttonEnablingReducer.disabledBtn
+  let enableSimButton = useSelector(
+    (state) => state.buttonEnablingReducer.disabledSimBtn
   );
 
   let enableDropDownButtons = useSelector(
     (state) => state.buttonEnablingReducer.disabledGroupBtns
   );
 
-  const RestOfButtonsEnabled = () => {
-    dispatch(enableButtonsAfterClicking());
+  let saveBtnSent = useSelector((state) => state.buttonEnablingReducer.saveBtn);
+
+  const enableSimulation = () => {
+    dispatch(enableSimulationButton());
   };
 
   const DropDownEnabled = () => {
@@ -102,13 +105,6 @@ const Buttons = (props) => {
   };
 
   let enableAdd = peopleNum === "NUMBER OF PEOPLE";
-
-  // let enableSave = !(
-  //   entranceNumberBadge === 1 &&
-  //   exitNumberBadge === 1 &&
-  //   accessPointNumberBadge >= 1 &&
-  //   exhibitNumberBadge >= 1
-  // );
 
   const dropdownItems = [
     {
@@ -135,16 +131,6 @@ const Buttons = (props) => {
 
   let roomdData = useSelector((state) => state.extractPositionReducer);
 
-  // const handleSave = (e) => {
-  //   // dispatch(sendRoomData(roomdData));
-  //   // .then(() => {
-  //   //   // console.log('Success');
-  //   // })
-  //   // .catch(() => {
-  //   //   // console.log('Fail');
-  //   // });
-  // };
-
   const handleNew = (e) => {
     dispatch(dropSecondColumn());
     dispatch(resetRoom());
@@ -157,28 +143,12 @@ const Buttons = (props) => {
     dispatch(dropSecondColumnLoad());
   };
 
-  // if (buttonProp.type === "save") {
-  //   return (
-  //     <MDBBtn
-  //       onClick={() => {
-  //         RestOfButtonsEnabled();
-  //         handleSave();
-  //       }}
-  //       disabled={enableSave}
-  //       id="save"
-  //       rounded
-  //       color="success"
-  //     >
-  //       <MDBIcon icon="save" style={{ marginRight: "1rem" }} />
-  //       Save
-  //     </MDBBtn>
-  //   );
   if (buttonProp.type === "group") {
     return (
       <div className="d-flex flex-row justify-content-around">
         <MDBDropdown>
           <MDBDropdownToggle
-            disabled={enableDropDownButtons}
+            disabled={saveBtnSent}
             id="dd1"
             caret
             rounded
@@ -200,7 +170,7 @@ const Buttons = (props) => {
         </MDBDropdown>
         <MDBDropdown>
           <MDBDropdownToggle
-            disabled={enableDropDownButtons}
+            disabled={saveBtnSent}
             caret
             id="dd2"
             rounded
@@ -214,7 +184,12 @@ const Buttons = (props) => {
     );
   } else if (buttonProp.type === "add") {
     return (
-      <MDBBtn disabled={enableAdd} id="add" color="blue-grey">
+      <MDBBtn
+        onClick={() => enableSimulation()}
+        disabled={enableAdd}
+        id="add"
+        color="blue-grey"
+      >
         <MDBIcon icon="arrow-alt-circle-up" style={{ marginRight: "3px" }} />{" "}
         Add
       </MDBBtn>
@@ -223,7 +198,7 @@ const Buttons = (props) => {
     return (
       <MDBBtn
         onClick={() => DropDownEnabled()}
-        disabled={enableRestOfButtons}
+        disabled={enableSimButton}
         id="run"
         rounded
         color="danger"
