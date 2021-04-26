@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import MemoizedSquare from "./square.component";
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import MemoizedSquare from './Square';
 // import DragAndDropItems from "./dragAndDropItems.component";
 
 // i : number of squares
@@ -96,22 +96,21 @@ const renderSquare = (i, height, width) => {
   }
 
   return (
-    <div key={i} style={{ width: "20px", height: "20px" }}>
+    <div key={i} style={{ width: '20px', height: '20px' }}>
       <MemoizedSquare
         black={black}
         pos={i}
         walls={WallArrays}
         outerSquares={outerSquares}
-        roomCorners={roomCorners}
-      ></MemoizedSquare>
+        roomCorners={roomCorners}></MemoizedSquare>
     </div>
   );
 };
 
-export default function RoomTemplate() {
-  let height = useSelector((state) => state.extractPositionReducer.height);
+const RoomTemplate = () => {
+  let height = useSelector(state => state.extractPositionReducer.height);
 
-  let width = useSelector((state) => state.extractPositionReducer.width);
+  let width = useSelector(state => state.extractPositionReducer.width);
 
   const squares = [];
   for (let i = 0; i < 1000; i++) {
@@ -121,14 +120,15 @@ export default function RoomTemplate() {
   return (
     <div
       style={{
-        width: "100%",
-        height: "100%",
-        display: "grid",
-        gridTemplateColumns: "repeat(40, [col] 20px)",
-        overflow: "scroll",
-      }}
-    >
+        width: '100%',
+        height: '100%',
+        display: 'grid',
+        gridTemplateColumns: 'repeat(40, [col] 20px)',
+        overflow: 'scroll',
+      }}>
       {squares}
     </div>
   );
-}
+};
+
+export default RoomTemplate;

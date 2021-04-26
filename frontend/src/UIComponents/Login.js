@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useHistory } from "react";
-import UserService from '../services/user.service';
-import { Redirect } from "react-router-dom";
-import { dispatch, useDispatch, useSelector } from "react-redux";
-import { login } from "../actions/auth";
+import React, { useEffect, useState, useHistory } from 'react';
+import UserService from '../services/user-service';
+import { Redirect } from 'react-router-dom';
+import { dispatch, useDispatch, useSelector } from 'react-redux';
+import { login } from '../actions/auth';
 
 import {
   MDBMask,
@@ -16,15 +16,15 @@ import {
   MDBCardBody,
   MDBInput,
   MDBAnimation,
-} from "mdbreact";
+} from 'mdbreact';
 
-import "../styles/login.css";
-import Navbar from "./navbar.component";
-import Footer from "./footer.component";
-import authReducer from "../reducers/auth";
-import messageReducer from "../reducers/message";
+import '../styles/login.css';
+import Navbar from './Navbar';
+import Footer from './Footer';
+import authReducer from '../reducers/auth';
+import messageReducer from '../reducers/message';
 
-const required = (value) => {
+const required = value => {
   if (!value) {
     return (
       <div className="alert alert-danger" role="alert">
@@ -35,13 +35,13 @@ const required = (value) => {
 };
 
 const LogIn = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory;
-  const isLoggedIn = useSelector((state) => state, authReducer.isLoggedIn);
-  const message = useSelector((state) => state.messageReducer.message);
+  const isLoggedIn = useSelector(state => state, authReducer.isLoggedIn);
+  const message = useSelector(state => state.messageReducer.message);
   let [toWorkstation, setToWorkstation] = useState(false);
 
   const [content, setContent] = useState('');
@@ -56,21 +56,21 @@ const LogIn = () => {
           content:
             (error.response && error.response.data) ||
             error.message ||
-            error.toString()
+            error.toString(),
         });
       }
     );
   });
 
-  const onChangeEmail = (e) => {
+  const onChangeEmail = e => {
     setEmail(e.target.value);
   };
 
-  const onChangePassword = (e) => {
+  const onChangePassword = e => {
     setPassword(e.target.value);
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = e => {
     e.preventDefault();
     dispatch(login(email, password))
       .then(() => {
@@ -84,7 +84,7 @@ const LogIn = () => {
 
   return (
     <MDBAnimation type="fadeIn">
-      {toWorkstation ? <Redirect to='/workstation' /> : null}
+      {toWorkstation ? <Redirect to="/workstation" /> : null}
       <div id="login">
         <Navbar />
         <MDBView>
@@ -94,8 +94,7 @@ const LogIn = () => {
                 <MDBAnimation
                   type="fadeInLeft"
                   delay=".3s"
-                  className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5"
-                >
+                  className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5">
                   <h1 className="h1-responsive font-weight-bold">
                     New here? Sign up right now!
                   </h1>
@@ -113,18 +112,18 @@ const LogIn = () => {
 
                 <MDBCol md="6" xl="5" className="mb-4">
                   <MDBAnimation type="fadeInRight" delay=".3s">
-                    <form className='needs-validation' onSubmit={handleLogin}>
-                      <MDBCard id="classic-card" style={{ marginLeft: "5rem" }}>
+                    <form className="needs-validation" onSubmit={handleLogin}>
+                      <MDBCard id="classic-card" style={{ marginLeft: '5rem' }}>
                         <MDBCardBody className="white-text">
                           <h3 className="text-center">Login</h3>
                           <hr className="hr-light" />
                           <MDBInput
                             className="white-text form-control"
                             iconClass="white-text"
-                            name='email'
+                            name="email"
                             label="Your email"
                             icon="envelope"
-                            type='email'
+                            type="email"
                             value={email}
                             onChange={onChangeEmail}
                             required
@@ -135,7 +134,7 @@ const LogIn = () => {
                           <MDBInput
                             className="white-text form-control"
                             iconClass="white-text"
-                            name='password'
+                            name="password"
                             label="Your password"
                             icon="lock"
                             type="password"

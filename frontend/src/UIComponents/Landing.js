@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import UserService from '../services/user.service';
+import React, { useEffect, useState } from 'react';
+import UserService from '../services/user-service';
 import {
   MDBMask,
   MDBRow,
@@ -8,11 +8,11 @@ import {
   MDBView,
   MDBContainer,
   MDBAnimation,
-} from "mdbreact";
-import "../styles/index.css";
-import kar from "../images/pexels-photo-1244705.png";
-import Navbar from "./navbar.component";
-import Footer from "./footer.component";
+} from 'mdbreact';
+import '../styles/index.css';
+import kar from '../images/pexels-photo-1244705.png';
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 const Landing = () => {
   const [content, setContent] = useState('');
@@ -43,8 +43,7 @@ const Landing = () => {
             <MDBRow>
               <MDBCol
                 md="6"
-                className="white-text text-center text-md-left mt-xl-5 mb-5"
-              >
+                className="white-text text-center text-md-left mt-xl-5 mb-5">
                 <MDBAnimation type="fadeInLeft" delay=".3s">
                   <h1 className="h1-responsive font-weight-bold  mt-sm-5 ">
                     Museum User Tracker
@@ -71,7 +70,7 @@ const Landing = () => {
                     src={kar}
                     alt=""
                     className="img-fluid1"
-                    style={{ marginLeft: "5rem" }}
+                    style={{ marginLeft: '5rem' }}
                   />
                 </MDBAnimation>
               </MDBCol>

@@ -1,18 +1,18 @@
 const initialState = {
   disabledSimBtn: true,
   disabledGroupBtns: true,
-  saveBtn: true
+  saveBtn: true,
 };
 
 const buttonEnablingReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "ENABLE_SIMULATION_BUTTON":
+    case 'ENABLE_SIMULATION_BUTTON':
       state.disabledSimBtn = false;
       return state;
-    case "ENABLE_DROP_DOWN_OPTIONS":
+    case 'ENABLE_DROP_DOWN_OPTIONS':
       state.disabledGroupBtns = false;
       return state;
-    case "SEND_SAVE_BUTTON_STATE":
+    case 'SEND_SAVE_BUTTON_STATE':
       state.saveBtn = false;
       return state;
     default:

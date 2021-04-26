@@ -1,6 +1,6 @@
-import React from "react";
-import { DnDItemTypes } from "../dndItemTypes";
-import { useDrop } from "react-dnd";
+import React from 'react';
+import { DnDItemTypes } from '../dndItemTypes';
+import { useDrop } from 'react-dnd';
 import {
   extractEntrancePosition,
   extractExitPosition,
@@ -16,86 +16,80 @@ import {
   changeIsResized,
   resetTypeOfDraggable,
   sendSquareComponentVariables,
-} from "../actions/workstation";
-import { useDispatch, useSelector } from "react-redux";
-import DragAndDropItems from "./dragAndDropItems.component";
+} from '../actions/workstation';
+import { useDispatch, useSelector } from 'react-redux';
+import DragAndDropItems from './DragAndDropItems';
 
-import "../styles/workstation.css";
+import '../styles/workstation.css';
 
-export default function Square({
-  black,
-  pos,
-  walls,
-  outerSquares,
-  roomCorners,
-}) {
-  const fill = black ? "rgba(40, 40, 40, 0.1)" : "white";
-  const stroke = "black";
+const Square = ({ black, pos, walls, outerSquares, roomCorners }) => {
+  const fill = black ? 'rgba(40, 40, 40, 0.1)' : 'white';
+  const stroke = 'black';
   const dispatch = useDispatch();
 
   let counterAP = useSelector(
-    (state) => state.extractPositionReducer.counterAPFromSquareComponent
+    state => state.extractPositionReducer.counterAPFromSquareComponent
   );
 
   let counterExhibit = useSelector(
-    (state) => state.extractPositionReducer.counterExhibitFromSquareComponent
+    state => state.extractPositionReducer.counterExhibitFromSquareComponent
   );
 
   let counterWall = useSelector(
-    (state) => state.extractPositionReducer.counterWallFromSquareComponent
+    state => state.extractPositionReducer.counterWallFromSquareComponent
   );
   let accessPointPositionArray = useSelector(
-    (state) =>
+    state =>
       state.extractPositionReducer.accessPointPositionArrayFromSquareComponent
   );
 
   let exhibitPositionArray = useSelector(
-    (state) =>
+    state =>
       state.extractPositionReducer.exhibitPositionArrayFromSquareComponent
   );
 
   let wallPositionArray = useSelector(
-    (state) => state.extractPositionReducer.wallPositionArrayFromSquareComponent
+    state => state.extractPositionReducer.wallPositionArrayFromSquareComponent
   );
 
   let resizedTemplate = useSelector(
-    (state) => state.extractPositionReducer.isResized
+    state => state.extractPositionReducer.isResized
   );
 
   //Selectors for taking data
 
   let blackSquareColor = useSelector(
-    (state) => state.colorPickerForDropReducer.blackSquare
+    state => state.colorPickerForDropReducer.blackSquare
   );
 
   let whiteSquareColor = useSelector(
-    (state) => state.colorPickerForDropReducer.whiteSquare
+    state => state.colorPickerForDropReducer.whiteSquare
   );
 
   let entrancePosition = useSelector(
-    (state) => state.extractPositionReducer.entrance
+    state => state.extractPositionReducer.entrance
   );
 
-  let exitPosition = useSelector((state) => state.extractPositionReducer.exit);
+  let exitPosition = useSelector(state => state.extractPositionReducer.exit);
 
   let accessPointPosition = useSelector(
-    (state) => state.extractPositionReducer.accessPoint[counterAP]
+    state => state.extractPositionReducer.accessPoint[counterAP]
   );
 
   let positionThatWillUndo = useSelector(
-    (state) => state.extractPositionReducer.positionThatWillUndo
+    state => state.extractPositionReducer.positionThatWillUndo
   );
 
   let exhibitPosition = useSelector(
-    (state) => state.extractPositionReducer.exhibit[counterExhibit]
+    state => state.extractPositionReducer.exhibit[counterExhibit]
   );
 
   let typeOfDraggable = useSelector(
-    (state) => state.extractTypeOfDraggableReducer
+    state => state.extractTypeOfDraggableReducer
   );
 
   let wallPosition = useSelector(
-    (state) => state.extractPositionReducer.wall[counterWall]
+    state => state.extractPositionReducer.wall[counterWall]
   );
 
   // Delete all elements from arrays
@@ -106,7 +100,7 @@ export default function Square({
     dispatch(resetTypeOfDraggable());
   }
 
-  if (typeof accessPointPosition === "number") {
+  if (typeof accessPointPosition === 'number') {
     counterAP++;
     accessPointPositionArray.push(accessPointPosition);
     dispatch(
@@ -136,7 +130,7 @@ export default function Square({
     );
   }
 
-  if (typeof exhibitPosition === "number") {
+  if (typeof exhibitPosition === 'number') {
     counterExhibit++;
     exhibitPositionArray.push(exhibitPosition);
     dispatch(
@@ -181,7 +175,7 @@ export default function Square({
     );
   }
 
-  if (typeof wallPosition === "number") {
+  if (typeof wallPosition === 'number') {
     counterWall++;
     wallPositionArray.push(wallPosition);
     dispatch(
@@ -201,23 +195,23 @@ export default function Square({
     let arrayOfTargetId = Array.from(mapOfTargetId.keys());
     let realTargetId = arrayOfTargetId.indexOf(targetId);
 
-    if (item.type === "entrance" && walls.includes(realTargetId)) {
+    if (item.type === 'entrance' && walls.includes(realTargetId)) {
       dispatch(extractTypeOfDraggable(item.type));
       dispatch(extractEntrancePosition(realTargetId));
       dispatch(extractEntranceBadge());
-    } else if (item.type === "exit" && walls.includes(realTargetId)) {
+    } else if (item.type === 'exit' && walls.includes(realTargetId)) {
       dispatch(extractTypeOfDraggable(item.type));
       dispatch(extractExitPosition(realTargetId));
       dispatch(extractExitBadge());
-    } else if (item.type === "accessPoint" && !walls.includes(realTargetId)) {
+    } else if (item.type === 'accessPoint' && !walls.includes(realTargetId)) {
       dispatch(extractTypeOfDraggable(item.type));
       dispatch(extractAccessPointPosition(realTargetId));
       dispatch(extractAccessPointBadge());
-    } else if (item.type === "exhibit" && !walls.includes(realTargetId)) {
+    } else if (item.type === 'exhibit' && !walls.includes(realTargetId)) {
       dispatch(extractTypeOfDraggable(item.type));
       dispatch(extractExhibitPosition(realTargetId));
       dispatch(extractExhibitBadge());
-    } else if (item.type === "wall" && !walls.includes(realTargetId)) {
+    } else if (item.type === 'wall' && !walls.includes(realTargetId)) {
       dispatch(extractTypeOfDraggable(item.type));
       dispatch(extractWallPosition(realTargetId));
     }
@@ -243,7 +237,7 @@ export default function Square({
       );
     },
 
-    collect: (monitor) => ({
+    collect: monitor => ({
       isOver: !!monitor.isOver(),
     }),
   });
@@ -260,7 +254,7 @@ export default function Square({
     !accessPointPositionArray.includes(pos) &&
     !exhibitPositionArray.includes(pos) &&
     !wallPositionArray.includes(pos) &&
-    fill === "rgba(40, 40, 40, 0.1)"
+    fill === 'rgba(40, 40, 40, 0.1)'
   ) {
     if (roomCorners.includes(pos)) {
       return (
@@ -268,11 +262,10 @@ export default function Square({
           style={{
             backgroundColor: bg,
             color: stroke,
-            width: "20px",
-            height: "20px",
-            border: "rgba(40, 40, 40, 0.1) solid 1px",
-          }}
-        ></div>
+            width: '20px',
+            height: '20px',
+            border: 'rgba(40, 40, 40, 0.1) solid 1px',
+          }}></div>
       );
     } else {
       return (
@@ -281,11 +274,10 @@ export default function Square({
           style={{
             backgroundColor: bg,
             color: stroke,
-            width: "20px",
-            height: "20px",
-            border: "rgba(40, 40, 40, 0.1) solid 1px",
-          }}
-        ></div>
+            width: '20px',
+            height: '20px',
+            border: 'rgba(40, 40, 40, 0.1) solid 1px',
+          }}></div>
       );
     }
   } else if (
@@ -294,7 +286,7 @@ export default function Square({
     !accessPointPositionArray.includes(pos) &&
     !exhibitPositionArray.includes(pos) &&
     !wallPositionArray.includes(pos) &&
-    fill === "white"
+    fill === 'white'
   ) {
     if (outerSquares.includes(pos)) {
       return (
@@ -302,11 +294,10 @@ export default function Square({
           style={{
             backgroundColor: bg,
             color: stroke,
-            width: "20px",
-            height: "20px",
-            border: "rgba(40, 40, 40, 0.1) solid 1px",
-          }}
-        ></div>
+            width: '20px',
+            height: '20px',
+            border: 'rgba(40, 40, 40, 0.1) solid 1px',
+          }}></div>
       );
     } else {
       return (
@@ -314,34 +305,35 @@ export default function Square({
           ref={drop}
           style={{
             backgroundColor: insideBg,
-            color: "red",
-            width: "20px",
-            height: "20px",
-            border: "rgba(40, 40, 40, 0.1) solid 1px",
+            color: 'red',
+            width: '20px',
+            height: '20px',
+            border: 'rgba(40, 40, 40, 0.1) solid 1px',
             zIndex: 1,
-          }}
-        ></div>
+          }}></div>
       );
     }
-  } else if (typeOfDraggable === "entrance" || entrancePosition === pos) {
+  } else if (typeOfDraggable === 'entrance' || entrancePosition === pos) {
     return <DragAndDropItems role="entrance" />;
-  } else if (typeOfDraggable === "exit" || exitPosition === pos) {
+  } else if (typeOfDraggable === 'exit' || exitPosition === pos) {
     return <DragAndDropItems role="exit" />;
   } else if (
-    typeOfDraggable === "accessPoint" ||
+    typeOfDraggable === 'accessPoint' ||
     accessPointPositionArray.includes(pos)
   ) {
     return <DragAndDropItems role="accessPoint" />;
   } else if (
-    typeOfDraggable === "exhibit" ||
+    typeOfDraggable === 'exhibit' ||
     exhibitPositionArray.includes(pos)
   ) {
     return <DragAndDropItems role="exhibit" />;
-  } else if (typeOfDraggable === "wall" || wallPositionArray.includes(pos)) {
+  } else if (typeOfDraggable === 'wall' || wallPositionArray.includes(pos)) {
     return <DragAndDropItems role="wall" />;
   } else {
     return true;
   }
-}
+};
+
+export default Square;
 
 export const MemoizedSquare = React.memo(Square);

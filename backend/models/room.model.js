@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const Room = mongoose.model(
-  "Room",
+  'Room',
   new mongoose.Schema({
     userId: String,
     entrance: Number,

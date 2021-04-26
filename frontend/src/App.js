@@ -1,15 +1,15 @@
-import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import "./styles/index.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { MDBAnimation } from "mdbreact";
+import './styles/index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { MDBAnimation } from 'mdbreact';
 
-import Landing from "./UIComponents/landing.component";
-import SignUp from "./UIComponents/signup.component";
-import LogIn from "./UIComponents/login.component";
-import Info from "./UIComponents/info.component";
-import WorkStation from "./UIComponents/workStation.component";
+import Landing from './UIComponents/Landing';
+import SignUp from './UIComponents/SignUp';
+import LogIn from './UIComponents/Login';
+import Info from './UIComponents/Info';
+import WorkStation from './UIComponents/WorkStation';
 
 const App = () => {
   return (

@@ -1,3 +1,3 @@
 module.exports = {
-    secret: "mut-secret-key"
+  secret: 'mut-secret-key',
 };
