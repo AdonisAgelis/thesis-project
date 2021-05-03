@@ -3,7 +3,7 @@
 }
 
 #workstation .view {
-  background-image: url("../images/prof.jpg") !important;
+  background-image: url('../images/prof.jpg') !important;
   background-color: #4a4b3a;
   background-repeat: no-repeat;
   background-size: cover;
@@ -353,7 +353,7 @@ p {
 } */
 
 .fa-arrows-alt-v:before {
-  content: "\f338";
+  content: '\f338';
   margin-left: 0.4rem !important;
 }
 
@@ -404,10 +404,10 @@ table thead.mdb-dataTable-head .sorting_desc::before,
 table thead.mdb-dataTable-head .sorting_asc_disabled::before,
 table thead.mdb-dataTable-head .sorting_desc_disabled::before {
   left: -0.4rem;
-  font-family: "Font Awesome\ 5 Free", sans-serif;
+  font-family: 'Font Awesome\ 5 Free', sans-serif;
   font-size: 1rem;
   font-weight: 900;
-  content: "\f062";
+  content: '\f062';
   margin-left: 2rem;
 }
 
@@ -422,15 +422,15 @@ table thead.mdb-dataTable-head .sorting_desc::after,
 table thead.mdb-dataTable-head .sorting_asc_disabled::after,
 table thead.mdb-dataTable-head .sorting_desc_disabled::after {
   left: -0.4rem;
-  font-family: "Font Awesome\ 5 Free", sans-serif;
+  font-family: 'Font Awesome\ 5 Free', sans-serif;
   font-size: 1rem;
   font-weight: 900;
-  content: "\f063";
+  content: '\f063';
   margin-left: 2rem;
 }
 
 .pagination .page-item .page-link {
-  font-size: .9rem;
+  font-size: 0.9rem;
   color: #868e96 !important;
   background-color: transparent;
   border: 0;

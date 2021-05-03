@@ -28,7 +28,7 @@
 }
 
 #info .view {
-  background-image: url("../images/info_2.jpg") !important;
+  background-image: url('../images/info_2.jpg') !important;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;

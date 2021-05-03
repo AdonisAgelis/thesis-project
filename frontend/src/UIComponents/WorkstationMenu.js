@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
+import React, { useState, useEffect } from 'react';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 
 import {
   MDBCol,
@@ -13,20 +13,20 @@ import {
   MDBTypography,
   MDBBadge,
   MDBIcon,
-} from "mdbreact";
+} from 'mdbreact';
 
-import "../styles/workstation.css";
-import LoadPagination from "./loadPagination.component";
-import RoomTemplate from "./roomTemplate.component";
-import Buttons from "./buttons.component";
-import Modal from "./modal.component";
-import logo from "../images/logo.png";
-import DragAndDropItems from "./dragAndDropItems.component";
-import { useSelector, useDispatch } from "react-redux";
-import { sendLocalStorageUserId } from "../actions/auth";
-import getUserWorkstation from "../services/user.service";
+import '../styles/workstation.css';
+import LoadPagination from './LoadPagination';
+import RoomTemplate from './RoomTemplate';
+import Buttons from './Buttons';
+import Modal from './Modal';
+import logo from '../images/logo.png';
+import DragAndDropItems from './DragAndDropItems';
+import { useSelector, useDispatch } from 'react-redux';
+import { sendLocalStorageUserId } from '../actions/auth';
+import getUserWorkstation from '../services/user-service';
 
-const WorkStationMenu = (props) => {
+const WorkStationMenu = props => {
   const [columnProp, setColumnProp] = useState(props);
 
   let animationType;
@@ -35,66 +35,65 @@ const WorkStationMenu = (props) => {
   // DISPATCH
   const dispatch = useDispatch();
   useEffect(() => {
-    const userInLocalStorage = JSON.parse(window.localStorage.getItem("user"));
+    const userInLocalStorage = JSON.parse(window.localStorage.getItem('user'));
     dispatch(sendLocalStorageUserId(userInLocalStorage));
   });
 
   //SELECTORS
   // const rooms = useSelector((state) => state.messageReducer.message);
   let entranceNumberBadge = useSelector(
-    (state) => state.extractPositionReducer.entranceBadge
+    state => state.extractPositionReducer.entranceBadge
   );
   let exitNumberBadge = useSelector(
-    (state) => state.extractPositionReducer.exitBadge
+    state => state.extractPositionReducer.exitBadge
   );
   let accessPointNumberBadge = useSelector(
-    (state) => state.extractPositionReducer.accessPointBadge
+    state => state.extractPositionReducer.accessPointBadge
   );
   let exhibitNumberBadge = useSelector(
-    (state) => state.extractPositionReducer.exhibitBadge
+    state => state.extractPositionReducer.exhibitBadge
   );
 
-  let midMenuisOpen = useSelector((state) => state.dropMidColumnReducer);
+  let midMenuisOpen = useSelector(state => state.dropMidColumnReducer);
 
-  if (midMenuisOpen === "default") {
-    animationType = "fadeInDown";
-    animationDelay = ".3s";
-  } else if (midMenuisOpen === "new") {
-    animationType = "fadeInRight";
-    animationDelay = ".0s";
+  if (midMenuisOpen === 'default') {
+    animationType = 'fadeInDown';
+    animationDelay = '.3s';
+  } else if (midMenuisOpen === 'new') {
+    animationType = 'fadeInRight';
+    animationDelay = '.0s';
   }
 
   if (
-    (midMenuisOpen === "default" ||
-      midMenuisOpen === "load" ||
-      midMenuisOpen === "new") &&
+    (midMenuisOpen === 'default' ||
+      midMenuisOpen === 'load' ||
+      midMenuisOpen === 'new') &&
     columnProp.columnPos === 2
   ) {
     return (
       <MDBCol md="2">
         <MDBAnimation type={animationType} delay={animationDelay}>
-          <MDBCard style={{ opacity: "0.8" }}>
+          <MDBCard style={{ opacity: '0.8' }}>
             <MDBCardTitle
               style={{
-                display: "grid",
-                placeItems: "center",
-                textAlign: "center",
-                marginTop: "4rem",
-                color: "white",
-                marginBottom: "4rem",
-              }}
-            >
+                display: 'grid',
+                placeItems: 'center',
+                textAlign: 'center',
+                marginTop: '4rem',
+                color: 'white',
+                marginBottom: '4rem',
+              }}>
               <a href="http://localhost:8081">
                 <img
                   src={logo}
-                  style={{ height: "3rem", marginLeft: "2rem" }}
+                  style={{ height: '3rem', marginLeft: '2rem' }}
                   className="img-fluid"
                 />
               </a>
             </MDBCardTitle>
             <hr
               className="hr-light"
-              style={{ width: "90%", marginLeft: "5%" }}
+              style={{ width: '90%', marginLeft: '5%' }}
             />
 
             <Buttons type="home" />
@@ -103,7 +102,7 @@ const WorkStationMenu = (props) => {
             <Buttons type="graph" />
             <hr
               className="hr-light"
-              style={{ width: "90%", marginLeft: "5%" }}
+              style={{ width: '90%', marginLeft: '5%' }}
             />
             <Buttons type="reset" />
             <Buttons type="logout" />
@@ -111,21 +110,20 @@ const WorkStationMenu = (props) => {
         </MDBAnimation>
       </MDBCol>
     );
-  } else if (midMenuisOpen === "new" && columnProp.columnPos === 7) {
+  } else if (midMenuisOpen === 'new' && columnProp.columnPos === 7) {
     return (
       <DndProvider backend={HTML5Backend}>
         <MDBCol md={columnProp.columnPos}>
           <MDBAnimation type="fadeInDown" delay=".3s">
-            <MDBCard style={{ background: "rgba(0, 0, 0, 0.8" }}>
+            <MDBCard style={{ background: 'rgba(0, 0, 0, 0.8' }}>
               <MDBCardImage className="img-fluid" />
               <MDBCardBody>
-                <MDBCardTitle style={{ textAlign: "center" }}>
+                <MDBCardTitle style={{ textAlign: 'center' }}>
                   <MDBTypography
-                    style={{ color: "white" }}
-                    tag="h4"
-                  ></MDBTypography>
+                    style={{ color: 'white' }}
+                    tag="h4"></MDBTypography>
                 </MDBCardTitle>
-                <MDBCardText style={{ textAlign: "center" }}></MDBCardText>
+                <MDBCardText style={{ textAlign: 'center' }}></MDBCardText>
                 <div className="workspace-container">
                   <div id="item1">
                     <RoomTemplate />
@@ -135,12 +133,12 @@ const WorkStationMenu = (props) => {
                     <Buttons type="undo" />
                     <hr
                       className="hr-light"
-                      style={{ width: "100%", marginLeft: "10px" }}
+                      style={{ width: '100%', marginLeft: '10px' }}
                     />
                     <div className="dragNdrop">
                       <DragAndDropItems role="entrance" />
                       <p>
-                        ENTRANCE{" "}
+                        ENTRANCE{' '}
                         <MDBBadge color="danger" className="ml-2">
                           {entranceNumberBadge}
                         </MDBBadge>
@@ -149,7 +147,7 @@ const WorkStationMenu = (props) => {
                     <div className="dragNdrop">
                       <DragAndDropItems role="exit" />
                       <p>
-                        EXIT{" "}
+                        EXIT{' '}
                         <MDBBadge color="danger" className="ml-2">
                           {exitNumberBadge}
                         </MDBBadge>
@@ -167,7 +165,7 @@ const WorkStationMenu = (props) => {
                     <div className="dragNdrop">
                       <DragAndDropItems role="exhibit" />
                       <p>
-                        EXHIBIT{" "}
+                        EXHIBIT{' '}
                         <MDBBadge color="danger" className="ml-2">
                           {exhibitNumberBadge}
                         </MDBBadge>
@@ -183,17 +181,16 @@ const WorkStationMenu = (props) => {
                 <div
                   className="d-flex flex-row justify-content-around"
                   style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    height: "105px",
-                  }}
-                >
-                  <hr className="hr-light" style={{ width: "100%" }} />
-                  <Modal type={"save"} />
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    height: '105px',
+                  }}>
+                  <hr className="hr-light" style={{ width: '100%' }} />
+                  <Modal type={'save'} />
 
-                  <Buttons type={"group"} />
-                  <Buttons type={"add"} />
-                  <Buttons type={"run"} />
+                  <Buttons type={'group'} />
+                  <Buttons type={'add'} />
+                  <Buttons type={'run'} />
                 </div>
               </MDBCardBody>
             </MDBCard>
@@ -201,26 +198,25 @@ const WorkStationMenu = (props) => {
         </MDBCol>
       </DndProvider>
     );
-  } else if (midMenuisOpen === "load" && columnProp.columnPos === 7) {
+  } else if (midMenuisOpen === 'load' && columnProp.columnPos === 7) {
     return (
       <MDBCol md={columnProp.columnPos}>
         <MDBAnimation type="fadeInDown" delay=".3s">
-          <MDBCard style={{ background: "rgba(0, 0, 0, 0.8", height: "42rem" }}>
+          <MDBCard style={{ background: 'rgba(0, 0, 0, 0.8', height: '42rem' }}>
             <MDBCardImage className="img-fluid" />
             <MDBCardBody>
-              <MDBCardTitle style={{ textAlign: "center" }}>
-                <MDBTypography style={{ color: "white" }} tag="h4">
+              <MDBCardTitle style={{ textAlign: 'center' }}>
+                <MDBTypography style={{ color: 'white' }} tag="h4">
                   Select a Room for Loading
-                  <hr className="hr-light" style={{ width: "100%" }} />
+                  <hr className="hr-light" style={{ width: '100%' }} />
                 </MDBTypography>
               </MDBCardTitle>
               <div
                 style={{
-                  marginTop: "4rem",
-                  border: "solid 1px white",
-                  borderRadius: "3px",
-                }}
-              >
+                  marginTop: '4rem',
+                  border: 'solid 1px white',
+                  borderRadius: '3px',
+                }}>
                 <LoadPagination />
               </div>
             </MDBCardBody>

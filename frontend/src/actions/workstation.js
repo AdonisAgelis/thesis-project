@@ -1,79 +1,79 @@
 export const dropSecondColumn = () => {
   return {
-    type: "DROP_SECOND_COLUMN",
+    type: 'DROP_SECOND_COLUMN',
   };
 };
 
 export const dropSecondColumnLoad = () => {
   return {
-    type: "DROP_SECOND_COLUMN_LOAD",
+    type: 'DROP_SECOND_COLUMN_LOAD',
   };
 };
 
-export const updateFirstDropDown = (value) => {
+export const updateFirstDropDown = value => {
   return {
-    type: "UPDATE_FIRST_DROPDOWN",
+    type: 'UPDATE_FIRST_DROPDOWN',
     payload: value,
   };
 };
 
-export const updateSecondDropDown = (value) => {
+export const updateSecondDropDown = value => {
   return {
-    type: "UPDATE_SECOND_DROPDOWN",
+    type: 'UPDATE_SECOND_DROPDOWN',
     payload: value,
   };
 };
 
-export const extractEntrancePosition = (value) => {
+export const extractEntrancePosition = value => {
   return {
-    type: "EXTRACT_ENTRANCE_POSITION",
+    type: 'EXTRACT_ENTRANCE_POSITION',
     payload: value,
   };
 };
 
-export const extractExitPosition = (value) => {
+export const extractExitPosition = value => {
   return {
-    type: "EXTRACT_EXIT_POSITION",
+    type: 'EXTRACT_EXIT_POSITION',
     payload: value,
   };
 };
 
-export const extractTypeOfDraggable = (value) => {
+export const extractTypeOfDraggable = value => {
   return {
-    type: "EXTRACT_TYPE_OF_DRAGGABLE",
+    type: 'EXTRACT_TYPE_OF_DRAGGABLE',
     payload: value,
   };
 };
 
-export const extractAccessPointPosition = (value) => {
+export const extractAccessPointPosition = value => {
   return {
-    type: "EXTRACT_ACCESS_POINT_POSITION",
+    type: 'EXTRACT_ACCESS_POINT_POSITION',
     payload: value,
   };
 };
 
-export const extractExhibitPosition = (value) => {
+export const extractExhibitPosition = value => {
   return {
-    type: "EXTRACT_EXHIBIT_POSITION",
+    type: 'EXTRACT_EXHIBIT_POSITION',
     payload: value,
   };
 };
 
 export const extractValidDropColorForEntranceExit = () => {
   return {
-    type: "EXTRACT_VALID_DROP_COLOR_FOR_ENTRANCE_EXIT",
+    type: 'EXTRACT_VALID_DROP_COLOR_FOR_ENTRANCE_EXIT',
   };
 };
 
 export const extractValidDropColorForElse = () => {
   return {
-    type: "EXTRACT_VALID_DROP_COLOR_FOR_ELSE",
+    type: 'EXTRACT_VALID_DROP_COLOR_FOR_ELSE',
   };
 };
 
-export const extractWallPosition = (value) => {
+export const extractWallPosition = value => {
   return {
-    type: "EXTRACT_WALL_POSITION",
+    type: 'EXTRACT_WALL_POSITION',
     payload: value,
   };
 };
@@ -82,39 +82,45 @@ export const extractWallPosition = (value) => {
 
 export const extractEntranceBadge = () => {
   return {
-    type: "EXTRACT_ENTRANCE_BADGE",
+    type: 'EXTRACT_ENTRANCE_BADGE',
   };
 };
 
 export const extractExitBadge = () => {
   return {
-    type: "EXTRACT_EXIT_BADGE",
+    type: 'EXTRACT_EXIT_BADGE',
   };
 };
 
 export const extractAccessPointBadge = () => {
   return {
-    type: "EXTRACT_ACCESS_POINT_BADGE",
+    type: 'EXTRACT_ACCESS_POINT_BADGE',
   };
 };
 
 export const extractExhibitBadge = () => {
   return {
-    type: "EXTRACT_EXHIBIT_BADGE",
+    type: 'EXTRACT_EXHIBIT_BADGE',
   };
 };
 
 // ENABLING BUTTONS
 
-export const enableButtonsAfterClicking = () => {
+export const enableSimulationButton = () => {
   return {
-    type: "ENABLE_BUTTONS_AFTER_CLICKING",
+    type: 'ENABLE_SIMULATION_BUTTON',
   };
 };
 
 export const enableDropDownOptions = () => {
   return {
-    type: "ENABLE_DROP_DOWN_OPTIONS",
+    type: 'ENABLE_DROP_DOWN_OPTIONS',
+  };
+};
+
+export const sendSaveButtonState = () => {
+  return {
+    type: 'SEND_SAVE_BUTTON_STATE',
   };
 };
 
@@ -122,7 +128,7 @@ export const enableDropDownOptions = () => {
 
 export const undoAfterClicking = () => {
   return {
-    type: "UNDO_AFTER_CLICKING",
+    type: 'UNDO_AFTER_CLICKING',
   };
 };
 
@@ -130,7 +136,7 @@ export const undoAfterClicking = () => {
 
 export const changeDimensions = (valueX, valueY) => {
   return {
-    type: "CHANGE_DIMENSIONS",
+    type: 'CHANGE_DIMENSIONS',
     payloadX: valueX,
     payloadY: valueY,
   };
@@ -138,13 +144,13 @@ export const changeDimensions = (valueX, valueY) => {
 
 export const resetRoom = () => {
   return {
-    type: "RESET_ROOM",
+    type: 'RESET_ROOM',
   };
 };
 
 export const changeIsResized = () => {
   return {
-    type: "CHANGE_IS_RESIZED",
+    type: 'CHANGE_IS_RESIZED',
   };
 };
 
@@ -152,7 +158,7 @@ export const changeIsResized = () => {
 
 export const resetTypeOfDraggable = () => {
   return {
-    type: "RESET_TYPE_OF_DRAGGABLE",
+    type: 'RESET_TYPE_OF_DRAGGABLE',
   };
 };
 
@@ -160,7 +166,7 @@ export const resetTypeOfDraggable = () => {
 
 export const sendNameOfTemplate = (value1, value2) => {
   return {
-    type: "SEND_NAME_OF_TEMPLATE",
+    type: 'SEND_NAME_OF_TEMPLATE',
     payload1: value1,
     payload2: value2,
   };
@@ -177,7 +183,7 @@ export const sendSquareComponentVariables = (
   value6
 ) => {
   return {
-    type: "SEND_SQUARE_COMPONENT_VARIABLES",
+    type: 'SEND_SQUARE_COMPONENT_VARIABLES',
     payload1: value1,
     payload2: value2,
     payload3: value3,
@@ -216,7 +222,7 @@ export const sendRoomDataFromLoad = (
   value26
 ) => {
   return {
-    type: "SEND_ROOM_DATA_FROM_LOAD",
+    type: 'SEND_ROOM_DATA_FROM_LOAD',
     payload1: value1,
     payload2: value2,
     payload3: value3,

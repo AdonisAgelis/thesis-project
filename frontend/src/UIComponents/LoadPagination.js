@@ -1,17 +1,17 @@
-import React, { useEffect } from "react";
-import { MDBDataTableV5 } from "mdbreact";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useEffect } from 'react';
+import { MDBDataTableV5 } from 'mdbreact';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   dropSecondColumn,
   sendRoomDataFromLoad,
   resetRoom,
   resetTypeOfDraggable,
-} from "../actions/workstation";
+} from '../actions/workstation';
 
-import "../styles/workstation.css";
+import '../styles/workstation.css';
 
 const LoadPagination = () => {
-  const rooms = useSelector((state) => state.messageReducer.message);
+  const rooms = useSelector(state => state.messageReducer.message);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -35,7 +35,7 @@ const LoadPagination = () => {
     return room.exhibitBadge;
   });
 
-  const handleRowClick = (roomId) => {
+  const handleRowClick = roomId => {
     const {
       entrance,
       exit,
@@ -113,37 +113,37 @@ const LoadPagination = () => {
   const [datatable, setDatatable] = React.useState({
     columns: [
       {
-        label: "Name",
-        field: "name",
+        label: 'Name',
+        field: 'name',
         width: 150,
 
         attributes: {
-          "aria-controls": "DataTable",
-          "aria-label": "Name",
+          'aria-controls': 'DataTable',
+          'aria-label': 'Name',
         },
       },
       {
-        label: "Height",
-        field: "height",
-        sort: "asc",
+        label: 'Height',
+        field: 'height',
+        sort: 'asc',
         width: 100,
       },
       {
-        label: "Width",
-        field: "width",
-        sort: "asc",
+        label: 'Width',
+        field: 'width',
+        sort: 'asc',
         width: 100,
       },
       {
-        label: "Access Points (Num)",
-        field: "accessPoints",
-        sort: "asc",
+        label: 'Access Points (Num)',
+        field: 'accessPoints',
+        sort: 'asc',
         width: 100,
       },
       {
-        label: "Exhibits (Num)",
-        field: "exhibits",
-        sort: "asc",
+        label: 'Exhibits (Num)',
+        field: 'exhibits',
+        sort: 'asc',
         width: 100,
       },
     ],
@@ -162,7 +162,7 @@ const LoadPagination = () => {
       theadTextWhite
       tbodyTextWhite
       style={{
-        backgroundColor: "rgba(255, 255, 255, 0)",
+        backgroundColor: 'rgba(255, 255, 255, 0)',
       }}
     />
   );

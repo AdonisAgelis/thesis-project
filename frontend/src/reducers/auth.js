@@ -5,10 +5,10 @@ import {
   LOGIN_FAIL,
   LOGOUT,
   SEND_ROOM_DATA_SUCCESS,
-  SEND_ROOM_DATA_FAIL
-} from "../actions/types";
+  SEND_ROOM_DATA_FAIL,
+} from '../actions/types';
 
-const user = JSON.parse(localStorage.getItem("user"));
+const user = JSON.parse(localStorage.getItem('user'));
 
 const initialState = user
   ? { isLoggedIn: true, user }
@@ -48,11 +48,11 @@ const authReducer = (state = initialState, action) => {
       };
     case SEND_ROOM_DATA_SUCCESS:
       return {
-        ...state
+        ...state,
       };
     case SEND_ROOM_DATA_FAIL:
       return {
-        ...state
+        ...state,
       };
     default:
       return state;

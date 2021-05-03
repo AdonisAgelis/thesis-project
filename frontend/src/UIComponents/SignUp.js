@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
-import UserService from "../services/user.service";
-import { Redirect } from "react-router-dom";
+import React, { useEffect } from 'react';
+import UserService from '../services/user-service';
+import { Redirect } from 'react-router-dom';
 import {
   MDBMask,
   MDBRow,
@@ -13,43 +13,43 @@ import {
   MDBCardBody,
   MDBInput,
   MDBAnimation,
-} from "mdbreact";
-import "../styles/signup.css";
-import Navbar from "./navbar.component";
-import Footer from "./footer.component";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { register } from "../actions/auth";
+} from 'mdbreact';
+import '../styles/signup.css';
+import Navbar from './Navbar';
+import Footer from './Footer';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { register } from '../actions/auth';
 
 const SignUp = () => {
   const dispatch = useDispatch();
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [successful, setSuccessful] = useState(false);
   const [usernameIsValid, setUsernameIsValid] = useState(true);
   const [emailIsValid, setEmailIsValid] = useState(true);
   const [passwordIsValid, setPasswordIsValid] = useState(true);
   let [liLowerUpperPasswordIcon, setLiLowerUpperPasswordIcon] = useState(
-    "exclamation-circle"
+    'exclamation-circle'
   );
   let [liNumberPasswordIcon, setLiNumberPasswordIcon] = useState(
-    "exclamation-circle"
+    'exclamation-circle'
   );
   let [liSpecialCharPasswordIcon, setLiSpecialCharPasswordIcon] = useState(
-    "exclamation-circle"
+    'exclamation-circle'
   );
   let [toWorkstation, setToWorkstation] = useState(false);
-  let [passwordCheckerDisplay, setPasswordCheckerDisplay] = useState("none");
+  let [passwordCheckerDisplay, setPasswordCheckerDisplay] = useState('none');
 
-  const [content, setContent] = useState("");
+  const [content, setContent] = useState('');
 
   useEffect(() => {
     UserService.getPublicContentSignUp().then(
-      (response) => {
+      response => {
         setContent(response.data);
       },
-      (error) => {
+      error => {
         setContent({
           content:
             (error.response && error.response.data) ||
@@ -61,54 +61,54 @@ const SignUp = () => {
   });
 
   let placeholderUsername = usernameIsValid
-    ? "Your name"
-    : "Username must be 3-20 characters!";
+    ? 'Your name'
+    : 'Username must be 3-20 characters!';
 
-  let placeholderEmail = emailIsValid ? "Your email" : "Invalid Email!";
+  let placeholderEmail = emailIsValid ? 'Your email' : 'Invalid Email!';
 
   let placeholderPassword = passwordIsValid
-    ? "Your password"
-    : "Invalid Password!";
+    ? 'Your password'
+    : 'Invalid Password!';
 
-  const onChangeUsername = (e) => {
+  const onChangeUsername = e => {
     setUsername(e.target.value);
   };
 
-  const onChangeEmail = (e) => {
+  const onChangeEmail = e => {
     setEmail(e.target.value);
   };
 
-  const onChangePassword = (e) => {
-    setPasswordCheckerDisplay("block");
+  const onChangePassword = e => {
+    setPasswordCheckerDisplay('block');
     if (
       e.target.value.search(/[a-z]/g) !== -1 &&
       e.target.value.search(/[A-Z]/g) !== -1
     ) {
-      setLiLowerUpperPasswordIcon("check");
+      setLiLowerUpperPasswordIcon('check');
     } else if (
       e.target.value.search(/[a-z]/g) === -1 ||
       e.target.value.search(/[A-Z]/g) === -1
     ) {
-      setLiLowerUpperPasswordIcon("exclamation-circle");
+      setLiLowerUpperPasswordIcon('exclamation-circle');
     }
     if (e.target.value.search(/[0-9]/g) !== -1) {
-      setLiNumberPasswordIcon("check");
+      setLiNumberPasswordIcon('check');
     } else if (e.target.value.search(/0-9]/g) === -1) {
-      setLiNumberPasswordIcon("exclamation-circle");
+      setLiNumberPasswordIcon('exclamation-circle');
     }
 
     if (e.target.value.search(/[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/g) !== -1) {
-      setLiSpecialCharPasswordIcon("check");
+      setLiSpecialCharPasswordIcon('check');
     } else if (
       e.target.value.search(/[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/g) === -1
     ) {
-      setLiSpecialCharPasswordIcon("exclamation-circle");
+      setLiSpecialCharPasswordIcon('exclamation-circle');
     }
 
     setPassword(e.target.value);
   };
 
-  const handleRegister = (e) => {
+  const handleRegister = e => {
     e.preventDefault();
 
     setSuccessful(false);
@@ -123,7 +123,7 @@ const SignUp = () => {
     const passwordNumber = password.search(passNumber);
     const passwordSymbol = password.search(passSymbol);
 
-    const checkEmail = (email) => {
+    const checkEmail = email => {
       const validEmail = /\S+@\S+\.\S+/g;
       return validEmail.test(email);
     };
@@ -141,7 +141,7 @@ const SignUp = () => {
       passwordSymbol !== -1 &&
       validatedEmail === true
     ) {
-      alert("Successful Sign Up!");
+      alert('Successful Sign Up!');
       setToWorkstation(true);
       dispatch(register(username, email, password))
         .then(() => {
@@ -176,8 +176,7 @@ const SignUp = () => {
                 <MDBAnimation
                   type="fadeInLeft"
                   delay=".3s"
-                  className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5"
-                >
+                  className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5">
                   <h1 className="h1-responsive font-weight-bold">
                     Sign up right now!
                   </h1>
@@ -196,7 +195,7 @@ const SignUp = () => {
                 <MDBCol md="6" xl="5" className="mb-4">
                   <MDBAnimation type="fadeInRight" delay=".3s">
                     <form onSubmit={handleRegister}>
-                      <MDBCard id="classic-card" style={{ marginLeft: "5rem" }}>
+                      <MDBCard id="classic-card" style={{ marginLeft: '5rem' }}>
                         <MDBCardBody className="white-text">
                           <h3 className="text-center">Sign Up</h3>
                           <hr className="hr-light" />
@@ -232,8 +231,7 @@ const SignUp = () => {
                           />
                           <div
                             className="passwordchecker"
-                            style={{ display: passwordCheckerDisplay }}
-                          >
+                            style={{ display: passwordCheckerDisplay }}>
                             <ul className="fa-ul">
                               <li>
                                 <MDBIcon icon={liLowerUpperPasswordIcon} list />

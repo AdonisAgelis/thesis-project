@@ -1,7 +1,7 @@
-import axios from "axios";
-import authHeader from "./auth-header";
+import axios from 'axios';
+import authHeader from './auth-header';
 
-const API_URL = "http://localhost:8082/api/";
+const API_URL = 'http://localhost:8082/api/';
 
 //Info for Workspace change
 //FIX ROUTES
@@ -12,19 +12,19 @@ class UserService {
   };
 
   getPublicContentSignUp = () => {
-    return axios.get(API_URL + "signup");
+    return axios.get(API_URL + 'signup');
   };
 
   getPublicContentLogIn = () => {
-    return axios.get(API_URL + "signin");
+    return axios.get(API_URL + 'signin');
   };
 
   getPublicContentInfo = () => {
-    return axios.get(API_URL + "info");
+    return axios.get(API_URL + 'info');
   };
 
-  getUserWorkstation = (localStorageUserId) => {
-    return axios.get(API_URL + "workstation", {
+  getUserWorkstation = localStorageUserId => {
+    return axios.get(API_URL + 'workstation', {
       headers: authHeader(),
       data: localStorageUserId,
     });

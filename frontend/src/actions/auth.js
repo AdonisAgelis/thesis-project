@@ -9,13 +9,13 @@ import {
   SEND_ROOM_DATA_FAIL,
   SEND_LOCAL_STORAGE_ID_SUCCESS,
   SEND_LOCAL_STORAGE_ID_FAIL,
-} from "./types";
+} from './types';
 
-import AuthService from "../services/auth.service";
+import AuthService from '../services/auth-service';
 
-export const register = (username, email, password) => (dispatch) => {
+export const register = (username, email, password) => dispatch => {
   return AuthService.register(username, email, password).then(
-    (response) => {
+    response => {
       dispatch({
         type: REGISTER_SUCCESS,
       });
@@ -27,7 +27,7 @@ export const register = (username, email, password) => (dispatch) => {
 
       return Promise.resolve();
     },
-    (error) => {
+    error => {
       const message =
         (error.response &&
           error.response.data &&
@@ -49,9 +49,9 @@ export const register = (username, email, password) => (dispatch) => {
   );
 };
 
-export const login = (email, password) => (dispatch) => {
+export const login = (email, password) => dispatch => {
   return AuthService.login(email, password).then(
-    (data) => {
+    data => {
       dispatch({
         type: LOGIN_SUCCESS,
         payload: { user: data },
@@ -59,7 +59,7 @@ export const login = (email, password) => (dispatch) => {
 
       return Promise.resolve();
     },
-    (error) => {
+    error => {
       const message =
         (error.response &&
           error.response.data &&
@@ -81,7 +81,7 @@ export const login = (email, password) => (dispatch) => {
   );
 };
 
-export const logout = () => (dispatch) => {
+export const logout = () => dispatch => {
   AuthService.logout();
 
   dispatch({
@@ -89,9 +89,9 @@ export const logout = () => (dispatch) => {
   });
 };
 
-export const sendRoomData = (roomData) => (dispatch) => {
+export const sendRoomData = roomData => dispatch => {
   AuthService.sendRoomData(roomData).then(
-    (response) => {
+    response => {
       dispatch({
         type: SEND_ROOM_DATA_SUCCESS,
       });
@@ -103,7 +103,7 @@ export const sendRoomData = (roomData) => (dispatch) => {
 
       return Promise.resolve();
     },
-    (error) => {
+    error => {
       const message =
         (error.response &&
           error.response.data &&
@@ -123,9 +123,9 @@ export const sendRoomData = (roomData) => (dispatch) => {
   );
 };
 
-export const sendLocalStorageUserId = (localStorageUserId) => (dispatch) => {
+export const sendLocalStorageUserId = localStorageUserId => dispatch => {
   AuthService.sendLocalStorageUserId(localStorageUserId).then(
-    (response) => {
+    response => {
       dispatch({
         type: SEND_LOCAL_STORAGE_ID_SUCCESS,
       });
@@ -137,7 +137,7 @@ export const sendLocalStorageUserId = (localStorageUserId) => (dispatch) => {
 
       return Promise.resolve();
     },
-    (error) => {
+    error => {
       const message =
         (error.response &&
           error.response.data &&

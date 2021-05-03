@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 import {
   MDBNavbar,
@@ -10,9 +10,9 @@ import {
   MDBCollapse,
   MDBContainer,
   MDBAnimation,
-} from "mdbreact";
+} from 'mdbreact';
 
-import logo from "../images/logo.png";
+import logo from '../images/logo.png';
 
 const Navbar = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -24,9 +24,9 @@ const Navbar = () => {
   const activeNavBtn = () => {
     const url = window.location.href;
 
-    if (url === "http://localhost:8081/login") {
+    if (url === 'http://localhost:8081/login') {
       return (
-        <MDBNavbarNav right style={{ marginRight: "5.5rem" }}>
+        <MDBNavbarNav right style={{ marginRight: '5.5rem' }}>
           <MDBNavItem>
             <MDBNavLink to="/signup">Sign Up</MDBNavLink>
           </MDBNavItem>
@@ -38,9 +38,9 @@ const Navbar = () => {
           </MDBNavItem>
         </MDBNavbarNav>
       );
-    } else if (url === "http://localhost:8081/info") {
+    } else if (url === 'http://localhost:8081/info') {
       return (
-        <MDBNavbarNav right style={{ marginRight: "5.5rem" }}>
+        <MDBNavbarNav right style={{ marginRight: '5.5rem' }}>
           <MDBNavItem>
             <MDBNavLink to="/signup">Sign Up</MDBNavLink>
           </MDBNavItem>
@@ -52,9 +52,9 @@ const Navbar = () => {
           </MDBNavItem>
         </MDBNavbarNav>
       );
-    } else if (url === "http://localhost:8081/signup") {
+    } else if (url === 'http://localhost:8081/signup') {
       return (
-        <MDBNavbarNav right style={{ marginRight: "5.5rem" }}>
+        <MDBNavbarNav right style={{ marginRight: '5.5rem' }}>
           <MDBNavItem active>
             <MDBNavLink to="/signup">Sign Up</MDBNavLink>
           </MDBNavItem>
@@ -66,19 +66,18 @@ const Navbar = () => {
           </MDBNavItem>
         </MDBNavbarNav>
       );
-    } else if (url === "http://localhost:8081/workstation") {
+    } else if (url === 'http://localhost:8081/workstation') {
       return (
         <MDBNavbarNav right>
           <MDBNavItem
-            style={{ paddingRight: "2px", paddingTop: "9px", color: "white" }}
-          >
+            style={{ paddingRight: '2px', paddingTop: '9px', color: 'white' }}>
             Hey <i>User</i> !
           </MDBNavItem>
         </MDBNavbarNav>
       );
     } else {
       return (
-        <MDBNavbarNav right style={{ marginRight: "5.5rem" }}>
+        <MDBNavbarNav right style={{ marginRight: '5.5rem' }}>
           <MDBNavItem>
             <MDBNavLink to="/signup">Sign Up</MDBNavLink>
           </MDBNavItem>
@@ -95,7 +94,7 @@ const Navbar = () => {
   const overlay = (
     <div
       id="sidenav-overlay"
-      style={{ backgroundColor: "transparent" }}
+      style={{ backgroundColor: 'transparent' }}
       onClick={handleTogglerClick}
     />
   );
@@ -107,14 +106,13 @@ const Navbar = () => {
         expand="md"
         fixed="top"
         scrolling
-        transparent
-      >
+        transparent>
         <MDBContainer>
           <MDBNavbarBrand>
             <a href="http://localhost:8081/">
               <img
                 src={logo}
-                style={{ height: "2.5rem" }}
+                style={{ height: '2.5rem' }}
                 className="img-fluid"
               />
             </a>
