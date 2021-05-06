@@ -12,6 +12,7 @@ import '../styles/workstation.css';
 
 const LoadPagination = () => {
   const rooms = useSelector(state => state.messageReducer.message);
+  // console.log(rooms);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,21 +20,15 @@ const LoadPagination = () => {
     dispatch(resetTypeOfDraggable());
   });
 
-  let names = rooms.map(function (room) {
-    return room.nameOfTemplate;
-  });
-  let heights = rooms.map(function (room) {
-    return room.height;
-  });
-  let widths = rooms.map(function (room) {
-    return room.width;
-  });
-  let accessPoints = rooms.map(function (room) {
-    return room.accessPointBadge;
-  });
-  let exhibits = rooms.map(function (room) {
-    return room.exhibitBadge;
-  });
+  let names = rooms.map(room => room.nameOfTemplate);
+
+  let heights = rooms.map(room => room.height);
+
+  let widths = rooms.map(room => room.width);
+
+  let accessPoints = rooms.map(room => room.accessPointBadge);
+
+  let exhibits = rooms.map(room => room.exhibitBadge);
 
   const handleRowClick = roomId => {
     const {

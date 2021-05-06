@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import { MDBMask, MDBView } from 'mdbreact';
 import '../styles/workstation.css';
 import WorkStationMenu from './WorkstationMenu';
 import { useSelector, useDispatch } from 'react-redux';
-import getUserWorkstation from '../services/user-service';
-import { Redirect } from 'react-router-dom';
+// import getUserWorkstation from '../services/user-service';
 
 const WorkStation = () => {
   const dispatch = useDispatch();
@@ -13,11 +13,11 @@ const WorkStation = () => {
   const isLoggedIn = useSelector(state => state.authReducer.isLoggedIn);
   const columnPos = 2;
 
-  useEffect(() => {
-    const userInLocalStorage = JSON.parse(window.localStorage.getItem('user'));
-    // dispatch(sendLocalStorageUserId(userInLocalStorage));
-    // getUserWorkstation(userInLocalStorage);
-  });
+  // useEffect(() => {
+  //   const userInLocalStorage = JSON.parse(window.localStorage.getItem('user'));
+  //   // dispatch(sendLocalStorageUserId(userInLocalStorage));
+  //   // getUserWorkstation(userInLocalStorage);
+  // });
 
   const revealMenus = () => {
     if (typeOfMenu === 'default') {

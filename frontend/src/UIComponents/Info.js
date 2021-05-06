@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import UserService from '../services/user-service';
+import React from 'react';
 import {
   MDBMask,
   MDBRow,
@@ -15,24 +14,6 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 
 const Info = () => {
-  const [content, setContent] = useState('');
-
-  // useEffect(() => {
-  //   UserService.getPublicContentInfo().then(
-  //     response => {
-  //       setContent(response.data);
-  //     },
-  //     error => {
-  //       setContent({
-  //         content:
-  //           (error.response && error.response.data) ||
-  //           error.message ||
-  //           error.toString()
-  //       });
-  //     }
-  //   );
-  // });
-
   return (
     <MDBAnimation type="fadeIn">
       <div id="info">

@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
-import UserService from '../services/user-service';
+import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import UserService from '../services/user-service';
 import {
   MDBMask,
   MDBRow,
@@ -17,8 +19,6 @@ import {
 import '../styles/signup.css';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { register } from '../actions/auth';
 
 const SignUp = () => {
@@ -97,10 +97,10 @@ const SignUp = () => {
       setLiNumberPasswordIcon('exclamation-circle');
     }
 
-    if (e.target.value.search(/[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/g) !== -1) {
+    if (e.target.value.search(/[-!$%^&*()_+|~=`{}\]:";'<>?,.]/g) !== -1) {
       setLiSpecialCharPasswordIcon('check');
     } else if (
-      e.target.value.search(/[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/g) === -1
+      e.target.value.search(/[-!$%^&*()_+|~=`{}\]:";'<>?,.]/g) === -1
     ) {
       setLiSpecialCharPasswordIcon('exclamation-circle');
     }
@@ -116,7 +116,7 @@ const SignUp = () => {
     const passUpper = /[A-Z]/g;
     const passLower = /[a-z]/g;
     const passNumber = /[0-9]/g;
-    const passSymbol = /[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/g;
+    const passSymbol = /[-!$%^&*()_+|~=`{}\]:";'<>?,.]/g;
 
     const passwordUpper = password.search(passUpper);
     const passwordLower = password.search(passLower);

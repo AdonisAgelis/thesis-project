@@ -1,5 +1,5 @@
 import React from 'react';
-import { MDBCol, MDBContainer, MDBRow, MDBIcon, MDBFooter } from 'mdbreact';
+import { MDBContainer, MDBIcon, MDBFooter } from 'mdbreact';
 
 const Footer = () => {
   return (
@@ -28,7 +28,7 @@ const Footer = () => {
           &copy; {new Date().getFullYear()} Copyright:{' '}
           <a href="https://www.mdbootstrap.com">
             {' '}
-            SweetFruits <span>🍒</span>
+            SweetFruits <span role='img' aria-label='Sweet Fruits'>🍒</span>
           </a>
         </MDBContainer>
       </div>
