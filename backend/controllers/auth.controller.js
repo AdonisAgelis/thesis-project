@@ -151,14 +151,5 @@ exports.saveRoomData = (req, res) => {
       res.status(500).send({ message: err });
       return;
     }
-
-    room.save(err => {
-      if (err) {
-        res.status(500).send({ message: err });
-        return;
-      }
-
-      // res.send({ message: "Room was registered successfully!" });
-    });
   });
 };
