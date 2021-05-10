@@ -21,6 +21,7 @@ const LoadPagination = () => {
   });
 
   let names = rooms.map(room => room.nameOfTemplate);
+  // console.log(names);
 
   let heights = rooms.map(room => room.height);
 
