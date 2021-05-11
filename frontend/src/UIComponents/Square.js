@@ -191,7 +191,7 @@ const Square = ({ black, pos, walls, outerSquares, roomCorners }) => {
   }
 
   //After drop dispatch to reducers
-  const extractTargetId = async (targetId, item, mapOfTargetId) => {
+  const extractTargetId =  (targetId, item, mapOfTargetId) => {
     let arrayOfTargetId = Array.from(mapOfTargetId.keys());
     let realTargetId = arrayOfTargetId.indexOf(targetId);
 
