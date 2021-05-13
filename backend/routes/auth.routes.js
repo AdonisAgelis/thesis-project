@@ -1,4 +1,4 @@
-const { verifySignUp } = require('../middleware');
+const { verifySignUp, replaceRoom } = require('../middleware');
 const authController = require('../controllers/auth.controller');
 const userController = require('../controllers/user.controller');
 
