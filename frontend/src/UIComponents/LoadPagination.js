@@ -13,6 +13,7 @@ import '../styles/workstation.css';
 const LoadPagination = () => {
   const rooms = useSelector(state => state.messageReducer.message);
   // console.log(rooms);
+  // console.log(typeof rooms);
   const dispatch = useDispatch();
 
   useEffect(() => {

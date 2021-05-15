@@ -22,7 +22,11 @@ module.exports = function (app) {
 
   app.post('/api/auth/signin', authController.signin);
 
-  app.post('/api/auth/workstation', authController.saveRoomData);
+  app.post(
+    '/api/auth/workstation',
+    [replaceRoom.replaceRoomInDataBase],
+    authController.saveRoomData
+  );
 
   app.post('/api/workstation', userController.userWorkstation);
 };

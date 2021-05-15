@@ -1,20 +1,15 @@
-const db = require('../models');
-const Room = db.room;
+const { db } = require('../models/room.model');
 
 replaceRoomInDataBase = (req, res, next) => {
-  Room.findOne({
-    name: req.body.nameOfTemplate,
-  }).exec((err, room) => {
-    if (err) {
-      res.status(400).send({ message: err });
-    }
+  const deezRooms = db.collection('rooms').find({ roomId: req.body._id });
 
-    if (room) {
-      res.send({ message: 'There is a room here' });
-    }
+  if (deezRooms) {
+    console.log('Rooms here');
+  } else {
+    console.log('No rooms here');
+  }
 
-    next();
-  });
+  next();
 };
 
 const replaceRoom = { replaceRoomInDataBase };
