@@ -98,7 +98,7 @@ const Navbar = () => {
       onClick={handleTogglerClick}
     />
   );
-  
+
   return (
     <div>
       <MDBNavbar

@@ -4,11 +4,8 @@ import { MDBMask, MDBView } from 'mdbreact';
 import '../styles/workstation.css';
 import WorkStationMenu from './WorkstationMenu';
 import { useSelector, useDispatch } from 'react-redux';
-// import getUserWorkstation from '../services/user-service';
 
 const WorkStation = () => {
-  const dispatch = useDispatch();
-  const [content, setContent] = useState('');
   const typeOfMenu = useSelector(state => state.dropMidColumnReducer);
   const isLoggedIn = useSelector(state => state.authReducer.isLoggedIn);
   const columnPos = 2;

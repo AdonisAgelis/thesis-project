@@ -12,7 +12,6 @@ import {
   MDBAnimation,
   MDBTypography,
   MDBBadge,
-  MDBIcon,
 } from 'mdbreact';
 
 import '../styles/workstation.css';
@@ -24,7 +23,6 @@ import logo from '../images/logo.png';
 import DragAndDropItems from './DragAndDropItems';
 import { useSelector, useDispatch } from 'react-redux';
 import { sendLocalStorageUserId } from '../actions/auth';
-import getUserWorkstation from '../services/user-service';
 
 const WorkStationMenu = props => {
   const [columnProp, setColumnProp] = useState(props);

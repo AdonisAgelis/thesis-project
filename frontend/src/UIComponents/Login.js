@@ -191,4 +191,5 @@ const LogIn = () => {
     </MDBAnimation>
   );
 };
+
 export default LogIn;

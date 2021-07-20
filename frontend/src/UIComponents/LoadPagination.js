@@ -21,16 +21,16 @@ const LoadPagination = () => {
     dispatch(resetTypeOfDraggable());
   });
 
-  let names = rooms.map(room => room.nameOfTemplate);
+  let names = rooms?.map(room => room.nameOfTemplate);
   // console.log(names);
 
-  let heights = rooms.map(room => room.height);
+  let heights = rooms?.map(room => room.height);
 
-  let widths = rooms.map(room => room.width);
+  let widths = rooms?.map(room => room.width);
 
-  let accessPoints = rooms.map(room => room.accessPointBadge);
+  let accessPoints = rooms?.map(room => room.accessPointBadge);
 
-  let exhibits = rooms.map(room => room.exhibitBadge);
+  let exhibits = rooms?.map(room => room.exhibitBadge);
 
   const handleRowClick = roomId => {
     const {

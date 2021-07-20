@@ -28,7 +28,10 @@ const Footer = () => {
           &copy; {new Date().getFullYear()} Copyright:{' '}
           <a href="https://www.mdbootstrap.com">
             {' '}
-            SweetFruits <span role='img' aria-label='Sweet Fruits'>🍒</span>
+            SweetFruits{' '}
+            <span role="img" aria-label="Sweet Fruits">
+              🍒
+            </span>
           </a>
         </MDBContainer>
       </div>

@@ -30,15 +30,12 @@ const SignUp = () => {
   const [usernameIsValid, setUsernameIsValid] = useState(true);
   const [emailIsValid, setEmailIsValid] = useState(true);
   const [passwordIsValid, setPasswordIsValid] = useState(true);
-  let [liLowerUpperPasswordIcon, setLiLowerUpperPasswordIcon] = useState(
-    'exclamation-circle'
-  );
-  let [liNumberPasswordIcon, setLiNumberPasswordIcon] = useState(
-    'exclamation-circle'
-  );
-  let [liSpecialCharPasswordIcon, setLiSpecialCharPasswordIcon] = useState(
-    'exclamation-circle'
-  );
+  let [liLowerUpperPasswordIcon, setLiLowerUpperPasswordIcon] =
+    useState('exclamation-circle');
+  let [liNumberPasswordIcon, setLiNumberPasswordIcon] =
+    useState('exclamation-circle');
+  let [liSpecialCharPasswordIcon, setLiSpecialCharPasswordIcon] =
+    useState('exclamation-circle');
   let [toWorkstation, setToWorkstation] = useState(false);
   let [passwordCheckerDisplay, setPasswordCheckerDisplay] = useState('none');
 
