@@ -9,7 +9,6 @@ import {
   MDBNavbarToggler,
   MDBCollapse,
   MDBContainer,
-  MDBAnimation,
 } from 'mdbreact';
 
 import logo from '../images/logo.png';
@@ -91,6 +90,7 @@ const Navbar = () => {
       );
     }
   };
+
   const overlay = (
     <div
       id="sidenav-overlay"
@@ -98,6 +98,7 @@ const Navbar = () => {
       onClick={handleTogglerClick}
     />
   );
+
   return (
     <div>
       <MDBNavbar

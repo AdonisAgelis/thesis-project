@@ -4,8 +4,8 @@ const User = db.user;
 const Role = db.role;
 const Room = db.room;
 
-var jwt = require('jsonwebtoken');
-var bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 
 exports.signup = (req, res) => {
   const user = new User({
@@ -150,6 +150,12 @@ exports.saveRoomData = (req, res) => {
     if (err) {
       res.status(500).send({ message: err });
       return;
+    }
+
+    if (room) {
+      res.status(200).send({
+        id: room._id,
+      });
     }
   });
 };

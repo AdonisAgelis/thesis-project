@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import UserService from '../services/user-service';
 import {
   MDBMask,
   MDBRow,
@@ -15,28 +14,9 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 
 const Landing = () => {
-  const [content, setContent] = useState('');
-
-  // useEffect(() => {
-  //   UserService.getPublicContentHome().then(
-  //     response => {
-  //       setContent(response.data);
-  //     },
-  //     error => {
-  //       setContent({
-  //         content:
-  //           (error.response && error.response.data) ||
-  //           error.message ||
-  //           error.toString()
-  //       });
-  //     }
-  //   );
-  // });
-
   return (
     <div id="main">
       <Navbar />
-
       <MDBView>
         <MDBMask className="d-flex justify-content-center align-items-center gradient">
           <MDBContainer>
@@ -63,7 +43,6 @@ const Landing = () => {
                   </a>
                 </MDBAnimation>
               </MDBCol>
-
               <MDBCol md="6" xl="5" className="mt-xl-5">
                 <MDBAnimation type="fadeInRight" delay=".3s">
                   <img

@@ -27,7 +27,7 @@ const Modal = props => {
   const dispatch = useDispatch();
 
   let height = useSelector(state => state.extractPositionReducer.height);
-  let roomdData = useSelector(state => state.extractPositionReducer);
+  let roomData = useSelector(state => state.extractPositionReducer);
   let width = useSelector(state => state.extractPositionReducer.width);
   let saveBtn = useSelector(state => state.buttonEnablingReducer.saveBtn);
 
@@ -65,7 +65,7 @@ const Modal = props => {
   const saveButtonEvent = () => {
     const userInLocalStorage = JSON.parse(window.localStorage.getItem('user'));
     dispatch(sendNameOfTemplate(nameOfTemplate, userInLocalStorage.id));
-    dispatch(sendRoomData(roomdData));
+    dispatch(sendRoomData(roomData));
     dispatch(sendLocalStorageUserId(userInLocalStorage));
     toggleSave();
     dispatch(sendSaveButtonState(saveBtn));

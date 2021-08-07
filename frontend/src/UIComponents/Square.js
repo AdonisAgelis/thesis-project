@@ -12,7 +12,6 @@ import {
   extractExhibitBadge,
   extractExitBadge,
   extractAccessPointBadge,
-  changeDimensions,
   changeIsResized,
   resetTypeOfDraggable,
   sendSquareComponentVariables,

@@ -8,7 +8,6 @@ import {
   MDBDropdownToggle,
   MDBDropdownMenu,
   MDBDropdownItem,
-  MDBAnimation,
 } from 'mdbreact';
 
 import '../styles/workstation.css';
@@ -19,15 +18,15 @@ import {
   dropSecondColumnLoad,
   updateFirstDropDown,
   updateSecondDropDown,
-  enableButtonsAfterClicking,
+  // enableButtonsAfterClicking,
   enableDropDownOptions,
   undoAfterClicking,
   resetRoom,
   resetTypeOfDraggable,
   enableSimulationButton,
 } from '../actions/workstation';
-import { sendRoomData } from '../actions/auth';
-import Modal from './Modal';
+// import { sendRoomData } from '../actions/auth';
+// import Modal from './Modal';
 
 const Buttons = props => {
   const [buttonProp, setButtonProp] = useState(props);
@@ -68,28 +67,8 @@ const Buttons = props => {
     return <MDBDropdownMenu basic>{array}</MDBDropdownMenu>;
   };
 
-  let entranceNumberBadge = useSelector(
-    state => state.extractPositionReducer.entranceBadge
-  );
-
-  let exitNumberBadge = useSelector(
-    state => state.extractPositionReducer.exitBadge
-  );
-
-  let accessPointNumberBadge = useSelector(
-    state => state.extractPositionReducer.accessPointBadge
-  );
-
-  let exhibitNumberBadge = useSelector(
-    state => state.extractPositionReducer.exhibitBadge
-  );
-
   let enableSimButton = useSelector(
     state => state.buttonEnablingReducer.disabledSimBtn
-  );
-
-  let enableDropDownButtons = useSelector(
-    state => state.buttonEnablingReducer.disabledGroupBtns
   );
 
   let saveBtnSent = useSelector(state => state.buttonEnablingReducer.saveBtn);
@@ -127,15 +106,13 @@ const Buttons = props => {
     },
   ];
 
-  let roomdData = useSelector(state => state.extractPositionReducer);
-
-  const handleNew = e => {
+  const handleNew = () => {
     dispatch(dropSecondColumn());
     dispatch(resetRoom());
     dispatch(resetTypeOfDraggable());
   };
 
-  const handleLoad = e => {
+  const handleLoad = () => {
     dispatch(resetRoom());
     dispatch(resetTypeOfDraggable());
     dispatch(dropSecondColumnLoad());
