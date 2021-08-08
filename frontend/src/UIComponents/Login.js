@@ -72,6 +72,7 @@ const LogIn = () => {
 
   const handleLogin = e => {
     e.preventDefault();
+    // From actions/auth.js
     dispatch(login(email, password))
       .then(() => {
         setToWorkstation(true);
