@@ -1,6 +1,7 @@
 const { verifySignUp, replaceRoom } = require('../middleware');
 const authController = require('../controllers/auth.controller');
 const userController = require('../controllers/user.controller');
+const simController = require('../controllers/simulation.controller');
 
 module.exports = function (app) {
   app.use(function (req, res, next) {
@@ -15,7 +16,6 @@ module.exports = function (app) {
     '/api/auth/signup',
     [
       verifySignUp.checkDuplicateUsernameOrEmail,
-      verifySignUp.checkRolesExisted,
     ],
     authController.signup
   );
@@ -29,4 +29,7 @@ module.exports = function (app) {
   );
 
   app.post('/api/workstation', userController.userWorkstation);
+
+  app.post('/api/simulation', simController.simulation)
+
 };

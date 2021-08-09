@@ -16,6 +16,8 @@ module.exports = function (app) {
 
   app.get('/api/signup', controller.allAccess);
 
+  app.post('/api/simulation', controller.simulation)
+
   app.get(
     '/api/workstation',
     [authJwt.verifyToken],

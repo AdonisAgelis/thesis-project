@@ -96,7 +96,7 @@ const LoadPagination = () => {
   };
 
   let data = [];
-  for (let roomId = 0; roomId < names.length; roomId++) {
+  for (let roomId = 0; roomId < names?.length; roomId++) {
     data[roomId] = {
       name: names[roomId],
       height: heights[roomId],
