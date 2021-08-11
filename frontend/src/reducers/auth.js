@@ -6,6 +6,8 @@ import {
   LOGOUT,
   SEND_ROOM_DATA_SUCCESS,
   SEND_ROOM_DATA_FAIL,
+  SEND_SIMULATION_DATA_SUCCESS,
+  SEND_SIMULATION_DATA_FAIL,
 } from '../actions/types';
 
 const user = JSON.parse(localStorage.getItem('user'));
@@ -51,6 +53,14 @@ const authReducer = (state = initialState, action) => {
         ...state,
       };
     case SEND_ROOM_DATA_FAIL:
+      return {
+        ...state,
+      };
+    case SEND_SIMULATION_DATA_SUCCESS:
+      return {
+        ...state,
+      };
+    case SEND_SIMULATION_DATA_FAIL:
       return {
         ...state,
       };

@@ -1,4 +1,4 @@
-const { verifySignUp, replaceRoom } = require('../middleware');
+const { verifySignUp, replaceRoom, authJwt } = require('../middleware');
 const authController = require('../controllers/auth.controller');
 const userController = require('../controllers/user.controller');
 const simController = require('../controllers/simulation.controller');
@@ -14,9 +14,7 @@ module.exports = function (app) {
 
   app.post(
     '/api/auth/signup',
-    [
-      verifySignUp.checkDuplicateUsernameOrEmail,
-    ],
+    [verifySignUp.checkDuplicateUsernameOrEmail],
     authController.signup
   );
 
@@ -30,6 +28,11 @@ module.exports = function (app) {
 
   app.post('/api/workstation', userController.userWorkstation);
 
-  app.post('/api/simulation', simController.simulation)
+  app.get(
+    '/api/workstation',
+    [authJwt.verifyToken],
+    userController.userWorkstation
+  );
 
+  app.post('/api/simulation', simController.simulation);
 };

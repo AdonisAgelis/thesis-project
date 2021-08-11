@@ -9,6 +9,8 @@ import {
   SEND_ROOM_DATA_FAIL,
   SEND_LOCAL_STORAGE_ID_SUCCESS,
   SEND_LOCAL_STORAGE_ID_FAIL,
+  SEND_SIMULATION_DATA_SUCCESS,
+  SEND_SIMULATION_DATA_FAIL,
 } from './types';
 
 import AuthService from '../services/auth-service';
@@ -147,6 +149,40 @@ export const sendLocalStorageUserId = localStorageUserId => dispatch => {
 
       dispatch({
         type: SEND_LOCAL_STORAGE_ID_FAIL,
+      });
+
+      dispatch({
+        type: SET_MESSAGE,
+        payload: message,
+      });
+    }
+  );
+};
+
+export const sendSimulationData = simData => dispatch => {
+  AuthService.sendSimulationData(simData).then(
+    response => {
+      dispatch({
+        type: SEND_SIMULATION_DATA_SUCCESS,
+      });
+
+      dispatch({
+        type: SET_MESSAGE,
+        payload: response.data,
+      });
+
+      return Promise.resolve();
+    },
+    error => {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      dispatch({
+        type: SEND_SIMULATION_DATA_FAIL,
       });
 
       dispatch({

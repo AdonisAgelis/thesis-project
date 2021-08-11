@@ -1,5 +1,4 @@
 import axios from 'axios';
-import authHeader from './auth-header';
 
 const API_URL = 'http://localhost:8082/api/';
 
@@ -21,13 +20,6 @@ class UserService {
 
   getPublicContentInfo = () => {
     return axios.get(API_URL + 'info');
-  };
-
-  getUserWorkstation = localStorageUserId => {
-    return axios.get(API_URL + 'workstation', {
-      headers: authHeader(),
-      data: localStorageUserId,
-    });
   };
 }
 

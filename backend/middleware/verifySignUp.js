@@ -1,5 +1,4 @@
 const db = require('../models');
-const ROLES = db.ROLES;
 const User = db.user;
 
 checkDuplicateUsernameOrEmail = (req, res, next) => {
@@ -36,10 +35,8 @@ checkDuplicateUsernameOrEmail = (req, res, next) => {
   });
 };
 
-
 const verifySignUp = {
   checkDuplicateUsernameOrEmail,
-  
 };
 
 module.exports = verifySignUp;
