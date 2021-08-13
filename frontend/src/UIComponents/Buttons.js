@@ -18,7 +18,6 @@ import {
   dropSecondColumnLoad,
   updateFirstDropDown,
   updateSecondDropDown,
-  // enableButtonsAfterClicking,
   enableDropDownOptions,
   undoAfterClicking,
   resetRoom,
@@ -26,8 +25,7 @@ import {
   enableSimulationButton,
   sendAddAttributes
 } from '../actions/workstation';
-// import { sendRoomData } from '../actions/auth';
-// import Modal from './Modal';
+
 
 const Buttons = props => {
   const [buttonProp, setButtonProp] = useState(props);
@@ -77,10 +75,24 @@ const Buttons = props => {
   const enableSimulation = () => {
     dispatch(enableSimulationButton());
     dispatch(sendAddAttributes(peopleType,peopleNum));
+    alert("Added",peopleNum,peopleType)
   };
 
-  const DropDownEnabled = () => {
+  const runSimulation= () => {
     dispatch(enableDropDownOptions());
+    // edw tha steilume dedomena mesw async reducers bla bla bla sto backend
+  };
+
+  const handleNew = () => {
+    dispatch(dropSecondColumn());
+    dispatch(resetRoom());
+    dispatch(resetTypeOfDraggable());
+  };
+
+  const handleLoad = () => {
+    dispatch(resetRoom());
+    dispatch(resetTypeOfDraggable());
+    dispatch(dropSecondColumnLoad());
   };
 
   let enableAdd = peopleNum === 'NUMBER OF PEOPLE';
@@ -108,17 +120,7 @@ const Buttons = props => {
     },
   ];
 
-  const handleNew = () => {
-    dispatch(dropSecondColumn());
-    dispatch(resetRoom());
-    dispatch(resetTypeOfDraggable());
-  };
-
-  const handleLoad = () => {
-    dispatch(resetRoom());
-    dispatch(resetTypeOfDraggable());
-    dispatch(dropSecondColumnLoad());
-  };
+  
 
   if (buttonProp.type === 'group') {
     return (
@@ -171,7 +173,7 @@ const Buttons = props => {
   } else if (buttonProp.type === 'run') {
     return (
       <MDBBtn
-        onClick={() => DropDownEnabled()}
+        onClick={() => runSimulation()}
         disabled={enableSimButton}
         id="run"
         rounded
