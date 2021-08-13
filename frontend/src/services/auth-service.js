@@ -51,7 +51,7 @@ class AuthService {
 
   sendLocalStorageUserId = localStorageUserId => {
     console.log('User Id was send succesfully!');
-    return axios.post(API_URL + 'workstation', {
+    return axios.post('http://localhost:8082/api/' + 'workstation', {
       localStorageUserId,
     });
   };

@@ -34,5 +34,5 @@ module.exports = function (app) {
     userController.userWorkstation
   );
 
-  app.post('/api/simulation', simController.simulation);
+  app.post('/api/auth/simulation', simController.simulation);
 };

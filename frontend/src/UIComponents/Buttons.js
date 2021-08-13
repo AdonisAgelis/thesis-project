@@ -24,6 +24,7 @@ import {
   resetRoom,
   resetTypeOfDraggable,
   enableSimulationButton,
+  sendAddAttributes
 } from '../actions/workstation';
 // import { sendRoomData } from '../actions/auth';
 // import Modal from './Modal';
@@ -75,6 +76,7 @@ const Buttons = props => {
 
   const enableSimulation = () => {
     dispatch(enableSimulationButton());
+    dispatch(sendAddAttributes(peopleType,peopleNum));
   };
 
   const DropDownEnabled = () => {

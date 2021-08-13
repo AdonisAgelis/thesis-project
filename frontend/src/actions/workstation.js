@@ -172,6 +172,7 @@ export const sendNameOfTemplate = (value1, value2) => {
   };
 };
 
+
 // Send Square Component Variables
 
 export const sendSquareComponentVariables = (
@@ -249,5 +250,15 @@ export const sendRoomDataFromLoad = (
     payload24: value24,
     payload25: value25,
     payload26: value26,
+  };
+};
+
+//Action for Add Button
+
+export const sendAddAttributes = (valueX, valueY) => {
+  return {
+    type: 'SEND_ATTRIBUTES',
+    payloadX: valueX,
+    payloadY: valueY,
   };
 };
