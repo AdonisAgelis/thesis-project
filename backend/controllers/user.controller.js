@@ -13,7 +13,3 @@ exports.userWorkstation = (req, res) => {
 exports.allAccess = (req, res) => {
   res.status(200).send('All Access Content.');
 };
-
-exports.simulation = (req, res) => {
-  res.status(200).send('All Access Content.');
-};

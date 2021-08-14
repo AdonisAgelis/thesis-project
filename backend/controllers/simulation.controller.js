@@ -13,5 +13,19 @@ Stelnoume sto frontend ton pinaka
 Molis teliosume ayto to kommati tote to sindeoume me to front*/
 
 exports.simulation = (req, res) => {
-  res.status(200).send('Yo');
+  const transferedData = {
+    typeOfGroup: req.body.typeOfGroup,
+    numberOfPeopleInGroup: req.body.numberOfPeopleInGroup,
+    userID: req.body.userID,
+    nameOfTemplate: req.body.nameOfTemplate,
+  };
+
+  db.collection('rooms')
+    .find({ userId: req.body.transferedData.userID })
+    .toArray()
+    .then(results => {
+      console.log(results);
+      // res.status(200).send(results);
+    })
+    .catch(error => console.error.name(error));
 };
