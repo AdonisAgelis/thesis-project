@@ -172,7 +172,6 @@ export const sendNameOfTemplate = (value1, value2) => {
   };
 };
 
-
 // Send Square Component Variables
 
 export const sendSquareComponentVariables = (

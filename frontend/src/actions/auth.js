@@ -159,36 +159,44 @@ export const sendLocalStorageUserId = localStorageUserId => dispatch => {
   );
 };
 
-export const sendSimulationData = simData => dispatch => {
-  AuthService.sendSimulationData(simData).then(
-    response => {
-      dispatch({
-        type: SEND_SIMULATION_DATA_SUCCESS,
-      });
+// Action for Simulation Button
 
-      dispatch({
-        type: SET_MESSAGE,
-        payload: response.data,
-      });
+export const sendSimulationData =
+  (typeOfGroup, numberOfPeopleInGroup, userID, nameOfTemplate) => dispatch => {
+    AuthService.sendSimulationData(
+      typeOfGroup,
+      numberOfPeopleInGroup,
+      userID,
+      nameOfTemplate
+    ).then(
+      response => {
+        dispatch({
+          type: SEND_SIMULATION_DATA_SUCCESS,
+        });
 
-      return Promise.resolve();
-    },
-    error => {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
+        dispatch({
+          type: SET_MESSAGE,
+          payload: response.data,
+        });
 
-      dispatch({
-        type: SEND_SIMULATION_DATA_FAIL,
-      });
+        return Promise.resolve();
+      },
+      error => {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
 
-      dispatch({
-        type: SET_MESSAGE,
-        payload: message,
-      });
-    }
-  );
-};
+        dispatch({
+          type: SEND_SIMULATION_DATA_FAIL,
+        });
+
+        dispatch({
+          type: SET_MESSAGE,
+          payload: message,
+        });
+      }
+    );
+  };

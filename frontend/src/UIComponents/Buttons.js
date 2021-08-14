@@ -12,7 +12,7 @@ import {
 
 import '../styles/workstation.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { logout } from '../actions/auth';
+import { logout, sendSimulationData } from '../actions/auth';
 import {
   dropSecondColumn,
   dropSecondColumnLoad,
@@ -23,14 +23,44 @@ import {
   resetRoom,
   resetTypeOfDraggable,
   enableSimulationButton,
-  sendAddAttributes
+  sendAddAttributes,
 } from '../actions/workstation';
-
 
 const Buttons = props => {
   const [buttonProp, setButtonProp] = useState(props);
   const dispatch = useDispatch();
   const history = useHistory();
+
+  const peopleType = useSelector(state => state.dropdownSelectionsReducer);
+
+  const peopleNum = useSelector(state => state.dropdownSecondSelectionsReducer);
+
+  let enableSimButton = useSelector(
+    state => state.buttonEnablingReducer.disabledSimBtn
+  );
+
+  let saveBtnSent = useSelector(state => state.buttonEnablingReducer.saveBtn);
+
+  // Selectors for Simulation Data
+
+  let typeOfGroup = useSelector(
+    state => state.sendAttributesReducer.typeOfGroup
+  );
+
+  let numberOfPeopleInGroup = useSelector(
+    state => state.sendAttributesReducer.numberOfPeopleInGroup
+  );
+
+  let userID = useSelector(state => state.extractPositionReducer.userId);
+
+  let nameOfTemplate = useSelector(
+    state => state.extractPositionReducer.nameOfTemplate
+  );
+
+  console.log(typeOfGroup);
+  console.log(numberOfPeopleInGroup);
+  console.log(userID);
+  console.log(nameOfTemplate);
 
   const routeChange = () => {
     let path = '';
@@ -41,10 +71,6 @@ const Buttons = props => {
     dispatch(logout());
     console.log('Logged out!');
   };
-
-  const peopleType = useSelector(state => state.dropdownSelectionsReducer);
-
-  const peopleNum = useSelector(state => state.dropdownSecondSelectionsReducer);
 
   const handleDropDown = async index => {
     if (index !== peopleType) {
@@ -66,21 +92,23 @@ const Buttons = props => {
     return <MDBDropdownMenu basic>{array}</MDBDropdownMenu>;
   };
 
-  let enableSimButton = useSelector(
-    state => state.buttonEnablingReducer.disabledSimBtn
-  );
-
-  let saveBtnSent = useSelector(state => state.buttonEnablingReducer.saveBtn);
-
   const enableSimulation = () => {
     dispatch(enableSimulationButton());
-    dispatch(sendAddAttributes(peopleType,peopleNum));
-    alert("Added",peopleNum,peopleType)
+    dispatch(sendAddAttributes(peopleType, peopleNum));
+    alert('Added', peopleNum, peopleType);
   };
 
-  const runSimulation= () => {
+  const runSimulation = () => {
     dispatch(enableDropDownOptions());
     // edw tha steilume dedomena mesw async reducers bla bla bla sto backend
+    dispatch(
+      sendSimulationData(
+        typeOfGroup,
+        numberOfPeopleInGroup,
+        userID,
+        nameOfTemplate
+      )
+    );
   };
 
   const handleNew = () => {
@@ -119,8 +147,6 @@ const Buttons = props => {
       isActive: 4,
     },
   ];
-
-  
 
   if (buttonProp.type === 'group') {
     return (

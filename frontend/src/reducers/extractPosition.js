@@ -26,7 +26,7 @@ const initialState = {
   accessPointPositionArrayFromSquareComponent: [],
   exhibitPositionArrayFromSquareComponent: [],
   wallPositionArrayFromSquareComponent: [],
-  nameOfTemplate: 'Louvre Museum',
+  nameOfTemplate: 'Default',
 };
 
 const extractPositionReducer = (state = initialState, action) => {

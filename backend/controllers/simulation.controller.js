@@ -13,5 +13,5 @@ Stelnoume sto frontend ton pinaka
 Molis teliosume ayto to kommati tote to sindeoume me to front*/
 
 exports.simulation = (req, res) => {
-  res.status(200).send(req.body);
+  res.status(200).send('Yo');
 };

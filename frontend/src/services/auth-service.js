@@ -42,10 +42,18 @@ class AuthService {
     });
   };
 
-  sendSimulationData = simData => {
+  sendSimulationData = (
+    typeOfGroup,
+    numberOfPeopleInGroup,
+    userID,
+    nameOfTemplate
+  ) => {
     console.log('Sim data sent!');
     return axios.post(API_URL + 'simulation', {
-      simData,
+      typeOfGroup,
+      numberOfPeopleInGroup,
+      userID,
+      nameOfTemplate,
     });
   };
 
