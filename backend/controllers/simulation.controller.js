@@ -26,11 +26,13 @@ exports.simulation = (req, res) => {
     .find({ userId: transferedData.userID, nameOfTemplate:transferedData.nameOfTemplate })
     .toArray()
     .then(results => {
-      
+      console.log(results);
       
     })
     .catch(error => console.error.name(error));
   }
+
+  simulationRoom();
   
   // const printSimulationRoom = async () => {
   //   const a = await simulationRoom;
