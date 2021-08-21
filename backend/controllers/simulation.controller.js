@@ -34,11 +34,11 @@ exports.simulation = (req, res) => {
     })
     .catch(error => console.error.name(error));
 
-  const printSimulationRoom = async () => {
+  const runSimulationRoom = async () => {
     const [a] = await dataToSim;
     console.log(a);
     console.log(a.height);
   };
 
-  printSimulationRoom();
+  runSimulationRoom();
 };
