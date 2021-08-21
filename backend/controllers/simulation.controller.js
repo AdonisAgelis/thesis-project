@@ -37,7 +37,9 @@ exports.simulation = (req, res) => {
   const runSimulationRoom = async () => {
     const [a] = await dataToSim;
     console.log(a);
-    console.log(a.height);
+
+    const height = a.height;
+    console.log(height);
   };
 
   runSimulationRoom();
