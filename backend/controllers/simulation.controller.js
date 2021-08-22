@@ -21,23 +21,27 @@ exports.simulation = (req, res) => {
     nameOfTemplate: req.body.nameOfTemplate,
   };
   console.log(transferedData)
-  const simulationRoom = ()=> {
-    db.collection('rooms')
-    .find({ userId: transferedData.userID, nameOfTemplate:transferedData.nameOfTemplate })
-    .toArray()
-    .then(results => {
-      console.log(results);
-      
-    })
-    .catch(error => console.error.name(error));
-  }
+  const dataToSim = db
+  .collection('rooms')
+  .find({
+    userId: transferedData.userID,
+    nameOfTemplate: transferedData.nameOfTemplate,
+  })
+  .toArray()
+  .then(results => {
+    return results;
+  })
+  .catch(error => console.error.name(error));
 
-  simulationRoom();
-  
-  // const printSimulationRoom = async () => {
-  //   const a = await simulationRoom;
-  //   console.log(a);
-  // }  
+  const runSimulationRoom = async () => {
+    const [a] = await dataToSim;
+    console.log(a);
+
+    const height = a.height;
+    console.log(height);
+};
+
+runSimulationRoom();
 
   
 };
