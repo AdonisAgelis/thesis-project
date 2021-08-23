@@ -31,6 +31,10 @@ const Buttons = props => {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  // Selectors for Button Enabling
+
+  const roomLoaded = useSelector(state => state.buttonEnablingReducer.isLoaded);
+
   const peopleType = useSelector(state => state.dropdownSelectionsReducer);
 
   const peopleNum = useSelector(state => state.dropdownSecondSelectionsReducer);
@@ -124,6 +128,10 @@ const Buttons = props => {
   };
 
   let enableAdd = peopleNum === 'NUMBER OF PEOPLE';
+
+  if (roomLoaded) {
+    saveBtnSent = false;
+  }
 
   const dropdownItems = [
     {

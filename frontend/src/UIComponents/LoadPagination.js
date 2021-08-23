@@ -6,6 +6,7 @@ import {
   sendRoomDataFromLoad,
   resetRoom,
   resetTypeOfDraggable,
+  roomIsLoaded,
 } from '../actions/workstation';
 
 import '../styles/workstation.css';
@@ -93,6 +94,7 @@ const LoadPagination = () => {
       )
     );
     dispatch(dropSecondColumn());
+    dispatch(roomIsLoaded());
   };
 
   let data = [];
