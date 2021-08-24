@@ -1,4 +1,5 @@
-const { db } = require('../models/room.model');
+const { db } = require('../models');
+const Room = db.room;
 
 replaceRoomInDataBase = (req, res, next) => {
   const deezRooms = db.collection('rooms').find({ roomId: req.body._id });
