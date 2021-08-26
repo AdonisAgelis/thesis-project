@@ -3,23 +3,49 @@ const Room = db.room;
 
 replaceRoomInDataBase = (req, res, next) => {
   const postedData = {
+    userId: req.body.roomData.userId,
+    entrance: req.body.roomData.entrance,
+    exit: req.body.roomData.exit,
+    accessPoint: req.body.roomData.accessPoint,
+    exhibit: req.body.roomData.exhibit,
+    wall: req.body.roomData.wall,
+    positionThatWillUndo: req.body.roomData.positionThatWillUndo,
+    counterAccessPoint: req.body.roomData.counterAccessPoint,
+    counterExhibit: req.body.roomData.counterExhibit,
+    counterWall: req.body.roomData.counterWall,
+    counterAllPositions: req.body.roomData.counterAllPositions,
+    allPositions: req.body.roomData.allPositions,
+    entranceBadge: req.body.roomData.entranceBadge,
+    exitBadge: req.body.roomData.exitBadge,
+    accessPointBadge: req.body.roomData.accessPointBadge,
+    exhibitBadge: req.body.roomData.exhibitBadge,
+    height: req.body.roomData.height,
+    width: req.body.roomData.width,
+    isResized: req.body.roomData.isResized,
+    dropdownSelectionsReducer: req.body.roomData.dropdownSelectionsReducer,
+    counterAPFromSquareComponent:
+      req.body.roomData.counterAPFromSquareComponent,
+    counterExhibitFromSquareComponent:
+      req.body.roomData.counterExhibitFromSquareComponent,
+    counterWallFromSquareComponent:
+      req.body.roomData.counterWallFromSquareComponent,
+    accessPointPositionArrayFromSquareComponent:
+      req.body.roomData.accessPointPositionArrayFromSquareComponent,
+    exhibitPositionArrayFromSquareComponent:
+      req.body.roomData.exhibitPositionArrayFromSquareComponent,
+    wallPositionArrayFromSquareComponent:
+      req.body.roomData.wallPositionArrayFromSquareComponent,
     nameOfTemplate: req.body.roomData.nameOfTemplate,
   };
-  console.log(`These are the original data: ${postedData}`);
 
-  const postedJSONStringData = JSON.stringify(postedData);
-  console.log(`These are the string data: ${postedJSONStringData}`);
+  const postedJSONStringData = JSON.stringify(postedData.nameOfTemplate);
+  console.log(`This is the stringify: ${postedJSONStringData}`);
 
   const postedParsedJSONData = JSON.parse(postedJSONStringData);
-  console.log(`These are the parsed data: ${postedParsedJSONData}`);
+  console.log(`This is the parsed one: ${postedParsedJSONData}`);
 
-  const dataToSearch = postedParsedJSONData.nameOfTemplate;
-  console.log(`These are the data to search: ${dataToSearch}`);
-  console.log(`This is the type: ${typeof dataToSearch}`);
-
-  const roomToReplace = Room.findOne({ nameOfTemplate: dataToSearch })
+  const roomToReplace = Room.findOne({ nameOfTemplate: postedParsedJSONData })
     .then(results => {
-      console.log(`These are the results: ${results}`);
       return results;
     })
     .catch(error => {
@@ -28,14 +54,16 @@ replaceRoomInDataBase = (req, res, next) => {
 
   const replaceRoomFeature = async () => {
     const template = await roomToReplace;
-    console.log(`This is the template: ${template}`);
 
-    template ? console.log('Room already exists bruh') : next();
+    if (template) {
+      console.log('Room was replaced in database.');
+      console.log(`This is the template that got replaced: ${template}`);
+    } else {
+      next();
+    }
   };
 
   replaceRoomFeature();
-
-  // next();
 };
 
 const replaceRoom = { replaceRoomInDataBase };
