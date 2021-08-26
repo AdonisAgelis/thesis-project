@@ -33,6 +33,8 @@ const Modal = props => {
   let width = useSelector(state => state.extractPositionReducer.width);
   let saveBtn = useSelector(state => state.buttonEnablingReducer.saveBtn);
 
+  // console.log(roomData);
+
   let entranceBadgeNum = useSelector(
     state => state.extractPositionReducer.entranceBadge
   );

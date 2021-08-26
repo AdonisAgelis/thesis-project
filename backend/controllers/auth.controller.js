@@ -156,6 +156,7 @@ exports.saveRoomData = (req, res) => {
     if (room) {
       res.status(200).send({
         id: room._id,
+        message: 'Room was saved to MongoDB successfully!',
       });
     }
   });
