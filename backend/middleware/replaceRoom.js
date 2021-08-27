@@ -38,9 +38,10 @@ replaceRoomInDataBase = (req, res, next) => {
     nameOfTemplate: req.body.roomData.nameOfTemplate,
   };
 
-  const roomToReplace = Room.findOne({
-    nameOfTemplate: postedData.nameOfTemplate,
-  })
+  const query = { nameOfTemplate: postedData.nameOfTemplate };
+  const options = { returnNewDocument: true };
+
+  const roomToReplace = Room.findOneAndReplace(query, postedData, options)
     .then(results => {
       return results;
     })
@@ -53,7 +54,6 @@ replaceRoomInDataBase = (req, res, next) => {
 
     if (template) {
       console.log('Room was replaced in database.');
-      console.log(`This is the template that got replaced: ${template}`);
     } else {
       next();
     }
