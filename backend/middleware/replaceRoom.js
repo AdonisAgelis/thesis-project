@@ -38,13 +38,9 @@ replaceRoomInDataBase = (req, res, next) => {
     nameOfTemplate: req.body.roomData.nameOfTemplate,
   };
 
-  const postedJSONStringData = JSON.stringify(postedData.nameOfTemplate);
-  console.log(`This is the stringify: ${postedJSONStringData}`);
-
-  const postedParsedJSONData = JSON.parse(postedJSONStringData);
-  console.log(`This is the parsed one: ${postedParsedJSONData}`);
-
-  const roomToReplace = Room.findOne({ nameOfTemplate: postedParsedJSONData })
+  const roomToReplace = Room.findOne({
+    nameOfTemplate: postedData.nameOfTemplate,
+  })
     .then(results => {
       return results;
     })
