@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { MDBDataTableV5 } from 'mdbreact';
+import { MDBDataTableV5, MDBIcon } from 'mdbreact';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   dropSecondColumn,
@@ -13,8 +13,10 @@ import '../styles/workstation.css';
 
 const LoadPagination = () => {
   const rooms = useSelector(state => state.messageReducer.message);
-  // console.log(rooms);
-  // console.log(typeof rooms);
+  console.log(`These are the rooms: ${rooms}`);
+
+  console.log(Object.values(rooms));
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -23,7 +25,6 @@ const LoadPagination = () => {
   });
 
   let names = rooms?.map(room => room.nameOfTemplate);
-  // console.log(names);
 
   let heights = rooms?.map(room => room.height);
 
@@ -164,6 +165,7 @@ const LoadPagination = () => {
         backgroundColor: 'rgba(255, 255, 255, 0)',
       }}
     />
+    // {/* <MDBIcon icon="trash-alt" /> */}
   );
 };
 

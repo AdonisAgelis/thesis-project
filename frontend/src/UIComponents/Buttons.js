@@ -61,10 +61,10 @@ const Buttons = props => {
     state => state.extractPositionReducer.nameOfTemplate
   );
 
-  console.log(typeOfGroup);
-  console.log(numberOfPeopleInGroup);
-  console.log(userID);
-  console.log(nameOfTemplate);
+  // console.log(typeOfGroup);
+  // console.log(numberOfPeopleInGroup);
+  // console.log(userID);
+  // console.log(nameOfTemplate);
 
   const routeChange = () => {
     let path = '';
@@ -76,15 +76,15 @@ const Buttons = props => {
     console.log('Logged out!');
   };
 
-  const handleDropDown = async index => {
+  const handleDropDown = index => {
     if (index !== peopleType) {
-      await dispatch(updateFirstDropDown(index));
-      await dispatch(updateSecondDropDown('NUMBER OF PEOPLE'));
+      dispatch(updateFirstDropDown(index));
+      dispatch(updateSecondDropDown('NUMBER OF PEOPLE'));
     }
   };
 
-  const handleSecondDropDown = async testing => {
-    await dispatch(updateSecondDropDown(testing));
+  const handleSecondDropDown = testing => {
+    dispatch(updateSecondDropDown(testing));
   };
 
   const groupDropDownOptions = (x, y) => {
