@@ -1,9 +1,4 @@
-const config = require('../config/auth.config');
-const { db } = require('../models/user.model');
-const User = db.user;
-const Role = db.role;
-const Room = db.room;
-
+const { db } = require('../models/room.model');
 
 /*Dexomaste apo frontend (axios post) to room ID, to idos tis omadas twn anthrwpwn kai ton arithmo tous
 Pairnoume apo mongo database (me vasi to id tou dwmatioy) ta xaraktiristika tou 
@@ -20,18 +15,18 @@ exports.simulation = (req, res) => {
     userID: req.body.userID,
     nameOfTemplate: req.body.nameOfTemplate,
   };
-  console.log(transferedData)
+
   const dataToSim = db
-  .collection('rooms')
-  .find({
-    userId: transferedData.userID,
-    nameOfTemplate: transferedData.nameOfTemplate,
-  })
-  .toArray()
-  .then(results => {
-    return results;
-  })
-  .catch(error => console.error.name(error));
+    .collection('rooms')
+    .find({
+      userId: transferedData.userID,
+      nameOfTemplate: transferedData.nameOfTemplate,
+    })
+    .toArray()
+    .then(results => {
+      return results;
+    })
+    .catch(error => console.error.name(error));
 
   const runSimulationRoom = async () => {
     const [a] = await dataToSim;
@@ -39,9 +34,7 @@ exports.simulation = (req, res) => {
 
     const height = a.height;
     console.log(height);
-};
+  };
 
-runSimulationRoom();
-
-  
+  runSimulationRoom();
 };

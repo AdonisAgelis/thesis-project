@@ -26,10 +26,14 @@ const Modal = props => {
   const [modalSave, setModalSave] = useState(false);
   const dispatch = useDispatch();
 
+  // Handle Button Enabling after Load
+
   let height = useSelector(state => state.extractPositionReducer.height);
   let roomData = useSelector(state => state.extractPositionReducer);
   let width = useSelector(state => state.extractPositionReducer.width);
   let saveBtn = useSelector(state => state.buttonEnablingReducer.saveBtn);
+
+  // console.log(roomData);
 
   let entranceBadgeNum = useSelector(
     state => state.extractPositionReducer.entranceBadge

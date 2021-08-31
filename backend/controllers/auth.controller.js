@@ -78,7 +78,7 @@ exports.signin = (req, res) => {
         return res.status(404).send({ message: 'User Not found.' });
       }
 
-      var passwordIsValid = bcrypt.compareSync(
+      const passwordIsValid = bcrypt.compareSync(
         req.body.password,
         user.password
       );
@@ -90,15 +90,16 @@ exports.signin = (req, res) => {
         });
       }
 
-      var token = jwt.sign({ id: user.id }, config.secret, {
+      const token = jwt.sign({ id: user.id }, config.secret, {
         expiresIn: 86400, // 24 hours
       });
 
-      var authorities = [];
+      let authorities = [];
 
       for (let i = 0; i < user.roles.length; i++) {
         authorities.push('ROLE_' + user.roles[i].name.toUpperCase());
       }
+
       res.status(200).send({
         id: user._id,
         username: user.username,
@@ -155,6 +156,7 @@ exports.saveRoomData = (req, res) => {
     if (room) {
       res.status(200).send({
         id: room._id,
+        message: 'Room was saved to MongoDB successfully!',
       });
     }
   });

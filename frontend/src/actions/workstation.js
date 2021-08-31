@@ -124,6 +124,12 @@ export const sendSaveButtonState = () => {
   };
 };
 
+export const roomIsLoaded = () => {
+  return {
+    type: 'ROOM_IS_LOADED',
+  };
+};
+
 // UNDO FEATURE
 
 export const undoAfterClicking = () => {

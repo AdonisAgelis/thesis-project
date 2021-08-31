@@ -2,6 +2,7 @@ const initialState = {
   disabledSimBtn: true,
   disabledGroupBtns: true,
   saveBtn: true,
+  isLoaded: false,
 };
 
 const buttonEnablingReducer = (state = initialState, action) => {
@@ -14,6 +15,9 @@ const buttonEnablingReducer = (state = initialState, action) => {
       return state;
     case 'SEND_SAVE_BUTTON_STATE':
       state.saveBtn = false;
+      return state;
+    case 'ROOM_IS_LOADED':
+      state.isLoaded = true;
       return state;
     default:
       return { ...state };
