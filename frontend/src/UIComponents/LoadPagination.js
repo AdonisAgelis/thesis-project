@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MDBDataTableV5, MDBIcon } from 'mdbreact';
 import { useSelector, useDispatch } from 'react-redux';
 import {
@@ -10,14 +10,18 @@ import {
 } from '../actions/workstation';
 
 import '../styles/workstation.css';
+import { sendLocalStorageUserId } from '../actions/auth';
 
 const LoadPagination = () => {
-  const rooms = useSelector(state => state.messageReducer.message);
-  console.log(`These are the rooms: ${rooms}`);
+  const rooms = useSelector(state => state.messageReducer.data);
+  // console.log(`These are the rooms: ${rooms}`);
 
-  console.log(Object.values(rooms));
+  // console.log(Object.values(rooms));
 
   const dispatch = useDispatch();
+
+  // const userInLocalStorage = JSON.parse(window.localStorage.getItem('user'));
+  // dispatch(sendLocalStorageUserId(userInLocalStorage));
 
   useEffect(() => {
     dispatch(resetRoom());

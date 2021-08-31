@@ -11,6 +11,7 @@ import {
   SEND_LOCAL_STORAGE_ID_FAIL,
   SEND_SIMULATION_DATA_SUCCESS,
   SEND_SIMULATION_DATA_FAIL,
+  SET_DATA,
 } from './types';
 
 import AuthService from '../services/auth-service';
@@ -103,6 +104,11 @@ export const sendRoomData = roomData => dispatch => {
         payload: response.data.message,
       });
 
+      dispatch({
+        type: SET_DATA,
+        payload: response.data,
+      });
+
       return Promise.resolve();
     },
     error => {
@@ -133,7 +139,7 @@ export const sendLocalStorageUserId = localStorageUserId => dispatch => {
       });
 
       dispatch({
-        type: SET_MESSAGE,
+        type: SET_DATA,
         payload: response.data,
       });
 
