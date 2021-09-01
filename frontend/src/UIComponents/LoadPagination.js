@@ -14,14 +14,8 @@ import { sendLocalStorageUserId } from '../actions/auth';
 
 const LoadPagination = () => {
   const rooms = useSelector(state => state.messageReducer.data);
-  // console.log(`These are the rooms: ${rooms}`);
-
-  // console.log(Object.values(rooms));
 
   const dispatch = useDispatch();
-
-  // const userInLocalStorage = JSON.parse(window.localStorage.getItem('user'));
-  // dispatch(sendLocalStorageUserId(userInLocalStorage));
 
   useEffect(() => {
     dispatch(resetRoom());
