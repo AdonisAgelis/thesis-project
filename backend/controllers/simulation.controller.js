@@ -14,6 +14,7 @@ exports.simulation = (req, res) => {
     numberOfPeopleInGroup: req.body.numberOfPeopleInGroup,
     userID: req.body.userID,
     nameOfTemplate: req.body.nameOfTemplate,
+    noSimSquares: req.body.noSimSquares,
   };
 
   const dataToSim = db
@@ -29,11 +30,29 @@ exports.simulation = (req, res) => {
     .catch(error => console.error.name(error));
 
   const runSimulationRoom = async () => {
-    const [a] = await dataToSim;
-    console.log(a);
+    const [roomData] = await dataToSim;
+    console.log(roomData);
 
-    const height = a.height;
-    console.log(height);
+    // The items that have been dragged and dropped
+    const allPositions = roomData.allPositions;
+    console.log(`allPositions: ${allPositions}`);
+    // These squares are disabled for simulation
+    const noSimSquares = transferedData.noSimSquares.concat(allPositions);
+    console.log(`noSimSquares: ${noSimSquares.length}`);
+
+    // These are all 1000 squares of Template
+    let allSquares = [];
+
+    for (let i = 0; i < 1000; i++) {
+      allSquares.push(i);
+    }
+
+    // array1 = array1.filter(val => !array2.includes(val));
+
+    const simSquares = allSquares.filter(
+      value => !noSimSquares.includes(value)
+    );
+    console.log(`simSquares: ${simSquares.length}`);
   };
 
   runSimulationRoom();

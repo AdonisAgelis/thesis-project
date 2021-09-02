@@ -267,3 +267,12 @@ export const sendAddAttributes = (valueX, valueY) => {
     payloadY: valueY,
   };
 };
+
+// Action for sending noSimSquares
+
+export const sendNoSimSquares = value => {
+  return {
+    type: 'SEND_NO_SIM_SQUARES',
+    payload: value,
+  };
+};

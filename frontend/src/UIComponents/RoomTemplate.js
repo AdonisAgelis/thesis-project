@@ -1,10 +1,10 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import MemoizedSquare from './Square';
 // import DragAndDropItems from "./dragAndDropItems.component";
 
 // i : number of squares
-const renderSquare = (i, height, width) => {
+const renderSquare = (allSquares, height, width) => {
   const outerLeftSide = [];
   const outerRightSide = [];
   const outerTopSide = [];
@@ -89,20 +89,24 @@ const renderSquare = (i, height, width) => {
 
   let black = null;
 
-  if (WallArrays.includes(i)) {
+  if (WallArrays.includes(allSquares)) {
     black = true;
   } else {
     black = false;
   }
 
+  const noSimSquares = outerSquares.concat(WallArrays);
+  console.log(noSimSquares.length);
+
   return (
-    <div key={i} style={{ width: '20px', height: '20px' }}>
+    <div key={allSquares} style={{ width: '20px', height: '20px' }}>
       <MemoizedSquare
         black={black}
-        pos={i}
+        pos={allSquares}
         walls={WallArrays}
         outerSquares={outerSquares}
-        roomCorners={roomCorners}></MemoizedSquare>
+        roomCorners={roomCorners}
+        noSimSquares={noSimSquares}></MemoizedSquare>
     </div>
   );
 };
@@ -113,8 +117,8 @@ const RoomTemplate = () => {
   let width = useSelector(state => state.extractPositionReducer.width);
 
   const squares = [];
-  for (let i = 0; i < 1000; i++) {
-    squares.push(renderSquare(i, height, width));
+  for (let allSquares = 0; allSquares < 1000; allSquares++) {
+    squares.push(renderSquare(allSquares, height, width));
   }
 
   return (

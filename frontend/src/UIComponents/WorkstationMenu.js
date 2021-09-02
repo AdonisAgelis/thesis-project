@@ -185,7 +185,6 @@ const WorkStationMenu = props => {
                   }}>
                   <hr className="hr-light" style={{ width: '100%' }} />
                   <Modal type={'save'} />
-
                   <Buttons type={'group'} />
                   <Buttons type={'add'} />
                   <Buttons type={'run'} />

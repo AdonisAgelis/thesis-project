@@ -20,6 +20,8 @@ const initialState = {
   height: 23,
   width: 38,
   isResized: false,
+  // No Sim Squares
+  noSimSquares: [],
   counterAPFromSquareComponent: 0,
   counterExhibitFromSquareComponent: 0,
   counterWallFromSquareComponent: 0,
@@ -32,6 +34,9 @@ const initialState = {
 const extractPositionReducer = (state = initialState, action) => {
   state.positionThatWillUndo = null;
   switch (action.type) {
+    case 'SEND_NO_SIM_SQUARES':
+      state.noSimSquares = action.payload;
+      return state;
     case 'CHANGE_IS_RESIZED':
       state.isResized = !state.isResized;
       return state;
