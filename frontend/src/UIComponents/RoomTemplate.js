@@ -1,10 +1,43 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import MemoizedSquare from './Square';
-// import DragAndDropItems from "./dragAndDropItems.component";
+import { sendNoSimSquares } from '../actions/workstation';
 
-// i : number of squares
-const renderSquare = (allSquares, height, width) => {
+const renderSquare = (
+  allSquares,
+  WallArrays,
+  roomCorners,
+  noSimSquares,
+  outerSquares
+) => {
+  let black = null;
+
+  if (WallArrays.includes(allSquares)) {
+    black = true;
+  } else {
+    black = false;
+  }
+
+  return (
+    <div key={allSquares} style={{ width: '20px', height: '20px' }}>
+      <MemoizedSquare
+        black={black}
+        pos={allSquares}
+        walls={WallArrays}
+        outerSquares={outerSquares}
+        roomCorners={roomCorners}
+        noSimSquares={noSimSquares}></MemoizedSquare>
+    </div>
+  );
+};
+
+const RoomTemplate = () => {
+  const dispatch = useDispatch();
+
+  let height = useSelector(state => state.extractPositionReducer.height);
+
+  let width = useSelector(state => state.extractPositionReducer.width);
+
   const outerLeftSide = [];
   const outerRightSide = [];
   const outerTopSide = [];
@@ -15,7 +48,6 @@ const renderSquare = (allSquares, height, width) => {
   let y = 38 - width;
 
   // Make outer squares non-droppable zone
-
   for (let outerLeft = 40; outerLeft <= 920; outerLeft += 40) {
     for (let a = outerLeft; a <= outerLeft + y; a++) {
       outerLeftSide.push(a);
@@ -41,7 +73,6 @@ const renderSquare = (allSquares, height, width) => {
   const outerSquares = outerVerticalSquares.concat(outerHorizonalSquares);
 
   // Room Corners
-
   const roomCorners = [
     42 + x + y - 1,
     78 + x - y,
@@ -50,7 +81,6 @@ const renderSquare = (allSquares, height, width) => {
   ];
 
   // Black Squares
-
   let leftSideWallArray = [];
   let rightSideWallArray = [];
   let topSideWallArray = [];
@@ -87,38 +117,20 @@ const renderSquare = (allSquares, height, width) => {
   const horizontalWallArrays = topSideWallArray.concat(botSideWallArray);
   const WallArrays = verticalWallArrays.concat(horizontalWallArrays);
 
-  let black = null;
-
-  if (WallArrays.includes(allSquares)) {
-    black = true;
-  } else {
-    black = false;
-  }
-
   const noSimSquares = outerSquares.concat(WallArrays);
-  console.log(noSimSquares.length);
-
-  return (
-    <div key={allSquares} style={{ width: '20px', height: '20px' }}>
-      <MemoizedSquare
-        black={black}
-        pos={allSquares}
-        walls={WallArrays}
-        outerSquares={outerSquares}
-        roomCorners={roomCorners}
-        noSimSquares={noSimSquares}></MemoizedSquare>
-    </div>
-  );
-};
-
-const RoomTemplate = () => {
-  let height = useSelector(state => state.extractPositionReducer.height);
-
-  let width = useSelector(state => state.extractPositionReducer.width);
+  dispatch(sendNoSimSquares(noSimSquares));
 
   const squares = [];
   for (let allSquares = 0; allSquares < 1000; allSquares++) {
-    squares.push(renderSquare(allSquares, height, width));
+    squares.push(
+      renderSquare(
+        allSquares,
+        WallArrays,
+        roomCorners,
+        noSimSquares,
+        outerSquares
+      )
+    );
   }
 
   return (
