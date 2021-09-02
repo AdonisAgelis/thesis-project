@@ -47,8 +47,6 @@ exports.simulation = (req, res) => {
       allSquares.push(i);
     }
 
-    // array1 = array1.filter(val => !array2.includes(val));
-
     const simSquares = allSquares.filter(
       value => !noSimSquares.includes(value)
     );
