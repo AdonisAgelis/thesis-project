@@ -162,7 +162,6 @@ const LoadPagination = () => {
         backgroundColor: 'rgba(255, 255, 255, 0)',
       }}
     />
-    // {/* <MDBIcon icon="trash-alt" /> */}
   );
 };
 
