@@ -48,6 +48,7 @@ exports.simulation = (req, res) => {
       allSquares.push(i);
     }
 
+    // These are all the available squares for simulation
     const simSquares = allSquares.filter(
       value => !noSimSquares.includes(value)
     );
