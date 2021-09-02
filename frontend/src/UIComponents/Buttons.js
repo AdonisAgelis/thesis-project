@@ -65,6 +65,10 @@ const Buttons = props => {
     state => state.extractPositionReducer.nameOfTemplate
   );
 
+  let noSimSquares = useSelector(
+    state => state.extractPositionReducer.noSimSquares
+  );
+
   // console.log(typeOfGroup);
   // console.log(numberOfPeopleInGroup);
   // console.log(userID);
@@ -114,7 +118,8 @@ const Buttons = props => {
         typeOfGroup,
         numberOfPeopleInGroup,
         userID,
-        nameOfTemplate
+        nameOfTemplate,
+        noSimSquares
       )
     );
   };

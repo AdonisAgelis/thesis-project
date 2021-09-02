@@ -46,7 +46,8 @@ class AuthService {
     typeOfGroup,
     numberOfPeopleInGroup,
     userID,
-    nameOfTemplate
+    nameOfTemplate,
+    noSimSquares
   ) => {
     console.log('Sim data sent!');
     return axios.post(API_URL + 'simulation', {
@@ -54,6 +55,7 @@ class AuthService {
       numberOfPeopleInGroup,
       userID,
       nameOfTemplate,
+      noSimSquares,
     });
   };
 
