@@ -10,7 +10,6 @@ import {
 } from '../actions/workstation';
 
 import '../styles/workstation.css';
-import { sendLocalStorageUserId } from '../actions/auth';
 
 const LoadPagination = () => {
   const rooms = useSelector(state => state.messageReducer.data);
