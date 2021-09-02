@@ -117,7 +117,8 @@ const RoomTemplate = () => {
   const horizontalWallArrays = topSideWallArray.concat(botSideWallArray);
   const WallArrays = verticalWallArrays.concat(horizontalWallArrays);
 
-  const noSimSquares = outerSquares.concat(WallArrays);
+  let noSimSquares = outerSquares.concat(WallArrays);
+  noSimSquares = [...new Set(noSimSquares)];
   dispatch(sendNoSimSquares(noSimSquares));
 
   const squares = [];

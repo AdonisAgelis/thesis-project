@@ -37,7 +37,8 @@ exports.simulation = (req, res) => {
     const allPositions = roomData.allPositions;
     console.log(`allPositions: ${allPositions}`);
     // These squares are disabled for simulation
-    const noSimSquares = transferedData.noSimSquares.concat(allPositions);
+    let noSimSquares = transferedData.noSimSquares.concat(allPositions);
+    noSimSquares = [...new Set(noSimSquares)];
     console.log(`noSimSquares: ${noSimSquares.length}`);
 
     // These are all 1000 squares of Template
