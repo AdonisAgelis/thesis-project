@@ -12,7 +12,11 @@ import {
 
 import '../styles/workstation.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { logout, sendSimulationData } from '../actions/auth';
+import {
+  logout,
+  sendSimulationData,
+  sendLocalStorageUserId,
+} from '../actions/auth';
 import {
   dropSecondColumn,
   dropSecondColumnLoad,
@@ -122,6 +126,8 @@ const Buttons = props => {
   };
 
   const handleLoad = () => {
+    const userInLocalStorage = JSON.parse(window.localStorage.getItem('user'));
+    dispatch(sendLocalStorageUserId(userInLocalStorage));
     dispatch(resetRoom());
     dispatch(resetTypeOfDraggable());
     dispatch(dropSecondColumnLoad());

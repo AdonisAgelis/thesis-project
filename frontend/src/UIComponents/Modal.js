@@ -75,6 +75,12 @@ const Modal = props => {
     dispatch(sendSaveButtonState(saveBtn));
   };
 
+  const enterKeySave = event => {
+    if (event.key === 'Enter') {
+      saveButtonEvent();
+    }
+  };
+
   const toggleResize = () => {
     setModalResize(!modalResize);
   };
@@ -82,6 +88,12 @@ const Modal = props => {
   const resizeButtonEvent = () => {
     dispatch(changeDimensions(height, width));
     toggleResize();
+  };
+
+  const enterKeyResize = event => {
+    if (event.key === 'Enter') {
+      resizeButtonEvent();
+    }
   };
 
   if (modalProps.type === 'resize') {
@@ -119,7 +131,7 @@ const Modal = props => {
             <b> Change Dimensions</b>
           </MDBModalHeader>
 
-          <MDBModalBody>
+          <MDBModalBody onKeyDown={enterKeyResize}>
             <MDBInput
               className="black-text"
               iconClass="black-text"
@@ -188,7 +200,7 @@ const Modal = props => {
             <b>Name your Template</b>
           </MDBModalHeader>
 
-          <MDBModalBody>
+          <MDBModalBody onKeyDown={enterKeySave}>
             <MDBInput
               className="black-text"
               iconClass="black-text"

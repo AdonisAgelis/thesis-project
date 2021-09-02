@@ -52,15 +52,7 @@ replaceRoomInDataBase = (req, res, next) => {
   const replaceRoomFeature = async () => {
     const template = await roomToReplace;
 
-    if (template) {
-      console.log('Room was replaced in database.');
-      res
-        .status(200)
-        .send({ message: `Room with id: ${template._id} was replaced.` });
-    } else {
-      res.status(200).send({ message: `Room was saved to MongoDB.` });
-      next();
-    }
+    template ? console.log('Room was replaced in database.') : next();
   };
 
   replaceRoomFeature();

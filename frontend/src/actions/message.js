@@ -1,4 +1,4 @@
-import { SET_MESSAGE, CLEAR_MESSAGE } from './types';
+import { SET_MESSAGE, CLEAR_MESSAGE, SET_DATA } from './types';
 
 export const setMessage = message => ({
   type: SET_MESSAGE,
@@ -7,4 +7,9 @@ export const setMessage = message => ({
 
 export const clearMessage = () => ({
   type: CLEAR_MESSAGE,
+});
+
+export const setData = data => ({
+  type: SET_DATA,
+  payload: data,
 });

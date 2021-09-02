@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MDBDataTableV5, MDBIcon } from 'mdbreact';
 import { useSelector, useDispatch } from 'react-redux';
 import {
@@ -12,10 +12,7 @@ import {
 import '../styles/workstation.css';
 
 const LoadPagination = () => {
-  const rooms = useSelector(state => state.messageReducer.message);
-  console.log(`These are the rooms: ${rooms}`);
-
-  console.log(Object.values(rooms));
+  const rooms = useSelector(state => state.messageReducer.data);
 
   const dispatch = useDispatch();
 
@@ -165,7 +162,6 @@ const LoadPagination = () => {
         backgroundColor: 'rgba(255, 255, 255, 0)',
       }}
     />
-    // {/* <MDBIcon icon="trash-alt" /> */}
   );
 };
 
