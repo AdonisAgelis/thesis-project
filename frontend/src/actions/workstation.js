@@ -270,9 +270,13 @@ export const sendAddAttributes = (valueX, valueY) => {
 
 // Action for sending noSimSquares
 
-export const sendNoSimSquares = value => {
+export const sendNoSimSquares = (value1, value2, value3, value4, value5) => {
   return {
     type: 'SEND_NO_SIM_SQUARES',
-    payload: value,
+    payload1: value1,
+    payload2: value2,
+    payload3: value3,
+    payload4: value4,
+    payload5: value5,
   };
 };

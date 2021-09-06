@@ -28,6 +28,7 @@ import {
   resetTypeOfDraggable,
   enableSimulationButton,
   sendAddAttributes,
+  roomIsLoaded,
 } from '../actions/workstation';
 
 const Buttons = props => {
@@ -69,10 +70,18 @@ const Buttons = props => {
     state => state.extractPositionReducer.noSimSquares
   );
 
-  // console.log(typeOfGroup);
-  // console.log(numberOfPeopleInGroup);
-  // console.log(userID);
-  // console.log(nameOfTemplate);
+  let leftSideWallArray = useSelector(
+    state => state.extractPositionReducer.leftSideWallArray
+  );
+  let rightSideWallArray = useSelector(
+    state => state.extractPositionReducer.rightSideWallArray
+  );
+  let topSideWallArray = useSelector(
+    state => state.extractPositionReducer.topSideWallArray
+  );
+  let botSideWallArray = useSelector(
+    state => state.extractPositionReducer.botSideWallArray
+  );
 
   const routeChange = () => {
     let path = '';
@@ -119,7 +128,11 @@ const Buttons = props => {
         numberOfPeopleInGroup,
         userID,
         nameOfTemplate,
-        noSimSquares
+        noSimSquares,
+        leftSideWallArray,
+        rightSideWallArray,
+        topSideWallArray,
+        botSideWallArray
       )
     );
   };
@@ -253,6 +266,7 @@ const Buttons = props => {
         className="styleBtn"
         onClick={() => {
           handleLoad();
+          dispatch(roomIsLoaded());
         }}>
         <MDBIcon icon="sync" style={{ marginRight: '1rem' }} />
         Load Template

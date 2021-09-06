@@ -168,14 +168,28 @@ export const sendLocalStorageUserId = localStorageUserId => dispatch => {
 // Action for Simulation Button
 
 export const sendSimulationData =
-  (typeOfGroup, numberOfPeopleInGroup, userID, nameOfTemplate, noSimSquares) =>
+  (
+    typeOfGroup,
+    numberOfPeopleInGroup,
+    userID,
+    nameOfTemplate,
+    noSimSquares,
+    leftSideWallArray,
+    rightSideWallArray,
+    topSideWallArray,
+    botSideWallArray
+  ) =>
   dispatch => {
     AuthService.sendSimulationData(
       typeOfGroup,
       numberOfPeopleInGroup,
       userID,
       nameOfTemplate,
-      noSimSquares
+      noSimSquares,
+      leftSideWallArray,
+      rightSideWallArray,
+      topSideWallArray,
+      botSideWallArray
     ).then(
       response => {
         dispatch({

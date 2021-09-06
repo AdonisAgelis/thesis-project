@@ -47,7 +47,11 @@ class AuthService {
     numberOfPeopleInGroup,
     userID,
     nameOfTemplate,
-    noSimSquares
+    noSimSquares,
+    leftSideWallArray,
+    rightSideWallArray,
+    topSideWallArray,
+    botSideWallArray
   ) => {
     console.log('Sim data sent!');
     return axios.post(API_URL + 'simulation', {
@@ -56,12 +60,15 @@ class AuthService {
       userID,
       nameOfTemplate,
       noSimSquares,
+      leftSideWallArray,
+      rightSideWallArray,
+      topSideWallArray,
+      botSideWallArray,
     });
   };
 
   sendLocalStorageUserId = localStorageUserId => {
     console.log('User Id was send succesfully!');
-    // console.log(`This is the ls: ${Object.values(localStorageUserId)}`);
     return axios.post('http://localhost:8082/api/' + 'workstation', {
       localStorageUserId,
     });

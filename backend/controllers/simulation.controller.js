@@ -1,13 +1,5 @@
 const { db } = require('../models/room.model');
 
-/*Dexomaste apo frontend (axios post) to room ID, to idos tis omadas twn anthrwpwn kai ton arithmo tous
-Pairnoume apo mongo database (me vasi to id tou dwmatioy) ta xaraktiristika tou 
-Kai eimaste etoimoi gia simulation
-Ilopioume thn logiki tou simulation
-Apothikeuoume ta nea dedomena se pinaka
-Stelnoume sto frontend ton pinaka
-Molis teliosume ayto to kommati tote to sindeoume me to front*/
-
 exports.simulation = (req, res) => {
   const transferedData = {
     typeOfGroup: req.body.typeOfGroup,
@@ -15,6 +7,10 @@ exports.simulation = (req, res) => {
     userID: req.body.userID,
     nameOfTemplate: req.body.nameOfTemplate,
     noSimSquares: req.body.noSimSquares,
+    leftSideWallArray: req.body.leftSideWallArray,
+    rightSideWallArray: req.body.rightSideWallArray,
+    topSideWallArray: req.body.topSideWallArray,
+    botSideWallArray: req.body.botSideWallArray,
   };
 
   const dataToSim = db
@@ -35,11 +31,10 @@ exports.simulation = (req, res) => {
 
     // The items that have been dragged and dropped
     const allPositions = roomData.allPositions;
-    console.log(`allPositions: ${allPositions}`);
+
     // These squares are disabled for simulation
     let noSimSquares = transferedData.noSimSquares.concat(allPositions);
     noSimSquares = [...new Set(noSimSquares)];
-    console.log(`noSimSquares: ${noSimSquares.length}`);
 
     // These are all 1000 squares of Template
     let allSquares = [];
@@ -52,7 +47,81 @@ exports.simulation = (req, res) => {
     const simSquares = allSquares.filter(
       value => !noSimSquares.includes(value)
     );
-    console.log(`simSquares: ${simSquares.length}`);
+
+    // User movements
+    const userMoves = {
+      left: -1,
+      right: 1,
+      up: -40,
+      down: 40,
+    };
+
+    // User entering room square / First user move
+    let move;
+
+    if (transferedData.leftSideWallArray.includes(roomData.entrance)) {
+      move = userMoves.right;
+      console.log('Left Entrance');
+    } else if (transferedData.rightSideWallArray.includes(roomData.entrance)) {
+      move = userMoves.left;
+      console.log('Right entrance');
+    } else if (transferedData.topSideWallArray.includes(roomData.entrance)) {
+      move = userMoves.down;
+      console.log('Top Entrance');
+    } else {
+      move = userMoves.up;
+      console.log('Bot Entrance');
+    }
+
+    console.log(`User's first move is: ${move}`);
+
+    // Squares for users exiting the room
+    let exitSquares = [];
+    if (transferedData.leftSideWallArray.includes(roomData.exit)) {
+      exitSquares = [
+        roomData.exit + 1,
+        roomData.exit + 2,
+        roomData.exit - 38,
+        roomData.exit - 39,
+        roomData.exit + 41,
+        roomData.exit + 42,
+      ];
+      console.log('Left exit');
+    } else if (transferedData.rightSideWallArray.includes(roomData.exit)) {
+      exitSquares = [
+        roomData.exit - 1,
+        roomData.exit - 2,
+        roomData.exit + 38,
+        roomData.exit + 39,
+        roomData.exit - 41,
+        roomData.exit - 42,
+      ];
+      console.log('Right exit');
+    } else if (transferedData.topSideWallArray.includes(roomData.exit)) {
+      exitSquares = [
+        roomData.exit + 39,
+        roomData.exit + 40,
+        roomData.exit + 41,
+        roomData.exit + 79,
+        roomData.exit + 80,
+        roomData.exit + 81,
+      ];
+      console.log('Top exit');
+    } else {
+      exitSquares = [
+        roomData.exit - 39,
+        roomData.exit - 40,
+        roomData.exit - 41,
+        roomData.exit - 79,
+        roomData.exit - 80,
+        roomData.exit - 81,
+      ];
+      console.log('Bot exit');
+    }
+
+    console.log(`Entrance is: ${roomData.entrance}`);
+    console.log(`Exit is: ${roomData.exit}`);
+    console.log(`The exit squares are: ${exitSquares}`);
   };
 
   runSimulationRoom();
