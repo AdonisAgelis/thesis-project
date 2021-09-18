@@ -224,6 +224,10 @@ const extractPositionReducer = (state = initialState, action) => {
             state.counterAccessPoint--;
             state.counterAllPositions--;
             state.accessPointBadge--;
+            state.counterAPFromSquareComponent--;
+            if (state.counterAccessPoint >= 1) {
+              state.accessPoint.pop();
+            }
           }
         } else if (
           state.allPositions[state.counterAllPositions - 1] ===
@@ -238,6 +242,10 @@ const extractPositionReducer = (state = initialState, action) => {
             state.counterExhibit--;
             state.counterAllPositions--;
             state.exhibitBadge--;
+            state.counterExhibitFromSquareComponent--;
+            if (state.counterExhibit >= 1) {
+              state.exhibit.pop();
+            }
           }
         } else if (
           state.allPositions[state.counterAllPositions - 1] ===
