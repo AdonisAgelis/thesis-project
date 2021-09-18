@@ -130,6 +130,7 @@ exports.simulation = (req, res) => {
     console.log(`The exit squares are: ${exitSquares}`);
   };
 
+  // Number of groups that enter the room
   for (let i = 0; i < transferedData.typeOfGroup.length; i++) {
     // Logic
   }
