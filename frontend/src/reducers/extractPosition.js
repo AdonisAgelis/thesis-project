@@ -219,10 +219,15 @@ const extractPositionReducer = (state = initialState, action) => {
             state.allPositions[state.counterAllPositions - 1];
           state.accessPoint[state.counterAccessPoint - 1] = null;
           state.allPositions.pop();
+          state.accessPointPositionArrayFromSquareComponent.pop();
           if (state.counterAccessPoint > 0) {
             state.counterAccessPoint--;
             state.counterAllPositions--;
             state.accessPointBadge--;
+            state.counterAPFromSquareComponent--;
+            if (state.counterAccessPoint >= 1) {
+              state.accessPoint.pop();
+            }
           }
         } else if (
           state.allPositions[state.counterAllPositions - 1] ===
@@ -232,10 +237,15 @@ const extractPositionReducer = (state = initialState, action) => {
             state.allPositions[state.counterAllPositions - 1];
           state.exhibit[state.counterExhibit - 1] = null;
           state.allPositions.pop();
+          state.exhibitPositionArrayFromSquareComponent.pop();
           if (state.counterExhibit > 0) {
             state.counterExhibit--;
             state.counterAllPositions--;
             state.exhibitBadge--;
+            state.counterExhibitFromSquareComponent--;
+            if (state.counterExhibit >= 1) {
+              state.exhibit.pop();
+            }
           }
         } else if (
           state.allPositions[state.counterAllPositions - 1] ===

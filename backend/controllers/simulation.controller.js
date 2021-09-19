@@ -26,6 +26,12 @@ exports.simulation = (req, res) => {
     .catch(error => console.error.name(error));
 
   const runSimulationRoom = async () => {
+    const simulationDataOfGroup = {
+      accessPointConnected: null,
+      groupMovement: [],
+      exhibitsVisited: [],
+    };
+
     const [roomData] = await dataToSim;
     console.log(roomData);
 
@@ -49,7 +55,7 @@ exports.simulation = (req, res) => {
     );
 
     // User movements
-    const userMoves = {
+    const userMoveDirection = {
       left: -1,
       right: 1,
       up: -40,
@@ -60,16 +66,16 @@ exports.simulation = (req, res) => {
     let move;
 
     if (transferedData.leftSideWallArray.includes(roomData.entrance)) {
-      move = userMoves.right;
+      move = userMoveDirection.right;
       console.log('Left Entrance');
     } else if (transferedData.rightSideWallArray.includes(roomData.entrance)) {
-      move = userMoves.left;
+      move = userMoveDirection.left;
       console.log('Right entrance');
     } else if (transferedData.topSideWallArray.includes(roomData.entrance)) {
-      move = userMoves.down;
+      move = userMoveDirection.down;
       console.log('Top Entrance');
     } else {
-      move = userMoves.up;
+      move = userMoveDirection.up;
       console.log('Bot Entrance');
     }
 
@@ -123,6 +129,11 @@ exports.simulation = (req, res) => {
     console.log(`Exit is: ${roomData.exit}`);
     console.log(`The exit squares are: ${exitSquares}`);
   };
+
+  // Number of groups that enter the room
+  for (let i = 0; i < transferedData.typeOfGroup.length; i++) {
+    // Logic
+  }
 
   runSimulationRoom();
 };

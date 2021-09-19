@@ -15,21 +15,13 @@ import {
   changeIsResized,
   resetTypeOfDraggable,
   sendSquareComponentVariables,
-  sendNoSimSquares,
 } from '../actions/workstation';
 import { useDispatch, useSelector } from 'react-redux';
 import DragAndDropItems from './DragAndDropItems';
 
 import '../styles/workstation.css';
 
-const Square = ({
-  black,
-  pos,
-  walls,
-  outerSquares,
-  roomCorners,
-  noSimSquares,
-}) => {
+const Square = ({ black, pos, walls, outerSquares, roomCorners }) => {
   const fill = black ? 'rgba(40, 40, 40, 0.1)' : 'white';
   const stroke = 'black';
   const dispatch = useDispatch();
