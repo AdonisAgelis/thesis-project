@@ -32,6 +32,8 @@ exports.simulation = (req, res) => {
       exhibitsVisited: [],
     };
 
+    let arrayOfGroups = [];
+
     const [roomData] = await dataToSim;
     console.log(roomData);
 
@@ -63,23 +65,23 @@ exports.simulation = (req, res) => {
     };
 
     // User entering room square / First user move
-    let move;
+    let firstMove;
 
     if (transferedData.leftSideWallArray.includes(roomData.entrance)) {
-      move = userMoveDirection.right;
+      firstMove = userMoveDirection.right + roomData.entrance;
       console.log('Left Entrance');
     } else if (transferedData.rightSideWallArray.includes(roomData.entrance)) {
-      move = userMoveDirection.left;
+      firstMove = userMoveDirection.left + roomData.entrance;
       console.log('Right entrance');
     } else if (transferedData.topSideWallArray.includes(roomData.entrance)) {
-      move = userMoveDirection.down;
+      firstMove = userMoveDirection.down + roomData.entrance;
       console.log('Top Entrance');
     } else {
-      move = userMoveDirection.up;
+      firstMove = userMoveDirection.up + roomData.entrance;
       console.log('Bot Entrance');
     }
 
-    console.log(`User's first move is: ${move}`);
+    console.log(`User's first move is: ${firstMove}`);
 
     // Squares for users exiting the room
     let exitSquares = [];
@@ -128,12 +130,47 @@ exports.simulation = (req, res) => {
     console.log(`Entrance is: ${roomData.entrance}`);
     console.log(`Exit is: ${roomData.exit}`);
     console.log(`The exit squares are: ${exitSquares}`);
-  };
 
-  // Number of groups that enter the room
-  for (let i = 0; i < transferedData.typeOfGroup.length; i++) {
-    // Logic
-  }
+    // Number of groups that enter the room
+    for (let i = 0; i < 1; i++) {
+      // Logic
+      // Maximum movements of a user
+      const numberOfMoves = Math.floor(Math.random() * (20 - 5 + 1) + 5);
+      console.log(`Number of moves: ${numberOfMoves}`);
+
+      arrayOfGroups[i] = new Object(simulationDataOfGroup);
+      arrayOfGroups[i].groupMovement[0] = firstMove;
+
+      console.log(`First move: ${arrayOfGroups[i].groupMovement[0]}`);
+
+      for (let j = 0; j < numberOfMoves; j++) {
+        const x = 2;
+        const y = 80;
+        // Check possible next move
+        let previousMove = arrayOfGroups[i].groupMovement[j];
+
+        let leftMove = previousMove - x;
+        let rightMove = previousMove + x;
+        let upMove = previousMove - y;
+        let botMove = previousMove + y;
+
+        do {} while (
+          simSquares.includes(leftMove) ||
+          simSquares.includes(rightMove) ||
+          simSquares.includes(upMove) ||
+          simSquares.includes(botMove)
+        );
+
+        let possibleMoves = [leftMove, rightMove, upMove, botMove];
+
+        // Randomly select the next move
+        let nextMove =
+          possibleMoves[Math.floor(Math.random() * possibleMoves.length)];
+
+        console.log(`Next move is: ${nextMove}`);
+      }
+    }
+  };
 
   runSimulationRoom();
 };
