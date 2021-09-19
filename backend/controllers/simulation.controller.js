@@ -65,34 +65,42 @@ exports.simulation = (req, res) => {
     };
 
     // Exhibit visited range
-    let visitedExhibitSquares = [
-      roomData.exhibit - 41,
-      roomData.exhibit - 40,
-      roomData.exhibit - 39,
-      roomData.exhibit + 1,
-      roomData.exhibit + 41,
-      roomData.exhibit + 40,
-      roomData.exhibit + 39,
-      roomData.exhibit - 1,
-      roomData.exhibit - 82,
-      roomData.exhibit - 81,
-      roomData.exhibit - 80,
-      roomData.exhibit - 79,
-      roomData.exhibit - 78,
-      roomData.exhibit - 38,
-      roomData.exhibit + 2,
-      roomData.exhibit + 42,
-      roomData.exhibit + 82,
-      roomData.exhibit + 81,
-      roomData.exhibit + 80,
-      roomData.exhibit + 79,
-      roomData.exhibit + 78,
-      roomData.exhibit + 38,
-      roomData.exhibit - 2,
-      roomData.exhibit - 42,
-    ];
+    let visitedExhibitSquares = [];
 
-    console.log(`Exhibit visited range: ${visitedExhibitSquares.length}`);
+    let exhibitsArrayLength = roomData.exhibit.length;
+
+    for (let i = 0; i < exhibitsArrayLength; i++) {
+      visitedExhibitSquares[i] = [
+        roomData.exhibit[i] - 41,
+        roomData.exhibit[i] - 40,
+        roomData.exhibit[i] - 39,
+        roomData.exhibit[i] + 1,
+        roomData.exhibit[i] + 41,
+        roomData.exhibit[i] + 40,
+        roomData.exhibit[i] + 39,
+        roomData.exhibit[i] - 1,
+        roomData.exhibit[i] - 82,
+        roomData.exhibit[i] - 81,
+        roomData.exhibit[i] - 80,
+        roomData.exhibit[i] - 79,
+        roomData.exhibit[i] - 78,
+        roomData.exhibit[i] - 38,
+        roomData.exhibit[i] + 2,
+        roomData.exhibit[i] + 42,
+        roomData.exhibit[i] + 82,
+        roomData.exhibit[i] + 81,
+        roomData.exhibit[i] + 80,
+        roomData.exhibit[i] + 79,
+        roomData.exhibit[i] + 78,
+        roomData.exhibit[i] + 38,
+        roomData.exhibit[i] - 2,
+        roomData.exhibit[i] - 42,
+      ];
+
+      console.log(
+        `Square number ${i + 1} visited range: ${visitedExhibitSquares[i]}`
+      );
+    }
 
     // User entering room square / First user move
     let firstMove;
@@ -228,10 +236,21 @@ exports.simulation = (req, res) => {
         let nextMove = possibleNextMove;
         console.log(`Next move is: ${nextMove}`);
         arrayOfGroups[i].groupMovement.push(nextMove);
+
+        for (let z = 0; z < exhibitsArrayLength; z++) {
+          if (visitedExhibitSquares[z].includes(nextMove)) {
+            arrayOfGroups[i].exhibitsVisited.push(roomData.exhibit[z]);
+          }
+        }
       }
       arrayOfGroups[i].groupMovement.push(lastMove1);
       arrayOfGroups[i].groupMovement.push(lastMove2);
       console.log(Object.values(arrayOfGroups[i].groupMovement));
+      console.log(
+        `The exhibits that got visited are: ${Object.values(
+          simulationDataOfGroup.exhibitsVisited
+        )}`
+      );
     }
   };
 
