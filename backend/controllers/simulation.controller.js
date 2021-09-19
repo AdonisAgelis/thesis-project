@@ -131,8 +131,12 @@ exports.simulation = (req, res) => {
     console.log(`Exit is: ${roomData.exit}`);
     console.log(`The exit squares are: ${exitSquares}`);
 
+    let lastMove1 = exitSquares[Math.floor(Math.random() * exitSquares.length)];
+    let lastMove2 = exitSquares[Math.floor(Math.random() * exitSquares.length)];
+
+
     // Number of groups that enter the room
-    for (let i = 0; i < 1; i++) {
+    for (let i = 0; i < transferedData.typeOfGroup.length ; i++) {
       // Logic
       // Maximum movements of a user
       const numberOfMoves = Math.floor(Math.random() * (20 - 5 + 1) + 5);
@@ -141,34 +145,67 @@ exports.simulation = (req, res) => {
       arrayOfGroups[i] = new Object(simulationDataOfGroup);
       arrayOfGroups[i].groupMovement[0] = firstMove;
 
-      console.log(`First move: ${arrayOfGroups[i].groupMovement[0]}`);
+      console.log(`First move: ${arrayOfGroups[i]}`);
 
       for (let j = 0; j < numberOfMoves; j++) {
-        const x = 2;
-        const y = 80;
+        let stepY = 2;
+        let stepX = 80;
         // Check possible next move
         let previousMove = arrayOfGroups[i].groupMovement[j];
 
-        let leftMove = previousMove - x;
-        let rightMove = previousMove + x;
-        let upMove = previousMove - y;
-        let botMove = previousMove + y;
+        let leftMove, rightMove, upMove, botMove;
 
-        do {} while (
-          simSquares.includes(leftMove) ||
-          simSquares.includes(rightMove) ||
-          simSquares.includes(upMove) ||
-          simSquares.includes(botMove)
+        do {
+          leftMove = previousMove - stepY;
+          rightMove = previousMove + stepY;
+          upMove = previousMove - stepX;
+          botMove = previousMove + stepX;
+          console.log(leftMove);
+          console.log(rightMove);
+          console.log(upMove);
+          console.log(botMove);
+
+          stepY = stepY + 2;
+          stepX = stepX + 80;
+
+        } while (
+          !simSquares.includes(leftMove) &&
+          !simSquares.includes(rightMove) &&
+          !simSquares.includes(upMove) &&
+          !simSquares.includes(botMove)
         );
 
-        let possibleMoves = [leftMove, rightMove, upMove, botMove];
+
+        let possibleMoves = [];
+        if(simSquares.includes(leftMove)){
+          possibleMoves.push(leftMove);
+        }
+        if(simSquares.includes(rightMove)){
+          possibleMoves.push(rightMove);
+        }
+        if(simSquares.includes(upMove)){
+          possibleMoves.push(upMove);
+        }
+        if(simSquares.includes(botMove)){
+          possibleMoves.push(botMove);
+        }
+        
+       
 
         // Randomly select the next move
-        let nextMove =
-          possibleMoves[Math.floor(Math.random() * possibleMoves.length)];
+        let possibleNextMove;  
+        do{
+          possibleNextMove =  possibleMoves[Math.floor(Math.random() * possibleMoves.length)]
+          console.log(`Possible Next Move is: ${possibleNextMove}`);
+        }while(!simSquares.includes(possibleNextMove))
 
+        let nextMove = possibleNextMove;
         console.log(`Next move is: ${nextMove}`);
+        arrayOfGroups[i].groupMovement.push(nextMove);
       }
+      arrayOfGroups[i].groupMovement.push(lastMove1);
+      arrayOfGroups[i].groupMovement.push(lastMove2);
+      console.log(Object.values(arrayOfGroups[i].groupMovement))
     }
   };
 
