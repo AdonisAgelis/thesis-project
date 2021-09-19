@@ -182,7 +182,8 @@ exports.simulation = (req, res) => {
       arrayOfGroups[i] = new Object(simulationDataOfGroup);
       arrayOfGroups[i].groupMovement[0] = firstMove;
 
-      console.log(`First move: ${arrayOfGroups[i]}`);
+      // console.log(`First move: ${arrayOfGroups[i]}`);
+      let arrayOfNextMoves = [];
 
       for (let j = 0; j < numberOfMoves; j++) {
         let stepY = 2;
@@ -197,10 +198,10 @@ exports.simulation = (req, res) => {
           rightMove = previousMove + stepY;
           upMove = previousMove - stepX;
           botMove = previousMove + stepX;
-          console.log(leftMove);
-          console.log(rightMove);
-          console.log(upMove);
-          console.log(botMove);
+          // console.log(leftMove);
+          // console.log(rightMove);
+          // console.log(upMove);
+          // console.log(botMove);r
 
           stepY = stepY + 2;
           stepX = stepX + 80;
@@ -230,12 +231,12 @@ exports.simulation = (req, res) => {
         do {
           possibleNextMove =
             possibleMoves[Math.floor(Math.random() * possibleMoves.length)];
-          console.log(`Possible Next Move is: ${possibleNextMove}`);
+          // console.log(`Possible Next Move is: ${possibleNextMove}`);
         } while (!simSquares.includes(possibleNextMove));
 
         let nextMove = possibleNextMove;
-        console.log(`Next move is: ${nextMove}`);
-        arrayOfGroups[i].groupMovement.push(nextMove);
+        // console.log(`Next move is: ${nextMove}`);
+        arrayOfGroups[i].groupMovement[j + 1] = nextMove;
 
         for (let z = 0; z < exhibitsArrayLength; z++) {
           if (visitedExhibitSquares[z].includes(nextMove)) {
@@ -243,15 +244,17 @@ exports.simulation = (req, res) => {
           }
         }
       }
-      arrayOfGroups[i].groupMovement.push(lastMove1);
-      arrayOfGroups[i].groupMovement.push(lastMove2);
-      console.log(Object.values(arrayOfGroups[i].groupMovement));
       console.log(
         `The exhibits that got visited are: ${Object.values(
           simulationDataOfGroup.exhibitsVisited
         )}`
       );
+      arrayOfGroups[i].groupMovement.push(lastMove1);
+      arrayOfGroups[i].groupMovement.push(lastMove2);
     }
+    console.log(
+      `last consola loga ${Object.values(arrayOfGroups.groupMovement)}`
+    );
   };
 
   runSimulationRoom();
