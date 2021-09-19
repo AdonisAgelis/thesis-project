@@ -64,6 +64,36 @@ exports.simulation = (req, res) => {
       down: 40,
     };
 
+    // Exhibit visited range
+    let visitedExhibitSquares = [
+      roomData.exhibit - 41,
+      roomData.exhibit - 40,
+      roomData.exhibit - 39,
+      roomData.exhibit + 1,
+      roomData.exhibit + 41,
+      roomData.exhibit + 40,
+      roomData.exhibit + 39,
+      roomData.exhibit - 1,
+      roomData.exhibit - 82,
+      roomData.exhibit - 81,
+      roomData.exhibit - 80,
+      roomData.exhibit - 79,
+      roomData.exhibit - 78,
+      roomData.exhibit - 38,
+      roomData.exhibit + 2,
+      roomData.exhibit + 42,
+      roomData.exhibit + 82,
+      roomData.exhibit + 81,
+      roomData.exhibit + 80,
+      roomData.exhibit + 79,
+      roomData.exhibit + 78,
+      roomData.exhibit + 38,
+      roomData.exhibit - 2,
+      roomData.exhibit - 42,
+    ];
+
+    console.log(`Exhibit visited range: ${visitedExhibitSquares.length}`);
+
     // User entering room square / First user move
     let firstMove;
 
@@ -134,9 +164,8 @@ exports.simulation = (req, res) => {
     let lastMove1 = exitSquares[Math.floor(Math.random() * exitSquares.length)];
     let lastMove2 = exitSquares[Math.floor(Math.random() * exitSquares.length)];
 
-
     // Number of groups that enter the room
-    for (let i = 0; i < transferedData.typeOfGroup.length ; i++) {
+    for (let i = 0; i < transferedData.typeOfGroup.length; i++) {
       // Logic
       // Maximum movements of a user
       const numberOfMoves = Math.floor(Math.random() * (20 - 5 + 1) + 5);
@@ -167,7 +196,6 @@ exports.simulation = (req, res) => {
 
           stepY = stepY + 2;
           stepX = stepX + 80;
-
         } while (
           !simSquares.includes(leftMove) &&
           !simSquares.includes(rightMove) &&
@@ -175,29 +203,27 @@ exports.simulation = (req, res) => {
           !simSquares.includes(botMove)
         );
 
-
         let possibleMoves = [];
-        if(simSquares.includes(leftMove)){
+        if (simSquares.includes(leftMove)) {
           possibleMoves.push(leftMove);
         }
-        if(simSquares.includes(rightMove)){
+        if (simSquares.includes(rightMove)) {
           possibleMoves.push(rightMove);
         }
-        if(simSquares.includes(upMove)){
+        if (simSquares.includes(upMove)) {
           possibleMoves.push(upMove);
         }
-        if(simSquares.includes(botMove)){
+        if (simSquares.includes(botMove)) {
           possibleMoves.push(botMove);
         }
-        
-       
 
         // Randomly select the next move
-        let possibleNextMove;  
-        do{
-          possibleNextMove =  possibleMoves[Math.floor(Math.random() * possibleMoves.length)]
+        let possibleNextMove;
+        do {
+          possibleNextMove =
+            possibleMoves[Math.floor(Math.random() * possibleMoves.length)];
           console.log(`Possible Next Move is: ${possibleNextMove}`);
-        }while(!simSquares.includes(possibleNextMove))
+        } while (!simSquares.includes(possibleNextMove));
 
         let nextMove = possibleNextMove;
         console.log(`Next move is: ${nextMove}`);
@@ -205,7 +231,7 @@ exports.simulation = (req, res) => {
       }
       arrayOfGroups[i].groupMovement.push(lastMove1);
       arrayOfGroups[i].groupMovement.push(lastMove2);
-      console.log(Object.values(arrayOfGroups[i].groupMovement))
+      console.log(Object.values(arrayOfGroups[i].groupMovement));
     }
   };
 
