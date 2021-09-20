@@ -169,7 +169,7 @@ exports.simulation = (req, res) => {
     for (let i = 0; i < groupsLength; i++) {
       // Logic
       const simulationDataOfGroup = {
-        accessPointConnected: null,
+        accessPointsConnected: [],
         groupMovement: [],
         exhibitsVisited: [],
       };

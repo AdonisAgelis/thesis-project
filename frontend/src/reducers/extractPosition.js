@@ -259,6 +259,7 @@ const extractPositionReducer = (state = initialState, action) => {
           if (state.counterWall > 0) {
             state.counterWall--;
             state.counterAllPositions--;
+            state.counterWallFromSquareComponent--;
             if (state.counterWall >= 1) {
               state.wall.pop();
             }
