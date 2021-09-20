@@ -31,12 +31,6 @@ exports.simulation = (req, res) => {
     // for each independent group that enters the room
     let arrayOfGroups = [];
 
-    const simulationDataOfGroup = {
-      accessPointConnected: null,
-      groupMovement: [],
-      exhibitsVisited: [],
-    };
-
     const [roomData] = await dataToSim;
     console.log(roomData);
 
@@ -172,20 +166,27 @@ exports.simulation = (req, res) => {
     console.log(`Exit is: ${roomData.exit}`);
     console.log(`The exit squares are: ${exitSquares}`);
 
-    let lastMove1 = exitSquares[Math.floor(Math.random() * exitSquares.length)];
-    let lastMove2 = exitSquares[Math.floor(Math.random() * exitSquares.length)];
+    let groupsLength = transferedData.typeOfGroup.length;
 
     // Number of groups that enter the room
-    for (let i = 0; i < transferedData.typeOfGroup.length; i++) {
+    for (let i = 0; i < groupsLength; i++) {
       // Logic
+      const simulationDataOfGroup = {
+        accessPointConnected: null,
+        groupMovement: [],
+        exhibitsVisited: [],
+      };
+
+      let lastMove1 =
+        exitSquares[Math.floor(Math.random() * exitSquares.length)];
+      let lastMove2 =
+        exitSquares[Math.floor(Math.random() * exitSquares.length)];
       // Maximum movements of a user
       const numberOfMoves = Math.floor(Math.random() * (20 - 5 + 1) + 5);
       console.log(`Number of moves: ${numberOfMoves}`);
 
       arrayOfGroups[i] = new Object(simulationDataOfGroup);
       arrayOfGroups[i].groupMovement[0] = firstMove;
-
-      let arrayOfNextMoves = [];
 
       for (let j = 0; j < numberOfMoves; j++) {
         let stepX = 2;
@@ -200,10 +201,6 @@ exports.simulation = (req, res) => {
           rightMove = previousMove + stepX;
           upMove = previousMove - stepY;
           botMove = previousMove + stepY;
-          // console.log(leftMove);
-          // console.log(rightMove);
-          // console.log(upMove);
-          // console.log(botMove);r
 
           stepX = stepX + 2;
           stepY = stepY + 80;
@@ -216,23 +213,17 @@ exports.simulation = (req, res) => {
 
         let possibleMoves = [];
         if (simSquares.includes(leftMove)) {
-          console.log(`Left`);
           possibleMoves.push(leftMove);
         }
         if (simSquares.includes(rightMove)) {
-          console.log(`Right`);
           possibleMoves.push(rightMove);
         }
         if (simSquares.includes(upMove)) {
-          console.log(`Up`);
           possibleMoves.push(upMove);
         }
         if (simSquares.includes(botMove)) {
-          console.log(`Bot`);
           possibleMoves.push(botMove);
         }
-
-        console.log(`Possible moves are: ${possibleMoves}`);
 
         // Randomly select the next move
         let possibleNextMove;
@@ -243,11 +234,13 @@ exports.simulation = (req, res) => {
         } while (!simSquares.includes(possibleNextMove));
 
         let nextMove = possibleNextMove;
-        console.log(`Next move is: ${nextMove}`);
         arrayOfGroups[i].groupMovement[j + 1] = nextMove;
 
+        // console.log(`This is the 1st array: ${visitedExhibitSquares[0]}`);
+        // console.log(`This is the 2nd array: ${visitedExhibitSquares[1]}`);
+        // console.log(`This is the next move: ${nextMove}`);
+
         for (let z = 0; z < exhibitsArrayLength; z++) {
-          console.log(`Z is: ${z}`);
           if (visitedExhibitSquares[z].includes(nextMove)) {
             arrayOfGroups[i].exhibitsVisited.push(roomData.exhibit[z]);
           }
