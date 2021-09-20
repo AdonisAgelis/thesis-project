@@ -188,25 +188,25 @@ exports.simulation = (req, res) => {
       let arrayOfNextMoves = [];
 
       for (let j = 0; j < numberOfMoves; j++) {
-        let stepY = 2;
-        let stepX = 80;
+        let stepX = 2;
+        let stepY = 80;
         // Check possible next move
         let previousMove = arrayOfGroups[i].groupMovement[j];
 
         let leftMove, rightMove, upMove, botMove;
 
         do {
-          leftMove = previousMove - stepY;
-          rightMove = previousMove + stepY;
-          upMove = previousMove - stepX;
-          botMove = previousMove + stepX;
+          leftMove = previousMove - stepX;
+          rightMove = previousMove + stepX;
+          upMove = previousMove - stepY;
+          botMove = previousMove + stepY;
           // console.log(leftMove);
           // console.log(rightMove);
           // console.log(upMove);
           // console.log(botMove);r
 
-          stepY = stepY + 2;
-          stepX = stepX + 80;
+          stepX = stepX + 2;
+          stepY = stepY + 80;
         } while (
           !simSquares.includes(leftMove) &&
           !simSquares.includes(rightMove) &&
@@ -216,17 +216,23 @@ exports.simulation = (req, res) => {
 
         let possibleMoves = [];
         if (simSquares.includes(leftMove)) {
+          console.log(`Left`);
           possibleMoves.push(leftMove);
         }
         if (simSquares.includes(rightMove)) {
+          console.log(`Right`);
           possibleMoves.push(rightMove);
         }
         if (simSquares.includes(upMove)) {
+          console.log(`Up`);
           possibleMoves.push(upMove);
         }
         if (simSquares.includes(botMove)) {
+          console.log(`Bot`);
           possibleMoves.push(botMove);
         }
+
+        console.log(`Possible moves are: ${possibleMoves}`);
 
         // Randomly select the next move
         let possibleNextMove;
@@ -237,10 +243,11 @@ exports.simulation = (req, res) => {
         } while (!simSquares.includes(possibleNextMove));
 
         let nextMove = possibleNextMove;
-        // console.log(`Next move is: ${nextMove}`);
+        console.log(`Next move is: ${nextMove}`);
         arrayOfGroups[i].groupMovement[j + 1] = nextMove;
 
         for (let z = 0; z < exhibitsArrayLength; z++) {
+          console.log(`Z is: ${z}`);
           if (visitedExhibitSquares[z].includes(nextMove)) {
             arrayOfGroups[i].exhibitsVisited.push(roomData.exhibit[z]);
           }
