@@ -26,13 +26,16 @@ exports.simulation = (req, res) => {
     .catch(error => console.error.name(error));
 
   const runSimulationRoom = async () => {
+    // This array will get filled with the following object
+    // "simulationDataOfGroup" that contains information
+    // for each independent group that enters the room
+    let arrayOfGroups = [];
+
     const simulationDataOfGroup = {
       accessPointConnected: null,
       groupMovement: [],
       exhibitsVisited: [],
     };
-
-    let arrayOfGroups = [];
 
     const [roomData] = await dataToSim;
     console.log(roomData);
@@ -98,7 +101,7 @@ exports.simulation = (req, res) => {
       ];
 
       console.log(
-        `Square number ${i + 1} visited range: ${visitedExhibitSquares[i]}`
+        `Exhibit number ${i + 1} visited range: ${visitedExhibitSquares[i]}`
       );
     }
 
@@ -182,7 +185,6 @@ exports.simulation = (req, res) => {
       arrayOfGroups[i] = new Object(simulationDataOfGroup);
       arrayOfGroups[i].groupMovement[0] = firstMove;
 
-      // console.log(`First move: ${arrayOfGroups[i]}`);
       let arrayOfNextMoves = [];
 
       for (let j = 0; j < numberOfMoves; j++) {
@@ -244,17 +246,14 @@ exports.simulation = (req, res) => {
           }
         }
       }
-      console.log(
-        `The exhibits that got visited are: ${Object.values(
-          simulationDataOfGroup.exhibitsVisited
-        )}`
-      );
+      console.log(`Exhibits visited: ${simulationDataOfGroup.exhibitsVisited}`);
       arrayOfGroups[i].groupMovement.push(lastMove1);
       arrayOfGroups[i].groupMovement.push(lastMove2);
+      console.log(arrayOfGroups);
     }
-    console.log(
-      `last consola loga ${Object.values(arrayOfGroups.groupMovement)}`
-    );
+    // console.log(
+    //   `last consola loga ${Object.values(arrayOfGroups.groupMovement)}`
+    // );
   };
 
   runSimulationRoom();
