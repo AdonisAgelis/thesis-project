@@ -93,10 +93,6 @@ exports.simulation = (req, res) => {
         roomData.exhibit[i] - 2,
         roomData.exhibit[i] - 42,
       ];
-
-      console.log(
-        `Exhibit number ${i + 1} visited range: ${visitedExhibitSquares[i]}`
-      );
     }
 
     // User entering room square / First user move
@@ -236,24 +232,28 @@ exports.simulation = (req, res) => {
         let nextMove = possibleNextMove;
         arrayOfGroups[i].groupMovement[j + 1] = nextMove;
 
-        // console.log(`This is the 1st array: ${visitedExhibitSquares[0]}`);
-        // console.log(`This is the 2nd array: ${visitedExhibitSquares[1]}`);
-        // console.log(`This is the next move: ${nextMove}`);
-
         for (let z = 0; z < exhibitsArrayLength; z++) {
           if (visitedExhibitSquares[z].includes(nextMove)) {
             arrayOfGroups[i].exhibitsVisited.push(roomData.exhibit[z]);
           }
         }
+        arrayOfGroups[i].exhibitsVisited = [
+          ...new Set(arrayOfGroups[i].exhibitsVisited),
+        ];
       }
-      console.log(`Exhibits visited: ${simulationDataOfGroup.exhibitsVisited}`);
       arrayOfGroups[i].groupMovement.push(lastMove1);
       arrayOfGroups[i].groupMovement.push(lastMove2);
+
+      // if (visitedExhibitSquares[i].includes(lastMove1)) {
+      //   arrayOfGroups[i].exhibitsVisited.push(roomData.exhibit[i]);
+      // }
+      // if (visitedExhibitSquares[i].includes(lastMove2)) {
+      //   arrayOfGroups[i].exhibitsVisited.push(roomData.exhibit[i]);
+      // }
+
+      console.log(`Exhibits visited: ${simulationDataOfGroup.exhibitsVisited}`);
       console.log(arrayOfGroups);
     }
-    // console.log(
-    //   `last consola loga ${Object.values(arrayOfGroups.groupMovement)}`
-    // );
   };
 
   runSimulationRoom();
