@@ -62,12 +62,12 @@ exports.simulation = (req, res) => {
     };
 
     // Exhibit visited range
-    let visitedExhibitSquares = [];
+    let exhibitRange = [];
 
     let exhibitsArrayLength = roomData.exhibit.length;
 
     for (let i = 0; i < exhibitsArrayLength; i++) {
-      visitedExhibitSquares[i] = [
+      exhibitRange[i] = [
         roomData.exhibit[i] - 41,
         roomData.exhibit[i] - 40,
         roomData.exhibit[i] - 39,
@@ -178,7 +178,7 @@ exports.simulation = (req, res) => {
       let lastMove2 =
         exitSquares[Math.floor(Math.random() * exitSquares.length)];
       // Maximum movements of a user
-      const numberOfMoves = Math.floor(Math.random() * (20 - 5 + 1) + 5);
+      const numberOfMoves = Math.floor(Math.random() * (40 - 20 + 1) + 20);
       console.log(`Number of moves: ${numberOfMoves}`);
 
       arrayOfGroups[i] = new Object(simulationDataOfGroup);
@@ -233,7 +233,7 @@ exports.simulation = (req, res) => {
         arrayOfGroups[i].groupMovement[j + 1] = nextMove;
 
         for (let z = 0; z < exhibitsArrayLength; z++) {
-          if (visitedExhibitSquares[z].includes(nextMove)) {
+          if (exhibitRange[z].includes(nextMove)) {
             arrayOfGroups[i].exhibitsVisited.push(roomData.exhibit[z]);
           }
         }
@@ -244,10 +244,10 @@ exports.simulation = (req, res) => {
       arrayOfGroups[i].groupMovement.push(lastMove1);
       arrayOfGroups[i].groupMovement.push(lastMove2);
 
-      // if (visitedExhibitSquares[i].includes(lastMove1)) {
+      // if (exhibitRange[i].includes(lastMove1)) {
       //   arrayOfGroups[i].exhibitsVisited.push(roomData.exhibit[i]);
       // }
-      // if (visitedExhibitSquares[i].includes(lastMove2)) {
+      // if (exhibitRange[i].includes(lastMove2)) {
       //   arrayOfGroups[i].exhibitsVisited.push(roomData.exhibit[i]);
       // }
 
