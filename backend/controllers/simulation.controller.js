@@ -31,6 +31,7 @@ exports.simulation = (req, res) => {
     // for each independent group that enters the room
     let arrayOfGroups = [];
 
+    // We receive all roomData that we posted from frontend
     const [roomData] = await dataToSim;
     console.log(roomData);
 
@@ -61,7 +62,7 @@ exports.simulation = (req, res) => {
       down: 40,
     };
 
-    // Exhibit visited range
+    // Exhibit range for users to visit
     let exhibitRange = [];
 
     let exhibitsArrayLength = roomData.exhibit.length;
@@ -173,6 +174,7 @@ exports.simulation = (req, res) => {
         exhibitsVisited: [],
       };
 
+      // Manually push users towards the exit
       let lastMove1 =
         exitSquares[Math.floor(Math.random() * exitSquares.length)];
       let lastMove2 =
@@ -192,6 +194,7 @@ exports.simulation = (req, res) => {
 
         let leftMove, rightMove, upMove, botMove;
 
+        // Navigate user throughout the room
         do {
           leftMove = previousMove - stepX;
           rightMove = previousMove + stepX;
@@ -207,6 +210,8 @@ exports.simulation = (req, res) => {
           !simSquares.includes(botMove)
         );
 
+        // Check for the next possible move
+        // according to existing exhibits, accessPoints and walls
         let possibleMoves = [];
         if (simSquares.includes(leftMove)) {
           possibleMoves.push(leftMove);
@@ -226,12 +231,14 @@ exports.simulation = (req, res) => {
         do {
           possibleNextMove =
             possibleMoves[Math.floor(Math.random() * possibleMoves.length)];
-          // console.log(`Possible Next Move is: ${possibleNextMove}`);
         } while (!simSquares.includes(possibleNextMove));
 
+        // Executing user's next move
         let nextMove = possibleNextMove;
         arrayOfGroups[i].groupMovement[j + 1] = nextMove;
 
+        // Check if an exhibit got visited and push it in the
+        // object
         for (let z = 0; z < exhibitsArrayLength; z++) {
           if (exhibitRange[z].includes(nextMove)) {
             arrayOfGroups[i].exhibitsVisited.push(roomData.exhibit[z]);
@@ -244,14 +251,22 @@ exports.simulation = (req, res) => {
       arrayOfGroups[i].groupMovement.push(lastMove1);
       arrayOfGroups[i].groupMovement.push(lastMove2);
 
-      // if (exhibitRange[i].includes(lastMove1)) {
-      //   arrayOfGroups[i].exhibitsVisited.push(roomData.exhibit[i]);
-      // }
-      // if (exhibitRange[i].includes(lastMove2)) {
-      //   arrayOfGroups[i].exhibitsVisited.push(roomData.exhibit[i]);
-      // }
+      // Check if the user visits an exhibit while exiting the room
+      for (let z = 0; z < exhibitsArrayLength; z++) {
+        if (exhibitRange[z].includes(lastMove1)) {
+          arrayOfGroups[i].exhibitsVisited.push(roomData.exhibit[z]);
+        }
 
-      console.log(`Exhibits visited: ${simulationDataOfGroup.exhibitsVisited}`);
+        if (exhibitRange[z].includes(lastMove2)) {
+          arrayOfGroups[i].exhibitsVisited.push(roomData.exhibit[z]);
+        }
+      }
+
+      // Create a set for all unique exhibits that got visited
+      arrayOfGroups[i].exhibitsVisited = [
+        ...new Set(arrayOfGroups[i].exhibitsVisited),
+      ];
+
       console.log(arrayOfGroups);
     }
   };
