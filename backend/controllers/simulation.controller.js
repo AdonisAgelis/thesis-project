@@ -315,37 +315,31 @@ exports.simulation = (req, res) => {
         
       }
       
-      let firstSquare = simSquares[0];
+      let firstSquareAndIteratedSquare = simSquares[0];
       let xOfAccessPoint= [];
-      let test = firstSquare + rangeX;
+      let test = firstSquareAndIteratedSquare + rangeX;
 
       for(let o=0; o<roomData.accessPoint.length; o++){
         do{
 
          
           let numberOfIterations = 0;
-          for(; firstSquare<test; firstSquare++){
+          for(; firstSquareAndIteratedSquare<test; firstSquareAndIteratedSquare++){
             
             numberOfIterations++;  
-            
-            
-            
-            if(roomData.accessPoint[o] === firstSquare){
+      
+            if(roomData.accessPoint[o] === firstSquareAndIteratedSquare){
               foundAccessPoint[o] = true;
               xOfAccessPoint[o]= numberOfIterations;
-              
-              
               break;
             }
 
             
-            
-            
           }
-          firstSquare = firstSquare + 40;
-          
-          
-          numberOfIterations=0;
+
+          firstSquareAndIteratedSquare = firstSquareAndIteratedSquare - rangeX + 40;
+          test = firstSquareAndIteratedSquare + rangeX;
+         
           
         }while(foundAccessPoint[o] === false);
         
