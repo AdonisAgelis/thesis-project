@@ -317,14 +317,13 @@ exports.simulation = (req, res) => {
       
       let firstSquareAndIteratedSquare = simSquares[0];
       let xOfAccessPoint= [];
-      let test = firstSquareAndIteratedSquare + rangeX;
+      let lastSquareOfXAxis = firstSquareAndIteratedSquare + rangeX;
 
       for(let o=0; o<roomData.accessPoint.length; o++){
         do{
 
-         
           let numberOfIterations = 0;
-          for(; firstSquareAndIteratedSquare<test; firstSquareAndIteratedSquare++){
+          for(; firstSquareAndIteratedSquare<lastSquareOfXAxis; firstSquareAndIteratedSquare++){
             
             numberOfIterations++;  
       
@@ -333,14 +332,22 @@ exports.simulation = (req, res) => {
               xOfAccessPoint[o]= numberOfIterations;
               break;
             }
+            else if(o===0 && roomData.accessPoint[o] === firstSquareAndIteratedSquare-1){
+              foundAccessPoint[o] = true;
+              xOfAccessPoint[o]= numberOfIterations;
+              console.log("dfs");
+              break;
+            }
+            
 
             
           }
-
-          firstSquareAndIteratedSquare = firstSquareAndIteratedSquare - rangeX + 40;
-          test = firstSquareAndIteratedSquare + rangeX;
-         
           
+          
+          firstSquareAndIteratedSquare = firstSquareAndIteratedSquare - rangeX + 40;
+          lastSquareOfXAxis = firstSquareAndIteratedSquare + rangeX;
+
+        
         }while(foundAccessPoint[o] === false);
         
       }
