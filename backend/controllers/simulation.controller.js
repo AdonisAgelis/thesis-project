@@ -261,7 +261,7 @@ exports.simulation = (req, res) => {
           arrayOfGroups[i].exhibitsVisited.push(roomData.exhibit[z]);
         }
       }
-      
+
       // Create a set for all unique exhibits that got visited
       arrayOfGroups[i].exhibitsVisited = [
         ...new Set(arrayOfGroups[i].exhibitsVisited),
@@ -270,99 +270,72 @@ exports.simulation = (req, res) => {
       console.log(arrayOfGroups);
 
       //Find deez nigga Pythagoras
-      
+
       //Find in x axis what is the max range of the line
 
-      let tempX=2;
+      let tempX = 2;
       let rangeX;
-      
-      
-        
-      for(let b=38; b>=22; b--){
-          rangeX = b-tempX;  
 
-          if(b===roomData.width){
-            break;
-          }
-          tempX = tempX+1;
-  
+      for (let b = 38; b >= 22; b--) {
+        rangeX = b - tempX;
+
+        if (b === roomData.width) {
+          break;
+        }
+        tempX = tempX + 1;
       }
 
       //Find in y axis what is the max range of the line
 
-      let tempY=2;
+      let tempY = 2;
       let rangeY;
-      
-        
-      for(let b=23; b>=14; b--){
-          rangeY = b-tempY;  
 
-          if(b===roomData.height){
-            break;
-          }
-          tempY = tempY+1;
-  
+      for (let b = 23; b >= 14; b--) {
+        rangeY = b - tempY;
+
+        if (b === roomData.height) {
+          break;
+        }
+        tempY = tempY + 1;
       }
-      
-      
 
-      
       //Find in which iteration of x axis we find the position of Access Point or Group of users
 
-      let foundAccessPoint=[];
-      for(let o=0; o<roomData.accessPoint.length; o++){
-        foundAccessPoint[o]=false;
-        
+      let foundAccessPoint = [];
+      for (let o = 0; o < roomData.accessPoint.length; o++) {
+        foundAccessPoint[o] = false;
       }
-      
-      let firstSquareAndIteratedSquare = simSquares[0];
-      let xOfAccessPoint= [];
-      let lastSquareOfXAxis = firstSquareAndIteratedSquare + rangeX;
 
-      for(let o=0; o<roomData.accessPoint.length; o++){
-        do{
+      let firstSquare = simSquares[0];
+      let xOfAccessPoint = [];
+      let test = firstSquare + rangeX;
 
+      for (let o = 0; o < roomData.accessPoint.length; o++) {
+        do {
           let numberOfIterations = 0;
-          for(; firstSquareAndIteratedSquare<lastSquareOfXAxis; firstSquareAndIteratedSquare++){
-            
-            numberOfIterations++;  
-      
-            if(roomData.accessPoint[o] === firstSquareAndIteratedSquare){
-              foundAccessPoint[o] = true;
-              xOfAccessPoint[o]= numberOfIterations;
-              break;
-            }
-            else if(o===0 && roomData.accessPoint[o] === firstSquareAndIteratedSquare-1){
-              foundAccessPoint[o] = true;
-              xOfAccessPoint[o]= numberOfIterations;
-              console.log("dfs");
-              break;
-            }
-            
+          for (; firstSquare < test; firstSquare++) {
+            numberOfIterations++;
 
-            
+            if (roomData.accessPoint[o] === firstSquare) {
+              foundAccessPoint[o] = true;
+              xOfAccessPoint[o] = numberOfIterations;
+
+              break;
+            }
           }
-          
-          
-          firstSquareAndIteratedSquare = firstSquareAndIteratedSquare - rangeX + 40;
-          lastSquareOfXAxis = firstSquareAndIteratedSquare + rangeX;
+          firstSquare = firstSquare + 40;
 
-        
-        }while(foundAccessPoint[o] === false);
-        
+          numberOfIterations = 0;
+        } while (foundAccessPoint[o] === false);
       }
-
 
       console.log(xOfAccessPoint);
-      
-      
+
       //Find in which iteration of y axis we find the position of Access Point or Group of users
 
       //Two Times Nibba
 
       //(Distance between Access Point and Group of Users) = (x2−x1)2+(y2−y1) με ρίζες και κόλπα
-
-
     }
   };
 
