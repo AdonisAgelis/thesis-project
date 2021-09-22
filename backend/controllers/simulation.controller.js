@@ -180,7 +180,7 @@ exports.simulation = (req, res) => {
       let lastMove2 =
         exitSquares[Math.floor(Math.random() * exitSquares.length)];
       // Maximum movements of a user
-      const numberOfMoves = Math.floor(Math.random() * (40 - 20 + 1) + 20);
+      const numberOfMoves = Math.floor(Math.random() * (10 - 5 + 1) + 5);
       console.log(`Number of moves: ${numberOfMoves}`);
 
       arrayOfGroups[i] = new Object(simulationDataOfGroup);
@@ -317,25 +317,25 @@ exports.simulation = (req, res) => {
       let firstSquareAndIteratedSquareY = simSquares[0];
       let yOfAccessPoint = [];
       let lastSquareOfYAxis = firstSquareAndIteratedSquareY + rangeY * 40;
+      
+      let foundGroupX = [];
+      let foundGroupY = [];
+      let xOfGroupPerMove = [];
+      let yOfGroupPerMove = [];
 
-      console.log(`first: ${firstSquareAndIteratedSquareY}`);
-      console.log(`last: ${lastSquareOfYAxis}`);
 
       for (let o = 0; o < roomData.accessPoint.length; o++) {
         // This is for X
         do {
           let numberOfIterationsX = 0;
-          for (
-            ;
-            firstSquareAndIteratedSquareX < lastSquareOfXAxis;
-            firstSquareAndIteratedSquareX++
-          ) {
+          for (;firstSquareAndIteratedSquareX < lastSquareOfXAxis;firstSquareAndIteratedSquareX++) {
+
             numberOfIterationsX++;
 
             if (roomData.accessPoint[o] === firstSquareAndIteratedSquareX) {
               foundAccessPointX[o] = true;
               xOfAccessPoint[o] = numberOfIterationsX;
-              console.log(xOfAccessPoint);
+              
               break;
             } else if (
               o === 0 &&
@@ -347,8 +347,7 @@ exports.simulation = (req, res) => {
             }
           }
 
-          firstSquareAndIteratedSquareX =
-            firstSquareAndIteratedSquareX - rangeX + 40;
+          firstSquareAndIteratedSquareX = firstSquareAndIteratedSquareX - rangeX + 40;
           lastSquareOfXAxis = firstSquareAndIteratedSquareX + rangeX;
 
           if (foundAccessPointX[o] === true) {
@@ -360,35 +359,87 @@ exports.simulation = (req, res) => {
         // This is for y
         do {
           let numberOfIterationsY = 0;
-          for (
-            ;
-            firstSquareAndIteratedSquareY < lastSquareOfYAxis;
-            firstSquareAndIteratedSquareY + 40
-          ) {
+          for (;firstSquareAndIteratedSquareY < lastSquareOfYAxis; firstSquareAndIteratedSquareY += 40) {
             numberOfIterationsY++;
-
+            
             if (roomData.accessPoint[o] === firstSquareAndIteratedSquareY) {
               foundAccessPointY[o] = true;
               yOfAccessPoint[o] = numberOfIterationsY;
-              console.log(yOfAccessPoint);
+              
               break;
-            }
+            } else if (
+              o === 0 &&
+              roomData.accessPoint[o] === firstSquareAndIteratedSquareY - 1
+            ) {
+              foundAccessPointY[o] = true;
+              yOfAccessPoint[o] = numberOfIterationsY;
+              break;
+            }  
+            
           }
-
-          firstSquareAndIteratedSquareY =
-            firstSquareAndIteratedSquareY - rangeY * 40 + 1;
+         
+          firstSquareAndIteratedSquareY = firstSquareAndIteratedSquareY - rangeY * 40 + 1;
           lastSquareOfYAxis = firstSquareAndIteratedSquareY + rangeY * 40;
 
           if (foundAccessPointY[o] === true) {
             firstSquareAndIteratedSquareY = simSquares[0];
             lastSquareOfYAxis = firstSquareAndIteratedSquareY + rangeY * 40;
           }
+         
         } while (foundAccessPointY[o] === false);
       }
 
       console.log(xOfAccessPoint);
+      console.log(yOfAccessPoint);
 
       // Find x for groupMovement
+
+     
+
+
+
+      for (let o = 0; o < arrayOfGroups[i].groupMovement.length; o++) {
+
+        // This is for X
+        
+        do {
+          let numberOfIterationsX = 0;
+          
+          for (;firstSquareAndIteratedSquareX < lastSquareOfXAxis;firstSquareAndIteratedSquareX++) {
+
+            numberOfIterationsX++;
+           
+            if (arrayOfGroups[i].groupMovement[o] === firstSquareAndIteratedSquareX) {
+              foundGroupX[o] = true;
+              xOfGroupPerMove[o] = numberOfIterationsX;
+              console.log(numberOfIterationsX);
+              
+              break;
+            } else if (
+              o === 0 &&
+              arrayOfGroups[i].groupMovement[o] === firstSquareAndIteratedSquareX - 1
+            ) {
+              foundGroupX[o] = true;
+              xOfGroupPerMove[o] = numberOfIterationsX;
+              
+              break;
+            }
+          }
+
+          firstSquareAndIteratedSquareX = firstSquareAndIteratedSquareX - rangeX + 40;
+          lastSquareOfXAxis = firstSquareAndIteratedSquareX + rangeX;
+
+          if (foundGroupX[o] === true) {
+            firstSquareAndIteratedSquareX = simSquares[0];
+            lastSquareOfXAxis = firstSquareAndIteratedSquareX + rangeX;
+          }
+        } while (foundGroupX[o] === false);
+
+       
+         
+       
+      }
+      console.log(xOfGroupPerMove);
 
       //Two Times Nibba
 
