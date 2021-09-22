@@ -181,7 +181,7 @@ exports.simulation = (req, res) => {
         exitSquares[Math.floor(Math.random() * exitSquares.length)];
       // Maximum movements of a user
       const numberOfMoves = Math.floor(Math.random() * (3 - 1 + 1) + 1);
-      console.log(`Number of moves: ${numberOfMoves}`);
+      console.log(`Number of moves: ${numberOfMoves + 3}`);
 
       arrayOfGroups[i] = new Object(simulationDataOfGroup);
       arrayOfGroups[i].groupMovement[0] = firstMove;
@@ -237,8 +237,7 @@ exports.simulation = (req, res) => {
         let nextMove = possibleNextMove;
         arrayOfGroups[i].groupMovement[j + 1] = nextMove;
 
-        // Check if an exhibit got visited and push it in the
-        // object
+        // Check if an exhibit got visited and push it in the object
         for (let z = 0; z < exhibitsArrayLength; z++) {
           if (exhibitRange[z].includes(nextMove)) {
             arrayOfGroups[i].exhibitsVisited.push(roomData.exhibit[z]);
@@ -269,9 +268,7 @@ exports.simulation = (req, res) => {
 
       console.log(arrayOfGroups);
 
-      //Find deez nigga Pythagoras
-
-      //Find in x axis what is the max range of the line
+      // Find in x axis what is the max range of the line
 
       let tempX = 2;
       let rangeX;
@@ -285,7 +282,7 @@ exports.simulation = (req, res) => {
         tempX = tempX + 1;
       }
 
-      //Find in y axis what is the max range of the line
+      // Find in y axis what is the max range of the line
 
       let tempY = 2;
       let rangeY;
@@ -299,7 +296,7 @@ exports.simulation = (req, res) => {
         tempY = tempY + 1;
       }
 
-      //Find in which iteration of x and y axis we find the position of Access Point or Group of users
+      // Find in which iteration of x and y axis we find the position of Access Point or Group of users
 
       let foundAccessPointX = [];
       let foundAccessPointY = [];
@@ -326,9 +323,11 @@ exports.simulation = (req, res) => {
       let yOfAccessPoint = [];
       let lastSquareOfYAxis = firstSquareAndIteratedSquareY + rangeY * 40;
 
+      // User coordinates every time he moves
       let xOfGroupPerMove = [];
       let yOfGroupPerMove = [];
 
+      // Find coordinates of Access Points
       for (let o = 0; o < roomData.accessPoint.length; o++) {
         // This is for X
         do {
@@ -401,14 +400,12 @@ exports.simulation = (req, res) => {
         } while (foundAccessPointY[o] === false);
       }
 
-      console.log(xOfAccessPoint);
-      console.log(yOfAccessPoint);
+      console.log(`Xs of APs: [ ${xOfAccessPoint} ]`);
+      console.log(`Ys of APS: [ ${yOfAccessPoint} ]`);
 
-      // Find x for groupMovement
-
+      // Find users' coordinates (x, y) for every single move they make
       for (let o = 0; o < arrayOfGroups[i].groupMovement.length; o++) {
         // This is for X
-
         do {
           let numberOfIterationsX = 0;
 
@@ -493,10 +490,8 @@ exports.simulation = (req, res) => {
       }
 
       console.log(`Group Move Positions: ${arrayOfGroups[i].groupMovement}`);
-      console.log(`X Position:${xOfGroupPerMove}`);
-      console.log(`Y Position:${yOfGroupPerMove}`);
-
-      //Two Times Nibba
+      console.log(`X User Position: ${xOfGroupPerMove}`);
+      console.log(`Y User Position: ${yOfGroupPerMove}`);
 
       //(Distance between Access Point and Group of Users) = (x2−x1)2+(y2−y1) με ρίζες και κόλπα
     }
