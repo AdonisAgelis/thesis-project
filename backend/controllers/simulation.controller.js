@@ -335,7 +335,7 @@ exports.simulation = (req, res) => {
             else if(o===0 && roomData.accessPoint[o] === firstSquareAndIteratedSquare-1){
               foundAccessPoint[o] = true;
               xOfAccessPoint[o]= numberOfIterations;
-              console.log("dfs");
+              console.log("Test");
               break;
             }
             
