@@ -321,17 +321,17 @@ exports.simulation = (req, res) => {
       for (let o = 0; o < roomData.accessPoint.length; o++) {
         // This is for X
         do {
-          let numberOfIterations = 0;
+          let numberOfIterationsX = 0;
           for (
             ;
             firstSquareAndIteratedSquareX < lastSquareOfXAxis;
             firstSquareAndIteratedSquareX++
           ) {
-            numberOfIterations++;
+            numberOfIterationsX++;
 
             if (roomData.accessPoint[o] === firstSquareAndIteratedSquareX) {
               foundAccessPointX[o] = true;
-              xOfAccessPoint[o] = numberOfIterations;
+              xOfAccessPoint[o] = numberOfIterationsX;
               console.log(xOfAccessPoint);
               break;
             } else if (
@@ -339,7 +339,7 @@ exports.simulation = (req, res) => {
               roomData.accessPoint[o] === firstSquareAndIteratedSquareX - 1
             ) {
               foundAccessPointX[o] = true;
-              xOfAccessPoint[o] = numberOfIterations;
+              xOfAccessPoint[o] = numberOfIterationsX;
               break;
             }
           }
