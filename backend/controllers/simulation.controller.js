@@ -447,48 +447,52 @@ exports.simulation = (req, res) => {
         } while (foundGroupX[o] === false);
 
         //this is for y dem logic
-        
-        do {
-          let numberOfIterationsX = 0;
-          
-          for (;firstSquareAndIteratedSquareX < lastSquareOfXAxis;firstSquareAndIteratedSquareX++) {
 
-            numberOfIterationsX++;
+        do {
+          let numberOfIterationsY = 0;
+          
+          for (;firstSquareAndIteratedSquareY < lastSquareOfYAxis;firstSquareAndIteratedSquareY+=40) {
+
+            numberOfIterationsY++;
 
     
-            if (arrayOfGroups[i].groupMovement[o] === firstSquareAndIteratedSquareX) {
+            if (arrayOfGroups[i].groupMovement[o] === firstSquareAndIteratedSquareY) {
              
-              foundGroupX[o] = true;
-              xOfGroupPerMove[o] = numberOfIterationsX;
+              foundGroupY[o] = true;
+              yOfGroupPerMove[o] = numberOfIterationsY;
               
               
               break;
             } else if (
               o === 0 &&
-              arrayOfGroups[i].groupMovement[o] === firstSquareAndIteratedSquareX - 1
+              arrayOfGroups[i].groupMovement[o] === firstSquareAndIteratedSquareY - 1
             ) {
-              foundGroupX[o] = true;
-              xOfGroupPerMove[o] = numberOfIterationsX;
+              foundGroupY[o] = true;
+              yOfGroupPerMove[o] = numberOfIterationsY;
               
               break;
             }
           }
 
-          firstSquareAndIteratedSquareX = firstSquareAndIteratedSquareX - rangeX + 40;
-          lastSquareOfXAxis = firstSquareAndIteratedSquareX + rangeX;
 
-          if (foundGroupX[o] === true) {
-            firstSquareAndIteratedSquareX = simSquares[0];
-            lastSquareOfXAxis = firstSquareAndIteratedSquareX + rangeX;
+          firstSquareAndIteratedSquareY = firstSquareAndIteratedSquareY - rangeY * 40 + 1;
+          lastSquareOfYAxis = firstSquareAndIteratedSquareY + rangeY * 40;
+
+          if (foundGroupY[o] === true) {
+            firstSquareAndIteratedSquareY = simSquares[0];
+            lastSquareOfYAxis = firstSquareAndIteratedSquareY + rangeY * 40;
           }
           
-        } while (foundGroupX[o] === false);
+        } while (foundGroupY[o] === false);
 
        
          
        
       }
-      console.log(xOfGroupPerMove);
+
+      console.log(`Group Move Positions: ${arrayOfGroups[i].groupMovement}`)
+      console.log(`X Position:${xOfGroupPerMove}`);
+      console.log(`Y Position:${yOfGroupPerMove}`);
 
       //Two Times Nibba
 
