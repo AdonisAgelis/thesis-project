@@ -180,7 +180,7 @@ exports.simulation = (req, res) => {
       let lastMove2 =
         exitSquares[Math.floor(Math.random() * exitSquares.length)];
       // Maximum movements of a user
-      const numberOfMoves = Math.floor(Math.random() * (10 - 5 + 1) + 5);
+      const numberOfMoves = Math.floor(Math.random() * (3 - 1 + 1) + 1);
       console.log(`Number of moves: ${numberOfMoves}`);
 
       arrayOfGroups[i] = new Object(simulationDataOfGroup);
@@ -303,9 +303,18 @@ exports.simulation = (req, res) => {
 
       let foundAccessPointX = [];
       let foundAccessPointY = [];
+      let foundGroupX = [];
+      let foundGroupY = [];
+
       for (let o = 0; o < roomData.accessPoint.length; o++) {
         foundAccessPointX[o] = false;
         foundAccessPointY[o] = false;
+        
+      }
+
+      for (let o = 0; o < arrayOfGroups[i].groupMovement.length; o++) {
+        foundGroupX[o] = false;
+        foundGroupY[o] = false;
       }
 
       // X axis
@@ -318,8 +327,7 @@ exports.simulation = (req, res) => {
       let yOfAccessPoint = [];
       let lastSquareOfYAxis = firstSquareAndIteratedSquareY + rangeY * 40;
       
-      let foundGroupX = [];
-      let foundGroupY = [];
+      
       let xOfGroupPerMove = [];
       let yOfGroupPerMove = [];
 
@@ -408,11 +416,13 @@ exports.simulation = (req, res) => {
           for (;firstSquareAndIteratedSquareX < lastSquareOfXAxis;firstSquareAndIteratedSquareX++) {
 
             numberOfIterationsX++;
-           
+
+    
             if (arrayOfGroups[i].groupMovement[o] === firstSquareAndIteratedSquareX) {
+             
               foundGroupX[o] = true;
               xOfGroupPerMove[o] = numberOfIterationsX;
-              console.log(numberOfIterationsX);
+              
               
               break;
             } else if (
@@ -433,6 +443,45 @@ exports.simulation = (req, res) => {
             firstSquareAndIteratedSquareX = simSquares[0];
             lastSquareOfXAxis = firstSquareAndIteratedSquareX + rangeX;
           }
+          
+        } while (foundGroupX[o] === false);
+
+        //this is for y dem logic
+        
+        do {
+          let numberOfIterationsX = 0;
+          
+          for (;firstSquareAndIteratedSquareX < lastSquareOfXAxis;firstSquareAndIteratedSquareX++) {
+
+            numberOfIterationsX++;
+
+    
+            if (arrayOfGroups[i].groupMovement[o] === firstSquareAndIteratedSquareX) {
+             
+              foundGroupX[o] = true;
+              xOfGroupPerMove[o] = numberOfIterationsX;
+              
+              
+              break;
+            } else if (
+              o === 0 &&
+              arrayOfGroups[i].groupMovement[o] === firstSquareAndIteratedSquareX - 1
+            ) {
+              foundGroupX[o] = true;
+              xOfGroupPerMove[o] = numberOfIterationsX;
+              
+              break;
+            }
+          }
+
+          firstSquareAndIteratedSquareX = firstSquareAndIteratedSquareX - rangeX + 40;
+          lastSquareOfXAxis = firstSquareAndIteratedSquareX + rangeX;
+
+          if (foundGroupX[o] === true) {
+            firstSquareAndIteratedSquareX = simSquares[0];
+            lastSquareOfXAxis = firstSquareAndIteratedSquareX + rangeX;
+          }
+          
         } while (foundGroupX[o] === false);
 
        
