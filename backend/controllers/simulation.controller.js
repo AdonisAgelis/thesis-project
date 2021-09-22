@@ -348,6 +348,8 @@ exports.simulation = (req, res) => {
 
       console.log(xOfAccessPoint);
 
+      // Find x for groupMovement
+
       //Find in which iteration of y axis we find the position of Access Point or Group of users
 
       //Two Times Nibba
