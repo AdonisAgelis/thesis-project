@@ -363,7 +363,7 @@ exports.simulation = (req, res) => {
           for (
             ;
             firstSquareAndIteratedSquareY < lastSquareOfYAxis;
-            firstSquareAndIteratedSquareY + 40
+            firstSquareAndIteratedSquareY += 40
           ) {
             numberOfIterationsY++;
 
@@ -387,6 +387,7 @@ exports.simulation = (req, res) => {
       }
 
       console.log(xOfAccessPoint);
+      console.log(yOfAccessPoint);
 
       // Find x for groupMovement
 
