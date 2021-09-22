@@ -316,7 +316,10 @@ exports.simulation = (req, res) => {
       // Y axis
       let firstSquareAndIteratedSquareY = simSquares[0];
       let yOfAccessPoint = [];
-      let lastSquareOfyAxis = firstSquareAndIteratedSquareY + rangeY * 40;
+      let lastSquareOfYAxis = firstSquareAndIteratedSquareY + rangeY * 40;
+
+      console.log(`first: ${firstSquareAndIteratedSquareY}`);
+      console.log(`last: ${lastSquareOfYAxis}`);
 
       for (let o = 0; o < roomData.accessPoint.length; o++) {
         // This is for X
@@ -355,6 +358,32 @@ exports.simulation = (req, res) => {
         } while (foundAccessPointX[o] === false);
 
         // This is for y
+        do {
+          let numberOfIterationsY = 0;
+          for (
+            ;
+            firstSquareAndIteratedSquareY < lastSquareOfYAxis;
+            firstSquareAndIteratedSquareY + 40
+          ) {
+            numberOfIterationsY++;
+
+            if (roomData.accessPoint[o] === firstSquareAndIteratedSquareY) {
+              foundAccessPointY[o] = true;
+              yOfAccessPoint[o] = numberOfIterationsY;
+              console.log(yOfAccessPoint);
+              break;
+            }
+          }
+
+          firstSquareAndIteratedSquareY =
+            firstSquareAndIteratedSquareY - rangeY * 40 + 1;
+          lastSquareOfYAxis = firstSquareAndIteratedSquareY + rangeY * 40;
+
+          if (foundAccessPointY[o] === true) {
+            firstSquareAndIteratedSquareY = simSquares[0];
+            lastSquareOfYAxis = firstSquareAndIteratedSquareY + rangeY * 40;
+          }
+        } while (foundAccessPointY[o] === false);
       }
 
       console.log(xOfAccessPoint);
