@@ -299,58 +299,67 @@ exports.simulation = (req, res) => {
         tempY = tempY + 1;
       }
 
-      //Find in which iteration of x axis we find the position of Access Point or Group of users
+      //Find in which iteration of x and y axis we find the position of Access Point or Group of users
 
-      let foundAccessPoint = [];
+      let foundAccessPointX = [];
+      let foundAccessPointY = [];
       for (let o = 0; o < roomData.accessPoint.length; o++) {
-        foundAccessPoint[o] = false;
+        foundAccessPointX[o] = false;
+        foundAccessPointY[o] = false;
       }
 
-      let firstSquareAndIteratedSquare = simSquares[0];
+      // X axis
+      let firstSquareAndIteratedSquareX = simSquares[0];
       let xOfAccessPoint = [];
-      let lastSquareOfXAxis = firstSquareAndIteratedSquare + rangeX;
+      let lastSquareOfXAxis = firstSquareAndIteratedSquareX + rangeX;
+
+      // Y axis
+      let firstSquareAndIteratedSquareY = simSquares[0];
+      let yOfAccessPoint = [];
+      let lastSquareOfyAxis = firstSquareAndIteratedSquareY + rangeY * 40;
 
       for (let o = 0; o < roomData.accessPoint.length; o++) {
+        // This is for X
         do {
           let numberOfIterations = 0;
           for (
             ;
-            firstSquareAndIteratedSquare < lastSquareOfXAxis;
-            firstSquareAndIteratedSquare++
+            firstSquareAndIteratedSquareX < lastSquareOfXAxis;
+            firstSquareAndIteratedSquareX++
           ) {
             numberOfIterations++;
 
-            if (roomData.accessPoint[o] === firstSquareAndIteratedSquare) {
-              foundAccessPoint[o] = true;
+            if (roomData.accessPoint[o] === firstSquareAndIteratedSquareX) {
+              foundAccessPointX[o] = true;
               xOfAccessPoint[o] = numberOfIterations;
               console.log(xOfAccessPoint);
               break;
             } else if (
               o === 0 &&
-              roomData.accessPoint[o] === firstSquareAndIteratedSquare - 1
+              roomData.accessPoint[o] === firstSquareAndIteratedSquareX - 1
             ) {
-              foundAccessPoint[o] = true;
+              foundAccessPointX[o] = true;
               xOfAccessPoint[o] = numberOfIterations;
               break;
             }
           }
 
-          firstSquareAndIteratedSquare =
-            firstSquareAndIteratedSquare - rangeX + 40;
-          lastSquareOfXAxis = firstSquareAndIteratedSquare + rangeX;
+          firstSquareAndIteratedSquareX =
+            firstSquareAndIteratedSquareX - rangeX + 40;
+          lastSquareOfXAxis = firstSquareAndIteratedSquareX + rangeX;
 
-          if (foundAccessPoint[o] === true) {
-            firstSquareAndIteratedSquare = simSquares[0];
-            lastSquareOfXAxis = firstSquareAndIteratedSquare + rangeX;
+          if (foundAccessPointX[o] === true) {
+            firstSquareAndIteratedSquareX = simSquares[0];
+            lastSquareOfXAxis = firstSquareAndIteratedSquareX + rangeX;
           }
-        } while (foundAccessPoint[o] === false);
+        } while (foundAccessPointX[o] === false);
+
+        // This is for y
       }
 
       console.log(xOfAccessPoint);
 
       // Find x for groupMovement
-
-      //Find in which iteration of y axis we find the position of Access Point or Group of users
 
       //Two Times Nibba
 
