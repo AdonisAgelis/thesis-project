@@ -487,13 +487,16 @@ exports.simulation = (req, res) => {
             lastSquareOfYAxis = firstSquareAndIteratedSquareY + rangeY * 40;
           }
         } while (foundGroupY[o] === false);
+
+        //(Distance between Access Point and Group of Users) = (x2−x1)2+(y2−y1) με ρίζες και κόλπα
+        // Assign (x, y) coordinates for every move
+        let coordsArray = [];
+        coordsArray[o].push(xOfGroupPerMove[o]).push(yOfGroupPerMove[o]);
       }
 
       console.log(`Group Move Positions: ${arrayOfGroups[i].groupMovement}`);
       console.log(`X User Position: ${xOfGroupPerMove}`);
       console.log(`Y User Position: ${yOfGroupPerMove}`);
-
-      //(Distance between Access Point and Group of Users) = (x2−x1)2+(y2−y1) με ρίζες και κόλπα
     }
   };
 
