@@ -169,7 +169,7 @@ exports.simulation = (req, res) => {
     for (let i = 0; i < groupsLength; i++) {
       // Logic
       const simulationDataOfGroup = {
-        accessPointConnected: null,
+        accessPointsConnected: [],
         groupMovement: [],
         exhibitsVisited: [],
       };
@@ -266,8 +266,6 @@ exports.simulation = (req, res) => {
         ...new Set(arrayOfGroups[i].exhibitsVisited),
       ];
 
-      console.log(arrayOfGroups);
-
       // Find in x axis what is the max range of the line
 
       let tempX = 2;
@@ -326,6 +324,9 @@ exports.simulation = (req, res) => {
       // User coordinates every time he moves
       let xOfGroupPerMove = [];
       let yOfGroupPerMove = [];
+
+      // Array that includes the coords for every AP seperately
+      let APcoordsArray = [];
 
       // Find coordinates of Access Points
       for (let o = 0; o < roomData.accessPoint.length; o++) {
@@ -398,10 +399,16 @@ exports.simulation = (req, res) => {
             lastSquareOfYAxis = firstSquareAndIteratedSquareY + rangeY * 40;
           }
         } while (foundAccessPointY[o] === false);
+
+        APcoordsArray[o] = [xOfAccessPoint[o], yOfAccessPoint[o]];
       }
 
-      console.log(`Xs of APs: [ ${xOfAccessPoint} ]`);
-      console.log(`Ys of APS: [ ${yOfAccessPoint} ]`);
+      // Arrays for assigning coordinates to every move
+      let userMovesCoordsArray = [];
+      // Array for distances
+      let distanceFromAP = [];
+      let minimumDistance;
+      let accessPointToConnect;
 
       // Find users' coordinates (x, y) for every single move they make
       for (let o = 0; o < arrayOfGroups[i].groupMovement.length; o++) {
@@ -490,13 +497,25 @@ exports.simulation = (req, res) => {
 
         //(Distance between Access Point and Group of Users) = (x2−x1)2+(y2−y1) με ρίζες και κόλπα
         // Assign (x, y) coordinates for every move
-        let coordsArray = [];
-        coordsArray[o].push(xOfGroupPerMove[o]).push(yOfGroupPerMove[o]);
+        userMovesCoordsArray[o] = [xOfGroupPerMove[o], yOfGroupPerMove[o]];
+
+        for (let a = 0; a < roomData.accessPoint.length; a++) {
+          distanceFromAP[a] = Math.sqrt(
+            Math.pow(userMovesCoordsArray[o][0] - APcoordsArray[a][0], 2) +
+              Math.pow(userMovesCoordsArray[o][1] - APcoordsArray[a][1], 2)
+          );
+          minimumDistance = distanceFromAP.indexOf(Math.min(...distanceFromAP));
+          accessPointToConnect = roomData.accessPoint[minimumDistance];
+        }
+        console.log(distanceFromAP);
+        console.log(minimumDistance);
+
+        arrayOfGroups[i].accessPointsConnected[o] = accessPointToConnect;
       }
 
-      console.log(`Group Move Positions: ${arrayOfGroups[i].groupMovement}`);
-      console.log(`X User Position: ${xOfGroupPerMove}`);
-      console.log(`Y User Position: ${yOfGroupPerMove}`);
+      console.log(arrayOfGroups);
+      console.log(APcoordsArray);
+      console.log(userMovesCoordsArray);
     }
   };
 
