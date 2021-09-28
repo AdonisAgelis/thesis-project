@@ -165,6 +165,11 @@ exports.simulation = (req, res) => {
 
     let groupsLength = transferedData.typeOfGroup.length;
 
+    // Number of total visitors
+    let numberOfTotalVisitors = 0;
+    let exhibitsAttractionPower = Array(roomData.exhibit.length).fill(0);
+    let exhibitsRevisitingPower = Array(roomData.exhibit.length).fill(0);
+
     // Number of groups that enter the room
     for (let i = 0; i < groupsLength; i++) {
       // Logic
@@ -172,7 +177,26 @@ exports.simulation = (req, res) => {
         accessPointsConnected: [],
         groupMovement: [],
         exhibitsVisited: [],
+        typeOfVisitors: '',
+        numberOfVisitors: transferedData.numberOfPeopleInGroup[i],
+        attractionPower: Array(roomData.exhibit.length).fill(0),
+        revisitingPower: Array(roomData.exhibit.length).fill(0),
       };
+
+      // Type of visitors and number of total visitors
+      switch (transferedData.typeOfGroup[i]) {
+        case 0:
+          simulationDataOfGroup.typeOfVisitors = 'School';
+          break;
+        case 1:
+          simulationDataOfGroup.typeOfVisitors = 'Family';
+          break;
+        case 2:
+          simulationDataOfGroup.typeOfVisitors = 'Other';
+          break;
+        default:
+          break;
+      }
 
       // Manually push users towards the exit
       let lastMove1 =
@@ -180,7 +204,9 @@ exports.simulation = (req, res) => {
       let lastMove2 =
         exitSquares[Math.floor(Math.random() * exitSquares.length)];
       // Maximum movements of a user
-      const numberOfMoves = Math.floor(Math.random() * (3 - 1 + 1) + 1);
+      const max = 5;
+      const min = 2;
+      const numberOfMoves = Math.floor(Math.random() * (max - min + 1) + min);
       console.log(`Number of moves: ${numberOfMoves + 3}`);
 
       arrayOfGroups[i] = new Object(simulationDataOfGroup);
@@ -241,11 +267,11 @@ exports.simulation = (req, res) => {
         for (let z = 0; z < exhibitsArrayLength; z++) {
           if (exhibitRange[z].includes(nextMove)) {
             arrayOfGroups[i].exhibitsVisited.push(roomData.exhibit[z]);
+            arrayOfGroups[i].attractionPower[z] =
+              arrayOfGroups[i].numberOfVisitors;
+            arrayOfGroups[i].revisitingPower[z]++;
           }
         }
-        arrayOfGroups[i].exhibitsVisited = [
-          ...new Set(arrayOfGroups[i].exhibitsVisited),
-        ];
       }
       arrayOfGroups[i].groupMovement.push(lastMove1);
       arrayOfGroups[i].groupMovement.push(lastMove2);
@@ -254,10 +280,16 @@ exports.simulation = (req, res) => {
       for (let z = 0; z < exhibitsArrayLength; z++) {
         if (exhibitRange[z].includes(lastMove1)) {
           arrayOfGroups[i].exhibitsVisited.push(roomData.exhibit[z]);
+          arrayOfGroups[i].attractionPower[z] =
+            arrayOfGroups[i].numberOfVisitors;
+          arrayOfGroups[i].revisitingPower[z]++;
         }
 
         if (exhibitRange[z].includes(lastMove2)) {
           arrayOfGroups[i].exhibitsVisited.push(roomData.exhibit[z]);
+          arrayOfGroups[i].attractionPower[z] =
+            arrayOfGroups[i].numberOfVisitors;
+          arrayOfGroups[i].revisitingPower[z]++;
         }
       }
 
@@ -267,7 +299,6 @@ exports.simulation = (req, res) => {
       ];
 
       // Find in x axis what is the max range of the line
-
       let tempX = 2;
       let rangeX;
 
@@ -281,7 +312,6 @@ exports.simulation = (req, res) => {
       }
 
       // Find in y axis what is the max range of the line
-
       let tempY = 2;
       let rangeY;
 
@@ -295,7 +325,6 @@ exports.simulation = (req, res) => {
       }
 
       // Find in which iteration of x and y axis we find the position of Access Point or Group of users
-
       let foundAccessPointX = [];
       let foundAccessPointY = [];
       let foundGroupX = [];
@@ -507,16 +536,32 @@ exports.simulation = (req, res) => {
           minimumDistance = distanceFromAP.indexOf(Math.min(...distanceFromAP));
           accessPointToConnect = roomData.accessPoint[minimumDistance];
         }
-        console.log(distanceFromAP);
-        console.log(minimumDistance);
+        // console.log(distanceFromAP);
+        // console.log(minimumDistance);
 
         arrayOfGroups[i].accessPointsConnected[o] = accessPointToConnect;
       }
 
-      console.log(arrayOfGroups);
-      console.log(APcoordsArray);
-      console.log(userMovesCoordsArray);
+      // console.log(APcoordsArray);
+      // console.log(userMovesCoordsArray);
+      for (let p = 0; p < exhibitsArrayLength; p++) {
+        exhibitsAttractionPower[p] += arrayOfGroups[i].attractionPower[p];
+      }
+
+      for (let q = 0; q < exhibitsArrayLength; q++) {
+        exhibitsRevisitingPower[q] += arrayOfGroups[i].revisitingPower[q];
+      }
+
+      numberOfTotalVisitors += arrayOfGroups[i].numberOfVisitors;
     }
+
+    console.log(arrayOfGroups);
+
+    console.log(`Attraction Power: ${exhibitsAttractionPower}`);
+    console.log(`Revisiting Power: ${exhibitsRevisitingPower}`);
+    console.log(
+      `A total of ${numberOfTotalVisitors} people visited the museum`
+    );
   };
 
   runSimulationRoom();
