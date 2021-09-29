@@ -170,10 +170,35 @@ exports.simulation = (req, res) => {
     let exhibitsAttractionPower = Array(roomData.exhibit.length).fill(0);
     let exhibitsRevisitingPower = Array(roomData.exhibit.length).fill(0);
 
+    // Get timestamp
+    let currentTimestamp = new Date().toLocaleString().slice(0, -5);
+    // Get date only
+    let currentDate = new Date().toLocaleDateString();
+    // Current timestamp in milliseconds
+    let timeStampInMS = Date.now();
+    // Manually change timestamp for each move
+    let newTimestamp = timeStampInMS;
+
+    const convertMStoTime = timestamp => {
+      let seconds = Math.floor((timestamp / 1000) % 60);
+      let minutes = Math.floor((timestamp / (1000 * 60)) % 60);
+      let hours = Math.floor((timestamp / (1000 * 60 * 60)) % 24);
+
+      hours = hours < 10 ? hours + 3 : hours + 3;
+      minutes = minutes < 10 ? `0${minutes}` : minutes;
+      seconds = seconds < 10 ? `0${seconds}` : seconds;
+
+      return `${hours}:${minutes}:${seconds}`;
+    };
+
+    let convertedTimestamp = convertMStoTime(timeStampInMS);
+    console.log(convertedTimestamp);
+
     // Number of groups that enter the room
     for (let i = 0; i < groupsLength; i++) {
       // Logic
       const simulationDataOfGroup = {
+        timestamps: [currentTimestamp],
         accessPointsConnected: [],
         groupMovement: [],
         exhibitsVisited: [],
@@ -262,6 +287,10 @@ exports.simulation = (req, res) => {
         // Executing user's next move
         let nextMove = possibleNextMove;
         arrayOfGroups[i].groupMovement[j + 1] = nextMove;
+        // Manually change timestamp after each move
+        arrayOfGroups[i].timestamps[j + 1] = `${currentDate}, ${convertMStoTime(
+          (newTimestamp += 124427)
+        )}`;
 
         // Check if an exhibit got visited and push it in the object
         for (let z = 0; z < exhibitsArrayLength; z++) {
@@ -273,8 +302,15 @@ exports.simulation = (req, res) => {
           }
         }
       }
+      // Also change timestamps manually here for the last moves
       arrayOfGroups[i].groupMovement.push(lastMove1);
+      arrayOfGroups[i].timestamps[
+        arrayOfGroups[i].timestamps.length
+      ] = `${currentDate}, ${convertMStoTime((newTimestamp += 124427))}`;
       arrayOfGroups[i].groupMovement.push(lastMove2);
+      arrayOfGroups[i].timestamps[
+        arrayOfGroups[i].timestamps.length
+      ] = `${currentDate}, ${convertMStoTime((newTimestamp += 124427))}`;
 
       // Check if the user visits an exhibit while exiting the room
       for (let z = 0; z < exhibitsArrayLength; z++) {
