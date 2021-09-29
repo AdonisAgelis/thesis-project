@@ -171,7 +171,6 @@ exports.simulation = (req, res) => {
     let exhibitsRevisitingPower = Array(roomData.exhibit.length).fill(0);
 
     // Get timestamp
-    let currentTimestamp = new Date().toLocaleString().slice(0, -5);
     // Get date only
     let currentDate = new Date().toLocaleDateString();
     // Current timestamp in milliseconds
@@ -192,13 +191,12 @@ exports.simulation = (req, res) => {
     };
 
     let convertedTimestamp = convertMStoTime(timeStampInMS);
-    console.log(convertedTimestamp);
 
     // Number of groups that enter the room
     for (let i = 0; i < groupsLength; i++) {
       // Logic
       const simulationDataOfGroup = {
-        timestamps: [currentTimestamp],
+        timestamps: [`${currentDate}, ${convertMStoTime(timeStampInMS)}`],
         accessPointsConnected: [],
         groupMovement: [],
         exhibitsVisited: [],
