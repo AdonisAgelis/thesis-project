@@ -1,4 +1,5 @@
 const { db } = require('../models/room.model');
+const SimulationRoom = require('../models/simulationRoom.model');
 
 exports.simulation = (req, res) => {
   const transferedData = {
@@ -170,9 +171,10 @@ exports.simulation = (req, res) => {
     let exhibitsAttractionPower = Array(roomData.exhibit.length).fill(0);
     let exhibitsRevisitingPower = Array(roomData.exhibit.length).fill(0);
 
-    // Get timestamp
-    // Get date only
+    // Get timestamps
+    // Get date
     let currentDate = new Date().toLocaleDateString();
+
     // Current timestamp in milliseconds
     let timeStampInMS = Date.now();
     // Manually change timestamp for each move
@@ -183,14 +185,12 @@ exports.simulation = (req, res) => {
       let minutes = Math.floor((timestamp / (1000 * 60)) % 60);
       let hours = Math.floor((timestamp / (1000 * 60 * 60)) % 24);
 
-      hours = hours < 10 ? hours + 3 : hours + 3;
+      hours = hours + 3 > 23 ? hours - 21 : hours + 3;
       minutes = minutes < 10 ? `0${minutes}` : minutes;
       seconds = seconds < 10 ? `0${seconds}` : seconds;
 
       return `${hours}:${minutes}:${seconds}`;
     };
-
-    let convertedTimestamp = convertMStoTime(timeStampInMS);
 
     // Number of groups that enter the room
     for (let i = 0; i < groupsLength; i++) {
@@ -574,6 +574,10 @@ exports.simulation = (req, res) => {
         // console.log(minimumDistance);
 
         arrayOfGroups[i].accessPointsConnected[o] = accessPointToConnect;
+
+        // Optional
+        timeStampInMS = newTimestamp + 100000;
+        newTimestamp += 100000;
       }
 
       // console.log(APcoordsArray);
@@ -596,6 +600,27 @@ exports.simulation = (req, res) => {
     console.log(
       `A total of ${numberOfTotalVisitors} people visited the museum`
     );
+
+    const simulationRoom = new SimulationRoom({
+      userID: roomData.userId,
+      roomID: roomData._id,
+      nameOfRoom: roomData.nameOfTemplate,
+      arrayOfSimulations: arrayOfGroups,
+      totalAttractionPower: exhibitsAttractionPower,
+      totalRevisitingPower: exhibitsRevisitingPower,
+      totalVisitors: numberOfTotalVisitors,
+    });
+
+    simulationRoom.save(err => {
+      if (err) {
+        res.status(500).send({ message: err });
+        return;
+      }
+
+      res.send({
+        message: 'SimulationRoom was saved successfully at mongoDB!',
+      });
+    });
   };
 
   runSimulationRoom();
