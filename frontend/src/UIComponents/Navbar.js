@@ -115,6 +115,7 @@ const Navbar = () => {
                 src={logo}
                 style={{ height: '2.5rem' }}
                 className="img-fluid"
+                alt="Logo"
               />
             </a>
           </MDBNavbarBrand>

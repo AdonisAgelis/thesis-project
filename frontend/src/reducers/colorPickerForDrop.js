@@ -12,6 +12,7 @@ const colorPickerForDropReducer = (state = initialState, action) => {
     case 'EXTRACT_VALID_DROP_COLOR_FOR_ELSE':
       state.blackSquare = 'red';
       state.whiteSquare = 'green';
+      return state;
     default:
       return { ...state };
   }

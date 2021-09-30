@@ -153,8 +153,9 @@ const Buttons = props => {
   };
 
   const handleLoadSim = () => {
-    dispatch(dropSecondColumnLoadSim());
     dispatch(resetRoom());
+    dispatch(resetTypeOfDraggable());
+    dispatch(dropSecondColumnLoadSim());
   };
 
   let enableAdd = peopleNum === 'NUMBER OF PEOPLE';
