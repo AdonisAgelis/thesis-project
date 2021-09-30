@@ -29,6 +29,7 @@ import {
   enableSimulationButton,
   sendAddAttributes,
   roomIsLoaded,
+  dropSecondColumnLoadSim,
 } from '../actions/workstation';
 
 const Buttons = props => {
@@ -149,6 +150,11 @@ const Buttons = props => {
     dispatch(resetRoom());
     dispatch(resetTypeOfDraggable());
     dispatch(dropSecondColumnLoad());
+  };
+
+  const handleLoadSim = () => {
+    dispatch(dropSecondColumnLoadSim());
+    dispatch(resetRoom());
   };
 
   let enableAdd = peopleNum === 'NUMBER OF PEOPLE';
@@ -274,7 +280,7 @@ const Buttons = props => {
     );
   } else if (buttonProp.type === 'graph') {
     return (
-      <MDBBtn className="styleBtn">
+      <MDBBtn className="styleBtn" onClick={() => handleLoadSim()}>
         <MDBIcon icon="chart-area" style={{ marginRight: '1rem' }} />
         Graphs
       </MDBBtn>

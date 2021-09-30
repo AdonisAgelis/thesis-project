@@ -10,6 +10,12 @@ export const dropSecondColumnLoad = () => {
   };
 };
 
+export const dropSecondColumnLoadSim = () => {
+  return {
+    type: 'DROP_SECOND_COLUMN_LOAD_SIM',
+  };
+};
+
 export const updateFirstDropDown = value => {
   return {
     type: 'UPDATE_FIRST_DROPDOWN',
@@ -255,6 +261,28 @@ export const sendRoomDataFromLoad = (
     payload24: value24,
     payload25: value25,
     payload26: value26,
+  };
+};
+
+// Send Sim Data to Graphs
+export const sendSimDataFromMongoDB = (
+  value1,
+  value2,
+  value3,
+  value4,
+  value5,
+  value6,
+  value7
+) => {
+  return {
+    type: 'SEND_SIM_DATA_FROM_MONGODB',
+    payload1: value1,
+    payload2: value2,
+    payload3: value3,
+    payload4: value4,
+    payload5: value5,
+    payload6: value6,
+    payload7: value7,
   };
 };
 

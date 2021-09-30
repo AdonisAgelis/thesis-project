@@ -16,6 +16,7 @@ import {
 
 import '../styles/workstation.css';
 import LoadPagination from './LoadPagination';
+import SimPagination from './SimPagination';
 import RoomTemplate from './RoomTemplate';
 import Buttons from './Buttons';
 import Modal from './Modal';
@@ -57,7 +58,11 @@ const WorkStationMenu = props => {
   if (midMenuisOpen === 'default') {
     animationType = 'fadeInDown';
     animationDelay = '.3s';
-  } else if (midMenuisOpen === 'new') {
+  } else if (
+    midMenuisOpen === 'new' ||
+    midMenuisOpen === 'load' ||
+    midMenuisOpen === 'load_sim'
+  ) {
     animationType = 'fadeInRight';
     animationDelay = '.0s';
   }
@@ -65,7 +70,8 @@ const WorkStationMenu = props => {
   if (
     (midMenuisOpen === 'default' ||
       midMenuisOpen === 'load' ||
-      midMenuisOpen === 'new') &&
+      midMenuisOpen === 'new' ||
+      midMenuisOpen === 'load_sim') &&
     columnProp.columnPos === 2
   ) {
     return (
@@ -215,6 +221,32 @@ const WorkStationMenu = props => {
                   borderRadius: '3px',
                 }}>
                 <LoadPagination />
+              </div>
+            </MDBCardBody>
+          </MDBCard>
+        </MDBAnimation>
+      </MDBCol>
+    );
+  } else if (midMenuisOpen === 'load_sim' && columnProp.columnPos === 7) {
+    return (
+      <MDBCol md={columnProp.columnPos}>
+        <MDBAnimation type="fadeInDown" delay=".3s">
+          <MDBCard style={{ background: 'rgba(0, 0, 0, 0.8', height: '42rem' }}>
+            <MDBCardImage className="img-fluid" />
+            <MDBCardBody>
+              <MDBCardTitle style={{ textAlign: 'center' }}>
+                <MDBTypography style={{ color: 'white' }} tag="h4">
+                  Select a Room to display Graphs
+                  <hr className="hr-light" style={{ width: '100%' }} />
+                </MDBTypography>
+              </MDBCardTitle>
+              <div
+                style={{
+                  marginTop: '4rem',
+                  border: 'solid 1px white',
+                  borderRadius: '3px',
+                }}>
+                <SimPagination />
               </div>
             </MDBCardBody>
           </MDBCard>

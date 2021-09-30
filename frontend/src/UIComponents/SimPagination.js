@@ -11,7 +11,7 @@ import {
 
 import '../styles/workstation.css';
 
-const LoadPagination = () => {
+const SimPagination = () => {
   const rooms = useSelector(state => state.messageReducer.data);
 
   const dispatch = useDispatch();
@@ -165,4 +165,4 @@ const LoadPagination = () => {
   );
 };
 
-export default LoadPagination;
+export default SimPagination;
