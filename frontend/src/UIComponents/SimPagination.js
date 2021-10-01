@@ -18,22 +18,22 @@ const SimPagination = () => {
 
   const dispatch = useDispatch();
 
-  const getJSONData = axios
-    .get('http://localhost:8082/api/auth/simulation')
-    .then(response => {
-      const data = response.data;
-      return data;
-    })
-    .catch(() => {
-      console.log('Data NOT here bro');
-    });
+  // const getJSONData = axios
+  //   .get('http://localhost:8082/api/auth/simulation')
+  //   .then(response => {
+  //     const data = response.data;
+  //     return data;
+  //   })
+  //   .catch(() => {
+  //     console.log('Data NOT here bro');
+  //   });
 
-  const getMongoData = async () => {
-    const simulations = await getJSONData;
-    console.log(simulations);
-  };
+  // const getMongoData = async () => {
+  //   const simulations = await getJSONData;
+  //   console.log(simulations);
+  // };
 
-  getMongoData();
+  // getMongoData();
 
   // useEffect(() => {
   //   dispatch(resetRoom());
