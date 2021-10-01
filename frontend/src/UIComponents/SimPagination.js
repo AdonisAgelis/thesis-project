@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MDBDataTableV5 } from 'mdbreact';
 import { useSelector, useDispatch } from 'react-redux';
 import {
@@ -9,6 +9,8 @@ import {
   roomIsLoaded,
 } from '../actions/workstation';
 
+import axios from 'axios';
+
 import '../styles/workstation.css';
 
 const SimPagination = () => {
@@ -16,10 +18,27 @@ const SimPagination = () => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(resetRoom());
-    dispatch(resetTypeOfDraggable());
-  });
+  const getJSONData = axios
+    .get('http://localhost:8082/api/auth/simulation')
+    .then(response => {
+      const data = response.data;
+      return data;
+    })
+    .catch(() => {
+      console.log('Data NOT here bro');
+    });
+
+  const getMongoData = async () => {
+    const simulations = await getJSONData;
+    console.log(simulations);
+  };
+
+  getMongoData();
+
+  // useEffect(() => {
+  //   dispatch(resetRoom());
+  //   dispatch(resetTypeOfDraggable());
+  // });
 
   let names = rooms?.map(room => room.nameOfTemplate);
 

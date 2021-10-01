@@ -35,4 +35,8 @@ module.exports = function (app) {
   );
 
   app.post('/api/auth/simulation', simController.simulation);
+
+  app.get('/api/auth/simulation', (req, res) => {
+    res.send({ data: 'clown' });
+  });
 };
