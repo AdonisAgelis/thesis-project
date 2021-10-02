@@ -265,7 +265,7 @@ export const sendRoomDataFromLoad = (
 };
 
 // Send Sim Data to Graphs
-export const sendSimDataFromMongoDB = (
+export const getSimDataFromMongoDB = (
   value1,
   value2,
   value3,
@@ -275,7 +275,7 @@ export const sendSimDataFromMongoDB = (
   value7
 ) => {
   return {
-    type: 'SEND_SIM_DATA_FROM_MONGODB',
+    type: 'GET_SIM_DATA_FROM_MONGODB',
     payload1: value1,
     payload2: value2,
     payload3: value3,

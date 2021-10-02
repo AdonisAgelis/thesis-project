@@ -10,13 +10,16 @@ import {
 import '../styles/workstation.css';
 
 const SimPagination = () => {
+  const dispatch = useDispatch();
+
   const rooms = useSelector(state => state.messageReducer.data.rooms);
 
   const graphData = useSelector(state => state.messageReducer.data.graphs);
   console.log(graphData);
 
-  const dispatch = useDispatch();
+  // Extract data from graphs
 
+  // Extract data from rooms
   let names = rooms?.map(room => room.nameOfTemplate);
 
   let heights = rooms?.map(room => room.height);
