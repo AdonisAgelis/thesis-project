@@ -268,6 +268,7 @@ const extractPositionReducer = (state = initialState, action) => {
           return state;
         }
       }
+      return state;
     default:
       return { ...state };
   }

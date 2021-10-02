@@ -153,6 +153,8 @@ const Buttons = props => {
   };
 
   const handleLoadSim = () => {
+    const userInLocalStorage = JSON.parse(window.localStorage.getItem('user'));
+    dispatch(sendLocalStorageUserId(userInLocalStorage));
     dispatch(resetRoom());
     dispatch(resetTypeOfDraggable());
     dispatch(dropSecondColumnLoadSim());

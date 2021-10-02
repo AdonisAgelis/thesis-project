@@ -15,6 +15,7 @@ import '../styles/workstation.css';
 
 const SimPagination = () => {
   const rooms = useSelector(state => state.messageReducer.data);
+  console.log(rooms);
 
   const dispatch = useDispatch();
 

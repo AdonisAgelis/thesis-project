@@ -1,7 +1,7 @@
-import React, { useEffect, useState, useHistory } from 'react';
+import React, { useEffect, useState } from 'react';
 import UserService from '../services/user-service';
 import { Redirect } from 'react-router-dom';
-import { dispatch, useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { login } from '../actions/auth';
 
 import {

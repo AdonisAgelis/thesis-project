@@ -34,6 +34,8 @@ module.exports = function (app) {
     userController.userWorkstation
   );
 
+  // app.post('/api/workstation', userController.getMongoSimData);
+
   app.get('/api/workstation', userController.getMongoSimData);
 
   app.post('/api/auth/simulation', simController.simulation);

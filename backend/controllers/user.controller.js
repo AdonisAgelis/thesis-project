@@ -12,7 +12,7 @@ exports.userWorkstation = (req, res) => {
 
 exports.getMongoSimData = (req, res) => {
   db.collection('simulationrooms')
-    .find({ userId: req.body.localStorageUserId.id })
+    .find({})
     .toArray()
     .then(response => {
       res.status(200).send(response);
