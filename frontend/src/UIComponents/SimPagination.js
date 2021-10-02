@@ -1,45 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { MDBDataTableV5 } from 'mdbreact';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   dropSecondColumn,
   sendRoomDataFromLoad,
-  resetRoom,
-  resetTypeOfDraggable,
   roomIsLoaded,
 } from '../actions/workstation';
-
-import axios from 'axios';
 
 import '../styles/workstation.css';
 
 const SimPagination = () => {
-  const rooms = useSelector(state => state.messageReducer.data);
-  console.log(rooms);
+  const rooms = useSelector(state => state.messageReducer.data.rooms);
+
+  const graphData = useSelector(state => state.messageReducer.data.graphs);
+  console.log(graphData);
 
   const dispatch = useDispatch();
-
-  // const getJSONData = axios
-  //   .get('http://localhost:8082/api/auth/simulation')
-  //   .then(response => {
-  //     const data = response.data;
-  //     return data;
-  //   })
-  //   .catch(() => {
-  //     console.log('Data NOT here bro');
-  //   });
-
-  // const getMongoData = async () => {
-  //   const simulations = await getJSONData;
-  //   console.log(simulations);
-  // };
-
-  // getMongoData();
-
-  // useEffect(() => {
-  //   dispatch(resetRoom());
-  //   dispatch(resetTypeOfDraggable());
-  // });
 
   let names = rooms?.map(room => room.nameOfTemplate);
 

@@ -1,23 +1,34 @@
 const { db } = require('../models/user.model');
 
-exports.userWorkstation = (req, res) => {
-  db.collection('rooms')
+exports.userWorkstation = async (req, res) => {
+  const rooms = db
+    .collection('rooms')
     .find({ userId: req.body.localStorageUserId.id })
     .toArray()
     .then(results => {
-      res.status(200).send(results);
+      return results;
+      // res.status(200).send(results);
     })
     .catch(error => console.error.name(error));
-};
 
-exports.getMongoSimData = (req, res) => {
-  db.collection('simulationrooms')
-    .find({})
+  const graphs = db
+    .collection('simulationrooms')
+    .find({ userID: req.body.localStorageUserId.id })
     .toArray()
     .then(response => {
-      res.status(200).send(response);
+      return response;
+      // res.status(200).send(response);
     })
     .catch(error => console.error.name(error));
+
+  const findData = async () => {
+    const returnedRooms = await rooms;
+    const returnedGraphs = await graphs;
+
+    res.status(200).send({ rooms: returnedRooms, graphs: returnedGraphs });
+  };
+
+  findData();
 };
 
 exports.allAccess = (req, res) => {
