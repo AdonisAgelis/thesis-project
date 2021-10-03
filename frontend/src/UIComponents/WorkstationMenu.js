@@ -23,23 +23,26 @@ import Modal from './Modal';
 import logo from '../images/logo.png';
 import DragAndDropItems from './DragAndDropItems';
 import { useSelector, useDispatch } from 'react-redux';
-import { sendLocalStorageUserId } from '../actions/auth';
+import {
+  sendLocalStorageUserId,
+  sendLocalStorageUserIdToGraphs,
+} from '../actions/auth';
 
 const WorkStationMenu = props => {
   const [columnProp, setColumnProp] = useState(props);
+  const dispatch = useDispatch();
 
   let animationType;
   let animationDelay;
 
   // DISPATCH
-  const dispatch = useDispatch();
   useEffect(() => {
     const userInLocalStorage = JSON.parse(window.localStorage.getItem('user'));
     dispatch(sendLocalStorageUserId(userInLocalStorage));
+    dispatch(sendLocalStorageUserIdToGraphs(userInLocalStorage));
   });
 
   //SELECTORS
-  // const rooms = useSelector((state) => state.messageReducer.message);
   let entranceNumberBadge = useSelector(
     state => state.extractPositionReducer.entranceBadge
   );

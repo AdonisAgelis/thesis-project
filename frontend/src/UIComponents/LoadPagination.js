@@ -12,7 +12,7 @@ import {
 import '../styles/workstation.css';
 
 const LoadPagination = () => {
-  const rooms = useSelector(state => state.messageReducer.data.rooms);
+  const rooms = useSelector(state => state.messageReducer.data);
 
   const dispatch = useDispatch();
 

@@ -38,6 +38,18 @@ const WorkStation = () => {
           ) : (
             <Redirect to="/login" />
           )}{' '}
+          {/* Optional */}
+          {/* Πρέπει να κάνουμε για κάθε typeOfMenu ξεχωριστά για να έχουμε διαφορετικά routes */}
+          {/* {isLoggedIn ? (
+            <Redirect to="/workstation" />
+          ) : (
+            <Redirect to="/login" />
+          )}{' '} */}
+          {/* {isLoggedIn && typeOfMenu === 'load_sim' ? (
+            <Redirect to="/workstation/graphs" />
+          ) : (
+            <Redirect to="/login" />
+          )}{' '} */}
           <MDBView>
             <MDBMask className="d-flex justify-content-center align-items-center gradient">
               <WorkStationMenu columnPos={columnPos} />

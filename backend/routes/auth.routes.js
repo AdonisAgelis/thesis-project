@@ -28,6 +28,8 @@ module.exports = function (app) {
 
   app.post('/api/workstation', userController.userWorkstation);
 
+  app.post('/api/workstation/graphs', userController.getGraphData);
+
   app.get(
     '/api/workstation',
     [authJwt.verifyToken],

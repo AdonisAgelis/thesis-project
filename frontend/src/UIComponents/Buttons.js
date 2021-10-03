@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import {
@@ -16,6 +16,7 @@ import {
   logout,
   sendSimulationData,
   sendLocalStorageUserId,
+  sendLocalStorageUserIdToGraphs,
 } from '../actions/auth';
 import {
   dropSecondColumn,
@@ -31,9 +32,11 @@ import {
   roomIsLoaded,
   dropSecondColumnLoadSim,
 } from '../actions/workstation';
+import { SET_DATA } from '../actions/types';
 
 const Buttons = props => {
   const [buttonProp, setButtonProp] = useState(props);
+
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -145,18 +148,14 @@ const Buttons = props => {
   };
 
   const handleLoad = () => {
-    const userInLocalStorage = JSON.parse(window.localStorage.getItem('user'));
-    dispatch(sendLocalStorageUserId(userInLocalStorage));
+    // dispatch(sendLocalStorageUserId(userInLocalStorage));
     dispatch(resetRoom());
     dispatch(resetTypeOfDraggable());
     dispatch(dropSecondColumnLoad());
   };
 
   const handleLoadSim = () => {
-    const userInLocalStorage = JSON.parse(window.localStorage.getItem('user'));
-    dispatch(sendLocalStorageUserId(userInLocalStorage));
-    dispatch(resetRoom());
-    dispatch(resetTypeOfDraggable());
+    // dispatch(sendLocalStorageUserIdToGraphs(userInLocalStorage));
     dispatch(dropSecondColumnLoadSim());
   };
 

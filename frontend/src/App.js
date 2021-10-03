@@ -10,6 +10,7 @@ import SignUp from './UIComponents/SignUp';
 import LogIn from './UIComponents/Login';
 import Info from './UIComponents/Info';
 import WorkStation from './UIComponents/WorkStation';
+import SimPagination from './UIComponents/SimPagination';
 
 const App = () => {
   return (
@@ -26,6 +27,9 @@ const App = () => {
       </MDBAnimation>
       <MDBAnimation type="fadeIn">
         <Route path="/workstation" component={WorkStation} />
+      </MDBAnimation>
+      <MDBAnimation type="fadeIn">
+        <Route path="/workstation/graphs" component={SimPagination} />
       </MDBAnimation>
     </Router>
   );

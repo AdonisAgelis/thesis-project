@@ -8,6 +8,7 @@ import buttonEnablingReducer from './buttonEnabling';
 import authReducer from './auth';
 import messageReducer from './message';
 import sendAttributesReducer from './sendAttributes';
+import graphReducer from './graph';
 
 import { combineReducers } from 'redux';
 
@@ -21,7 +22,8 @@ const allReducers = combineReducers({
   buttonEnablingReducer,
   authReducer,
   messageReducer,
-  sendAttributesReducer
+  sendAttributesReducer,
+  graphReducer,
 });
 
 export default allReducers;

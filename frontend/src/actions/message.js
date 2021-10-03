@@ -1,4 +1,4 @@
-import { SET_MESSAGE, CLEAR_MESSAGE, SET_DATA } from './types';
+import { SET_MESSAGE, CLEAR_MESSAGE, SET_DATA, SET_GRAPH_DATA } from './types';
 
 export const setMessage = message => ({
   type: SET_MESSAGE,
@@ -12,4 +12,9 @@ export const clearMessage = () => ({
 export const setData = data => ({
   type: SET_DATA,
   payload: data,
+});
+
+export const setGraphData = graphData => ({
+  type: SET_GRAPH_DATA,
+  payload: graphData,
 });

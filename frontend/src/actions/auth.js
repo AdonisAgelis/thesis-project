@@ -12,6 +12,7 @@ import {
   SEND_SIMULATION_DATA_SUCCESS,
   SEND_SIMULATION_DATA_FAIL,
   SET_DATA,
+  SET_GRAPH_DATA,
 } from './types';
 
 import AuthService from '../services/auth-service';
@@ -135,10 +136,6 @@ export const sendLocalStorageUserId = localStorageUserId => dispatch => {
   AuthService.sendLocalStorageUserId(localStorageUserId).then(
     response => {
       dispatch({
-        type: SEND_LOCAL_STORAGE_ID_SUCCESS,
-      });
-
-      dispatch({
         type: SET_DATA,
         payload: response.data,
       });
@@ -164,6 +161,38 @@ export const sendLocalStorageUserId = localStorageUserId => dispatch => {
     }
   );
 };
+
+// This is for graphs
+export const sendLocalStorageUserIdToGraphs =
+  localStorageUserId => dispatch => {
+    AuthService.sendLocalStorageUserIdToGraphs(localStorageUserId).then(
+      response => {
+        dispatch({
+          type: SET_GRAPH_DATA,
+          payload: response.data,
+        });
+
+        return Promise.resolve();
+      },
+      error => {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        dispatch({
+          type: SEND_LOCAL_STORAGE_ID_FAIL,
+        });
+
+        dispatch({
+          type: SET_MESSAGE,
+          payload: message,
+        });
+      }
+    );
+  };
 
 // Action for Simulation Button
 
