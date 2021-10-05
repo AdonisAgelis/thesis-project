@@ -237,7 +237,8 @@ export const sendRoomDataFromLoad = (
   value23,
   value24,
   value25,
-  value26
+  value26,
+  value27
 ) => {
   return {
     type: 'SEND_ROOM_DATA_FROM_LOAD',
@@ -267,6 +268,7 @@ export const sendRoomDataFromLoad = (
     payload24: value24,
     payload25: value25,
     payload26: value26,
+    payload27: value27,
   };
 };
 

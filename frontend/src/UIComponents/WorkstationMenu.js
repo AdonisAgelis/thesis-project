@@ -20,6 +20,7 @@ import SimPagination from './SimPagination';
 import RoomTemplate from './RoomTemplate';
 import Buttons from './Buttons';
 import Modal from './Modal';
+import Graphs from './Graphs';
 import logo from '../images/logo.png';
 import DragAndDropItems from './DragAndDropItems';
 import { useSelector, useDispatch } from 'react-redux';
@@ -32,6 +33,10 @@ const WorkStationMenu = props => {
   const [columnProp, setColumnProp] = useState(props);
   const dispatch = useDispatch();
 
+  const value = 0;
+
+  const graphData = useSelector(state => state.graphReducer.graphData);
+
   let animationType;
   let animationDelay;
 
@@ -40,7 +45,7 @@ const WorkStationMenu = props => {
     const userInLocalStorage = JSON.parse(window.localStorage.getItem('user'));
     dispatch(sendLocalStorageUserId(userInLocalStorage));
     dispatch(sendLocalStorageUserIdToGraphs(userInLocalStorage));
-  });
+  }, [value]);
 
   //SELECTORS
   let entranceNumberBadge = useSelector(
@@ -271,15 +276,7 @@ const WorkStationMenu = props => {
                   <hr className="hr-light" style={{ width: '100%' }} />
                 </MDBTypography>
               </MDBCardTitle>
-              {/* <div
-                style={{
-                  marginTop: '4rem',
-                  border: 'solid 1px white',
-                  borderRadius: '3px',
-                }}>
-                <h1>Hello</h1>
-              </div> */}
-              <h1>Hello</h1>
+              <Graphs graphData={graphData} />
             </MDBCardBody>
           </MDBCard>
         </MDBAnimation>

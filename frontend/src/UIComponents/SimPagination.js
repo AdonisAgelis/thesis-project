@@ -2,9 +2,7 @@ import React from 'react';
 import { MDBDataTableV5 } from 'mdbreact';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  dropSecondColumn,
   sendRoomDataFromLoad,
-  roomIsLoaded,
   dropSecondColumnLoadGraph,
 } from '../actions/workstation';
 
@@ -18,7 +16,6 @@ const SimPagination = () => {
 
   // Extract data from graphs
   const graphData = useSelector(state => state.graphReducer.graphData);
-  console.log(graphData);
 
   let names = rooms?.map(room => room.nameOfTemplate);
 
@@ -58,6 +55,7 @@ const SimPagination = () => {
       wallPositionArrayFromSquareComponent,
       nameOfTemplate,
       userId,
+      _id,
     } = rooms[roomId];
 
     dispatch(
@@ -87,11 +85,11 @@ const SimPagination = () => {
         exhibitPositionArrayFromSquareComponent,
         wallPositionArrayFromSquareComponent,
         nameOfTemplate,
-        userId
+        userId,
+        _id
       )
     );
     dispatch(dropSecondColumnLoadGraph());
-    // dispatch(roomIsLoaded());
   };
 
   let data = [];

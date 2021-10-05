@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import {
@@ -12,12 +12,7 @@ import {
 
 import '../styles/workstation.css';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  logout,
-  sendSimulationData,
-  sendLocalStorageUserId,
-  sendLocalStorageUserIdToGraphs,
-} from '../actions/auth';
+import { logout, sendSimulationData } from '../actions/auth';
 import {
   dropSecondColumn,
   dropSecondColumnLoad,
