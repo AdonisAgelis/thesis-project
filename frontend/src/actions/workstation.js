@@ -16,6 +16,12 @@ export const dropSecondColumnLoadSim = () => {
   };
 };
 
+export const dropSecondColumnLoadGraph = () => {
+  return {
+    type: 'DROP_SECOND_COLUMN_LOAD_GRAPH',
+  };
+};
+
 export const updateFirstDropDown = value => {
   return {
     type: 'UPDATE_FIRST_DROPDOWN',

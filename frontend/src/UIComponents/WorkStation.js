@@ -29,7 +29,8 @@ const WorkStation = () => {
     } else if (
       typeOfMenu === 'new' ||
       typeOfMenu === 'load' ||
-      typeOfMenu === 'load_sim'
+      typeOfMenu === 'load_sim' ||
+      typeOfMenu === 'load_graph'
     ) {
       return (
         <div id="workstation">

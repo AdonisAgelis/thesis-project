@@ -32,7 +32,6 @@ import {
   roomIsLoaded,
   dropSecondColumnLoadSim,
 } from '../actions/workstation';
-import { SET_DATA } from '../actions/types';
 
 const Buttons = props => {
   const [buttonProp, setButtonProp] = useState(props);

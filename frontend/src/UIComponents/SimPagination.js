@@ -5,6 +5,7 @@ import {
   dropSecondColumn,
   sendRoomDataFromLoad,
   roomIsLoaded,
+  dropSecondColumnLoadGraph,
 } from '../actions/workstation';
 
 import '../styles/workstation.css';
@@ -89,8 +90,8 @@ const SimPagination = () => {
         userId
       )
     );
-    dispatch(dropSecondColumn());
-    dispatch(roomIsLoaded());
+    dispatch(dropSecondColumnLoadGraph());
+    // dispatch(roomIsLoaded());
   };
 
   let data = [];

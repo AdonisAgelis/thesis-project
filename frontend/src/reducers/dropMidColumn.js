@@ -6,6 +6,8 @@ const dropMidColumnReducer = (state = 'default', action) => {
       return 'load';
     case 'DROP_SECOND_COLUMN_LOAD_SIM':
       return 'load_sim';
+    case 'DROP_SECOND_COLUMN_LOAD_GRAPH':
+      return 'load_graph';
     default:
       return state;
   }
