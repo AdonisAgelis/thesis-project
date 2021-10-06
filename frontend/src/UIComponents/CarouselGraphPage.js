@@ -23,27 +23,18 @@ const CarouselGraphPage = () => {
         className="z-depth-1">
         <MDBCarouselInner>
           <MDBCarouselItem itemId="1">
-            {/* <MDBView>
-              <MDBMask overlay="black-light" />
-            </MDBView> */}
             <MDBCarouselCaption>
               <h3 className="h3-responsive">Attraction Power</h3>
               <p>This graph displays the number of visitors per exhibit</p>
             </MDBCarouselCaption>
           </MDBCarouselItem>
           <MDBCarouselItem itemId="2">
-            {/* <MDBView>
-              <MDBMask overlay="black-strong" />
-            </MDBView> */}
             <MDBCarouselCaption>
               <h3 className="h3-responsive">Revisiting Power</h3>
               <p>This graph displays the number of revisits per exhibit</p>
             </MDBCarouselCaption>
           </MDBCarouselItem>
           <MDBCarouselItem itemId="3">
-            {/* <MDBView>
-              <MDBMask overlay="black-slight" />
-            </MDBView> */}
             <MDBCarouselCaption>
               <h3 className="h3-responsive">Type of Visitors</h3>
               <p>
