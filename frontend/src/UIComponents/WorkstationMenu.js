@@ -240,7 +240,7 @@ const WorkStationMenu = props => {
   } else if (midMenuisOpen === 'load_sim' && columnProp.columnPos === 7) {
     return (
       <MDBCol md={columnProp.columnPos}>
-        <MDBAnimation type="fadeInDown" delay=".3s">
+        <MDBAnimation type={animationType} delay=".3s">
           <MDBCard style={{ background: 'rgba(0, 0, 0, 0.8', height: '42rem' }}>
             <MDBCardImage className="img-fluid" />
             <MDBCardBody>
@@ -266,13 +266,13 @@ const WorkStationMenu = props => {
   } else if (midMenuisOpen === 'load_graph' && columnProp.columnPos === 7) {
     return (
       <MDBCol md={columnProp.columnPos}>
-        <MDBAnimation type={animationType} delay={animationDelay}>
+        <MDBAnimation type="fadeInDown" delay={animationDelay}>
           <MDBCard style={{ background: 'rgba(0, 0, 0, 0.8', height: '42rem' }}>
             <MDBCardImage className="img-fluid" />
             <MDBCardBody>
               <MDBCardTitle style={{ textAlign: 'center' }}>
                 <MDBTypography style={{ color: 'white' }} tag="h4">
-                  Room Graphs
+                  Graphs
                   <hr className="hr-light" style={{ width: '100%' }} />
                 </MDBTypography>
               </MDBCardTitle>
