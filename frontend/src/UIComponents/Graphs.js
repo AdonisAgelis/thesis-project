@@ -1,6 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
+import CarouselGraphPage from './CarouselGraphPage';
+
 import '../styles/graphs.css';
 
 const Graphs = props => {
@@ -50,11 +52,7 @@ const Graphs = props => {
   console.log(`The total Exhibits visited are: ${totalExhibitsVisited}`);
   console.log(`The total visitors are: ${totalVisitors}`);
 
-  return (
-    <div>
-      <h1>{currentRoom.nameOfRoom} Graphs</h1>
-    </div>
-  );
+  return <CarouselGraphPage />;
 };
 
 export default Graphs;

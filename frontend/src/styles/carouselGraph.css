@@ -1,0 +1,9 @@
+.carousel {
+  position: relative;
+  height: 59vh;
+  width: 100%;
+}
+
+p {
+  margin: 0 0 0 0 !important;
+}
