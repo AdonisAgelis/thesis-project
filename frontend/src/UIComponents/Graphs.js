@@ -20,9 +20,11 @@ const Graphs = props => {
     }
   }
 
-  // Find collective data for simulations that happen for the same room
+  // Find collective totalAttractionPower and totalRevisitingPower for the same room
   let attractionPower = Array(currentRoom.totalAttractionPower.length).fill(0);
   let revisitingPower = Array(currentRoom.totalRevisitingPower.length).fill(0);
+  // Find all the exhibits that got visited in different simulations for the same room
+  let totalExhibitsVisited = [];
 
   for (let i = 0; i < graphs.length; i++) {
     if (currentRoom.roomID === graphs[i].roomID) {
@@ -30,8 +32,17 @@ const Graphs = props => {
         attractionPower[y] += graphs[i].totalAttractionPower[y];
         revisitingPower[y] += graphs[i].totalRevisitingPower[y];
       }
+      for (let z = 0; z < graphs[i].arrayOfSimulations.length; z++) {
+        totalExhibitsVisited = totalExhibitsVisited.concat(
+          graphs[i].arrayOfSimulations[z].exhibitsVisited
+        );
+      }
+      totalExhibitsVisited = [...new Set(totalExhibitsVisited)];
+      totalExhibitsVisited.sort((a, b) => a - b);
     }
   }
+
+  console.log(`The total Exhibits visited are: ${totalExhibitsVisited}`);
 
   console.log(`The attraction is: ${attractionPower}`);
   console.log(`The revisting is: ${revisitingPower}`);
@@ -44,5 +55,3 @@ const Graphs = props => {
 };
 
 export default Graphs;
-
-// Array(roomData.exhibit.length).fill(0)
