@@ -25,6 +25,8 @@ const Graphs = props => {
   let revisitingPower = Array(currentRoom.totalRevisitingPower.length).fill(0);
   // Find all the exhibits that got visited in different simulations for the same room
   let totalExhibitsVisited = [];
+  // Find total visitors
+  let totalVisitors = 0;
 
   for (let i = 0; i < graphs.length; i++) {
     if (currentRoom.roomID === graphs[i].roomID) {
@@ -39,13 +41,14 @@ const Graphs = props => {
       }
       totalExhibitsVisited = [...new Set(totalExhibitsVisited)];
       totalExhibitsVisited.sort((a, b) => a - b);
+      totalVisitors += graphs[i].totalVisitors;
     }
   }
 
-  console.log(`The total Exhibits visited are: ${totalExhibitsVisited}`);
-
   console.log(`The attraction is: ${attractionPower}`);
   console.log(`The revisting is: ${revisitingPower}`);
+  console.log(`The total Exhibits visited are: ${totalExhibitsVisited}`);
+  console.log(`The total visitors are: ${totalVisitors}`);
 
   return (
     <div>
