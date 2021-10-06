@@ -16,7 +16,7 @@ const CarouselGraphPage = () => {
     <MDBContainer>
       <MDBCarousel
         activeItem={1}
-        length={3}
+        length={4}
         interval={10000}
         showControls={true}
         showIndicators={true}
@@ -41,6 +41,17 @@ const CarouselGraphPage = () => {
             </MDBCarouselCaption>
           </MDBCarouselItem>
           <MDBCarouselItem itemId="3">
+            {/* <MDBView>
+              <MDBMask overlay="black-slight" />
+            </MDBView> */}
+            <MDBCarouselCaption>
+              <h3 className="h3-responsive">Type of Visitors</h3>
+              <p>
+                This pie displays the type of visitors that enter the museum
+              </p>
+            </MDBCarouselCaption>
+          </MDBCarouselItem>
+          <MDBCarouselItem itemId="4">
             {/* <MDBView>
               <MDBMask overlay="black-slight" />
             </MDBView> */}
