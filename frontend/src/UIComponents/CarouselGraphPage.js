@@ -18,14 +18,17 @@ const CarouselGraphPage = props => {
       <MDBCarousel
         activeItem={1}
         length={4}
-        interval={50000}
+        interval={30000}
         showControls={true}
         showIndicators={true}
         className="z-depth-1">
         <MDBCarouselInner>
           <MDBCarouselItem itemId="1">
             <p className="h3-responsive">Attraction Power</p>
-            <AttractionPowerGraph />
+            <AttractionPowerGraph
+              totalExhibitsVisited={props.totalExhibitsVisited}
+              attractionPower={props.attractionPower}
+            />
           </MDBCarouselItem>
           <MDBCarouselItem itemId="2">
             <p className="h3-responsive">Revisiting Power</p>
