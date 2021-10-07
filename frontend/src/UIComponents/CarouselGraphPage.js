@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   MDBCarousel,
-  MDBCarouselCaption,
   MDBCarouselInner,
   MDBCarouselItem,
   MDBContainer,
@@ -34,7 +33,11 @@ const CarouselGraphPage = props => {
           </MDBCarouselItem>
           <MDBCarouselItem itemId="3">
             <p className="h3-responsive">Type of Visitors</p>
-            <VisitorsDoughnutGraph />
+            <VisitorsDoughnutGraph
+              schoolCounter={props.schoolCounter}
+              familyCounter={props.familyCounter}
+              otherCounter={props.otherCounter}
+            />
           </MDBCarouselItem>
           <MDBCarouselItem itemId="4">
             <p className="h3-responsive">Heatmap</p>

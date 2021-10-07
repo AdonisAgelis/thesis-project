@@ -42,7 +42,7 @@ const options = {
   },
 };
 
-const AttractionPowerGraph = () => (
+const AttractionPowerGraph = props => (
   <>
     <div className="header">
       <div className="links"></div>
