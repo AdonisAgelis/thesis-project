@@ -272,8 +272,7 @@ const WorkStationMenu = props => {
             <MDBCardBody>
               <MDBCardTitle style={{ textAlign: 'center' }}>
                 <MDBTypography style={{ color: 'white' }} tag="h4">
-                  Graphs
-                  <hr className="hr-light" style={{ width: '100%' }} />
+                  {/* <p className="h3-responsive">Attraction Power</p> */}
                 </MDBTypography>
               </MDBCardTitle>
               <Graphs graphData={graphData} />

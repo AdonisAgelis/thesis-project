@@ -4,6 +4,34 @@
   width: 100%;
 }
 
+.h3-responsive {
+  font-weight: 400 !important;
+  font-size: xx-large !important;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem !important;
+}
+
 p {
   margin: 0 0 0 0 !important;
+}
+
+.carousel-indicators {
+  position: relative !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  z-index: 15 !important;
+  display: flex !important;
+  justify-content: center !important;
+  padding-left: 0 !important;
+  margin-right: 15% !important;
+  margin-left: 15% !important;
+  margin-top: 3% !important;
+  list-style: none !important;
+}
+
+.doughnut {
+  height: 90% !important;
+  width: 100% !important;
 }

@@ -4,55 +4,40 @@ import {
   MDBCarouselCaption,
   MDBCarouselInner,
   MDBCarouselItem,
-  MDBView,
-  MDBMask,
   MDBContainer,
 } from 'mdbreact';
 
+import AttractionPowerGraph from './AttractionPowerGraph';
+import RevisitingPowerGraph from './RevisitingPowerGraph';
+import VisitorsDoughnutGraph from './VisitorsDoughnutGraph';
+
 import '../styles/carouselGraph.css';
 
-const CarouselGraphPage = () => {
+const CarouselGraphPage = props => {
   return (
     <MDBContainer>
       <MDBCarousel
         activeItem={1}
         length={4}
-        interval={10000}
+        interval={50000}
         showControls={true}
         showIndicators={true}
         className="z-depth-1">
         <MDBCarouselInner>
           <MDBCarouselItem itemId="1">
-            <MDBCarouselCaption>
-              <h3 className="h3-responsive">Attraction Power</h3>
-              <p>This graph displays the number of visitors per exhibit</p>
-            </MDBCarouselCaption>
+            <p className="h3-responsive">Attraction Power</p>
+            <AttractionPowerGraph />
           </MDBCarouselItem>
           <MDBCarouselItem itemId="2">
-            <MDBCarouselCaption>
-              <h3 className="h3-responsive">Revisiting Power</h3>
-              <p>This graph displays the number of revisits per exhibit</p>
-            </MDBCarouselCaption>
+            <p className="h3-responsive">Revisiting Power</p>
+            <RevisitingPowerGraph />
           </MDBCarouselItem>
           <MDBCarouselItem itemId="3">
-            <MDBCarouselCaption>
-              <h3 className="h3-responsive">Type of Visitors</h3>
-              <p>
-                This pie displays the type of visitors that enter the museum
-              </p>
-            </MDBCarouselCaption>
+            <p className="h3-responsive">Type of Visitors</p>
+            <VisitorsDoughnutGraph />
           </MDBCarouselItem>
           <MDBCarouselItem itemId="4">
-            {/* <MDBView>
-              <MDBMask overlay="black-slight" />
-            </MDBView> */}
-            <MDBCarouselCaption>
-              <h3 className="h3-responsive">Heatmap</h3>
-              <p>
-                This heatmap portrays the visitors' movement throughout the
-                museum
-              </p>
-            </MDBCarouselCaption>
+            <p className="h3-responsive">Heatmap</p>
           </MDBCarouselItem>
         </MDBCarouselInner>
       </MDBCarousel>
