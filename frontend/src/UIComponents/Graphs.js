@@ -10,9 +10,9 @@ const Graphs = props => {
   console.log(graphs);
 
   // Find _id of clicked room from LoadPagination
-  const clickedRoomID = useSelector(
-    state => state.extractPositionReducer.roomId
-  );
+  const clickedRoomID = useSelector(state => state.extractPositionReducer._id);
+
+  console.log(clickedRoomID);
   // Find data of clicked room
   let currentRoom;
   let totalExhibits;
@@ -24,9 +24,13 @@ const Graphs = props => {
     }
   }
 
+  console.log(currentRoom);
+
   // Find collective totalAttractionPower and totalRevisitingPower for the same room
-  let attractionPower = Array(currentRoom.totalAttractionPower.length).fill(0);
-  let revisitingPower = Array(currentRoom.totalRevisitingPower.length).fill(0);
+  // prettier-ignore
+  let attractionPower = new Array(currentRoom.totalAttractionPower.length).fill(0);
+  // prettier-ignore
+  let revisitingPower = new Array(currentRoom.totalRevisitingPower.length).fill(0);
   // Find all the exhibits that got visited in different simulations for the same room
   let totalExhibitsVisited = [];
   // Find types of visitors
@@ -66,13 +70,13 @@ const Graphs = props => {
     }
   }
 
-  console.log(`The attraction is: ${attractionPower}`);
-  console.log(`The revisting is: ${revisitingPower}`);
-  console.log(`The total Exhibits visited are: ${totalExhibitsVisited}`);
-  console.log(`There are ${schoolCounter} School`);
-  console.log(`There are ${familyCounter} Family`);
-  console.log(`There are ${otherCounter} Other`);
-  console.log(`The total visitors are: ${totalVisitors}`);
+  // console.log(`The attraction is: ${attractionPower}`);
+  // console.log(`The revisting is: ${revisitingPower}`);
+  // console.log(`The total Exhibits visited are: ${totalExhibitsVisited}`);
+  // console.log(`There are ${schoolCounter} School`);
+  // console.log(`There are ${familyCounter} Family`);
+  // console.log(`There are ${otherCounter} Other`);
+  // console.log(`The total visitors are: ${totalVisitors}`);
 
   // for (const prop of Object.getOwnPropertyNames(currentRoom)) {
   //   delete currentRoom[prop];

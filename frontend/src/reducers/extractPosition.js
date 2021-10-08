@@ -1,5 +1,5 @@
 const initialState = {
-  roomId: null,
+  _id: null,
   userId: null,
   entrance: null,
   exit: null,
@@ -111,7 +111,7 @@ const extractPositionReducer = (state = initialState, action) => {
       // state.wallPositionArrayFromSquareComponent.length = action.payload1;;
       state.nameOfTemplate = action.payload25;
       state.userId = action.payload26;
-      state.roomId = action.payload27;
+      state._id = action.payload27;
       return state;
     case 'RESET_ROOM':
       state.entrance = null;

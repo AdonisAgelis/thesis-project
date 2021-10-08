@@ -59,6 +59,7 @@ const LoadPagination = () => {
       wallPositionArrayFromSquareComponent,
       nameOfTemplate,
       userId,
+      _id,
     } = rooms[roomId];
 
     dispatch(
@@ -88,7 +89,8 @@ const LoadPagination = () => {
         exhibitPositionArrayFromSquareComponent,
         wallPositionArrayFromSquareComponent,
         nameOfTemplate,
-        userId
+        userId,
+        _id
       )
     );
     dispatch(dropSecondColumn());

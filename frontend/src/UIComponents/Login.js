@@ -21,27 +21,13 @@ import {
 import '../styles/login.css';
 import Navbar from './Navbar';
 import Footer from './Footer';
-// import authReducer from '../reducers/auth';
-// import messageReducer from '../reducers/message';
-
-// const required = value => {
-//   if (!value) {
-//     return (
-//       <div className="alert alert-danger" role="alert">
-//         This field is required!
-//       </div>
-//     );
-//   }
-// };
 
 const LogIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
-  // const history = useHistory;
-  // const isLoggedIn = useSelector(state => state, authReducer.isLoggedIn);
-  // const message = useSelector(state => state.messageReducer.message);
+
   let [toWorkstation, setToWorkstation] = useState(false);
 
   const [content, setContent] = useState('');
@@ -76,7 +62,7 @@ const LogIn = () => {
     dispatch(login(email, password))
       .then(() => {
         setToWorkstation(true);
-        window.location.reload();
+        // window.location.reload();
       })
       .catch(() => {
         setLoading(true);

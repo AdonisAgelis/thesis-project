@@ -87,6 +87,8 @@ const Buttons = props => {
   };
 
   const logOut = () => {
+    // dispatch(resetRoom());
+    // dispatch(resetTypeOfDraggable());
     dispatch(logout());
     console.log('Logged out!');
   };
@@ -285,9 +287,10 @@ const Buttons = props => {
     return (
       <MDBBtn
         onClick={() => {
+          // window.localStorage.clear('user');
           logOut();
           routeChange();
-          // window.location.reload(false);
+          window.location.reload(false);
         }}
         className="styleBtn2">
         <span>

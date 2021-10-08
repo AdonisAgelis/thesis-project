@@ -33,17 +33,15 @@ const WorkStationMenu = props => {
   const [columnProp, setColumnProp] = useState(props);
   const dispatch = useDispatch();
 
-  const value = 0;
-
   let animationType;
   let animationDelay;
 
   // DISPATCH
   useEffect(() => {
-    const userInLocalStorage = JSON.parse(window.localStorage.getItem('user'));
+    let userInLocalStorage = JSON.parse(window.localStorage.getItem('user'));
     dispatch(sendLocalStorageUserId(userInLocalStorage));
     dispatch(sendLocalStorageUserIdToGraphs(userInLocalStorage));
-  }, [value]);
+  }, [dispatch]);
 
   const graphData = useSelector(state => state.graphReducer.graphData);
 
@@ -102,6 +100,7 @@ const WorkStationMenu = props => {
                   src={logo}
                   style={{ height: '3rem', marginLeft: '2rem' }}
                   className="img-fluid"
+                  alt="logo"
                 />
               </a>
             </MDBCardTitle>
