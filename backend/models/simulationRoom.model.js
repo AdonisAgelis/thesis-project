@@ -5,6 +5,7 @@ const SimulationRoom = mongoose.model(
   new mongoose.Schema({
     userID: String,
     roomID: String,
+    totalExhibits: [Number],
     nameOfRoom: String,
     arrayOfSimulations: [
       {

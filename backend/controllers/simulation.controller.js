@@ -604,6 +604,7 @@ exports.simulation = (req, res) => {
     const simulationRoom = new SimulationRoom({
       userID: roomData.userId,
       roomID: roomData._id,
+      totalExhibits: roomData.exhibit,
       nameOfRoom: roomData.nameOfTemplate,
       arrayOfSimulations: arrayOfGroups,
       totalAttractionPower: exhibitsAttractionPower,

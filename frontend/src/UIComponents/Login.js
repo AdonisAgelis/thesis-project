@@ -76,7 +76,7 @@ const LogIn = () => {
     dispatch(login(email, password))
       .then(() => {
         setToWorkstation(true);
-        // window.location.reload();
+        window.location.reload();
       })
       .catch(() => {
         setLoading(true);

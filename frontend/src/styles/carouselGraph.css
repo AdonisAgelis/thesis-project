@@ -10,10 +10,7 @@
   display: flex;
   justify-content: center;
   margin-bottom: 0.5rem !important;
-}
-
-p {
-  margin: 0 0 0 0 !important;
+  margin: 0 0 5 0 !important;
 }
 
 .carousel-indicators {

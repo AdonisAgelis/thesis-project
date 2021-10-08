@@ -26,13 +26,18 @@ const CarouselGraphPage = props => {
           <MDBCarouselItem itemId="1">
             <p className="h3-responsive">Attraction Power</p>
             <AttractionPowerGraph
+              totalExhibits={props.totalExhibits}
               totalExhibitsVisited={props.totalExhibitsVisited}
               attractionPower={props.attractionPower}
             />
           </MDBCarouselItem>
           <MDBCarouselItem itemId="2">
             <p className="h3-responsive">Revisiting Power</p>
-            <RevisitingPowerGraph />
+            <RevisitingPowerGraph
+              totalExhibits={props.totalExhibits}
+              totalExhibitsVisited={props.totalExhibitsVisited}
+              revisitingPower={props.revisitingPower}
+            />
           </MDBCarouselItem>
           <MDBCarouselItem itemId="3">
             <p className="h3-responsive">Type of Visitors</p>

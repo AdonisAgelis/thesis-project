@@ -15,10 +15,12 @@ const Graphs = props => {
   );
   // Find data of clicked room
   let currentRoom;
+  let totalExhibits;
 
   for (let i = 0; i < graphs.length; i++) {
     if (graphs[i].roomID === clickedRoomID) {
       currentRoom = graphs[i];
+      totalExhibits = currentRoom.totalExhibits;
     }
   }
 
@@ -72,10 +74,15 @@ const Graphs = props => {
   console.log(`There are ${otherCounter} Other`);
   console.log(`The total visitors are: ${totalVisitors}`);
 
+  // for (const prop of Object.getOwnPropertyNames(currentRoom)) {
+  //   delete currentRoom[prop];
+  // }
+
   return (
     <CarouselGraphPage
       attractionPower={attractionPower}
       revisitingPower={revisitingPower}
+      totalExhibits={totalExhibits}
       totalExhibitsVisited={totalExhibitsVisited}
       schoolCounter={schoolCounter}
       familyCounter={familyCounter}

@@ -35,8 +35,6 @@ const WorkStationMenu = props => {
 
   const value = 0;
 
-  const graphData = useSelector(state => state.graphReducer.graphData);
-
   let animationType;
   let animationDelay;
 
@@ -46,6 +44,8 @@ const WorkStationMenu = props => {
     dispatch(sendLocalStorageUserId(userInLocalStorage));
     dispatch(sendLocalStorageUserIdToGraphs(userInLocalStorage));
   }, [value]);
+
+  const graphData = useSelector(state => state.graphReducer.graphData);
 
   //SELECTORS
   let entranceNumberBadge = useSelector(
@@ -271,9 +271,9 @@ const WorkStationMenu = props => {
             <MDBCardImage className="img-fluid" />
             <MDBCardBody>
               <MDBCardTitle style={{ textAlign: 'center' }}>
-                <MDBTypography style={{ color: 'white' }} tag="h4">
-                  {/* <p className="h3-responsive">Attraction Power</p> */}
-                </MDBTypography>
+                <MDBTypography
+                  style={{ color: 'white' }}
+                  tag="h4"></MDBTypography>
               </MDBCardTitle>
               <Graphs graphData={graphData} />
             </MDBCardBody>

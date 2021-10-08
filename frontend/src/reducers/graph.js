@@ -1,4 +1,4 @@
-import { SET_GRAPH_DATA, SET_MESSAGE, CLEAR_MESSAGE } from '../actions/types';
+import { SET_MESSAGE, CLEAR_MESSAGE, SET_GRAPH_DATA } from '../actions/types';
 
 const initialState = {};
 

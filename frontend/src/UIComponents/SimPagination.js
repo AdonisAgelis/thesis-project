@@ -15,7 +15,7 @@ const SimPagination = () => {
   const rooms = useSelector(state => state.messageReducer.data);
 
   // Extract data from graphs
-  const graphData = useSelector(state => state.graphReducer.graphData);
+  // const graphData = useSelector(state => state.graphReducer.graphData);
 
   let names = rooms?.map(room => room.nameOfTemplate);
 

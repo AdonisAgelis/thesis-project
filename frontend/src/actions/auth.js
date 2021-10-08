@@ -128,6 +128,8 @@ export const sendRoomData = roomData => dispatch => {
         type: SET_MESSAGE,
         payload: message,
       });
+
+      return Promise.reject();
     }
   );
 };
@@ -158,6 +160,8 @@ export const sendLocalStorageUserId = localStorageUserId => dispatch => {
         type: SET_MESSAGE,
         payload: message,
       });
+
+      return Promise.reject();
     }
   );
 };
@@ -190,6 +194,8 @@ export const sendLocalStorageUserIdToGraphs =
           type: SET_MESSAGE,
           payload: message,
         });
+
+        return Promise.reject();
       }
     );
   };
@@ -248,6 +254,8 @@ export const sendSimulationData =
           type: SET_MESSAGE,
           payload: message,
         });
+
+        return Promise.reject();
       }
     );
   };

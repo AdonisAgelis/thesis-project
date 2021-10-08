@@ -5,10 +5,10 @@ import '../styles/carouselGraph.css';
 
 const AttractionPowerGraph = props => {
   const data = {
-    labels: props.totalExhibitsVisited,
+    labels: props.totalExhibits,
     datasets: [
       {
-        label: '# of visitors that were attracted by an exhibit',
+        label: 'Visitors that were attracted by an exhibit',
         data: props.attractionPower,
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',

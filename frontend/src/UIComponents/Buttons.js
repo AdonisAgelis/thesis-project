@@ -287,6 +287,7 @@ const Buttons = props => {
         onClick={() => {
           logOut();
           routeChange();
+          // window.location.reload(false);
         }}
         className="styleBtn2">
         <span>
