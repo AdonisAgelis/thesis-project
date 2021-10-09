@@ -32,6 +32,9 @@ exports.simulation = (req, res) => {
     // for each independent group that enters the room
     let arrayOfGroups = [];
 
+    let rangeX;
+    let rangeY;
+
     // We receive all roomData that we posted from frontend
     const [roomData] = await dataToSim;
     console.log(roomData);
@@ -341,7 +344,6 @@ exports.simulation = (req, res) => {
 
       // Find in x axis what is the max range of the line
       let tempX = 2;
-      let rangeX;
 
       for (let b = 38; b >= 22; b--) {
         rangeX = b - tempX;
@@ -354,7 +356,6 @@ exports.simulation = (req, res) => {
 
       // Find in y axis what is the max range of the line
       let tempY = 2;
-      let rangeY;
 
       for (let b = 23; b >= 14; b--) {
         rangeY = b - tempY;
@@ -608,12 +609,14 @@ exports.simulation = (req, res) => {
       `A total of ${numberOfTotalVisitors} people visited the museum`
     );
 
+    console.log(`RangeX is: ${rangeX}`);
+    console.log(`RangeY is: ${rangeY}`);
+
     const simulationRoom = new SimulationRoom({
       userID: roomData.userId,
       roomID: roomData._id,
-      roomHeight: roomData.height,
-      roomWidth: roomData.width,
-      heatmapSquares: heatmapSquares,
+      rangeX: rangeX,
+      rangeY: rangeY,
       totalExhibits: roomData.exhibit,
       totalAccessPoints: roomData.accessPoint,
       nameOfRoom: roomData.nameOfTemplate,

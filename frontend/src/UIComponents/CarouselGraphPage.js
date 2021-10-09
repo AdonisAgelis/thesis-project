@@ -9,6 +9,7 @@ import {
 import AttractionPowerGraph from './AttractionPowerGraph';
 import RevisitingPowerGraph from './RevisitingPowerGraph';
 import VisitorsDoughnutGraph from './VisitorsDoughnutGraph';
+import Heatmap from './Heatmap';
 
 import '../styles/carouselGraph.css';
 
@@ -49,6 +50,7 @@ const CarouselGraphPage = props => {
           </MDBCarouselItem>
           <MDBCarouselItem itemId="4">
             <p className="h3-responsive">Heatmap</p>
+            <Heatmap />
           </MDBCarouselItem>
         </MDBCarouselInner>
       </MDBCarousel>

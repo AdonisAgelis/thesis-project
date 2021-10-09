@@ -16,11 +16,13 @@ const Graphs = props => {
   // Find data of clicked room
   let currentRoom;
   let totalExhibits;
+  let totalAccessPoints;
 
   for (let i = 0; i < graphs.length; i++) {
     if (graphs[i].roomID === clickedRoomID) {
       currentRoom = graphs[i];
       totalExhibits = currentRoom.totalExhibits;
+      totalAccessPoints = currentRoom.totalAccessPoints;
     }
   }
 
@@ -77,10 +79,6 @@ const Graphs = props => {
   // console.log(`There are ${familyCounter} Family`);
   // console.log(`There are ${otherCounter} Other`);
   // console.log(`The total visitors are: ${totalVisitors}`);
-
-  // for (const prop of Object.getOwnPropertyNames(currentRoom)) {
-  //   delete currentRoom[prop];
-  // }
 
   return (
     <CarouselGraphPage
