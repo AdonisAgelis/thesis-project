@@ -1,7 +1,7 @@
 import React from 'react';
 import HeatMap from 'react-heatmap-grid';
 
-const Heatmap = () => {
+const Heatmap = props => {
   const xLabels = new Array(24).fill(0).map((_, i) => `${i}`);
 
   // Display only even labels

@@ -241,8 +241,8 @@ exports.simulation = (req, res) => {
       let lastMove2 =
         exitSquares[Math.floor(Math.random() * exitSquares.length)];
       // Maximum movements of a user
-      const max = 40;
-      const min = 30;
+      const max = 5;
+      const min = 2;
       const numberOfMoves = Math.floor(Math.random() * (max - min + 1) + min);
       console.log(`Number of moves: ${numberOfMoves + 3}`);
 

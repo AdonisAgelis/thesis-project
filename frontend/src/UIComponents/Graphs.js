@@ -41,6 +41,11 @@ const Graphs = props => {
   let otherCounter = 0;
   // Find total visitors
   let totalVisitors = 0;
+  // Find data needed for the heatmap
+  let rangeX = currentRoom.rangeX;
+  let rangeY = currentRoom.rangeY;
+
+  let groupMovementCoords = [];
 
   for (let i = 0; i < graphs.length; i++) {
     if (currentRoom.roomID === graphs[i].roomID) {
@@ -69,8 +74,15 @@ const Graphs = props => {
       totalExhibitsVisited = [...new Set(totalExhibitsVisited)];
       totalExhibitsVisited.sort((a, b) => a - b);
       totalVisitors += graphs[i].totalVisitors;
+      for (let x = 0; x < currentRoom.arrayOfSimulations.length; x++) {
+        groupMovementCoords[x] =
+          currentRoom.arrayOfSimulations[x].groupMovementCoords;
+      }
     }
   }
+
+  let finalGroupMovementCoords = groupMovementCoords;
+  console.log(finalGroupMovementCoords);
 
   // console.log(`The attraction is: ${attractionPower}`);
   // console.log(`The revisting is: ${revisitingPower}`);
@@ -90,6 +102,9 @@ const Graphs = props => {
       familyCounter={familyCounter}
       otherCounter={otherCounter}
       totalVisitors={totalVisitors}
+      rangeX={rangeX}
+      rangeY={rangeY}
+      finalGroupMovementCoords={finalGroupMovementCoords}
     />
   );
 };

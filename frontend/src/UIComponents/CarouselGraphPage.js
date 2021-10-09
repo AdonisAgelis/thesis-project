@@ -50,7 +50,11 @@ const CarouselGraphPage = props => {
           </MDBCarouselItem>
           <MDBCarouselItem itemId="4">
             <p className="h3-responsive">Heatmap</p>
-            <Heatmap />
+            <Heatmap
+              rangeX={props.rangeX}
+              rangeY={props.rangeY}
+              finalGroupMovementCoords={props.finalGroupMovementCoords}
+            />
           </MDBCarouselItem>
         </MDBCarouselInner>
       </MDBCarousel>
