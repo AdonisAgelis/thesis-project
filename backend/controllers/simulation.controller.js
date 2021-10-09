@@ -35,6 +35,9 @@ exports.simulation = (req, res) => {
     let rangeX;
     let rangeY;
 
+    // Arrays for assigning coordinates to every move
+    let userMovesCoordsArray = [];
+
     // We receive all roomData that we posted from frontend
     const [roomData] = await dataToSim;
     console.log(roomData);
@@ -209,6 +212,7 @@ exports.simulation = (req, res) => {
         timestamps: [`${currentDate}, ${convertMStoTime(timeStampInMS)}`],
         accessPointsConnected: [],
         groupMovement: [],
+        groupMovementCoords: [],
         exhibitsVisited: [],
         typeOfVisitors: '',
         numberOfVisitors: transferedData.numberOfPeopleInGroup[i],
@@ -473,9 +477,6 @@ exports.simulation = (req, res) => {
 
         APcoordsArray[o] = [xOfAccessPoint[o], yOfAccessPoint[o]];
       }
-
-      // Arrays for assigning coordinates to every move
-      let userMovesCoordsArray = [];
       // Array for distances
       let distanceFromAP = [];
       let minimumDistance;
@@ -581,6 +582,8 @@ exports.simulation = (req, res) => {
         // console.log(distanceFromAP);
         // console.log(minimumDistance);
 
+        arrayOfGroups[i].groupMovementCoords[o] = userMovesCoordsArray[o];
+        // console.log(userMovesCoordsArray[o]);
         arrayOfGroups[i].accessPointsConnected[o] = accessPointToConnect;
 
         // Optional
@@ -589,7 +592,6 @@ exports.simulation = (req, res) => {
       }
 
       // console.log(APcoordsArray);
-      // console.log(userMovesCoordsArray);
       for (let p = 0; p < exhibitsArrayLength; p++) {
         exhibitsAttractionPower[p] += arrayOfGroups[i].attractionPower[p];
       }
