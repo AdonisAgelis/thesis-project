@@ -5,7 +5,11 @@ const SimulationRoom = mongoose.model(
   new mongoose.Schema({
     userID: String,
     roomID: String,
+    roomHeight: Number,
+    roomWidth: Number,
+    heatmapSquares: [Number],
     totalExhibits: [Number],
+    totalAccessPoints: [Number],
     nameOfRoom: String,
     arrayOfSimulations: [
       {

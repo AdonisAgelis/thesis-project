@@ -55,6 +55,13 @@ exports.simulation = (req, res) => {
       value => !noSimSquares.includes(value)
     );
 
+    // These are the squares needed for the heatmap
+    let heatmapSquares = simSquares.concat(allPositions);
+    heatmapSquares = [...new Set(heatmapSquares)];
+    heatmapSquares.sort((a, b) => a - b);
+
+    console.log(heatmapSquares);
+
     // User movements
     const userMoveDirection = {
       left: -1,
@@ -227,8 +234,8 @@ exports.simulation = (req, res) => {
       let lastMove2 =
         exitSquares[Math.floor(Math.random() * exitSquares.length)];
       // Maximum movements of a user
-      const max = 7;
-      const min = 3;
+      const max = 40;
+      const min = 30;
       const numberOfMoves = Math.floor(Math.random() * (max - min + 1) + min);
       console.log(`Number of moves: ${numberOfMoves + 3}`);
 
@@ -604,7 +611,11 @@ exports.simulation = (req, res) => {
     const simulationRoom = new SimulationRoom({
       userID: roomData.userId,
       roomID: roomData._id,
+      roomHeight: roomData.height,
+      roomWidth: roomData.width,
+      heatmapSquares: heatmapSquares,
       totalExhibits: roomData.exhibit,
+      totalAccessPoints: roomData.accessPoint,
       nameOfRoom: roomData.nameOfTemplate,
       arrayOfSimulations: arrayOfGroups,
       totalAttractionPower: exhibitsAttractionPower,
