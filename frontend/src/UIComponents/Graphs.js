@@ -45,11 +45,15 @@ const Graphs = props => {
   let rangeX = currentRoom.rangeX;
   let rangeY = currentRoom.rangeY;
 
-  let groupMovementCoords = [];
-  let numberOfVisitorsPerGroup = [];
+  let arrayOfSimulationsCounter = 0;
+
+  let groupMovementCoords = [''];
+  let numberOfVisitorsPerGroup = [''];
 
   for (let i = 0; i < graphs.length; i++) {
     if (currentRoom.roomID === graphs[i].roomID) {
+      arrayOfSimulationsCounter += graphs[i].arrayOfSimulations.length;
+
       for (let y = 0; y < currentRoom.totalAttractionPower.length; y++) {
         attractionPower[y] += graphs[i].totalAttractionPower[y];
         revisitingPower[y] += graphs[i].totalRevisitingPower[y];
@@ -58,6 +62,16 @@ const Graphs = props => {
         totalExhibitsVisited = totalExhibitsVisited.concat(
           graphs[i].arrayOfSimulations[z].exhibitsVisited
         );
+        if (graphs[i].arrayOfSimulations[z].groupMovementCoords) {
+          groupMovementCoords.push(
+            graphs[i].arrayOfSimulations[z].groupMovementCoords
+          );
+        }
+        if (graphs[i].arrayOfSimulations[z].numberOfVisitors) {
+          numberOfVisitorsPerGroup.push(
+            graphs[i].arrayOfSimulations[z].numberOfVisitors
+          );
+        }
         switch (graphs[i].arrayOfSimulations[z].typeOfVisitors) {
           case 'School':
             schoolCounter += graphs[i].arrayOfSimulations[z].numberOfVisitors;
@@ -75,17 +89,17 @@ const Graphs = props => {
       totalExhibitsVisited = [...new Set(totalExhibitsVisited)];
       totalExhibitsVisited.sort((a, b) => a - b);
       totalVisitors += graphs[i].totalVisitors;
-      for (let x = 0; x < currentRoom.arrayOfSimulations.length; x++) {
-        groupMovementCoords[x] =
-          currentRoom.arrayOfSimulations[x].groupMovementCoords;
-        numberOfVisitorsPerGroup[x] =
-          currentRoom.arrayOfSimulations[x].numberOfVisitors;
-      }
     }
   }
 
+  groupMovementCoords.shift();
+  numberOfVisitorsPerGroup.shift();
+
   let finalGroupMovementCoords = groupMovementCoords;
-  // console.log(finalGroupMovementCoords);
+
+  console.log(numberOfVisitorsPerGroup);
+  console.log(finalGroupMovementCoords);
+  console.log(arrayOfSimulationsCounter);
 
   // console.log(`The attraction is: ${attractionPower}`);
   // console.log(`The revisting is: ${revisitingPower}`);

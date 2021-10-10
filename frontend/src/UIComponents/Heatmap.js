@@ -8,27 +8,22 @@ const Heatmap = props => {
   const finalGroupMovementCoords = props.finalGroupMovementCoords;
   const numberOfVisitorsPerGroup = props.numberOfVisitorsPerGroup;
 
-  console.log(finalGroupMovementCoords);
+  // console.log(finalGroupMovementCoords);
   // console.log(numberOfVisitorsPerGroup);
 
   const data = Array(props.rangeY)
     .fill()
     .map(() => Array(props.rangeX).fill(0));
 
-  console.log(data);
-
   // Filling data array with movement coords to display Heatmap
   // For each group that gets simulated we find the number of visitors
   for (let i = 0; i < finalGroupMovementCoords.length; i++) {
     for (let y = 0; y < finalGroupMovementCoords[i].length; y++) {
-      console.log(i);
       data[finalGroupMovementCoords[i][y][1] - 1][
         finalGroupMovementCoords[i][y][0] - 1
       ] += numberOfVisitorsPerGroup[i];
     }
   }
-
-  console.log(data);
 
   return (
     <div className="heatmap" style={{ fontSize: '13px' }}>
