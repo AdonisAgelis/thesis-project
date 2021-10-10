@@ -7,12 +7,12 @@ import '../styles/graphs.css';
 
 const Graphs = props => {
   const graphs = props.graphData;
-  console.log(graphs);
+  // console.log(graphs);
 
   // Find _id of clicked room from LoadPagination
   const clickedRoomID = useSelector(state => state.extractPositionReducer._id);
 
-  console.log(clickedRoomID);
+  // console.log(clickedRoomID);
   // Find data of clicked room
   let currentRoom;
   let totalExhibits;
@@ -26,7 +26,7 @@ const Graphs = props => {
     }
   }
 
-  console.log(currentRoom);
+  // console.log(currentRoom);
 
   // Find collective totalAttractionPower and totalRevisitingPower for the same room
   // prettier-ignore
@@ -85,7 +85,7 @@ const Graphs = props => {
   }
 
   let finalGroupMovementCoords = groupMovementCoords;
-  console.log(finalGroupMovementCoords);
+  // console.log(finalGroupMovementCoords);
 
   // console.log(`The attraction is: ${attractionPower}`);
   // console.log(`The revisting is: ${revisitingPower}`);
