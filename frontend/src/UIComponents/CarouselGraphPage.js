@@ -54,6 +54,7 @@ const CarouselGraphPage = props => {
               rangeX={props.rangeX}
               rangeY={props.rangeY}
               finalGroupMovementCoords={props.finalGroupMovementCoords}
+              numberOfVisitorsPerGroup={props.numberOfVisitorsPerGroup}
             />
           </MDBCarouselItem>
         </MDBCarouselInner>

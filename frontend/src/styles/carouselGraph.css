@@ -9,6 +9,7 @@
   font-size: xx-large !important;
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-bottom: 0.5rem !important;
   margin: 0 0 5 0 !important;
 }
@@ -31,4 +32,40 @@
 .doughnut {
   height: 90% !important;
   width: 100% !important;
+}
+
+.heatmap {
+  position: relative;
+  left: 5rem;
+  top: 2rem;
+}
+
+.carousel-control-prev {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5% !important;
+  color: #fff;
+  text-align: center;
+  opacity: 0.5;
+  transition: opacity 0.15s ease;
+}
+
+.carousel-control-next {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5% !important;
+  color: #fff;
+  text-align: center;
+  opacity: 0.5;
+  transition: opacity 0.15s ease;
 }

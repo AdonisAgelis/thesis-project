@@ -46,6 +46,7 @@ const Graphs = props => {
   let rangeY = currentRoom.rangeY;
 
   let groupMovementCoords = [];
+  let numberOfVisitorsPerGroup = [];
 
   for (let i = 0; i < graphs.length; i++) {
     if (currentRoom.roomID === graphs[i].roomID) {
@@ -77,6 +78,8 @@ const Graphs = props => {
       for (let x = 0; x < currentRoom.arrayOfSimulations.length; x++) {
         groupMovementCoords[x] =
           currentRoom.arrayOfSimulations[x].groupMovementCoords;
+        numberOfVisitorsPerGroup[x] =
+          currentRoom.arrayOfSimulations[x].numberOfVisitors;
       }
     }
   }
@@ -105,6 +108,7 @@ const Graphs = props => {
       rangeX={rangeX}
       rangeY={rangeY}
       finalGroupMovementCoords={finalGroupMovementCoords}
+      numberOfVisitorsPerGroup={numberOfVisitorsPerGroup}
     />
   );
 };
