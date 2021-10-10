@@ -15,6 +15,10 @@ const Heatmap = props => {
     .fill()
     .map(() => Array(props.rangeX).fill(0));
 
+  // Avoid app crash
+  if (!finalGroupMovementCoords) {
+    return <div></div>;
+  }
   // Filling data array with movement coords to display Heatmap
   // For each group that gets simulated we find the number of visitors
   for (let i = 0; i < finalGroupMovementCoords.length; i++) {
@@ -34,7 +38,7 @@ const Heatmap = props => {
         xLabelWidth={60}
         data={data}
         squares
-        height={39}
+        height={20}
         cellStyle={(background, value, min, max, data, x, y) => ({
           background: `rgb(235, 64, 52, ${1 - (max - value) / (max - min)})`,
           fontSize: '12px',

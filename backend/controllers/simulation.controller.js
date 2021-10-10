@@ -241,8 +241,8 @@ exports.simulation = (req, res) => {
       let lastMove2 =
         exitSquares[Math.floor(Math.random() * exitSquares.length)];
       // Maximum movements of a user
-      const max = 40;
-      const min = 30;
+      const max = 100;
+      const min = 80;
       const numberOfMoves = Math.floor(Math.random() * (max - min + 1) + min);
       console.log(`Number of moves: ${numberOfMoves + 3}`);
 
@@ -250,8 +250,8 @@ exports.simulation = (req, res) => {
       arrayOfGroups[i].groupMovement[0] = firstMove;
 
       for (let j = 0; j < numberOfMoves; j++) {
-        let stepX = 2;
-        let stepY = 80;
+        let stepX = 1;
+        let stepY = 40;
         // Check possible next move
         let previousMove = arrayOfGroups[i].groupMovement[j];
 

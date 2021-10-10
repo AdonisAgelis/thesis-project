@@ -27,7 +27,10 @@ const Graphs = props => {
   }
 
   // console.log(currentRoom);
-
+  // Avoid app crash
+  if (!currentRoom) {
+    return <CarouselGraphPage />;
+  }
   // Find collective totalAttractionPower and totalRevisitingPower for the same room
   // prettier-ignore
   let attractionPower = new Array(currentRoom.totalAttractionPower.length).fill(0);
