@@ -100,10 +100,9 @@ const Graphs = props => {
 
   let finalGroupMovementCoords = groupMovementCoords;
 
-  console.log(numberOfVisitorsPerGroup);
-  console.log(finalGroupMovementCoords);
-  console.log(arrayOfSimulationsCounter);
-
+  // console.log(numberOfVisitorsPerGroup);
+  // console.log(finalGroupMovementCoords);
+  // console.log(arrayOfSimulationsCounter);
   // console.log(`The attraction is: ${attractionPower}`);
   // console.log(`The revisting is: ${revisitingPower}`);
   // console.log(`The total Exhibits visited are: ${totalExhibitsVisited}`);

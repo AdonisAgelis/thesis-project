@@ -8,8 +8,34 @@ const Heatmap = props => {
   const finalGroupMovementCoords = props.finalGroupMovementCoords;
   const numberOfVisitorsPerGroup = props.numberOfVisitorsPerGroup;
 
+  // console.log(props.rangeX);
+  // console.log(props.rangeY);
   // console.log(finalGroupMovementCoords);
   // console.log(numberOfVisitorsPerGroup);
+
+  const defineCellHeight = (x, y) => {
+    let height;
+    let multiply = x * y;
+    if (multiply < 155) {
+      height = 40;
+    } else if (multiply < 290) {
+      height = 37;
+    } else if (multiply < 360) {
+      height = 35;
+    } else if (multiply < 460) {
+      height = 32;
+    } else if (multiply < 550) {
+      height = 28;
+    } else if (multiply < 760) {
+      height = 23;
+    } else {
+      height = 36;
+    }
+
+    return height;
+  };
+
+  let cellHeight = defineCellHeight(props.rangeX, props.rangeY);
 
   const data = Array(props.rangeY)
     .fill()
@@ -35,10 +61,11 @@ const Heatmap = props => {
         xLabels={xLabels}
         yLabels={yLabels}
         xLabelsLocation={'bottom'}
-        xLabelWidth={60}
+        xLabelWidth={0}
+        yLabelWidth={0}
         data={data}
         squares
-        height={20}
+        height={cellHeight}
         cellStyle={(background, value, min, max, data, x, y) => ({
           background: `rgb(235, 64, 52, ${1 - (max - value) / (max - min)})`,
           fontSize: '12px',
