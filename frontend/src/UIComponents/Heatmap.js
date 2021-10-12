@@ -16,7 +16,9 @@ const Heatmap = props => {
   const defineCellHeight = (x, y) => {
     let height;
     let multiply = x * y;
-    if (multiply < 155) {
+    if (multiply < 100) {
+      height = 45;
+    } else if (multiply < 155) {
       height = 40;
     } else if (multiply < 290) {
       height = 37;

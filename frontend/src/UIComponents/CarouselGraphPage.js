@@ -9,6 +9,7 @@ import {
 import AttractionPowerGraph from './AttractionPowerGraph';
 import RevisitingPowerGraph from './RevisitingPowerGraph';
 import VisitorsDoughnutGraph from './VisitorsDoughnutGraph';
+import AccessPointChart from './AccessPointChart';
 import Heatmap from './Heatmap';
 
 import '../styles/carouselGraph.css';
@@ -18,8 +19,8 @@ const CarouselGraphPage = props => {
     <MDBContainer>
       <MDBCarousel
         activeItem={1}
-        length={4}
-        interval={30000}
+        length={5}
+        interval={60000}
         showControls={true}
         showIndicators={true}
         className="z-depth-1">
@@ -41,7 +42,7 @@ const CarouselGraphPage = props => {
             />
           </MDBCarouselItem>
           <MDBCarouselItem itemId="3">
-            <p className="h3-responsive">Type of Visitors</p>
+            <p className="h3-responsive">Types of Visitors</p>
             <VisitorsDoughnutGraph
               schoolCounter={props.schoolCounter}
               familyCounter={props.familyCounter}
@@ -49,6 +50,13 @@ const CarouselGraphPage = props => {
             />
           </MDBCarouselItem>
           <MDBCarouselItem itemId="4">
+            <p className="h3-responsive">Users Connected per Access Point</p>
+            <AccessPointChart
+              totalAccessPoints={props.totalAccessPoints}
+              userPerAccessPointConnection={props.userPerAccessPointConnection}
+            />
+          </MDBCarouselItem>
+          <MDBCarouselItem itemId="5">
             <p className="h3-responsive">Heatmap</p>
             <p className="desc">Visitors' movement is displayed</p>
             <Heatmap

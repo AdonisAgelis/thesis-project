@@ -111,9 +111,12 @@ const Graphs = props => {
     }
   }
 
+  // totalAccessPoints.unshift(0);
+  // userPerAccessPointConnection.unshift(0);
+
   let finalGroupMovementCoords = groupMovementCoords;
 
-  console.log(userPerAccessPointConnection);
+  // console.log(userPerAccessPointConnection);
 
   // console.log(groupMovementCoords);
   // console.log(numberOfVisitorsPerGroup);
@@ -141,6 +144,8 @@ const Graphs = props => {
       rangeY={rangeY}
       finalGroupMovementCoords={finalGroupMovementCoords}
       numberOfVisitorsPerGroup={numberOfVisitorsPerGroup}
+      totalAccessPoints={totalAccessPoints}
+      userPerAccessPointConnection={userPerAccessPointConnection}
     />
   );
 };
