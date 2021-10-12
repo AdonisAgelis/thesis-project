@@ -26,7 +26,7 @@ const Footer = () => {
       <div className="footer-copyright text-center py-3">
         <MDBContainer fluid>
           &copy; {new Date().getFullYear()} Copyright:{' '}
-          <a href="https://www.mdbootstrap.com">
+          <a href="https://github.com/Sweet-Fruits">
             {' '}
             SweetFruits{' '}
             <span role="img" aria-label="Sweet Fruits">
