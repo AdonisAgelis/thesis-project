@@ -50,8 +50,12 @@ const Graphs = props => {
 
   let arrayOfSimulationsCounter = 0;
 
+  // Access Points graph
   let groupMovementCoords = [''];
   let numberOfVisitorsPerGroup = [''];
+
+  // prettier-ignore
+  let userPerAccessPointConnection = Array(totalAccessPoints.length).fill(0);
 
   for (let i = 0; i < graphs.length; i++) {
     if (currentRoom.roomID === graphs[i].roomID) {
@@ -89,17 +93,29 @@ const Graphs = props => {
             break;
         }
       }
+      groupMovementCoords.shift();
+      numberOfVisitorsPerGroup.shift();
+      // Access Points Connected Graph
+      for (let g = 0; g < graphs[i].arrayOfSimulations.length; g++) {
+        // prettier-ignore
+        for (let a = 0; a < graphs[i].totalAccessPoints.length; a++) {
+          // console.log('Hey');
+          if (graphs[i].arrayOfSimulations[g].accessPointsConnected.includes(graphs[i].totalAccessPoints[a])) {
+            userPerAccessPointConnection[a] += numberOfVisitorsPerGroup[g];
+          }
+        }
+      }
       totalExhibitsVisited = [...new Set(totalExhibitsVisited)];
       totalExhibitsVisited.sort((a, b) => a - b);
       totalVisitors += graphs[i].totalVisitors;
     }
   }
 
-  groupMovementCoords.shift();
-  numberOfVisitorsPerGroup.shift();
-
   let finalGroupMovementCoords = groupMovementCoords;
 
+  console.log(userPerAccessPointConnection);
+
+  // console.log(groupMovementCoords);
   // console.log(numberOfVisitorsPerGroup);
   // console.log(finalGroupMovementCoords);
   // console.log(arrayOfSimulationsCounter);
