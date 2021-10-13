@@ -58,8 +58,9 @@ const Heatmap = props => {
   }
 
   return (
-    <div className="heatmap" style={{ fontSize: '13px' }}>
+    <div className="heatmap">
       <HeatMap
+        style={{ fontSize: '13px', border: 'solid rgb(137, 140, 143)' }}
         xLabels={xLabels}
         yLabels={yLabels}
         xLabelsLocation={'bottom'}
@@ -71,7 +72,7 @@ const Heatmap = props => {
         cellStyle={(background, value, min, max, data, x, y) => ({
           background: `rgb(235, 64, 52, ${1 - (max - value) / (max - min)})`,
           fontSize: '12px',
-          color: '#444',
+          color: '#999999',
         })}
         cellRender={value => value && <div>{value}</div>}
       />

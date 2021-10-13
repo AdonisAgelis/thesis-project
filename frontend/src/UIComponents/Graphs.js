@@ -48,7 +48,7 @@ const Graphs = props => {
   let rangeX = currentRoom.rangeX;
   let rangeY = currentRoom.rangeY;
 
-  let arrayOfSimulationsCounter = 0;
+  // let arrayOfSimulationsCounter = 0;
 
   // Access Points graph
   let groupMovementCoords = [''];
@@ -59,7 +59,7 @@ const Graphs = props => {
 
   for (let i = 0; i < graphs.length; i++) {
     if (currentRoom.roomID === graphs[i].roomID) {
-      arrayOfSimulationsCounter += graphs[i].arrayOfSimulations.length;
+      // arrayOfSimulationsCounter += graphs[i].arrayOfSimulations.length;
 
       for (let y = 0; y < currentRoom.totalAttractionPower.length; y++) {
         attractionPower[y] += graphs[i].totalAttractionPower[y];
@@ -116,16 +116,12 @@ const Graphs = props => {
     }
   }
 
-  // totalAccessPoints.unshift(0);
-  // userPerAccessPointConnection.unshift(0);
-
   let finalGroupMovementCoords = groupMovementCoords;
 
   console.log(attractionPower);
   console.log(numberOfVisitorsPerGroup);
 
   // console.log(userPerAccessPointConnection);
-
   // console.log(groupMovementCoords);
   // console.log(numberOfVisitorsPerGroup);
   // console.log(finalGroupMovementCoords);

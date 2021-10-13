@@ -66,7 +66,7 @@ exports.simulation = (req, res) => {
     heatmapSquares = [...new Set(heatmapSquares)];
     heatmapSquares.sort((a, b) => a - b);
 
-    console.log(heatmapSquares);
+    // console.log(heatmapSquares);
 
     // User movements
     const userMoveDirection = {
