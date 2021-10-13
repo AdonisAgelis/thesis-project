@@ -10,8 +10,8 @@ const AccessPointChart = props => {
   // console.log(totalAccessPoints);
   // console.log(accessPointConnections);
 
-  //   const stringTotalAccessPoints = totalAccessPoints.toString();
-  //   const readyTotalAccessPoints = stringTotalAccessPoints.split(',');
+  // const stringTotalAccessPoints = totalAccessPoints.toString();
+  // const readyTotalAccessPoints = stringTotalAccessPoints.split(',');
 
   const data = {
     labels: totalAccessPoints,
