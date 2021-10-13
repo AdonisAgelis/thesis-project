@@ -63,7 +63,12 @@ const Graphs = props => {
 
       for (let y = 0; y < currentRoom.totalAttractionPower.length; y++) {
         attractionPower[y] += graphs[i].totalAttractionPower[y];
-        revisitingPower[y] += graphs[i].totalRevisitingPower[y];
+        revisitingPower[y] +=
+          Math.round(
+            (graphs[i].totalRevisitingPower[y] /
+              graphs[i].totalAttractionPower[y]) *
+              10
+          ) / 10;
       }
       for (let z = 0; z < graphs[i].arrayOfSimulations.length; z++) {
         totalExhibitsVisited = totalExhibitsVisited.concat(
@@ -115,6 +120,9 @@ const Graphs = props => {
   // userPerAccessPointConnection.unshift(0);
 
   let finalGroupMovementCoords = groupMovementCoords;
+
+  console.log(attractionPower);
+  console.log(numberOfVisitorsPerGroup);
 
   // console.log(userPerAccessPointConnection);
 

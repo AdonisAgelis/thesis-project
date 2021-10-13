@@ -8,7 +8,7 @@ const RevisitingPowerGraph = props => {
     labels: props.totalExhibits,
     datasets: [
       {
-        label: 'Revisits',
+        label: 'Average revisits',
         data: props.revisitingPower,
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',

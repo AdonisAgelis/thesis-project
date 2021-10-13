@@ -7,8 +7,8 @@ const AccessPointChart = props => {
   const totalAccessPoints = props.totalAccessPoints;
   const accessPointConnections = props.userPerAccessPointConnection;
 
-  console.log(totalAccessPoints);
-  console.log(accessPointConnections);
+  // console.log(totalAccessPoints);
+  // console.log(accessPointConnections);
 
   //   const stringTotalAccessPoints = totalAccessPoints.toString();
   //   const readyTotalAccessPoints = stringTotalAccessPoints.split(',');
