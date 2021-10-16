@@ -135,6 +135,7 @@ const Buttons = props => {
         botSideWallArray
       )
     );
+    window.alert('Simulation Complete!');
   };
 
   const handleNew = () => {
