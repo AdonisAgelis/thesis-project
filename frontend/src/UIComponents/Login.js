@@ -66,6 +66,7 @@ const LogIn = () => {
       })
       .catch(() => {
         setLoading(true);
+        window.alert('Wrong email or password! Try again!');
       });
   };
 
