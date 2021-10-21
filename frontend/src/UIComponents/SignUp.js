@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import UserService from '../services/user-service';
 import {
   MDBMask,
   MDBRow,
@@ -38,24 +37,6 @@ const SignUp = () => {
     useState('exclamation-circle');
   let [toWorkstation, setToWorkstation] = useState(false);
   let [passwordCheckerDisplay, setPasswordCheckerDisplay] = useState('none');
-
-  const [content, setContent] = useState('');
-
-  useEffect(() => {
-    UserService.getPublicContentSignUp().then(
-      response => {
-        setContent(response.data);
-      },
-      error => {
-        setContent({
-          content:
-            (error.response && error.response.data) ||
-            error.message ||
-            error.toString(),
-        });
-      }
-    );
-  });
 
   let placeholderUsername = usernameIsValid
     ? 'Your name'

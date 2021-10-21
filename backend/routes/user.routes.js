@@ -8,10 +8,4 @@ module.exports = function (app) {
     );
     next();
   });
-
-  app.get('/api/info', controller.allAccess);
-
-  app.get('/api/signin', controller.allAccess);
-
-  app.get('/api/signup', controller.allAccess);
 };

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import UserService from '../services/user-service';
 import { Redirect } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { login } from '../actions/auth';
@@ -29,24 +28,6 @@ const LogIn = () => {
   const dispatch = useDispatch();
 
   let [toWorkstation, setToWorkstation] = useState(false);
-
-  const [content, setContent] = useState('');
-
-  useEffect(() => {
-    UserService.getPublicContentLogIn().then(
-      response => {
-        setContent(response.data);
-      },
-      error => {
-        setContent({
-          content:
-            (error.response && error.response.data) ||
-            error.message ||
-            error.toString(),
-        });
-      }
-    );
-  });
 
   const onChangeEmail = e => {
     setEmail(e.target.value);
