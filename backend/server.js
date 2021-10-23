@@ -7,10 +7,6 @@ const db = require('./models');
 const Role = db.role;
 require('dotenv').config();
 
-// const corsOptions = {
-//     origin: 'http://localhost:3000'
-// };
-
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
