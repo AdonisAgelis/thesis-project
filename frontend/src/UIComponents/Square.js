@@ -93,13 +93,13 @@ const Square = ({ black, pos, walls, outerSquares, roomCorners }) => {
   );
 
   // Delete all elements from arrays
-
   if (resizedTemplate === true) {
     dispatch(sendSquareComponentVariables(0, 0, 0, [], [], []));
     dispatch(changeIsResized());
     dispatch(resetTypeOfDraggable());
   }
 
+  // Sending data of room to the app state
   if (typeof accessPointPosition === 'number') {
     counterAP++;
     accessPointPositionArray.push(accessPointPosition);
@@ -115,6 +115,7 @@ const Square = ({ black, pos, walls, outerSquares, roomCorners }) => {
     );
   }
 
+  // Sending data of room to the app state for undo functionality
   if (accessPointPositionArray.includes(positionThatWillUndo)) {
     accessPointPositionArray.pop(positionThatWillUndo);
     counterAP--;
@@ -219,7 +220,6 @@ const Square = ({ black, pos, walls, outerSquares, roomCorners }) => {
   };
 
   //Hook for making the squares droppable
-
   const [{ isOver }, drop] = useDrop({
     accept: [
       DnDItemTypes.ENTRANCE,
@@ -229,7 +229,6 @@ const Square = ({ black, pos, walls, outerSquares, roomCorners }) => {
       DnDItemTypes.WALL,
     ],
     drop: (item, monitor) => {
-      // console.log(george.indexOf(monitor.targetId));
       extractTargetId(
         monitor.targetId,
         item,

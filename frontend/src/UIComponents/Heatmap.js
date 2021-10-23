@@ -72,7 +72,7 @@ const Heatmap = props => {
         cellStyle={(background, value, min, max, data, x, y) => ({
           background: `rgb(235, 64, 52, ${1 - (max - value) / (max - min)})`,
           fontSize: '12px',
-          color: '#999999',
+          color: '#6b6969',
         })}
         cellRender={value => value && <div>{value}</div>}
       />

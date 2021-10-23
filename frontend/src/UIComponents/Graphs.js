@@ -7,12 +7,10 @@ import '../styles/graphs.css';
 
 const Graphs = props => {
   const graphs = props.graphData;
-  // console.log(graphs);
 
   // Find _id of clicked room from LoadPagination
   const clickedRoomID = useSelector(state => state.extractPositionReducer._id);
 
-  // console.log(clickedRoomID);
   // Find data of clicked room
   let currentRoom;
   let totalExhibits;
@@ -26,7 +24,6 @@ const Graphs = props => {
     }
   }
 
-  // console.log(currentRoom);
   // Avoid app crash
   if (!currentRoom) {
     return <CarouselGraphPage />;
@@ -48,19 +45,17 @@ const Graphs = props => {
   let rangeX = currentRoom.rangeX;
   let rangeY = currentRoom.rangeY;
 
-  // let arrayOfSimulationsCounter = 0;
-
   // Access Points graph
   let groupMovementCoords = [''];
   let numberOfVisitorsPerGroup = [''];
 
-  // prettier-ignore
+  // prettier - ignore;
   let userPerAccessPointConnection = Array(totalAccessPoints.length).fill(0);
 
+  // For every simulation that happened in the current room
   for (let i = 0; i < graphs.length; i++) {
     if (currentRoom.roomID === graphs[i].roomID) {
-      // arrayOfSimulationsCounter += graphs[i].arrayOfSimulations.length;
-
+      // Find total Attraction and Revisiting power of exhibits
       for (let y = 0; y < currentRoom.totalAttractionPower.length; y++) {
         attractionPower[y] += graphs[i].totalAttractionPower[y];
         revisitingPower[y] +=
@@ -70,20 +65,24 @@ const Graphs = props => {
               10
           ) / 10;
       }
+      // Find total exhibits visited
       for (let z = 0; z < graphs[i].arrayOfSimulations.length; z++) {
         totalExhibitsVisited = totalExhibitsVisited.concat(
           graphs[i].arrayOfSimulations[z].exhibitsVisited
         );
+        // Find the coordinates of the visitors' movement
         if (graphs[i].arrayOfSimulations[z].groupMovementCoords) {
           groupMovementCoords.push(
             graphs[i].arrayOfSimulations[z].groupMovementCoords
           );
         }
+        // Find total number of visitors
         if (graphs[i].arrayOfSimulations[z].numberOfVisitors) {
           numberOfVisitorsPerGroup.push(
             graphs[i].arrayOfSimulations[z].numberOfVisitors
           );
         }
+        // Find type of visitors
         switch (graphs[i].arrayOfSimulations[z].typeOfVisitors) {
           case 'School':
             schoolCounter += graphs[i].arrayOfSimulations[z].numberOfVisitors;
@@ -104,7 +103,6 @@ const Graphs = props => {
       for (let g = 0; g < graphs[i].arrayOfSimulations.length; g++) {
         // prettier-ignore
         for (let a = 0; a < graphs[i].totalAccessPoints.length; a++) {
-          // console.log('Hey');
           if (graphs[i].arrayOfSimulations[g].accessPointsConnected.includes(graphs[i].totalAccessPoints[a])) {
             userPerAccessPointConnection[a] += numberOfVisitorsPerGroup[g];
           }
@@ -118,8 +116,8 @@ const Graphs = props => {
 
   let finalGroupMovementCoords = groupMovementCoords;
 
-  console.log(attractionPower);
-  console.log(numberOfVisitorsPerGroup);
+  // console.log(attractionPower);
+  // console.log(numberOfVisitorsPerGroup);
 
   // console.log(userPerAccessPointConnection);
   // console.log(groupMovementCoords);

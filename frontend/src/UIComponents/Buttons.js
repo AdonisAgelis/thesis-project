@@ -121,7 +121,6 @@ const Buttons = props => {
 
   const runSimulation = () => {
     dispatch(enableDropDownOptions());
-    // edw tha steilume dedomena mesw async reducers bla bla bla sto backend
     dispatch(
       sendSimulationData(
         typeOfGroup,
@@ -145,14 +144,12 @@ const Buttons = props => {
   };
 
   const handleLoad = () => {
-    // dispatch(sendLocalStorageUserId(userInLocalStorage));
     dispatch(resetRoom());
     dispatch(resetTypeOfDraggable());
     dispatch(dropSecondColumnLoad());
   };
 
   const handleLoadSim = () => {
-    // dispatch(sendLocalStorageUserIdToGraphs(userInLocalStorage));
     dispatch(dropSecondColumnLoadSim());
   };
 

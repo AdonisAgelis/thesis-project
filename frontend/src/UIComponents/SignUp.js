@@ -119,11 +119,11 @@ const SignUp = () => {
       passwordSymbol !== -1 &&
       validatedEmail === true
     ) {
-      alert('Successful Sign Up!');
       setToWorkstation(true);
       dispatch(register(username, email, password))
         .then(() => {
           setSuccessful(true);
+          alert('Successful Sign Up!');
         })
         .catch(() => {
           setSuccessful(false);
