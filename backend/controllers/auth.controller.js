@@ -152,12 +152,5 @@ exports.saveRoomData = (req, res) => {
       res.status(500).send({ message: err });
       return;
     }
-
-    // if (room) {
-    //   // res.status(200).send({
-    //   //   id: room._id,
-    //   //   message: 'Room was saved to MongoDB successfully!',
-    //   // });
-    // }
   });
 };
