@@ -115,19 +115,13 @@ exports.simulation = (req, res) => {
 
     if (transferedData.leftSideWallArray.includes(roomData.entrance)) {
       firstMove = userMoveDirection.right + roomData.entrance;
-      console.log('Left Entrance');
     } else if (transferedData.rightSideWallArray.includes(roomData.entrance)) {
       firstMove = userMoveDirection.left + roomData.entrance;
-      console.log('Right entrance');
     } else if (transferedData.topSideWallArray.includes(roomData.entrance)) {
       firstMove = userMoveDirection.down + roomData.entrance;
-      console.log('Top Entrance');
     } else {
       firstMove = userMoveDirection.up + roomData.entrance;
-      console.log('Bot Entrance');
     }
-
-    console.log(`User's first move is: ${firstMove}`);
 
     // Squares for users exiting the room
     let exitSquares = [];
@@ -140,7 +134,6 @@ exports.simulation = (req, res) => {
         roomData.exit + 41,
         roomData.exit + 42,
       ];
-      console.log('Left exit');
     } else if (transferedData.rightSideWallArray.includes(roomData.exit)) {
       exitSquares = [
         roomData.exit - 1,
@@ -150,7 +143,6 @@ exports.simulation = (req, res) => {
         roomData.exit - 41,
         roomData.exit - 42,
       ];
-      console.log('Right exit');
     } else if (transferedData.topSideWallArray.includes(roomData.exit)) {
       exitSquares = [
         roomData.exit + 39,
@@ -160,7 +152,6 @@ exports.simulation = (req, res) => {
         roomData.exit + 80,
         roomData.exit + 81,
       ];
-      console.log('Top exit');
     } else {
       exitSquares = [
         roomData.exit - 39,
@@ -170,12 +161,11 @@ exports.simulation = (req, res) => {
         roomData.exit - 80,
         roomData.exit - 81,
       ];
-      console.log('Bot exit');
     }
 
-    console.log(`Entrance is: ${roomData.entrance}`);
-    console.log(`Exit is: ${roomData.exit}`);
-    console.log(`The exit squares are: ${exitSquares}`);
+    // console.log(`Entrance is: ${roomData.entrance}`);
+    // console.log(`Exit is: ${roomData.exit}`);
+    // console.log(`The exit squares are: ${exitSquares}`);
 
     let groupsLength = transferedData.typeOfGroup.length;
 
@@ -567,7 +557,6 @@ exports.simulation = (req, res) => {
           }
         } while (foundGroupY[o] === false);
 
-        //(Distance between Access Point and Group of Users) = (x2−x1)2+(y2−y1) με ρίζες και κόλπα
         // Assign (x, y) coordinates for every move
         userMovesCoordsArray[o] = [xOfGroupPerMove[o], yOfGroupPerMove[o]];
 
@@ -579,11 +568,8 @@ exports.simulation = (req, res) => {
           minimumDistance = distanceFromAP.indexOf(Math.min(...distanceFromAP));
           accessPointToConnect = roomData.accessPoint[minimumDistance];
         }
-        // console.log(distanceFromAP);
-        // console.log(minimumDistance);
 
         arrayOfGroups[i].groupMovementCoords[o] = userMovesCoordsArray[o];
-        // console.log(userMovesCoordsArray[o]);
         arrayOfGroups[i].accessPointsConnected[o] = accessPointToConnect;
 
         // Optional
