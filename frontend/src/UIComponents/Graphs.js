@@ -58,12 +58,13 @@ const Graphs = props => {
       // Find total Attraction and Revisiting power of exhibits
       for (let y = 0; y < currentRoom.totalAttractionPower.length; y++) {
         attractionPower[y] += graphs[i].totalAttractionPower[y];
-        revisitingPower[y] +=
-          Math.round(
-            (graphs[i].totalRevisitingPower[y] /
-              graphs[i].totalAttractionPower[y]) *
-              10
-          ) / 10;
+        if (graphs[i].totalAttractionPower[y] === 0) {
+          console.log('1');
+          revisitingPower[y] += 0;
+        } else {
+          console.log('2');
+          revisitingPower[y] += graphs[i].totalRevisitingPower[y] / 120;
+        }
       }
       // Find total exhibits visited
       for (let z = 0; z < graphs[i].arrayOfSimulations.length; z++) {

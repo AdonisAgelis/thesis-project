@@ -26,7 +26,8 @@ const CarouselGraphPage = props => {
         className="z-depth-1">
         <MDBCarouselInner>
           <MDBCarouselItem itemId="1">
-            <p className="h3-responsive">Attraction Power</p>
+            <p className="h3-responsive">Attraction</p>
+            <p className="desc">Total Visitors: {props.totalVisitors}</p>
             <AttractionPowerGraph
               totalExhibits={props.totalExhibits}
               totalExhibitsVisited={props.totalExhibitsVisited}
@@ -34,7 +35,7 @@ const CarouselGraphPage = props => {
             />
           </MDBCarouselItem>
           <MDBCarouselItem itemId="2">
-            <p className="h3-responsive">Revisiting Power</p>
+            <p className="h3-responsive">Revisitability</p>
             <RevisitingPowerGraph
               totalExhibits={props.totalExhibits}
               totalExhibitsVisited={props.totalExhibitsVisited}

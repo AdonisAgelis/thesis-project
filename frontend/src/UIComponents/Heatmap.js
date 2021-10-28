@@ -21,7 +21,7 @@ const Heatmap = props => {
     } else if (multiply < 155) {
       height = 40;
     } else if (multiply < 290) {
-      height = 37;
+      height = 35;
     } else if (multiply < 360) {
       height = 35;
     } else if (multiply < 460) {
