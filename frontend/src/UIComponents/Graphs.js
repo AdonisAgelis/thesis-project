@@ -28,6 +28,13 @@ const Graphs = props => {
   if (!currentRoom) {
     return <CarouselGraphPage />;
   }
+
+  let attractionPct = new Array(currentRoom.totalAttractionPower.length).fill(
+    0
+  );
+  let revisitingPct = new Array(currentRoom.totalAttractionPower.length).fill(
+    0
+  );
   // Find collective totalAttractionPower and totalRevisitingPower for the same room
   // prettier-ignore
   let attractionPower = new Array(currentRoom.totalAttractionPower.length).fill(0);
@@ -112,6 +119,12 @@ const Graphs = props => {
       totalExhibitsVisited = [...new Set(totalExhibitsVisited)];
       totalExhibitsVisited.sort((a, b) => a - b);
       totalVisitors += graphs[i].totalVisitors;
+      for (let a = 0; a < currentRoom.totalAttractionPower.length; a++) {
+        attractionPct[a] = (attractionPower[a] / totalVisitors) * 100;
+        revisitingPct[a] = Math.round(
+          (revisitingPower[a] / attractionPower[a]) * 100
+        );
+      }
     }
   }
 
@@ -135,8 +148,8 @@ const Graphs = props => {
 
   return (
     <CarouselGraphPage
-      attractionPower={attractionPower}
-      revisitingPower={revisitingPower}
+      attractionPower={attractionPct}
+      revisitingPower={revisitingPct}
       totalExhibits={totalExhibits}
       totalExhibitsVisited={totalExhibitsVisited}
       schoolCounter={schoolCounter}

@@ -8,7 +8,7 @@ const AttractionPowerGraph = props => {
     labels: props.totalExhibits,
     datasets: [
       {
-        label: 'Number of visitors that were attracted by an exhibit',
+        label: '% Percentage of visitors that were attracted by an exhibit',
         data: props.attractionPower,
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
