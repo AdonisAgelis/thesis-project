@@ -118,7 +118,9 @@ const Graphs = props => {
       totalExhibitsVisited.sort((a, b) => a - b);
       totalVisitors += graphs[i].totalVisitors;
       for (let a = 0; a < currentRoom.totalAttractionPower.length; a++) {
-        attractionPct[a] = (attractionPower[a] / totalVisitors) * 100;
+        attractionPct[a] = Math.round(
+          (attractionPower[a] / totalVisitors) * 100
+        );
         revisitingPct[a] = Math.round(
           (revisitingPower[a] / attractionPower[a]) * 100
         );
