@@ -66,10 +66,8 @@ const Graphs = props => {
       for (let y = 0; y < currentRoom.totalAttractionPower.length; y++) {
         attractionPower[y] += graphs[i].totalAttractionPower[y];
         if (graphs[i].totalAttractionPower[y] === 0) {
-          console.log('1');
           revisitingPower[y] += 0;
         } else {
-          console.log('2');
           revisitingPower[y] += graphs[i].totalRevisitingPower[y] / 120;
         }
       }
