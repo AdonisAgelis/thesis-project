@@ -18,8 +18,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 0.5rem !important;
+  /* margin-bottom: 0.5rem !important; */
   top: 80% !important;
+  font-size: smaller;
 }
 
 .carousel-indicators {
