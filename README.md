@@ -1,1 +1,5 @@
-# User tracking simulator for Indoor Environments: A MERN full-stack implementation
+# museum-user-tracker
+
+## User tracking simulator for Indoor Environments: A MERN full-stack implementation
+
+The museum-user-tracker web application is built using the MERN stack. This thesis presents the design and development of a Web Application, in order to simulate the indoor movement of visitors in Museum sites and collect data, with the ultimate goal of better and more effective management of each Museum space. It is a Web Application, compatible with all modern web browsers, that interacts and exchanges data with users, depending on the needs of each and every one of them. The users of the Web Application, are able to collect data for each Museum site, regarding the number of total visitors, their categories, their movement inside the Museum interior environment, as well as data such as the attraction power of the exhibits and also other information as well. The main purpose of the application is the layout design of interior environments, the visitors’ movement simulation inside them and the graphical represantation of the corresponding data coming with their indoor movement.
