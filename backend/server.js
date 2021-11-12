@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 db.mongoose
-  .connect(process.env.DB, {
+  .connect(process.env.REACT_APP_DB, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
